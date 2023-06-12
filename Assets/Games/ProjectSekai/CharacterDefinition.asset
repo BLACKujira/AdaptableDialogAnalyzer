@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11020cdb76d0ecd47814e409f8362dd2, type: 3}
+  m_Name: CharacterDefinition
+  m_EditorClassIdentifier: 
+  characters:
+  - id: 0
+    name: '?'
+    icon: {fileID: 21300000, guid: 52bdcd506c84be846987f5a3fee1309a, type: 3}
+    color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  - id: 1
+    name: "\u661F\u4E43 \u4E00\u6B4C"
+    icon: {fileID: 21300000, guid: 03c9d862fc4490644a473b508146c7c6, type: 3}
+    color: {r: 0.20000002, g: 0.6666667, b: 0.9333334, a: 1}
+  - id: 2
+    name: "\u5929\u99AC \u54B2\u5E0C"
+    icon: {fileID: 21300000, guid: ca179a3869e709f4ca26b973b76f6479, type: 3}
+    color: {r: 1, g: 0.86666673, b: 0.26666668, a: 1}
+  - id: 3
+    name: "\u671B\u6708 \u7A42\u6CE2"
+    icon: {fileID: 21300000, guid: 0b9a64deb96a89b41840b21a59769b2f, type: 3}
+    color: {r: 0.9333334, g: 0.40000004, b: 0.40000004, a: 1}
+  - id: 4
+    name: "\u65E5\u91CE\u68EE \u5FD7\u6B69"
+    icon: {fileID: 21300000, guid: 9ed858802a083244caad99eaa02599aa, type: 3}
+    color: {r: 0.73333335, g: 0.86666673, b: 0.13333334, a: 1}
+  - id: 5
+    name: "\u82B1\u91CC \u307F\u306E\u308A"
+    icon: {fileID: 21300000, guid: e3be1aa495acba24d8af40e71df2143d, type: 3}
+    color: {r: 1, g: 0.8000001, b: 0.6666667, a: 1}
+  - id: 6
+    name: "\u6850\u8C37 \u9065"
+    icon: {fileID: 21300000, guid: 92b912b680f87b1418e1aed8f924a63d, type: 3}
+    color: {r: 0.6, g: 0.8000001, b: 1, a: 1}
+  - id: 7
+    name: "\u6843\u4E95 \u611B\u8389"
+    icon: {fileID: 21300000, guid: fd572e6e73f7e264db4388cc422d0b49, type: 3}
+    color: {r: 1, g: 0.6666667, b: 0.8000001, a: 1}
+  - id: 8
+    name: "\u65E5\u91CE\u68EE \u96EB"
+    icon: {fileID: 21300000, guid: 7436045a8e27e004c9bf9766f042974f, type: 3}
+    color: {r: 0.6, g: 0.9333334, b: 0.86666673, a: 1}
+  - id: 9
+    name: "\u5C0F\u8C46\u6CA2 \u3053\u306F\u306D"
+    icon: {fileID: 21300000, guid: 651c161c90ec79e4c81c24f3eb681cf6, type: 3}
+    color: {r: 1, g: 0.40000004, b: 0.6, a: 1}
+  - id: 10
+    name: "\u767D\u77F3 \u674F"
+    icon: {fileID: 21300000, guid: 91487c7fe54e1d54795def335c92b812, type: 3}
+    color: {r: 0, g: 0.73333335, b: 0.86666673, a: 1}
+  - id: 11
+    name: "\u6771\u96F2 \u5F70\u4EBA"
+    icon: {fileID: 21300000, guid: 7f19e565a01b0df44ac46c0e4c5dd638, type: 3}
+    color: {r: 1, g: 0.4666667, b: 0.13333334, a: 1}
+  - id: 12
+    name: "\u9752\u67F3 \u51AC\u5F25"
+    icon: {fileID: 21300000, guid: d1a9787f1e958504ca17610db0142233, type: 3}
+    color: {r: 0, g: 0.4666667, b: 0.86666673, a: 1}
+  - id: 13
+    name: "\u5929\u99AC \u53F8"
+    icon: {fileID: 21300000, guid: 9a8f462a928bff3439407e056e01540c, type: 3}
+    color: {r: 1, g: 0.73333335, b: 0, a: 1}
+  - id: 14
+    name: "\u9CF3 \u3048\u3080"
+    icon: {fileID: 21300000, guid: 4851b3e31a38c5e4c8ca7c8ffe7830c4, type: 3}
+    color: {r: 1, g: 0.40000004, b: 0.73333335, a: 1}
+  - id: 15
+    name: "\u8349\u8599 \u5BE7\u3005"
+    icon: {fileID: 21300000, guid: d7224ecccb9887a4ebb158091d74a5fb, type: 3}
+    color: {r: 0.20000002, g: 0.86666673, b: 0.6, a: 1}
+  - id: 16
+    name: "\u795E\u4EE3 \u985E"
+    icon: {fileID: 21300000, guid: 572b0a1c28909a343af1038c671903ab, type: 3}
+    color: {r: 0.73333335, g: 0.53333336, b: 0.9333334, a: 1}
+  - id: 17
+    name: "\u5BB5\u5D0E \u594F"
+    icon: {fileID: 21300000, guid: 7f56a6999779e8f408961fe35cc60edc, type: 3}
+    color: {r: 0.73333335, g: 0.40000004, b: 0.53333336, a: 1}
+  - id: 18
+    name: "\u671D\u6BD4\u5948 \u307E\u3075\u3086"
+    icon: {fileID: 21300000, guid: 4eec9a21407ef1a439734447973d7ef3, type: 3}
+    color: {r: 0.53333336, g: 0.53333336, b: 0.8000001, a: 1}
+  - id: 19
+    name: "\u6771\u96F2 \u7D75\u540D"
+    icon: {fileID: 21300000, guid: 69ff9c86915f476429c034e5ce5c244b, type: 3}
+    color: {r: 0.8000001, g: 0.6666667, b: 0.53333336, a: 1}
+  - id: 20
+    name: "\u6681\u5C71 \u745E\u5E0C"
+    icon: {fileID: 21300000, guid: 61f23cf24e0bc154085508759d16b310, type: 3}
+    color: {r: 0.86666673, g: 0.6666667, b: 0.8000001, a: 1}
+  - id: 21
+    name: "\u521D\u97F3 \u30DF\u30AF"
+    icon: {fileID: 21300000, guid: 8c99bee0dfa7395409e9943607e70f77, type: 3}
+    color: {r: 0.20000002, g: 0.8000001, b: 0.73333335, a: 1}
+  - id: 22
+    name: "\u93E1\u97F3 \u30EA\u30F3"
+    icon: {fileID: 21300000, guid: 06565cda7cca93941a57d3f7379576ab, type: 3}
+    color: {r: 1, g: 0.8000001, b: 0.06666667, a: 1}
+  - id: 23
+    name: "\u93E1\u97F3 \u30EC\u30F3"
+    icon: {fileID: 21300000, guid: a16bf9dbc705a47408699d10c1b79c37, type: 3}
+    color: {r: 1, g: 0.9333334, b: 0.06666667, a: 1}
+  - id: 24
+    name: "\u5DE1\u97F3 \u30EB\u30AB"
+    icon: {fileID: 21300000, guid: aae9800c0a6d1d34a9219024c58116c1, type: 3}
+    color: {r: 1, g: 0.73333335, b: 0.8000001, a: 1}
+  - id: 25
+    name: MEIKO
+    icon: {fileID: 21300000, guid: 1bb3b5a38e1830a40948ddf6c9b3a901, type: 3}
+    color: {r: 0.86666673, g: 0.26666668, b: 0.26666668, a: 1}
+  - id: 26
+    name: KAITO
+    icon: {fileID: 21300000, guid: c175aa19badc6094ca26594c9d84b410, type: 3}
+    color: {r: 0.20000002, g: 0.40000004, b: 0.8000001, a: 1}
