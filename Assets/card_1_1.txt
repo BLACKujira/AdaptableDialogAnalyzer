@@ -1,0 +1,1178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4195cd673e6d11f8974b02c3fe8849cd, type: 3}
+  m_Name: card_1_1
+  m_EditorClassIdentifier:
+  _title1: 前編
+  _title2: 舞菜、本屋へ行く
+  _advPages:
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 1
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: こっちですよ、[replace]先生！　ほら、あそこです！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0001
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet: bgm_adv_010
+    bgmCueName: BGM
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: ここ、この辺で１番大きな本屋さんなんですよ。\nここなら探してる本も絶対に見つかると思います！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0002
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: '[replace]先生は、どんは本が好きなんですか？'
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0003
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: ミステリー、SF、純文学、伝記……他にもたくさんありますけど、\nそれぞれの魅力があってどれもいいですよね～
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0004
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: わたし、特にファンタジー小説が好きなんです。\n空想の世界に浸って、どこまでも世界が広がっていって……。\nこれって、KiRaReの活動に似てるって思いませんか？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0005
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: わたしたちの想い次第でどこまでも飛べる。限界なんてない、\nイメージと努力次第でどんな自分にだってなれちゃうんです！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0006
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 1
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: え？　自信を持てるようになったって……そ、そうでしょうか……？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0007
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: ……まだよくわからないんです。\nとにかく夢中で、必死に頑張ろうって思ってはいるんですけど
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0008
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 1
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: それが自信なのかって聞かれると……わかりません。\nでも、わたしなりの精一杯を誰かに届けたいって気持ちは、\n前よりも強くなったのかなって思います
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0009
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: えへへ……それも全部KiRaReと[replace]先生のおかげなんです
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0010
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: 先生はたくさんレッスンを観てくれて、わたしたちの悩みや不安も\n受け止めてくれて、とっても頼りになるなって思います
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0011
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 5
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: 本当は、その……わたしを１番に見ててくれたら嬉しいなーって……
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0012
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 7
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: わっ、わたし、余計なこと言っちゃいました！\nお願いします、忘れてください……！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0013
+    voiceStop: 1
+    seCueSheet: se_adv_042
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 7
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name: '[replace]'
+    nameCharacter: 26
+    text: '<color=#5588bb>どうしようかな</color>'
+    voiceCueSheet:
+    voiceCueName:
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 9
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: もう、[replace]先生のいじわるー……！\nそ、それより！　先生はどんな本がお好きなんですか？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0014
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: え？　オススメですか？\nそうですねー……ファンタジーって言いたいところなんですけど
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0015
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: まずは読みやすいものから入ってみるのがいいと思います。\n文章に慣れる、っていうんでしょうか
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0016
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: ほら、ライトノベルって流行ってるじゃないですか！\nわたしもたまに読みますけど、ああいうのも読んでみると\n面白いと思いますよ
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0017
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: それとも、[replace]先生にはもっと大人な感じのものがいいのかな……？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0018
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: あ、それじゃあ海外文学なんかはどうでしょう？\n日本とは表現が全然違って面白いんですよ！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0019
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: できれば原文で読みたいんですけど……。\nわたし、英語はまだ習い始めたばかりなので……
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0020
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 1
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: そうですね、もっと勉強しろってことですよね……。\nはい、アイドルには知性も大切だと思います
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0021
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: 歌やダンスはもちろんですけど、ステージ上での振る舞いも\nファンに向けての大切なアピールですもんね
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0022
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: そのためにも、たくさん本を読みたいなって思います！\nだから、[replace]先生にも協力をお願いしたいんです
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0023
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: '[replace]先生が読んで面白いなって思った本を、わたしも読みたいなって'
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0024
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: ほら、そうすれば効率よく面白い本を読めるじゃないですか
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0025
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: それに、[replace]先生と好きな本の話ができるのって、\n素敵だなって思うんです
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0026
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: わたしの好きなものを一緒に好きになってもらって、\n[replace]先生の好きなものをわたしも好きになるんです
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0027
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: それってとっても素敵なことだと思いませんか？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0028
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 5
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: '[replace]先生が一緒に好きになってくれたら、わたし……嬉しいな～'
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0029
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 7
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: あ、あははは……！　わたし、突然なに言ってるんでしょうね！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0030
+    voiceStop: 1
+    seCueSheet: se_adv_042
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 6
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: とにかく、お気に入りの１冊を見つけに行きましょう！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0031
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: ……
+    voiceCueSheet:
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: えへへ、いっぱい買っちゃいました！　どれから読もうかなぁ……！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0032
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: '[replace]先生はどんな本を買ったんですか？'
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0033
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: へえ、ミステリーですね！　知的で大人って感じです！\n読み終わったら、ぜひ感想を聞かせてくださいね？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0034
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: これからはわたしも[replace]先生に読んだ本の感想を伝えます！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0035
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: '[replace]先生と一緒に、色んなことを勉強していけたらいいな～'
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0036
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 9
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: 欲張りすぎ……でしょうか？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0037
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: え？　遠慮するなって……いいんですか？
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0038
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: はいっ、わかりました！　これからもたくさん頼っちゃいます！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0039
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: 勉強も、レッスンも、その他にもたくさん！\n[replace]先生に教えてほしいこと、いーっぱいあるんです！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0040
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_11
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 1
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: だから、わたしたちのこと……よろしくお願いします！
+    voiceCueSheet: card_1_1
+    voiceCueName: ca_man0041
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0

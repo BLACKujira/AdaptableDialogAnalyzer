@@ -13,6 +13,7 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
         /// 原始对象
         /// </summary>
         ScenarioSceneData scenarioSceneData;
+        public ScenarioSceneData ScenarioSceneData => scenarioSceneData;
 
         public override BasicTalkSnippet[] GetTalkSnippets()
         {
@@ -49,17 +50,6 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
 
             chapter_Scenario.scenarioSceneData = scenarioSceneData;
             return chapter_Scenario;
-        }
-
-        /// <summary>
-        /// 从字符串读取
-        /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        public static Chapter LoadFile(string filePath)
-        {
-            string text = File.ReadAllText(filePath);
-            return LoadText(text);
         }
     }
 }

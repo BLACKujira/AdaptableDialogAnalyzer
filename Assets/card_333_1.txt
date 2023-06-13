@@ -1,0 +1,1232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4195cd673e6d11f8974b02c3fe8849cd, type: 3}
+  m_Name: card_333_1
+  m_EditorClassIdentifier:
+  _title1: 前編
+  _title2: 一目ぼれ
+  _advPages:
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: それじゃあ、今日は荷物をまとめたらうちに集合ね？　道はわかる？\n心配なら迎えに行くけど……
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1131
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet: bgm_adv_009
+    bgmCueName: BGM
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: うん、わかった！　大丈夫だよ、もう何回も紗由さんのおうちには\n行ったことあるし
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1238
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 1
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: この間もそう言っていたけど、結局迷っていたじゃない。\n本当に大丈夫？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1132
+    voiceStop: 1
+    seCueSheet: se_adv_039
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: だ、大丈夫！　今日こそは本当に、大丈夫だよ！\n紗由さんはおうちで、わたしが来るのをゆっくり待ってて！
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1239
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 1
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: そう？　そこまで言うなら、舞菜を信じようかしら。\nでも道がわからなくなったら、すぐに連絡してね？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1133
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: うん、ありがとう！　えへへ、楽しみだなぁ♪
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1240
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: '<color=#449944>（ガラガラッ）</color>'
+    voiceCueSheet:
+    voiceCueName:
+    voiceStop: 1
+    seCueSheet: se_adv_066
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: あ！　[replace]先生！　こんにちは！
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1241
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: こんにちは、[replace]先生。\nえ？　何の話をしていたのかって？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1134
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: 明日は学校がお休みなので……今日の夜から、紗由さんのおうちで\nパジャマパーティをするんです！　その相談をしていました♪
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1242
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 1
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: ふふ。楽しみよね
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1135
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: うん！　何しようか今からワクワクしちゃう！
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1243
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name: '[replace]'
+    nameCharacter: 26
+    text: '<color=#5588bb>はしゃぎすぎないようにね</color>'
+    voiceCueSheet:
+    voiceCueName:
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: はい、はしゃぎ過ぎないようにします。では[replace]先生、\nさようなら。それじゃあ舞菜、またあとでね！
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1136
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_1
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: うんっ！　楽しみだなぁ、紗由さんとパジャマパーティ♪
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1244
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 1
+  - background: bg_black
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: ……
+    voiceCueSheet: card_333_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name:
+    nameCharacter: 2
+    text: いらっしゃい、舞菜。本当に今日は、迷わずに来れたみたいね
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1137
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet: bgm_adv_010
+    bgmCueName: BGM
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: うんっ、さすがにもう覚えたよ！\nえっと、お部屋に入っても大丈夫？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1245
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name:
+    nameCharacter: 2
+    text: もちろんよ、あがって？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1138
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: おじゃまします
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1246_A
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: '<color=#449944>（ガチャ）</color>'
+    voiceCueSheet:
+    voiceCueName:
+    voiceStop: 1
+    seCueSheet: se_adv_067
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: はぁ〜。紗由さんのお部屋っていっつも綺麗だよね。\nなんだか落ち着くな
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1246_B
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: そう？　ふふ、嬉しいわ。まだお母さんたちは帰って来てないから、\n楽にしてて。もちろん帰ってきても、緊張することはないけど
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1139
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: そうなんだ。じゃあこれは、紗由さんに渡しておいていいかな？\n叔母さんが、『一晩お世話になるんだから手土産に持って行きなさい』\nって。ゼリーだから、冷やしておいた方がいいかも
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1247
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: あら、そんなこと気にしなくていいのに。\nでもありがとう、冷蔵庫に入れておくわ。夜に一緒に食べましょ♪
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1140
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: ええっ！　お土産なんだから、わたしはいいよ！\n紗由さんのご家族で食べて？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1248
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: うちの親も、私と同じこと言うと思うけど。\n変なところで遠慮するわね、舞菜は
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1141
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: う〜ん……いいのかなぁ
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1249
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: いいのいいの
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1142
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: それにしても……１泊なのに、ずいぶん大荷物ね？\nタオルとかはうちで貸すから、持ってこなくていいって言ったじゃない
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1143
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: うん。だからこれは全部、おやつとか、ゲームとかで……。\nあ、おすすめの小説も持ってきたんだ！
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1250
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 1
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: そんなにたくさん、持ってきたの！？　逆にすごいわ……
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1144
+    voiceStop: 1
+    seCueSheet: se_adv_042
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: えへへ。なんかわくわくしちゃって、つい。あっ、あと、パジャマは\n自分の持ってきたの！　じゃーんっ！　可愛いでしょ？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1251
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: あら、ほんとに可愛いわね。これは犬……かしら？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1145
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: うんっ！　この前お出かけしたとき、一目ぼれして\n買っちゃったんだー♪
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1252
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: 舞菜によく似合うと思うわ。舞菜って、ちょっと犬っぽいし
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1146
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: え、ええっ！？　そ、そうかなぁ……？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1253
+    voiceStop: 1
+    seCueSheet: se_adv_042
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: あ、バカにしているわけじゃないのよ？　素直でかわいくて、\nいい子だっていう意味
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1147
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 5
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: あ、ありがとう……。そういう紗由さんは、猫っぽいよね？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1254
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 5
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: そう？　まあ確かに、犬よりは猫っぽいかしら
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1148
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: うん！　ほら、八重歯もあるし♪
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1255
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 1
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: それはあんまり、猫と関係ないような……。ま、いっか
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1149
+    voiceStop: 1
+    seCueSheet: se_adv_039
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: あ……今、玄関が開く音がしたわね。お母さんかしら？\n一緒に行きましょ？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1150
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 1
+    text: あっ、うん！　ちゃんとご挨拶しないとね……！\nええっと、紗由さんとはいつも、仲良くさせていただいて……
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_man1256
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_16
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 7
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 1
+    characterBase2: 0
+    characterBase3: 1
+    name:
+    nameCharacter: 2
+    text: そんなにかしこまらなくていいから。いつも通りに、ね？
+    voiceCueSheet: card_333_1
+    voiceCueName: ca_say1151
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0

@@ -1,0 +1,854 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4195cd673e6d11f8974b02c3fe8849cd, type: 3}
+  m_Name: origin_9_1
+  m_EditorClassIdentifier:
+  _title1: 9th stage!
+  _title2: 「紗由、対戦相手と出会う」（１）
+  _advPages:
+  - background: bg_black
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: プリズムステージ東京予選の決勝トーナメントを前に、\n課題曲に取り組む舞菜たち
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_black
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: ２人ずつのペアで編曲にチャレンジし、互いの絆も深まった……かも？
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_black
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: ……
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 1
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 1
+    text: うわー、凄い人だねー
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_man0452_b
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet: bgm_adv_011
+    bgmCueName: BGM
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: 繁華街の駅前でのん気に周りを見回している舞菜
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 2
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 2
+    text: ほんとね
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_say0478
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: ちょっと舞菜、紗由！\nそっちじゃないわ。離れないでついてきて！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0165
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: 舞菜と紗由を引っ張るように案内していくのは実
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: ' '
+    nameCharacter: 0
+    text: ３人は休日を利用して、普段いる高尾から\n列車で数十分ほど離れた繁華街のお店に買い物に来ていた
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: ほら、ここよ！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0166
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: 実が２人を連れて入ってきたのは、\n大きな駅ビルの数フロアを丸々占有している手芸用品店だった
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: ふわあ〜〜！　凄い！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_man0453
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: これ、全部が手芸用品なんですか？
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_say0479
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: そうよ
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0167
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: 見て見て紗由さん！　ここ、棚が全部ファスナーですよ！\nあ、こっちはボタンが一杯ある！　大きさも形もすっごい種類です！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_man0454
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: あ、このボタン可愛い！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_say0480
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: 思わず見惚れてしまう舞菜と紗由
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: まったく、こういったお店のことも知らないで、\nよくアイドル活動をするなんて言い出せたものね
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0168
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: すいません、アイドルの部活で自分たちがステージ衣装を\n揃える必要があるなんて、わたし、予選前に副会長さんに\n言われるまで考えもしてませんでした
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_man0455
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 9
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: 私もです。あの時は結局、なにからなにまで\n全部長谷川先輩にお世話になってしまって……
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_say0481
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: 素直に頭を下げる２人
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 7
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 1
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: え？　あ、謝らなくてもいいみぃ！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0169
+    voiceStop: 1
+    seCueSheet: se_adv_042
+    seCueName: SE
+    seStop: 1
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 0
+    character3: 0
+    emotion1: 0
+    emotion2: 0
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 0
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 0
+    text: 少し慌ててしまう実
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: わ、私たち、同じグループの仲間同士なんだから、\n別に謝ることなんてないのよ
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0170_A
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 9
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: それに次の衣装を作る時は、みんなでデザインの検討から\n一緒にやることに決めたでしょ。だから今日、買い物も誘ったんだし
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0170_B
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 9
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name: '　'
+    nameCharacter: 26
+    text: そして、少し頬を染めて言う
+    voiceCueSheet: origin_9_1
+    voiceCueName:
+    voiceStop: 0
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 8
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: あとね、私のこと、副会長とか長谷川先輩とか\n他人行儀な呼び方しないでいいわ
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0171_A
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 9
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: 仲間同士なんだから、みいって呼んでいいのよ
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0171_B
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: はい！　ありがとうございます、みい先輩！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_man0456
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: 一緒に素敵なステージ衣装を考えましょう、みい先輩！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_say0482
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_12
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: よーし！　まずは生地のコーナーから行くみぃ！
+    voiceCueSheet: origin_9_1
+    voiceCueName: sh_mii0172
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0

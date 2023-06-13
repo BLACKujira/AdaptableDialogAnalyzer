@@ -34,7 +34,7 @@ namespace AdaptableDialogAnalyzer.UIElements
                 return;
             }
 
-            txtName.text = basicTalkSnippet.DisplayName;
+            txtName.text = string.IsNullOrEmpty(basicTalkSnippet.DisplayName)? GlobalConfig.CharacterDefinition[basicTalkSnippet.SpeakerId].name : basicTalkSnippet.DisplayName;
             txtContent.text = basicTalkSnippet.Content;
             imgIcon.sprite = GlobalConfig.CharacterDefinition[basicTalkSnippet.SpeakerId].icon;
 

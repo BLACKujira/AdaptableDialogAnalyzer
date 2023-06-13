@@ -1,0 +1,989 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4195cd673e6d11f8974b02c3fe8849cd, type: 3}
+  m_Name: main_6_1
+  m_EditorClassIdentifier:
+  _title1: 1st stage!
+  _title2: KiRaReの文化祭
+  _advPages:
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 3
+    character3: 0
+    emotion1: 0
+    emotion2: 3
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 3
+    text: '文化祭はお疲れ様やったな〜！\nミュージカルも成功やったし……みんなも楽しめた〜？ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0351
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet: bgm_adv_010
+    bgmCueName: BGM
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 3
+    character3: 0
+    emotion1: 0
+    emotion2: 2
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 3
+    text: 'ん？　なんや、舞菜ちゃんたちは表情が輝いてるな〜。\nなんかええことあったんか？ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0352
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 3
+    character3: 0
+    emotion1: 0
+    emotion2: 4
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 3
+    text: 'さては……[replace]先生から何かおごってもらったり……\nなんてことはないか〜 '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0353
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 4
+    character3: 2
+    emotion1: 3
+    emotion2: 3
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 3
+    characterBase3: 3
+    name: 舞菜・紗由・かえ
+    nameCharacter: 0
+    text: 「部長さん聞いてください！」\n「部長、聞いてください！」\n「…部長、聞いて……！」
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_uni0015
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 5
+    emotion1: 7
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'ど、どないしたん？　３人とも……随分と興奮してるみたいやけど…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0354
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 5
+    emotion1: 7
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 5
+    text: '舞菜や紗由だけじゃなくて、プリンセスも興奮しているなんて……\nよほどいいことがあったんだね '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kas0207
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 5
+    emotion1: 8
+    emotion2: 0
+    emotion3: 7
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: '何やの〜、うちにも教えてーな。\nお楽しみはみんなで共有するもんやで '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0355
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: '実は……テトラルキアに文化祭で会ったんです！ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_say0473
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 1
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'テトラルキア……？　んー、どっかで聞いたことある名前やな、\nはて……どこやったかなぁ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0356
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 4
+    text: '…プリズムステージに参加するチームの１つ……\n各々のパフォーマンス力がすごく高い…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kae0264
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 2
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 4
+    text: '…IPPグラスで見なくても、数値の高さが感じられた…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kae0265
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 2
+    emotion2: 0
+    emotion3: 3
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 5
+    text: 'へぇ……そんな人たちが高尾校の文化祭にきていたんだ…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kas0208
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 1
+    emotion2: 0
+    emotion3: 1
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: '用事のついでにきたって言ってましたけど、\n個性派揃いのチームって感じがしたわ……全員がリーダーでしたし '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_say0474
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 9
+    emotion2: 0
+    emotion3: 1
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: '全員がリーダー？　それはまた、変わったチームやな〜 '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0357
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 4
+    emotion1: 9
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 4
+    text: '…自己主張が激しいとも言える……統括は誰か１人に任せるべき…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kae0266
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 3
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: 'でも、テトラルキアのみなさんは個性的な人たちだったから\nどんなパフォーマンスをするか楽しみだな〜！ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_man0379
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 1
+    text: 'プリズムステージの前に見ることってできないのかな…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_man0380
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 1
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: 'そうね……ステラマリス、オルタンシアとは\n１度対決したことはあるからね '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_say0475
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 4
+    text: '…過去のステージを見ても個々の能力が高く、\nステラマリスとは違った観客を魅了するかっこよさを持つ…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kae0267
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 5
+    text: 'かっこいい、か……これはボクも負けていられないってことかな？ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kas0209
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 2
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 1
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 4
+    text: '…大丈夫、エンジェルは十分かっこいい '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kae0268_A
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 5
+    character2: 0
+    character3: 4
+    emotion1: 4
+    emotion2: 0
+    emotion3: 4
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 5
+    text: 'ふふっ、ありがとう、プリンセス。\n褒めても何も出ないよ……でも、ボクだけじゃ力不足だと思うんだ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_kas0210_A
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 2
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'せやなぁ……でも、キレのあるダンスなら\nこっちには紗由ちゃんと舞菜ちゃん、実ちゃんもおるから安泰やわ〜 '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0358
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 2
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: '部長もがんばってくださいよ？\nみ・ん・な・で！　がんばっていくんですからね〜 '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_say0476
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'わ、わかってるって〜！　うちかて結構、がんばってるんやで？\nなぁ、実ちゃん？ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0359
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 0
+    character2: 6
+    character3: 0
+    emotion1: 0
+    emotion2: 6
+    emotion3: 0
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 0
+    characterBase2: 3
+    characterBase3: 0
+    name:
+    nameCharacter: 6
+    text: '………… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_mii0258
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 7
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'あ、あれ……？　実ちゃん？　どないしたん？\nうちのダンスってそないにアカンかな…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0360
+    voiceStop: 1
+    seCueSheet: se_adv_042
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 7
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 6
+    text: '……ピーターパン…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_mii0259
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 4
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'せや！　ピーターパンも上手くいったし、\nみんなの演技力も向上したんとちゃうかな〜？ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0361
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 2
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: '[replace]先生は初めての文化祭やったやろ、楽しめた〜？\nうちらがんばってたやろ？　どないやった〜？ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0362
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 2
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name: '[replace]'
+    nameCharacter: 26
+    text: '<color=#5588bb>とても良かった！</color>'
+    voiceCueSheet:
+    voiceCueName:
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 4
+    emotion2: 0
+    emotion3: 6
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'せやろせやろ〜！　うちらもやればできるんやで〜！ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0363
+    voiceStop: 1
+    seCueSheet: se_adv_038
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 4
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 2
+    text: 'もう、部長！　あの時はいきなり碧音さんたちが出てきて\n本当に焦ったんですからね！ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_say0477
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 9
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 1
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: 'ほんまごめんな〜、うちかて本番直前でケガするとは\n思わんかったんや…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0364
+    voiceStop: 1
+    seCueSheet: se_adv_040
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 2
+    emotion1: 8
+    emotion2: 0
+    emotion3: 8
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 0
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 3
+    text: '急に決まったからみんなに伝えるタイミングがなかったんや……\nそれに黙ってた方が面白そうやったしな〜♪ '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_miz0365
+    voiceStop: 1
+    seCueSheet:
+    seCueName:
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
+  - background: bg_3
+    cg:
+    useCG: 0
+    character1: 3
+    character2: 0
+    character3: 6
+    emotion1: 2
+    emotion2: 0
+    emotion3: 9
+    emotionEffect1: 0
+    emotionEffect2: 0
+    emotionEffect3: 1
+    characterBase1: 3
+    characterBase2: 0
+    characterBase3: 3
+    name:
+    nameCharacter: 6
+    text: '瑞葉……あんた最後に本音が漏れてるわよ…… '
+    voiceCueSheet: main_6_1
+    voiceCueName: ap_mii0260
+    voiceStop: 1
+    seCueSheet: se_adv_040
+    seCueName: SE
+    seStop: 0
+    bgmCueSheet:
+    bgmCueName:
+    bgmStop: 0
