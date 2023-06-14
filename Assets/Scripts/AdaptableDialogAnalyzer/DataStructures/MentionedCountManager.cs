@@ -7,7 +7,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
     /// </summary>
     public class MentionedCountManager
     {
-        public List<MentionedCountMatrix> mentionedCountMatrices;
+        public List<MentionedCountMatrix> mentionedCountMatrices = new List<MentionedCountMatrix>();
 
         public CharacterMentionStats this[int speakerId, int mentionedPersonId] => new CharacterMentionStats(mentionedCountMatrices.ToArray(), speakerId, mentionedPersonId);
     }

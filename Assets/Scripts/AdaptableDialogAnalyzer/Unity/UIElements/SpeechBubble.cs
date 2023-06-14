@@ -1,4 +1,5 @@
-using AdaptableDialogAnalyzer.Unity;
+ï»¿using AdaptableDialogAnalyzer.Unity;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using Color = UnityEngine.Color;
@@ -13,16 +14,18 @@ namespace AdaptableDialogAnalyzer.UIElements
         public Text txtName;
         public Image imgContentBG;
         public Text txtContent;
-        [Header("Component")]
+        [Header("Color")]
         public Color defaultBGColor = new Color32(240, 240, 240, 255);
         public Color colorWhite = Color.white;
         public Color colorBlack = new Color32(68, 68, 102, 255);
+        [Header("Settings")]
+        public int maxTextLengthPerLine = 40;
 
         BasicTalkSnippet basicTalkSnippet;
         public BasicTalkSnippet BasicTalkSnippet => basicTalkSnippet;
 
         /// <summary>
-        /// ÉèÖÃ¶Ô»°ÏÔÊ¾ÄÚÈİ
+        /// è®¾ç½®å¯¹è¯æ˜¾ç¤ºå†…å®¹
         /// </summary>
         /// <param name="basicTalkSnippet"></param>
         /// <param name="setColor"></param>
@@ -34,8 +37,24 @@ namespace AdaptableDialogAnalyzer.UIElements
                 return;
             }
 
-            txtName.text = string.IsNullOrEmpty(basicTalkSnippet.DisplayName)? GlobalConfig.CharacterDefinition[basicTalkSnippet.SpeakerId].name : basicTalkSnippet.DisplayName;
-            txtContent.text = basicTalkSnippet.Content;
+            string content = basicTalkSnippet.Content;
+            //åªæœ‰åœ¨åŸæ–‡ä¸­æ²¡æœ‰æ¢è¡Œç¬¦çš„æƒ…å†µä¸‹æ‰ä¼šè‡ªåŠ¨æ¢è¡Œ
+            if (maxTextLengthPerLine > 0 && !content.Contains("\n"))
+            {
+                StringBuilder stringBuilder = new StringBuilder(content);
+
+                int index = maxTextLengthPerLine;
+                while (index < stringBuilder.Length)
+                {
+                    stringBuilder.Insert(index, "\n");
+                    index += maxTextLengthPerLine + "\n".Length;
+                }
+
+                content = stringBuilder.ToString();
+            }
+
+            txtName.text = string.IsNullOrEmpty(basicTalkSnippet.DisplayName) ? GlobalConfig.CharacterDefinition[basicTalkSnippet.SpeakerId].name : basicTalkSnippet.DisplayName;
+            txtContent.text = content;
             imgIcon.sprite = GlobalConfig.CharacterDefinition[basicTalkSnippet.SpeakerId].icon;
 
             if (setNameBGColor) { SetNameBGColor(GlobalConfig.CharacterDefinition[basicTalkSnippet.SpeakerId].color); }
@@ -46,7 +65,7 @@ namespace AdaptableDialogAnalyzer.UIElements
         }
 
         /// <summary>
-        /// ÉèÖÃÏÔÊ¾Ãû³ÆµÄ±³¾°É«
+        /// è®¾ç½®æ˜¾ç¤ºåç§°çš„èƒŒæ™¯è‰²
         /// </summary>
         /// <param name="color"></param>
         public void SetNameBGColor(Color color)
@@ -56,7 +75,7 @@ namespace AdaptableDialogAnalyzer.UIElements
         }
 
         /// <summary>
-        /// ÉèÖÃÏÔÊ¾ÎÄ×ÖµÄ±³¾°É«
+        /// è®¾ç½®æ˜¾ç¤ºæ–‡å­—çš„èƒŒæ™¯è‰²
         /// </summary>
         /// <param name="color"></param>
         public void SetContentBGColor(Color color)

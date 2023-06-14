@@ -21,7 +21,7 @@ namespace AdaptableDialogAnalyzer.UIElements
         public float distance;
         public Direction direction = Direction.Vertical;
 
-        List<GameObject> items;
+        List<GameObject> items = new List<GameObject>();
         public List<GameObject> Items => items;
 
         public void Generate(int count, Action<GameObject, int> initialize)

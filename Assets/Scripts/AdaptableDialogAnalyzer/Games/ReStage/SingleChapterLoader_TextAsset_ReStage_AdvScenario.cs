@@ -1,5 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.Games.ProjectSekai;
 using AdaptableDialogAnalyzer.Unity;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Games.ReStage

@@ -27,7 +27,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 此剧情中指代不明的提及
         /// </summary>
-        public List<UnidentifiedMentions> unidentifiedMentionsList;
+        public List<UnidentifiedMentions> unidentifiedMentionsList = new List<UnidentifiedMentions>();
 
         public MentionedCountRow this[int speakerId] => mentionedCountRows[speakerId];
         public MentionedCountGrid this[int speakerId, int mentionedPersonId] => mentionedCountRows[speakerId][mentionedPersonId];

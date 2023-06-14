@@ -10,7 +10,7 @@ namespace AdaptableDialogAnalyzer
         /// <summary>
         /// 剧情的类型，通过读取器设置
         /// </summary>
-        public string chapterType = null;
+        public string chapterType = "default";
 
         /// <summary>
         /// 剧情的唯一ID，通过读取器设置

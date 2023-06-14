@@ -39,12 +39,14 @@ namespace AdaptableDialogAnalyzer.Unity
             });
 
             //初始化信息显示
-            elgSpeaker.Generate(characterDefinition.characters.Count, (gobj, id) =>
+            elgMentionedPerson.Generate(characterDefinition.characters.Count, (gobj, id) =>
             {
                 CharacterMentionCounter_MentionedPersonItem mentionedPersonItem = gobj.GetComponent<CharacterMentionCounter_MentionedPersonItem>();
                 mentionedPersonItem.SetData(id);
                 mentionedPersonItems[id] = mentionedPersonItem;
             });
+
+            SelectCharacter(0);
         }
 
         void SelectCharacter(int characterId)

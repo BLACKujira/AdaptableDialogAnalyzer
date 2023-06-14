@@ -28,7 +28,7 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <summary>
         /// 已经统计过的剧情
         /// </summary>
-        MentionedCountManager mentionedCountManager;
+        MentionedCountManager mentionedCountManager = new MentionedCountManager();
         public MentionedCountManager MentionedCountManager => mentionedCountManager;
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Start()
         {
-            Chapter[] chapters = chapterLoader.GetChapters();
+            chapters = chapterLoader.GetChapters();
 
             NicknameDefinition nicknameDefinition = GlobalConfig.NicknameDefinition;
 
@@ -180,9 +180,10 @@ namespace AdaptableDialogAnalyzer.Unity
                 foreach (var regex in nicknameList.nicknames)
                 {
                     Regex regexObject = regexDictionary[regex]; //获取正则表达式对象
-                    Match match = regexObject.Match(talkSnippet.Content); 
-                    mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx, match.Index, match.Length); 
-                    if(bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
+                    Match match = regexObject.Match(talkSnippet.Content);
+                    if (match.Success)
+                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx, match.Index, match.Length);
+                    if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
                 }
             }
 
@@ -195,7 +196,8 @@ namespace AdaptableDialogAnalyzer.Unity
                 {
                     Regex regexObject = regexDictionary[regex];
                     Match match = regexObject.Match(talkSnippet.Content);
-                    mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx, match.Index, match.Length);
+                    if (match.Success)
+                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx, match.Index, match.Length);
                     if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
                 }
             }
@@ -207,7 +209,8 @@ namespace AdaptableDialogAnalyzer.Unity
 
                 Regex regexObject = regexDictionary[regex];
                 Match match = regexObject.Match(talkSnippet.Content);
-                mentionedCountMatrix.AddUnidentifiedSerif(regex, talkSnippet.RefIdx, match.Index, match.Length);
+                if (match.Success)
+                    mentionedCountMatrix.AddUnidentifiedSerif(regex, talkSnippet.RefIdx, match.Index, match.Length);
             }
         }
     }
