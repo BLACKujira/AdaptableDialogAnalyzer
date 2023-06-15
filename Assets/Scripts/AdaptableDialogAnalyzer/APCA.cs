@@ -7,7 +7,7 @@ namespace AdaptableDialogAnalyzer
         /// <summary>
         /// 在黑白两种色彩中选择，由于程序基本配色为黑底白字，白色被选中的几率更高
         /// </summary>
-        public static Color GeBlackOrWhite(Color baseColor, Color colorWhite, Color colorBlack)
+        public static Color GetBlackOrWhite(Color baseColor, Color colorWhite, Color colorBlack)
         {
             return GetMostVisibleColor(baseColor, colorWhite, colorBlack, 1, 0.9f);
         }

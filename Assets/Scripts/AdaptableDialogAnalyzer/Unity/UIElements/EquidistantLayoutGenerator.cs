@@ -20,6 +20,7 @@ namespace AdaptableDialogAnalyzer.UIElements
         public float blank;
         public float distance;
         public Direction direction = Direction.Vertical;
+        public bool reverse = false;
 
         List<GameObject> items = new List<GameObject>();
         public List<GameObject> Items => items;
@@ -33,9 +34,11 @@ namespace AdaptableDialogAnalyzer.UIElements
             {
                 int id = i;
                 GameObject item = Instantiate(itemPrefab, scorllContent);
-                item.GetComponent<RectTransform>().anchoredPosition = direction == Direction.Vertical ?
-                    new Vector2(0, -distance * i - blank) :
-                    new Vector2(distance * i + blank, 0);
+
+                float posX = direction == Direction.Vertical ? 0f : reverse ? -distance * i - blank : distance * i + blank;
+                float posY = direction == Direction.Vertical ? reverse ? distance * i + blank : -distance * i - blank : 0f;
+
+                item.GetComponent<RectTransform>().anchoredPosition = new Vector2(posX, posY);
                 initialize(item, id);
                 items.Add(item);
             }
@@ -59,12 +62,16 @@ namespace AdaptableDialogAnalyzer.UIElements
 
             count--;
             GameObject item = Instantiate(prefab, scorllContent);
-            item.GetComponent<RectTransform>().anchoredPosition = direction == Direction.Vertical ?
-                new Vector2(0, -distance * count - blank) :
-                new Vector2(distance * count + blank, 0);
+            RectTransform itemRectTransform = item.GetComponent<RectTransform>();
+
+            float posX = direction == Direction.Vertical ? 0f : reverse ? -distance * count - blank : distance * count + blank;
+            float posY = direction == Direction.Vertical ? reverse ? distance * count + blank : -distance * count - blank : 0f;
+
+            itemRectTransform.anchoredPosition = new Vector2(posX, posY);
             if (initialize != null) initialize(item);
             items.Add(item);
         }
+
         public void AddItem(Action<GameObject> initialize)
         {
             AddItem(itemPrefab, initialize);

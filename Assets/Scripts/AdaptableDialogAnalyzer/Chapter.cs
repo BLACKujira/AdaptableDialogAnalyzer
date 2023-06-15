@@ -13,6 +13,11 @@ namespace AdaptableDialogAnalyzer
         public string chapterType = "default";
 
         /// <summary>
+        /// 剧情的标题，通过读取器设置
+        /// </summary>
+        public string chapterTitle = "Untitled";
+
+        /// <summary>
         /// 剧情的唯一ID，通过读取器设置
         /// </summary>
         public string chapterID = null;

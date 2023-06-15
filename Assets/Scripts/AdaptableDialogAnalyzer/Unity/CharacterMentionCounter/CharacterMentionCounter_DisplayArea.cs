@@ -57,6 +57,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 if (speakerItem.Checked) speakerItem.Checked = false;
             }
             speakerItems[characterId].Checked = true;
+            GlobalColor.SetThemeColor(GlobalConfig.CharacterDefinition.characters[characterId].color);
         }
 
         private void Update()

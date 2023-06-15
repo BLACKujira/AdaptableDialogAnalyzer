@@ -2,6 +2,7 @@
 
 namespace AdaptableDialogAnalyzer.Unity
 {
+
     public class GlobalConfig : MonoBehaviour
     {
         public CharacterDefinition characterDefinition;
