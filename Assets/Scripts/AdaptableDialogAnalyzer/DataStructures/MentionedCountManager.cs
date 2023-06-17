@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace AdaptableDialogAnalyzer.DataStructures
 {
@@ -27,6 +28,15 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 dictionary[countMatrix.Chapter.ChapterType].Add(countMatrix);
             }
             return dictionary;
+        }
+
+        /// <summary>
+        /// 统计角色的台词数量
+        /// </summary>
+        /// <param name="characterId"></param>
+        public int CountSerif(int characterId)
+        {
+            return mentionedCountMatrices.Sum(m => m[characterId].SerifCount);
         }
     }
 }

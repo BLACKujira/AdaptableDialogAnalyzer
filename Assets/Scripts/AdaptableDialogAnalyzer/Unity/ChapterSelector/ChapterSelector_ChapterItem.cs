@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
     public class ChapterSelector_ChapterItem : MonoBehaviour
     {
         [Header("Components")]

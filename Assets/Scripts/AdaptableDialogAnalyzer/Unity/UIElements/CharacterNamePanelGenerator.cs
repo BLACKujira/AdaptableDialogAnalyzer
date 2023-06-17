@@ -1,4 +1,5 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,15 +26,19 @@ namespace AdaptableDialogAnalyzer.UIElements
             List<Character> characters = GlobalConfig.CharacterDefinition.characters;
 
             ClearItems();
-            foreach (int characterId in characterIds) 
+            foreach (int characterId in characterIds)
             {
                 //如果不是第一个生成的标签则插入一个空隙
-                if(generatedObjects.Count != 0) generatedObjects.Add(Instantiate(spacePrefab, rtContent).gameObject);
+                if (generatedObjects.Count != 0) generatedObjects.Add(Instantiate(spacePrefab, rtContent).gameObject);
 
                 TextWithIndividualColor textWithIndividualColor = Instantiate(nameLabelPrefab, rtContent);
                 textWithIndividualColor.text.text = characters[characterId].name;
                 textWithIndividualColor.IndividualColorElement.SetIndividualColor(characters[characterId].color);
+
+                generatedObjects.Add(textWithIndividualColor.gameObject);
             }
+
+            RefreshLayout();
         }
 
         /// <summary>
@@ -41,11 +46,32 @@ namespace AdaptableDialogAnalyzer.UIElements
         /// </summary>
         public void ClearItems()
         {
-            foreach (GameObject obj in generatedObjects) 
+            foreach (GameObject obj in generatedObjects)
             {
                 Destroy(obj);
             }
             generatedObjects.Clear();
+        }
+
+        /// <summary>
+        /// 手动触发布局计算
+        /// </summary>
+        /// <returns></returns>
+        public void RefreshLayout()
+        {
+            if (!gameObject.activeSelf) return;
+            StartCoroutine(CoRefreshLayout());
+        }
+
+        /// <summary>
+        /// 手动触发布局计算
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator CoRefreshLayout()
+        {
+            yield return 1;
+            rtContent.gameObject.SetActive(false);
+            rtContent.gameObject.SetActive(true);
         }
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
     /// <summary>
     /// 显示对话并提供编辑功能，继承此类已使用不同的筛选方式和按钮功能
     /// </summary>
@@ -49,14 +48,23 @@ namespace AdaptableDialogAnalyzer.Unity
                 speechBubbles.Add(speechBubbleButton);
             }
 
-            StartCoroutine(CoRefresh());
+            RefreshLayout();
         }
 
         /// <summary>
         /// 手动触发布局计算
         /// </summary>
         /// <returns></returns>
-        IEnumerator CoRefresh()
+        protected void RefreshLayout()
+        {
+            StartCoroutine(CoRefreshLayout());
+        }
+
+        /// <summary>
+        /// 手动触发布局计算
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator CoRefreshLayout()
         {
             yield return 1;
             yield return 1;

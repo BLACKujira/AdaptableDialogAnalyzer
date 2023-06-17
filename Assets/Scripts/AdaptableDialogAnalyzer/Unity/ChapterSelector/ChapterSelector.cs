@@ -49,8 +49,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 typeItems.Add(typeItem);
             });
 
-            selectedType = types[0];
-            Refresh();
+            SelectType(types[0]);
         }
 
         void SelectType(string type)

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
     public class MentionCountDialogueEditorOneToOne : MentionCountDialogueEditor
     {
         public Toggle togHideUnmatched;
@@ -54,7 +53,7 @@ namespace AdaptableDialogAnalyzer.Unity
         protected override string GetTip()
         {
             List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            return $"选择剧情 | 单角色模式 | {characters[speakerId].name} | {characters[mentionedPersonId].name}";
+            return $"标记对话 | 单角色模式 | {characters[speakerId].name} | {characters[mentionedPersonId].name}";
         }
 
         protected override void InitializeSpeechBubble(BasicTalkSnippet basicTalkSnippet, SpeechBubbleButton speechBubbleButton)
@@ -72,12 +71,12 @@ namespace AdaptableDialogAnalyzer.Unity
             {
                 if (MentionedCountMatrix[speakerId, mentionedPersonId].HasSerif(basicTalkSnippet.RefIdx))
                 {
-                    MentionedCountMatrix[speakerId, mentionedPersonId].matchedIndexes.Remove(basicTalkSnippet.RefIdx);
+                    MentionedCountMatrix[speakerId, mentionedPersonId].RemoveMatchedDialogue(basicTalkSnippet.RefIdx);
                     speechBubbleButton.iceContent.SetIndividualColor(speechBubbleButton.defaultBGColor);
                 }
                 else
                 {
-                    MentionedCountMatrix[speakerId, mentionedPersonId].matchedIndexes.Add(basicTalkSnippet.RefIdx);
+                    MentionedCountMatrix[speakerId, mentionedPersonId].AddMatchedDialogue(basicTalkSnippet.RefIdx);
                     speechBubbleButton.iceContent.SetIndividualColor(characters[mentionedPersonId].color);
                 }
 

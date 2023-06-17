@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdaptableDialogAnalyzer.DataStructures
 {
@@ -116,6 +117,29 @@ namespace AdaptableDialogAnalyzer.DataStructures
             }
 
             return snippetCountDictionary;
+        }
+
+        /// <summary>
+        /// 某句是否含有任一多义昵称
+        /// </summary>
+        public bool HasUnidentifiedMention(int refIdx)
+        {
+            foreach (var unidentifiedMentions in unidentifiedMentionsList)
+            {
+                foreach (var id in unidentifiedMentions.matchedIndexes)
+                {
+                    if(id == refIdx) return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 返回每个角色台词的合计（不用获取TalkSnippets的情况下获取台词数） 
+        /// </summary>
+        public int GetSerifCount()
+        {
+            return mentionedCountRows.Sum(r => r.SerifCount);
         }
     }
 }

@@ -13,9 +13,12 @@ namespace AdaptableDialogAnalyzer.Unity
         public MentionedCountManagerLoader mentionedCountManagerLoader;
         public EquidistantLayoutGenerator elgSpeaker;
         public EquidistantLayoutGenerator elgMentionedPerson;
+        public Text txtCountTotal;
         public Text txtChanged;
         [Header("Prefabs")]
         public Window chapterSelectorOneToOnePrefab;
+        public Window chapterSelectorOneToManyPrefab;
+        public Window chapterSelectorManyToManyPrefab;
 
         MentionedCountManager mentionedCountManager;
 
@@ -63,12 +66,18 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             elgMentionedPerson.ClearItems();
 
+            int countTotal = 0;
+
             List<Character> characters = GlobalConfig.CharacterDefinition.characters;
             elgMentionedPerson.Generate(characters.Count, (gobj, id) =>
             {
                 MentionCountEditor_MentionedPersonItem mentionedPersonItem = gobj.GetComponent<MentionCountEditor_MentionedPersonItem>();
                 mentionedPersonItem.SetData(id);
-                mentionedPersonItem.Count = mentionedCountManager[selectedCharacterId, id].Total;
+
+                int total = mentionedCountManager[selectedCharacterId, id].Total;
+                mentionedPersonItem.Count = total;
+                countTotal += total;
+
                 mentionedPersonItem.button.onClick.AddListener(() =>
                 {
                     ChapterSelectorOneToOne chapterSelectorOneToOne = window.OpenWindow<ChapterSelectorOneToOne>(chapterSelectorOneToOnePrefab);
@@ -77,6 +86,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 });
             });
 
+            txtCountTotal.text = $"共 {countTotal} 次，在 {mentionedCountManager.CountSerif(selectedCharacterId)} 句台词中";
             txtChanged.text = $"{mentionedCountManagerLoader.ChangedMatricesCount} 个文件已更改";
         }
 
@@ -84,6 +94,20 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             mentionedCountManagerLoader.SaveChangedMatrices();
             Refresh();
+        }
+
+        public void OpenSelectorOneToMany()
+        {
+            ChapterSelectorOneToMany chapterSelector = window.OpenWindow<ChapterSelectorOneToMany>(chapterSelectorOneToManyPrefab);
+            chapterSelector.Initialize(mentionedCountManager, selectedCharacterId);
+            chapterSelector.window.OnClose.AddListener(() => Refresh());
+        }
+
+        public void OpenSelectorManyToMany()
+        {
+            ChapterSelectorManyToMany chapterSelector = window.OpenWindow<ChapterSelectorManyToMany>(chapterSelectorManyToManyPrefab);
+            chapterSelector.Initialize(mentionedCountManager);
+            chapterSelector.window.OnClose.AddListener(() => Refresh());
         }
     }
 }

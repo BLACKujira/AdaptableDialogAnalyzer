@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3492912224733941759}
   - component: {fileID: 3492912224733941756}
   - component: {fileID: 3492912224733941757}
-  - component: {fileID: 3492912224733941758}
   m_Layer: 0
   m_Name: MentionedCharacters
   m_TagString: Untagged
@@ -76,25 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
+  m_HorizontalFit: 1
   m_VerticalFit: 0
---- !u!114 &3492912224733941758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3492912224733941728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106f834db7ef5fb40ad30dd715f6750d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rtContent: {fileID: 3492912224733941759}
-  nameLabelPrefab: {fileID: 5226910454163302225, guid: 81feef913929ad14391b2106f065f97e,
-    type: 3}
-  spacePrefab: {fileID: 867274237754557147, guid: 33499eafd735c9e4f92c1c01a107d03a,
-    type: 3}
 --- !u!1 &3492912225389578947
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,8 +703,10 @@ MonoBehaviour:
   defaultBGColor: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   maxTextLengthPerLine: 50
   button: {fileID: 16626651200693558}
-  panelGenerator: {fileID: 3492912224733941758}
-  hideObjectsWhileNoLabel: []
+  panelGenerator: {fileID: 1777047467559126295}
+  hideObjectsWhileNoLabel:
+  - {fileID: 8400748052593037967}
+  - {fileID: 3492912224733941728}
 --- !u!1 &8400748053572848596
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +722,7 @@ GameObject:
   - component: {fileID: 8400748053572848594}
   - component: {fileID: 7716440353603650100}
   - component: {fileID: 16626651200693558}
+  - component: {fileID: 1777047467559126295}
   m_Layer: 0
   m_Name: LogBubble
   m_TagString: Untagged
@@ -910,6 +895,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1777047467559126295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400748053572848596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106f834db7ef5fb40ad30dd715f6750d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rtContent: {fileID: 3492912224733941759}
+  nameLabelPrefab: {fileID: 5226910454163302225, guid: 81feef913929ad14391b2106f065f97e,
+    type: 3}
+  spacePrefab: {fileID: 867274237754557147, guid: 33499eafd735c9e4f92c1c01a107d03a,
+    type: 3}
 --- !u!1 &8400748053579401571
 GameObject:
   m_ObjectHideFlags: 0

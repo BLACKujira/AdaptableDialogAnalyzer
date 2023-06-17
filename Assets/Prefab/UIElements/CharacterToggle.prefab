@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8723794574453046617}
   - component: {fileID: 8723794574453046614}
-  - component: {fileID: 9209106255256122066}
+  - component: {fileID: 6046080455300388719}
   - component: {fileID: 1267754339452761945}
   m_Layer: 0
   m_Name: CharacterToggle
@@ -329,7 +329,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!114 &9209106255256122066
+--- !u!114 &6046080455300388719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8723794574453046616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11627eadf4493714f96f4e8c9d2f07af, type: 3}
+  m_Script: {fileID: 11500000, guid: 9585d4afb46fb054aa5009bd1297c548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iceCharacterColor:
@@ -347,6 +347,7 @@ MonoBehaviour:
   - {fileID: 8723794574882095823}
   txtCharacterName:
   - {fileID: 8723794574521902256}
+  toggle: {fileID: 8723794574453046614}
 --- !u!114 &1267754339452761945
 MonoBehaviour:
   m_ObjectHideFlags: 0

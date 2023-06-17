@@ -47,5 +47,17 @@ namespace AdaptableDialogAnalyzer.DataStructures
             matchedIndexes.Add(refIdx);
             return true;
         }
+
+        /// <summary>
+        /// 移除匹配项，没有则返回false，移除成功返回true
+        /// </summary>
+        /// <param name="refIdx"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="length"></param>
+
+        public bool RemoveMatchedDialogue(int refIdx)
+        {
+            return matchedIndexes.Remove(refIdx);
+        }
     }
 }
