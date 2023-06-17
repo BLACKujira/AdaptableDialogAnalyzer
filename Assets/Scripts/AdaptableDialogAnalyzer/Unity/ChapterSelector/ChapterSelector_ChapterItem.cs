@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
+
     public class ChapterSelector_ChapterItem : MonoBehaviour
     {
         [Header("Components")]
@@ -17,9 +18,9 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <summary>
         /// total为显示在最右边的数字，mentionCounts的x表示角色（的代表色）y表示数字
         /// </summary>
-        public void SetData(Chapter chapter, int total, Vector2Int[] mentionCounts)
+        public void SetData(Chapter chapter, int total, params Vector2Int[] mentionCounts)
         {
-            txtName.text = $"{chapter.chapterTitle} [{chapter.chapterID}]";
+            txtName.text = $"{chapter.ChapterTitle} [{chapter.ChapterID}]";
             txtTotal.text = total.ToString();
 
             //生成表示提及角色的小UI元素

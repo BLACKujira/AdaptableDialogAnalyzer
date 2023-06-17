@@ -4,17 +4,20 @@ using System.IO;
 
 namespace AdaptableDialogAnalyzer.Games.Kimihane
 {
-    public class MultipleChapterLoader_Folder_Kimihane_Ybn : MultipleChapterLoader
+    public class ChapterLoader_Folder_Kimihane_Ybn : ChapterLoader
     {
         public string folder;
 
-        public override Chapter[] GetChapters()
+        public override Chapter[] InitializeChapters()
         {
             string[] files = Directory.GetFiles(folder);
             List<Chapter> chapters = new List<Chapter>();
             foreach (string file in files)
             {
-                chapters.Add(Chapter_Kimihane_Ybn.LoadText(File.ReadAllText(file)));
+                Chapter chapter = Chapter_Kimihane_Ybn.LoadText(File.ReadAllText(file));
+                chapter.ChapterID = Path.GetFileNameWithoutExtension(file);
+                chapter.ChapterTitle = Path.GetFileNameWithoutExtension(file);
+                chapters.Add(chapter);
             }
             return chapters.ToArray();
         }

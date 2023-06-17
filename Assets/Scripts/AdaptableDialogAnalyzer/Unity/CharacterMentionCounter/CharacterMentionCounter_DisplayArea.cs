@@ -32,7 +32,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 CharacterMentionCounter_SpeakerItem speakerItem = gobj.GetComponent<CharacterMentionCounter_SpeakerItem>();
                 speakerItem.SetData(id);
                 speakerItems[id] = speakerItem;
-                speakerItem.Button.onClick.AddListener(() =>
+                speakerItem.button.onClick.AddListener(() =>
                 {
                     SelectCharacter(id);
                 });

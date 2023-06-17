@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Games.ReStage
 {
-    public class SingleChapterLoader_TextAsset_ReStage_AdvScenario : SingleChapterLoader
+    public class SimpleChapterLoader_TextAsset_ReStage_AdvScenario : SimpleChapterLoader
     {
         public TextAsset textAsset;
 

@@ -18,7 +18,7 @@ namespace AdaptableDialogAnalyzer.Unity
         [Header("Settings")]
         public string saveFolder;
         [Header("Adapter")]
-        public MultipleChapterLoader chapterLoader;
+        public ChapterLoader chapterLoader;
 
         /// <summary>
         /// 需要统计的剧情，用于显示统计进度
@@ -46,7 +46,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Start()
         {
-            chapters = chapterLoader.GetChapters();
+            chapters = chapterLoader.Chapters;
 
             NicknameDefinition nicknameDefinition = GlobalConfig.NicknameDefinition;
 
@@ -138,7 +138,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 MentionedCountMatrix mentionedCountMatrix = CountChapter(chapter);
                 mentionedCountManager.mentionedCountMatrices.Add(mentionedCountMatrix);
 
-                string savePath = Path.Combine(saveFolder, chapter.chapterID + ".cmc");
+                string savePath = Path.Combine(saveFolder, chapter.ChapterID + ".mcm");
                 File.WriteAllText(savePath, JsonUtility.ToJson(mentionedCountMatrix));
 
                 if (threadAbortFlag) return;
@@ -151,8 +151,8 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <param name="chapter"></param>
         MentionedCountMatrix CountChapter(Chapter chapter)
         {
-            MentionedCountMatrix mentionedCountMatrix = new MentionedCountMatrix(GlobalConfig.CharacterDefinition.characters.Count);
-            mentionedCountMatrix.chapter = chapter;
+            MentionedCountMatrix mentionedCountMatrix = new MentionedCountMatrix(chapter, GlobalConfig.CharacterDefinition.characters.Count);
+            mentionedCountMatrix.Chapter = chapter;
 
             BasicTalkSnippet[] talkSnippets = chapter.GetTalkSnippets();
             foreach (var talkSnippet in talkSnippets)
@@ -173,6 +173,9 @@ namespace AdaptableDialogAnalyzer.Unity
             NicknameDefinition nicknameDefinition = GlobalConfig.NicknameDefinition;
             HashSet<string> bypassUnidentified = new HashSet<string>();
 
+            //记录台词
+            mentionedCountMatrix[talkSnippet.SpeakerId].serifs.Add(talkSnippet.RefIdx);
+
             //首先判断通用昵称
             for (int mentionedPersonId = 0; mentionedPersonId < nicknameDefinition.commonNicknameMapping.nicknameLists.Count; mentionedPersonId++)
             {
@@ -182,7 +185,7 @@ namespace AdaptableDialogAnalyzer.Unity
                     Regex regexObject = regexDictionary[regex]; //获取正则表达式对象
                     Match match = regexObject.Match(talkSnippet.Content);
                     if (match.Success)
-                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx, match.Index, match.Length);
+                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
                     if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
                 }
             }
@@ -197,7 +200,7 @@ namespace AdaptableDialogAnalyzer.Unity
                     Regex regexObject = regexDictionary[regex];
                     Match match = regexObject.Match(talkSnippet.Content);
                     if (match.Success)
-                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx, match.Index, match.Length);
+                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
                     if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
                 }
             }
@@ -210,7 +213,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 Regex regexObject = regexDictionary[regex];
                 Match match = regexObject.Match(talkSnippet.Content);
                 if (match.Success)
-                    mentionedCountMatrix.AddUnidentifiedSerif(regex, talkSnippet.RefIdx, match.Index, match.Length);
+                    mentionedCountMatrix.AddUnidentifiedSerif(regex, talkSnippet.RefIdx);
             }
         }
     }

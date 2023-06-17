@@ -1,27 +1,37 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdaptableDialogAnalyzer.DataStructures
 {
     [Serializable]
     public class MentionedCountGrid
     {
-        public List<MatchedSerif> matched = new List<MatchedSerif>();
-        public int Count => matched.Count;
+        public List<int> matchedIndexes = new List<int>();
+
+        /// <summary>
+        /// 匹配到的次数统计（等同于matched.Count）
+        /// </summary>
+        public int Count => matchedIndexes.Count;
+
+        /// <summary>
+        /// 获取匹配到所有ID的集合 
+        /// </summary>
+        public HashSet<int> MatchedIndexSet
+        {
+            get
+            {
+                HashSet<int> matchedIndexes = new HashSet<int>(this.matchedIndexes);
+                return matchedIndexes;
+            }
+        }
 
         /// <summary>
         /// 判断某句台词是否被匹配
         /// </summary>
-        /// <param name="refIdx"></param>
-        /// <returns></returns>
         public bool HasSerif(int refIdx)
         {
-            foreach (var matchedSerif in matched)
-            {
-                if (matchedSerif.refIdx == refIdx)
-                    return true;
-            }
-            return false;
+            return matchedIndexes.Contains(refIdx);
         }
 
         /// <summary>
@@ -30,12 +40,11 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <param name="refIdx"></param>
         /// <param name="startIndex"></param>
         /// <param name="length"></param>
-        public bool AddMatchedDialogue(int refIdx, int startIndex, int length)
+        public bool AddMatchedDialogue(int refIdx)
         {
             if (HasSerif(refIdx)) return false;
 
-            MatchedSerif matchedDialogue = new MatchedSerif(refIdx, startIndex, length);
-            matched.Add(matchedDialogue);
+            matchedIndexes.Add(refIdx);
             return true;
         }
     }

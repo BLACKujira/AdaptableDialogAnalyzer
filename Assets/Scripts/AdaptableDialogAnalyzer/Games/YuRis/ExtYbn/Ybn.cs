@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Games.YuRis.ExtYbn
 {
+    /// <summary>
+    /// 由ExtYbn反编译得到的JSON对象
+    /// </summary>
     [Serializable]
     public class Ybn
     {

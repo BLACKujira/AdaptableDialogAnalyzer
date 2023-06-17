@@ -12,8 +12,7 @@ namespace AdaptableDialogAnalyzer.Unity
         [Header("Prefab")]
         public SpeechBubble speechBubblePrefab;
         [Header("Adapter")]
-        public SingleChapterLoader chapterLoader;
-
+        public SimpleChapterLoader chapterLoader;
 
         Chapter chapter;
         List<SpeechBubble> speechBubbles = new List<SpeechBubble>();

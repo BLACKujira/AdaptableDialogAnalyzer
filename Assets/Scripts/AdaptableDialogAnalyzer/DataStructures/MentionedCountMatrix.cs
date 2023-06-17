@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdaptableDialogAnalyzer.Unity;
+using System;
 using System.Collections.Generic;
 
 namespace AdaptableDialogAnalyzer.DataStructures
@@ -12,12 +13,17 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 在编辑器中使用，当修改后变成True
         /// </summary>
-        [NonSerialized] public bool hasChanged = false;
+        private bool hasChanged = false;
 
         /// <summary>
-        /// 统计的故事章节，运行时获取，不参与序列化
+        /// 统计的故事章节，运行时由MentionedCountResultLoader获取，不参与序列化
         /// </summary>
-        [NonSerialized] public Chapter chapter;
+        private Chapter chapter;
+
+        /// <summary>
+        /// 序列化一部分章节的信息，以便不读取章节的情况下使用某些功能
+        /// </summary>
+        public ChapterInfo chapterInfo;
 
         /// <summary>
         /// 每个角色提到每个角色的次数
@@ -29,11 +35,25 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// </summary>
         public List<UnidentifiedMentions> unidentifiedMentionsList = new List<UnidentifiedMentions>();
 
+        public Chapter Chapter
+        {
+            get
+            {
+                if (chapter == null) throw new Exception("未加载章节，请使用MentionCountEditor加载统计数据，或在代码中设置此属性");
+                return chapter;
+            }
+            set => chapter = value;
+        }
+        public bool HasChanged { get => hasChanged; set => hasChanged = value; }
+
         public MentionedCountRow this[int speakerId] => mentionedCountRows[speakerId];
         public MentionedCountGrid this[int speakerId, int mentionedPersonId] => mentionedCountRows[speakerId][mentionedPersonId];
 
-        public MentionedCountMatrix(int size)
+        public MentionedCountMatrix(Chapter chapter, int size)
         {
+            this.chapter = chapter;
+            chapterInfo = new ChapterInfo(chapter);
+
             mentionedCountRows = new MentionedCountRow[size];
             for (int i = 0; i < size; i++)
             {
@@ -57,7 +77,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 添加模糊昵称的匹配结果
         /// </summary>
-        public bool AddUnidentifiedSerif(string unidentifiedNickname, int refIdx, int startIndex, int length)
+        public bool AddUnidentifiedSerif(string unidentifiedNickname, int refIdx)
         {
             UnidentifiedMentions unidentifiedMentions;
             unidentifiedMentions = GetUnidentifiedMentions(unidentifiedNickname);
@@ -66,7 +86,36 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 unidentifiedMentions = new UnidentifiedMentions(unidentifiedNickname);
                 unidentifiedMentionsList.Add(unidentifiedMentions);
             }
-            return unidentifiedMentions.AddMatchedDialogue(refIdx, startIndex, length);
+            return unidentifiedMentions.AddMatchedDialogue(refIdx);
+        }
+
+        /// <summary>
+        /// 返回每句台词的统计信息
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<int,List<int>> GetSnippetCountDictionary()
+        {
+            Dictionary<int, List<int>> snippetCountDictionary = new Dictionary<int, List<int>>();
+            BasicTalkSnippet[] basicTalkSnippets = chapter.GetTalkSnippets();
+            foreach (var basicTalkSnippet in basicTalkSnippets)
+            {
+                snippetCountDictionary[basicTalkSnippet.RefIdx] = new List<int>();
+            }
+
+            int size = GlobalConfig.CharacterDefinition.characters.Count;
+            for (int speakerId = 0; speakerId < size; speakerId++)
+            {
+                for (int mentionedPersonId = 0; mentionedPersonId < size; mentionedPersonId++)
+                {
+                    MentionedCountGrid mentionedCountGrid = this[speakerId, mentionedPersonId];
+                    foreach (var refIdx in mentionedCountGrid.matchedIndexes)
+                    {
+                        snippetCountDictionary[refIdx].Add(mentionedPersonId);
+                    }
+                }
+            }
+
+            return snippetCountDictionary;
         }
     }
 }

@@ -72,7 +72,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.5
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -201,6 +201,8 @@ MonoBehaviour:
   - {fileID: 3267822783639158560}
   - {fileID: 3267822784909226188}
   - {fileID: 3267822784190942992}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
+  colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   fadeTime: 0.25
 --- !u!1 &3267822784190942994
 GameObject:

@@ -39,9 +39,9 @@ namespace AdaptableDialogAnalyzer.DataStructures
 
             foreach (var mentionedCountMatrix in mentionedCountMatrices)
             {
-                if (!countDictionary.ContainsKey(mentionedCountMatrix.chapter.chapterType)) 
-                    countDictionary[mentionedCountMatrix.chapter.chapterType] = 0;
-                countDictionary[mentionedCountMatrix.chapter.chapterType] += mentionedCountMatrix[speakerId, mentionedPersonId].Count;
+                if (!countDictionary.ContainsKey(mentionedCountMatrix.Chapter.ChapterType)) 
+                    countDictionary[mentionedCountMatrix.Chapter.ChapterType] = 0;
+                countDictionary[mentionedCountMatrix.Chapter.ChapterType] += mentionedCountMatrix[speakerId, mentionedPersonId].Count;
             }
         }
 

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.UIElements
 {
+
     public class TextWithIndividualColor : MonoBehaviour
     {
         [Header("Components")]

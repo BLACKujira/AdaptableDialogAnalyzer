@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1be54aed9b73649a04b2d0e1f88c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 7911580045666626551}
   individualColorElement: {fileID: 2368102469931034510}
   imgIcon: {fileID: 7911580046246286438}
   txtName: {fileID: 7911580045869347353}

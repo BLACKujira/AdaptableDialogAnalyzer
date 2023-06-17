@@ -6,18 +6,17 @@ using Color = UnityEngine.Color;
 
 namespace AdaptableDialogAnalyzer.UIElements
 {
+
     public class SpeechBubble : MonoBehaviour
     {
         [Header("Component")]
+        public IndividualColorElement iceName;
+        public IndividualColorElement iceContent;
         public Image imgIcon;
-        public Image imgNameBG;
         public Text txtName;
-        public Image imgContentBG;
         public Text txtContent;
         [Header("Color")]
         public Color defaultBGColor = new Color32(240, 240, 240, 255);
-        public Color colorWhite = Color.white;
-        public Color colorBlack = new Color32(68, 68, 102, 255);
         [Header("Settings")]
         public int maxTextLengthPerLine = 40;
 
@@ -70,8 +69,7 @@ namespace AdaptableDialogAnalyzer.UIElements
         /// <param name="color"></param>
         public void SetNameBGColor(Color color)
         {
-            imgNameBG.color = color;
-            txtName.color = APCA.GetMostVisibleColor(color, colorWhite, colorBlack);
+            iceName.SetIndividualColor(color);
         }
 
         /// <summary>
@@ -80,8 +78,7 @@ namespace AdaptableDialogAnalyzer.UIElements
         /// <param name="color"></param>
         public void SetContentBGColor(Color color)
         {
-            imgContentBG.color = color;
-            txtContent.color = APCA.GetMostVisibleColor(color, colorWhite, colorBlack);
+            iceContent.SetIndividualColor(color);
         }
     }
 }

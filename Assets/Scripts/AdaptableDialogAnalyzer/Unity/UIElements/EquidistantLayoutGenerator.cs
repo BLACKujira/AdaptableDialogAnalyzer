@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.UIElements
 {
     /// <summary>
-    /// Éú³ÉÒ»ÁĞË®Æ½/´¹Ö±µÄµÈ¾àUI
+    /// ç”Ÿæˆä¸€åˆ—æ°´å¹³/å‚ç›´çš„ç­‰è·UI
     /// </summary>
     public class EquidistantLayoutGenerator : MonoBehaviour
     {

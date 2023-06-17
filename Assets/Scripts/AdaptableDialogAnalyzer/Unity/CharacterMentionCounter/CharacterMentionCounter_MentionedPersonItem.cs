@@ -1,20 +1,8 @@
-﻿using AdaptableDialogAnalyzer.UIElements;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
-    public class ChapterSelector : MonoBehaviour
-    {
-        [Header("Components")]
-        public EquidistantLayoutGenerator elgTypes;
-        public EquidistantLayoutGenerator elgChapters;
-
-        Dictionary<string, List<Chapter>> chapters = new Dictionary<string, List<Chapter>>();
-    }
-
     public class CharacterMentionCounter_MentionedPersonItem : MonoBehaviour
     {
         [Header("Components")]

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Games.Kimihane
 {
-    public class SingleChapterLoader_TextAsset_Kimihane_Ybn : SingleChapterLoader
+    public class SimpleChapterLoader_TextAsset_Kimihane_Ybn : SimpleChapterLoader
     {
         public TextAsset textAsset;
 
