@@ -73,6 +73,8 @@ namespace AdaptableDialogAnalyzer.Unity
                         MentionedCountMatrix[basicTalkSnippet.SpeakerId, id].RemoveMatchedDialogue(basicTalkSnippet.RefIdx);
                         snippetCountDictionary[basicTalkSnippet.RefIdx].Remove(id);
                     }
+
+                    MentionedCountMatrix.RemoveUnidentifiedMention(basicTalkSnippet.RefIdx);
                 });
 
                 mutiCharacterSelector.window.OnClose.AddListener(() =>

@@ -88,7 +88,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1510655733255346965}
   - component: {fileID: 1510655733255346960}
-  - component: {fileID: 1510655733255346962}
   - component: {fileID: 5884510630168945334}
   - component: {fileID: 3602980685632035061}
   m_Layer: 0
@@ -162,28 +161,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1510655733255346962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510655733255346964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb59d1b8973c31844bb1c18fa693f4aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorGraphics:
-  - {fileID: 1510655732879286617}
-  - {fileID: 0}
-  - {fileID: 0}
-  textColorGraphics:
-  - {fileID: 1510655733485298657}
-  - {fileID: 8296703987778038439}
-  colorWhite: {r: 1, g: 1, b: 1, a: 1}
-  colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
-  fadeTime: 0.5
 --- !u!114 &5884510630168945334
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// 返回每句台词的统计信息
         /// </summary>
         /// <returns></returns>
-        public Dictionary<int,List<int>> GetSnippetCountDictionary()
+        public Dictionary<int, List<int>> GetSnippetCountDictionary()
         {
             Dictionary<int, List<int>> snippetCountDictionary = new Dictionary<int, List<int>>();
             BasicTalkSnippet[] basicTalkSnippets = chapter.GetTalkSnippets();
@@ -128,10 +128,20 @@ namespace AdaptableDialogAnalyzer.DataStructures
             {
                 foreach (var id in unidentifiedMentions.matchedIndexes)
                 {
-                    if(id == refIdx) return true;
+                    if (id == refIdx) return true;
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// 某句是否含有某多义昵称
+        /// </summary>
+        public bool HasUnidentifiedMention(int refIdx, string unidentifiedNickname)
+        {
+            UnidentifiedMentions unidentifiedMentions = GetUnidentifiedMentions(unidentifiedNickname);
+            if (unidentifiedMentions == null) return false;
+            return unidentifiedMentions.HasSerif(refIdx);
         }
 
         /// <summary>
@@ -140,6 +150,23 @@ namespace AdaptableDialogAnalyzer.DataStructures
         public int GetSerifCount()
         {
             return mentionedCountRows.Sum(r => r.SerifCount);
+        }
+
+        /// <summary>
+        /// 移除任一多义昵称匹配列表中的此台词
+        /// </summary>
+        /// <returns>移除是否成功</returns>
+        public bool RemoveUnidentifiedMention(int refIdx)
+        {
+            foreach (var unidentifiedMentions in unidentifiedMentionsList)
+            {
+                if(unidentifiedMentions.HasSerif(refIdx))
+                {
+                    unidentifiedMentions.RemoveMatchedDialogue(refIdx);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

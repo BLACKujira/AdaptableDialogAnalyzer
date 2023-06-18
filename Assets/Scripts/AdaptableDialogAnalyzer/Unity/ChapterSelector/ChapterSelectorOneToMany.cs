@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
     /// <summary>
     /// 多角色模式选择器
     /// </summary>

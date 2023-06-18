@@ -19,6 +19,8 @@ namespace AdaptableDialogAnalyzer.Unity
         public Window chapterSelectorOneToOnePrefab;
         public Window chapterSelectorOneToManyPrefab;
         public Window chapterSelectorManyToManyPrefab;
+        public Window unidentifiedMatchSelectorPrefab;
+        public Window discrepancyCheckerPrefab;
 
         MentionedCountManager mentionedCountManager;
 
@@ -108,6 +110,18 @@ namespace AdaptableDialogAnalyzer.Unity
             ChapterSelectorManyToMany chapterSelector = window.OpenWindow<ChapterSelectorManyToMany>(chapterSelectorManyToManyPrefab);
             chapterSelector.Initialize(mentionedCountManager);
             chapterSelector.window.OnClose.AddListener(() => Refresh());
+        }
+
+        public void OpenSelectorUnidentified()
+        {
+            UnidentifiedMatchSelector unidentifiedMatchSelector = window.OpenWindow<UnidentifiedMatchSelector>(unidentifiedMatchSelectorPrefab);
+            unidentifiedMatchSelector.Initialize(mentionedCountManager);
+        }
+
+        public void OpenDiscrepancyChecker()
+        {
+            MentionDiscrepancyChecker mentionDiscrepancyChecker = window.OpenWindow<MentionDiscrepancyChecker>(discrepancyCheckerPrefab);
+            mentionDiscrepancyChecker.Initialize(mentionedCountManager);
         }
     }
 }

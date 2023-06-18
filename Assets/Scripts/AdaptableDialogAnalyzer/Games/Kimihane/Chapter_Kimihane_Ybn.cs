@@ -1,5 +1,4 @@
-﻿using AdaptableDialogAnalyzer.Games.ProjectSekai;
-using AdaptableDialogAnalyzer.Games.YuRis.ExtYbn;
+﻿using AdaptableDialogAnalyzer.Games.YuRis.ExtYbn;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -46,6 +45,32 @@ namespace AdaptableDialogAnalyzer.Games.Kimihane
                 }
             }
             return basicTalkSnippets.ToArray();
+        }
+
+        /// <summary>
+        /// DEBUG用，寻找含有某个参数的指令
+        /// </summary>
+        public Inst[] FindInstWithArg(string arg, bool exactMatch)
+        {
+            List<Inst> insts = new List<Inst>();
+            foreach (var inst in Ybn.Insts)
+            {
+                foreach (var argObj in inst.Args)
+                {
+                    byte[] bytes = Convert.FromBase64String(argObj.Res.ResRaw);
+                    string decodedArg = Encoding.GetEncoding("shift-jis").GetString(bytes);
+
+                    if(exactMatch)
+                    {
+                        if (decodedArg.Contains(arg)) insts.Add(inst);
+                    }
+                    else
+                    {
+                        if(decodedArg.Equals(arg)) insts.Add(inst);
+                    }
+                }
+            }
+            return insts.ToArray();
         }
     }
 }
