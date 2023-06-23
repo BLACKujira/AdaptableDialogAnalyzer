@@ -54,6 +54,8 @@ namespace AdaptableDialogAnalyzer
             set => chapterID = value;
         }
 
+        public virtual string ExtraInfo => "无附加信息";
+
         /// <summary>
         /// 重载此方法以获取此剧情的基础对话信息
         /// </summary>

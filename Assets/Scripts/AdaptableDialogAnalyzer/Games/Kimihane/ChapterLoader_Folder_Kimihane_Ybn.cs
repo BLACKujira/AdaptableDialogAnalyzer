@@ -7,6 +7,7 @@ namespace AdaptableDialogAnalyzer.Games.Kimihane
     public class ChapterLoader_Folder_Kimihane_Ybn : ChapterLoader
     {
         public string folder;
+        public Kimihane_LabelInfoLoader labelInfoLoader;
 
         public override Chapter[] InitializeChapters()
         {
@@ -14,7 +15,7 @@ namespace AdaptableDialogAnalyzer.Games.Kimihane
             List<Chapter> chapters = new List<Chapter>();
             foreach (string file in files)
             {
-                Chapter chapter = Chapter_Kimihane_Ybn.LoadText(File.ReadAllText(file));
+                Chapter chapter = Chapter_Kimihane_Ybn.LoadText(File.ReadAllText(file), labelInfoLoader);
                 chapter.ChapterID = Path.GetFileNameWithoutExtension(file);
                 chapter.ChapterTitle = Path.GetFileNameWithoutExtension(file);
 

@@ -1226,6 +1226,7 @@ GameObject:
   - component: {fileID: 682293569}
   - component: {fileID: 682293568}
   - component: {fileID: 682293571}
+  - component: {fileID: 682293573}
   m_Layer: 0
   m_Name: MentionCountEditor
   m_TagString: Untagged
@@ -1400,6 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   folder: D:\Extract\103
+  labelInfoLoader: {fileID: 682293573}
 --- !u!114 &682293572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,6 +1423,19 @@ MonoBehaviour:
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   fadeTime: 0.25
+--- !u!114 &682293573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682293563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aafb8b30b81f054b9f96642f0e17580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yslFilePath: D:\Extract\102\data.ypf~\ysbin\ysl.ybn
 --- !u!1001 &732779064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2010,6 +2025,84 @@ MonoBehaviour:
   distance: 110
   direction: 0
   reverse: 0
+--- !u!1 &1490490334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490490337}
+  - component: {fileID: 1490490336}
+  - component: {fileID: 1490490335}
+  - component: {fileID: 1490490338}
+  m_Layer: 0
+  m_Name: ArgumentFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1490490335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490490334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d880a9b8e9f84f40ac824964f30c24f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  folder: D:\Extract\103
+  labelInfoLoader: {fileID: 0}
+--- !u!114 &1490490336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490490334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5debd93ae86eab347a62dc2970fac0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapterLoader: {fileID: 1490490335}
+  argument: MakeLog
+  exactMatch: 0
+--- !u!4 &1490490337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490490334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 987.475, y: 448.4696, z: -895.29706}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1490490338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490490334}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e2d829c47e7604d9b2b151a13dd87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startIndex: 1036
+  yslAsset: {fileID: 4900000, guid: be0c6bf786f5468429490dafe8e2e817, type: 3}
+  ybnId: -1
+  contains: RouteCheck
 --- !u!1001 &1501574733
 PrefabInstance:
   m_ObjectHideFlags: 0

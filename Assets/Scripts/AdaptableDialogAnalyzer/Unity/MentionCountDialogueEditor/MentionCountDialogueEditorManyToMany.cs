@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
@@ -14,6 +15,8 @@ namespace AdaptableDialogAnalyzer.Unity
             });
 
             base.Initialize(mentionedCountMatrix);
+
+            Debug.Log(mentionedCountMatrix.Chapter.ExtraInfo);
         }
 
         protected override List<BasicTalkSnippet> FilterTalkSnippets(List<BasicTalkSnippet> talkSnippets)

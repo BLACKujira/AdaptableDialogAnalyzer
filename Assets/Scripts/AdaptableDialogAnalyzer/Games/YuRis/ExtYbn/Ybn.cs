@@ -1,7 +1,12 @@
+using AdaptableDialogAnalyzer.Games.YuRis.ExtYbn;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
+using System.Xml.Linq;
+
+namespace AdaptableDialogAnalyzer.Games.YuRis
+{
+
+}
 
 namespace AdaptableDialogAnalyzer.Games.YuRis.ExtYbn
 {
