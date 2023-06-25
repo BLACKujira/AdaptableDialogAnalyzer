@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace AdaptableDialogAnalyzer.Unity.CharacterEditor
+namespace AdaptableDialogAnalyzer.Unity
 {
     /// <summary>
     /// 用于方便复用的ScriptableObject型字符串列表
     /// </summary>
-    [System.Serializable]
+    [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/StringList")]
     public class StringList : ScriptableObject
     {
-        /// <summary>
-        /// 角色昵称
-        /// </summary>
         public List<string> strings;
+
+        public string this[int index] => strings[index];
     }
 }

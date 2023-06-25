@@ -217,6 +217,7 @@ MonoBehaviour:
   txtProgress: {fileID: 3161121589925487993}
   progressBar: {fileID: 5968739812270554509}
   saveFolder: D:\Extract\105
+  removeStrings: {fileID: 11400000, guid: 21764f4f133caab4786216c68e5d45d7, type: 2}
   chapterLoader: {fileID: 0}
 --- !u!114 &3161121589518894608
 MonoBehaviour:

@@ -17,6 +17,7 @@ namespace AdaptableDialogAnalyzer.Unity
         public ProgressBar progressBar;
         [Header("Settings")]
         public string saveFolder;
+        [Tooltip("可空，不支持正则表达式")] public StringList removeStrings;
         [Header("Adapter")]
         public ChapterLoader chapterLoader;
 
@@ -157,7 +158,15 @@ namespace AdaptableDialogAnalyzer.Unity
             BasicTalkSnippet[] talkSnippets = chapter.GetTalkSnippets();
             foreach (var talkSnippet in talkSnippets)
             {
-                CountSnippet(talkSnippet, mentionedCountMatrix);
+                BasicTalkSnippet matchSnippet = talkSnippet;
+                if(removeStrings!=null)
+                {
+                    foreach (var str in removeStrings.strings)
+                    {
+                        matchSnippet.content = matchSnippet.content.Replace(str, "");
+                    }
+                }
+                CountSnippet(matchSnippet, mentionedCountMatrix);
             }
 
             return mentionedCountMatrix;

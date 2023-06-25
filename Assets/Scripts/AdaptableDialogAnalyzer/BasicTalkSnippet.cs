@@ -6,6 +6,7 @@
     [System.Serializable]
     public class BasicTalkSnippet
     {
+        //由于需要序列化没有设置成私有，最好不要使用
         public int refIdx;
         public int speakerId;
         public string displayName;
@@ -41,5 +42,10 @@
         /// 窗口显示名称，用于查看，如未设置则为角色定义中的角色名
         /// </summary>
         public string DisplayName => displayName;
+
+        public BasicTalkSnippet Clone()
+        {
+            return new BasicTalkSnippet(RefIdx, SpeakerId, Content, DisplayName);
+        }
     }
 }

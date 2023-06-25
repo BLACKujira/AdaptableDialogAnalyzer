@@ -96,6 +96,7 @@ MonoBehaviour:
   textColorGraphics:
   - {fileID: 7022095209222395589}
   - {fileID: 7022095209731585148}
+  - {fileID: 7022095209701222154}
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   fadeTime: 0.25

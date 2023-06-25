@@ -29,7 +29,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
-            chapterItem.SetData(countMatrix.Chapter, countMatrix.GetSerifCount());
+            chapterItem.SetData(countMatrix.Chapter, countMatrix.Chapter.SerifCount);
 
             chapterItem.button.onClick.AddListener(() =>
             {

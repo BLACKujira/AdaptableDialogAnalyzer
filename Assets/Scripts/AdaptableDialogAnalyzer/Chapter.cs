@@ -56,6 +56,19 @@ namespace AdaptableDialogAnalyzer
 
         public virtual string ExtraInfo => "无附加信息";
 
+        int serifCount = -1;
+        public int SerifCount
+        {
+            get
+            {
+                if(serifCount < 0) 
+                {
+                    serifCount = GetTalkSnippets().Length;
+                }
+                return serifCount;
+            }
+        }
+
         /// <summary>
         /// 重载此方法以获取此剧情的基础对话信息
         /// </summary>

@@ -510,6 +510,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3902986862120528001, guid: cb806c4ff1672f840a6c6aa095052b60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3902986862120528002, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -678,12 +683,12 @@ PrefabInstance:
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
@@ -731,7 +736,7 @@ MonoBehaviour:
   scorllContent: {fileID: 7768648083558481985}
   itemPrefab: {fileID: 7022095208607631592, guid: aedd99625b1869642ae61b1233fc2f1f,
     type: 3}
-  numberPerLine: 2
-  distanceX: 650
+  numberPerLine: 3
+  distanceX: 620
   distanceY: 110
-  topLeftMargin: {x: 20, y: 20}
+  topLeftMargin: {x: 0, y: 20}

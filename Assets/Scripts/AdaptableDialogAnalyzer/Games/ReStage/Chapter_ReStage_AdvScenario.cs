@@ -43,7 +43,9 @@ namespace AdaptableDialogAnalyzer.Games.ReStage
 
         public bool IsVoiceOnly()
         {
-            if(advScenario.Pages.Count == 5 && advScenario.Pages[4].text.Equals("　"))
+            if (advScenario.Pages.Count >= 5 
+                && (advScenario.Pages[3].text?.Contains("……") ?? false) 
+                && (advScenario.Pages[3].text?.Contains("color") ?? false))
             {
                 return true;
             }
@@ -65,7 +67,7 @@ namespace AdaptableDialogAnalyzer.Games.ReStage
         public static string GetTypeName(ReStage_ChapterNameInfo chapterNameInfo)
         {
             if (chapterNameInfo == null) return "其他剧情";
-            switch(chapterNameInfo.type) 
+            switch (chapterNameInfo.type)
             {
                 case "card": return $"卡面剧情 {chapterNameInfo.index1 / 1000 * 1000}";
                 case "main": return "主线剧情";
