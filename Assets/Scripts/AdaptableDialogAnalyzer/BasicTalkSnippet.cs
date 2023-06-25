@@ -3,12 +3,13 @@
     /// <summary>
     /// 基础的对话片段、对应原始文件中的一句台词
     /// </summary>
+    [System.Serializable]
     public class BasicTalkSnippet
     {
-        int refIdx;
-        int speakerId;
-        string displayName;
-        string content;
+        public int refIdx;
+        public int speakerId;
+        public string displayName;
+        public string content;
 
         /// <summary>
         /// 构造函数，没什么特别的

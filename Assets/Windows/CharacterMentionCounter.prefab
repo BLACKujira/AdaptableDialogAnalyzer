@@ -111,7 +111,6 @@ GameObject:
   - component: {fileID: 3161121589518894700}
   - component: {fileID: 3161121589518894609}
   - component: {fileID: 3161121589518894608}
-  - component: {fileID: 3161121589518894610}
   m_Layer: 0
   m_Name: CharacterMentionCounter
   m_TagString: Untagged
@@ -218,7 +217,7 @@ MonoBehaviour:
   txtProgress: {fileID: 3161121589925487993}
   progressBar: {fileID: 5968739812270554509}
   saveFolder: D:\Extract\105
-  chapterLoader: {fileID: 3161121589518894610}
+  chapterLoader: {fileID: 0}
 --- !u!114 &3161121589518894608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,19 +233,6 @@ MonoBehaviour:
   characterMentionCounter: {fileID: 3161121589518894609}
   elgSpeaker: {fileID: 911501472647538413}
   elgMentionedPerson: {fileID: 894445019635218437}
---- !u!114 &3161121589518894610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3161121589518894699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d880a9b8e9f84f40ac824964f30c24f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  folder: D:\Extract\103
 --- !u!1 &3161121589925487991
 GameObject:
   m_ObjectHideFlags: 0

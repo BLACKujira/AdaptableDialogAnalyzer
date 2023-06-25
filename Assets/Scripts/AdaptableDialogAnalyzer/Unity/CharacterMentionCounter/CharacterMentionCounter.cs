@@ -185,8 +185,10 @@ namespace AdaptableDialogAnalyzer.Unity
                     Regex regexObject = regexDictionary[regex]; //获取正则表达式对象
                     Match match = regexObject.Match(talkSnippet.Content);
                     if (match.Success)
+                    {
                         mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
-                    if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
+                        if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(bypassUnidentifiedDictionary[regex]);
+                    }
                 }
             }
 
@@ -200,8 +202,10 @@ namespace AdaptableDialogAnalyzer.Unity
                     Regex regexObject = regexDictionary[regex];
                     Match match = regexObject.Match(talkSnippet.Content);
                     if (match.Success)
+                    {
                         mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
-                    if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(regex);
+                        if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(bypassUnidentifiedDictionary[regex]);
+                    }
                 }
             }
 

@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.UIElements
 {
+
     /// <summary>
     /// ½ø¶ÈÌõ
     /// </summary>

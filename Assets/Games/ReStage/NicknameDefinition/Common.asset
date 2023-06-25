@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fd36b4c34a1c04cb2389bc1e53cce5, type: 3}
+  m_Name: Common
+  m_EditorClassIdentifier: 
+  nicknameLists:
+  - nicknames: []
+  - nicknames:
+    - "\u821E\u83DC"
+    - "\u5F0F\u5BAE\u821E\u83DC"
+  - nicknames:
+    - "\u6708\u5742"
+    - "\u7D17\u7531"
+    - "\u6708\u5742\u7D17\u7531"
+  - nicknames:
+    - "\u5E02\u6775\u5CF6"
+    - "\u745E\u8449"
+    - "\u5E02\u6775\u5CF6\u745E\u8449"
+  - nicknames:
+    - "\u67CA"
+    - "\u304B\u3048"
+    - "\u67CA\u304B\u3048"
+  - nicknames:
+    - "\u672C\u57CE"
+    - "\u9999\u6F84"
+    - "\u672C\u57CE\u9999\u6F84"
+  - nicknames:
+    - "\u9577\u8C37\u5DDD"
+    - "\u307F\u3044"
+    - "\u9577\u8C37\u5DDD\u307F\u3044"
+    - "\u5B9F\u3061\u3083\u3093"
+    - "\u307F\u3043"
+  - nicknames:
+    - "\u7D2B"
+    - "\u4F0A\u6D25\u6751\u7D2B"
+  - nicknames:
+    - "\u967D\u82B1"
+    - "\u4F0A\u6D25\u6751\u967D\u82B1"
+  - nicknames:
+    - "\u78A7\u97F3"
+    - "\u5F0F\u5BAE\u78A7\u97F3"
+  - nicknames:
+    - "\u4E00\u6761"
+    - "\u7460\u590F"
+    - "\u4E00\u6761\u7460\u590F"
+  - nicknames:
+    - "\u5CAC"
+    - "\u73CA\u745A"
+    - "\u5CAC\u73CA\u745A"
+  - nicknames:
+    - "\u767D\u9CE5"
+    - "\u5929\u8449"
+    - "\u767D\u9CE5\u5929\u8449"
+  - nicknames:
+    - "\u5E06\u98A8"
+    - "\u594F"
+    - "\u5E06\u98A8\u594F"
+  - nicknames:
+    - "\u7DCB\u6751"
+    - "\u90A3\u5C90\u54B2"
+    - "\u7DCB\u6751\u90A3\u5C90\u54B2"
+  - nicknames:
+    - "\u5742\u6771\u7F8E"
+    - "\u4E45\u9F8D"
+    - "\u5742\u6771\u7F8E\u4E45\u9F8D"
+    - "\u30DF\u30AF\u30EB"
+    - "\u5742\u6771"
+    - "\u307F\u304F\u3061\u3083\u3093"
+  - nicknames:
+    - "\u897F\u9928"
+    - "\u30CF\u30AF"
+    - "\u897F\u9928\u30CF\u30AF"
+    - "\u306F\u304F\u3061\u3083\u3093"
+  - nicknames:
+    - "\u5357\u98A8\u91CE"
+    - "\u6731\u8389"
+    - "\u5357\u98A8\u91CE\u6731\u8389"
+    - "\u30A2\u30AB\u30EA"
+  - nicknames:
+    - "\u57CE\u5317"
+    - "\u7384\u5203"
+    - "\u57CE\u5317\u7384\u5203"
+    - "\u30AF\u30ED"
+    - "\u304F\u308D\u3061\u3083\u3093"

@@ -9,7 +9,7 @@ namespace AdaptableDialogAnalyzer.Unity
     [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/NicknameDefinition/NicknameCollection")]
     public class NicknameMapping : ScriptableObject
     {
-        public List<NicknameList> nicknameLists;
+        public List<NicknameList> nicknameLists = new List<NicknameList>();
 
         public NicknameList this[int mentionedPersonId] => nicknameLists[mentionedPersonId];
     }

@@ -32,7 +32,7 @@ namespace AdaptableDialogAnalyzer.Games.Kimihane
             }
         }
 
-        public static Chapter LoadText(string rawChapter, Kimihane_LabelInfoLoader labelYbnGetter = null)
+        public static Chapter_Kimihane_Ybn LoadText(string rawChapter, Kimihane_LabelInfoLoader labelYbnGetter = null)
         {
             Ybn ybn = JsonUtility.FromJson<Ybn>(rawChapter);
             Chapter_Kimihane_Ybn chapter_Kimihane_Ybn = new Chapter_Kimihane_Ybn();

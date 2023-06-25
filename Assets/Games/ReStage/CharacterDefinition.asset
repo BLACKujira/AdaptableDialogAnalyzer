@@ -18,74 +18,74 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 52bdcd506c84be846987f5a3fee1309a, type: 3}
     color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   - id: 1
-    name: "\u5F0F\u5BAE\u821E\u83DC"
+    name: "\u5F0F\u5BAE \u821E\u83DC"
     icon: {fileID: 21300000, guid: dc1ef06b16e5f4140bef2f9bd36b1ee6, type: 3}
     color: {r: 0.9058824, g: 0.6862745, b: 0.52156866, a: 1}
   - id: 2
-    name: "\u6708\u5742\u7D17\u7531"
+    name: "\u6708\u5742 \u7D17\u7531"
     icon: {fileID: 21300000, guid: 15291cb7105edfd48a59a63f8bfc7b76, type: 3}
     color: {r: 0.82745105, g: 0.72156864, b: 0.89019614, a: 1}
   - id: 3
-    name: "\u5E02\u6775\u5CF6\u745E\u8449"
+    name: "\u5E02\u6775\u5CF6 \u745E\u8449"
     icon: {fileID: 21300000, guid: ff4e759cb87077540851d639f096d6b1, type: 3}
     color: {r: 0.5137255, g: 0.427451, b: 0.5058824, a: 1}
   - id: 4
-    name: "\u67CA\u304B\u3048"
+    name: "\u67CA \u304B\u3048"
     icon: {fileID: 21300000, guid: 1357e86bc87918d4e8b9da0351708d95, type: 3}
     color: {r: 0.9607844, g: 0.7058824, b: 0.7058824, a: 1}
   - id: 5
-    name: "\u672C\u57CE\u9999\u6F84"
+    name: "\u672C\u57CE \u9999\u6F84"
     icon: {fileID: 21300000, guid: 3fe99c951a5a96c4d93c847166f14a2f, type: 3}
     color: {r: 0.54901963, g: 0.50980395, b: 0.7411765, a: 1}
   - id: 6
-    name: "\u9577\u8C37\u5DDD\u307F\u3044"
+    name: "\u9577\u8C37\u5DDD \u307F\u3044"
     icon: {fileID: 21300000, guid: 76681c19479a2404f9801096f6950350, type: 3}
     color: {r: 0.9921569, g: 0.9450981, b: 0.7019608, a: 1}
   - id: 7
-    name: "\u4F0A\u6D25\u6751\u7D2B"
+    name: "\u4F0A\u6D25\u6751 \u7D2B"
     icon: {fileID: 21300000, guid: 271ccc70fde62d34abc2e1b2df1b1ca9, type: 3}
     color: {r: 0.5294118, g: 0.5686275, b: 0.627451, a: 1}
   - id: 8
-    name: "\u4F0A\u6D25\u6751\u967D\u82B1"
+    name: "\u4F0A\u6D25\u6751 \u967D\u82B1"
     icon: {fileID: 21300000, guid: c599052bfc0ac1a4e9af7d46a9875f02, type: 3}
     color: {r: 1, g: 0.9294118, b: 0.79215693, a: 1}
   - id: 9
-    name: "\u5F0F\u5BAE\u78A7\u97F3"
+    name: "\u5F0F\u5BAE \u78A7\u97F3"
     icon: {fileID: 21300000, guid: 8bdafae92fb70a74c89cf56f0aa97c05, type: 3}
     color: {r: 0.68235296, g: 0.45098042, b: 0.4431373, a: 1}
   - id: 10
-    name: "\u4E00\u6761\u7460\u590F"
+    name: "\u4E00\u6761 \u7460\u590F"
     icon: {fileID: 21300000, guid: 6b35adbf9ec403f488e4303e96395969, type: 3}
     color: {r: 0.9058824, g: 0.882353, b: 0.8862746, a: 1}
   - id: 11
-    name: "\u5CAC\u73CA\u745A"
+    name: "\u5CAC \u73CA\u745A"
     icon: {fileID: 21300000, guid: b5b62e77c1f22a84dbb6217c5916b241, type: 3}
     color: {r: 0.92549026, g: 0.77647066, b: 0.8313726, a: 1}
   - id: 12
-    name: "\u767D\u9CE5\u5929\u8449"
+    name: "\u767D\u9CE5 \u5929\u8449"
     icon: {fileID: 21300000, guid: 0f6bc0dff33f5294792fa1b328abb722, type: 3}
     color: {r: 1, g: 0.96470594, b: 0.8705883, a: 1}
   - id: 13
-    name: "\u5E06\u98A8\u594F"
+    name: "\u5E06\u98A8 \u594F"
     icon: {fileID: 21300000, guid: f096e5df2efc8f54783b60df432c1a51, type: 3}
     color: {r: 0.9294118, g: 0.8745099, b: 0.98823535, a: 1}
   - id: 14
-    name: "\u7DCB\u6751\u90A3\u5C90\u54B2"
+    name: "\u7DCB\u6751 \u90A3\u5C90\u54B2"
     icon: {fileID: 21300000, guid: 7aa9850bd3a0a38438adb8ce23dd1a5a, type: 3}
     color: {r: 0.9568628, g: 0.86274517, b: 0.83921576, a: 1}
   - id: 15
-    name: "\u5742\u6771\u7F8E\u4E45\u9F8D"
+    name: "\u5742\u6771\u7F8E \u4E45\u9F8D"
     icon: {fileID: 21300000, guid: 13309b421c1a3e945a8108a8e3cac3f3, type: 3}
     color: {r: 0.38823533, g: 0.2627451, b: 0.3137255, a: 1}
   - id: 16
-    name: "\u897F\u9928\u30CF\u30AF"
+    name: "\u897F\u9928 \u30CF\u30AF"
     icon: {fileID: 21300000, guid: c84680228ea74574aa2db4d8434e8ba3, type: 3}
     color: {r: 1, g: 0.97647065, b: 0.9803922, a: 1}
   - id: 17
-    name: "\u5357\u98A8\u91CE\u6731\u8389"
+    name: "\u5357\u98A8\u91CE \u6731\u8389"
     icon: {fileID: 21300000, guid: acc41b354bb2b3b49a8be84918b786dc, type: 3}
     color: {r: 1, g: 0.69411767, b: 0.65882355, a: 1}
   - id: 18
-    name: "\u57CE\u5317\u7384\u5203"
+    name: "\u57CE\u5317 \u7384\u5203"
     icon: {fileID: 21300000, guid: 47ea4d36282a1e74e8ba85d5b6bd657f, type: 3}
     color: {r: 0.59607846, g: 0.8313726, b: 0.5803922, a: 1}
