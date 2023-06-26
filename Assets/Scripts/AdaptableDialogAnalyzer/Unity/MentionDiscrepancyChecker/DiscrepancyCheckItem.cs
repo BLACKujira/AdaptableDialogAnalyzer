@@ -18,9 +18,8 @@ namespace AdaptableDialogAnalyzer.Unity
 
         public void SetData(CharacterMentionStats statsAToB, CharacterMentionStats statsBToA, string reason)
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            Character characterA = characters[statsAToB.SpeakerId];
-            Character characterB = characters[statsBToA.SpeakerId];
+            Character characterA = GlobalConfig.CharacterDefinition[statsAToB.SpeakerId];
+            Character characterB = GlobalConfig.CharacterDefinition[statsBToA.SpeakerId];
 
             iceCharColorA.SetIndividualColor(characterA.color);
             iceCharColorB.SetIndividualColor(characterB.color);

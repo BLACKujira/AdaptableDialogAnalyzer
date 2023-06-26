@@ -33,11 +33,11 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Awake()
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            layoutGenerator.Generate(characters.Count, (gobj, id) =>
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            layoutGenerator.Generate(characters.Length, (gobj, id) =>
             {
                 CharacterToggle characterToggle = gobj.GetComponent<CharacterToggle>();
-                characterToggle.SetData(id);
+                characterToggle.SetData(characters[id].id);
                 characterToggles.Add(characterToggle);
             });
         }

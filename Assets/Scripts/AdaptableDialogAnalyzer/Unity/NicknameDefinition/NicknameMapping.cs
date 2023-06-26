@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Unity
@@ -10,8 +11,28 @@ namespace AdaptableDialogAnalyzer.Unity
     [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/NicknameDefinition/NicknameMapping")]
     public class NicknameMapping : ScriptableObject
     {
+        public int speakerId;
         public List<NicknameList> nicknameLists = new List<NicknameList>();
 
-        public NicknameList this[int mentionedPersonId] => nicknameLists[mentionedPersonId];
+        public NicknameList this[int mentionedPersonId]
+        {
+            get
+            {
+                foreach (var nicknameList in nicknameLists)
+                {
+                    if (nicknameList.mentionedPersonId == mentionedPersonId) return nicknameList;
+                }
+                throw new System.Exception($"未定义角色{mentionedPersonId}的昵称");
+            }
+        }
+
+        /// <summary>
+        /// 未定义时返回null
+        /// </summary>
+        /// <param name=""></param>
+        public NicknameList TryGetNicknameList(int mentionedPersonId)
+        {
+            return nicknameLists.FirstOrDefault(nl=>nl.mentionedPersonId == mentionedPersonId);
+        }
     }
 }

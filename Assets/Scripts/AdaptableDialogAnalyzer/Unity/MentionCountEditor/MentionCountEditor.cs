@@ -35,19 +35,21 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Initialize()
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            elgSpeaker.Generate(characters.Count, (gobj, id) =>
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            elgSpeaker.Generate(characters.Length, (gobj, id) =>
             {
+                int characterId = characters[id].id;
+
                 CharacterMentionCounter_SpeakerItem speakerItem = gobj.GetComponent<CharacterMentionCounter_SpeakerItem>();
-                speakerItem.SetData(id);
+                speakerItem.SetData(characterId);
                 speakerItem.button.onClick.AddListener(() =>
                 {
-                    SelectSpeaker(id);
+                    SelectSpeaker(characterId);
                 });
                 speakerItems.Add(speakerItem);
             });
 
-            SelectSpeaker(0);
+            SelectSpeaker(characters[0].id);
         }
 
         private void SelectSpeaker(int characterId)
@@ -60,7 +62,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 else speakerItem.Checked = false;
             }
 
-            GlobalColor.SetThemeColor(GlobalConfig.CharacterDefinition.characters[characterId].color);
+            GlobalColor.SetThemeColor(GlobalConfig.CharacterDefinition[characterId].color);
             Refresh();
         }
 
@@ -70,20 +72,22 @@ namespace AdaptableDialogAnalyzer.Unity
 
             int countTotal = 0;
 
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            elgMentionedPerson.Generate(characters.Count, (gobj, id) =>
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            elgMentionedPerson.Generate(characters.Length, (gobj, id) =>
             {
-                MentionCountEditor_MentionedPersonItem mentionedPersonItem = gobj.GetComponent<MentionCountEditor_MentionedPersonItem>();
-                mentionedPersonItem.SetData(id);
+                int characterId = characters[id].id;
 
-                int total = mentionedCountManager[selectedCharacterId, id].Total;
+                MentionCountEditor_MentionedPersonItem mentionedPersonItem = gobj.GetComponent<MentionCountEditor_MentionedPersonItem>();
+                mentionedPersonItem.SetData(characterId);
+
+                int total = mentionedCountManager[selectedCharacterId, characterId].Total;
                 mentionedPersonItem.Count = total;
                 countTotal += total;
 
                 mentionedPersonItem.button.onClick.AddListener(() =>
                 {
                     ChapterSelectorOneToOne chapterSelectorOneToOne = window.OpenWindow<ChapterSelectorOneToOne>(chapterSelectorOneToOnePrefab);
-                    chapterSelectorOneToOne.Initialize(mentionedCountManager, selectedCharacterId, id);
+                    chapterSelectorOneToOne.Initialize(mentionedCountManager, selectedCharacterId, characterId);
                     chapterSelectorOneToOne.window.OnClose.AddListener(() => { Refresh(); });
                 });
             });

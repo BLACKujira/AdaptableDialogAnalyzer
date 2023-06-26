@@ -29,7 +29,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
                 TextWithIndividualColor textWithIndividualColor = gobj.GetComponent<TextWithIndividualColor>();
                 textWithIndividualColor.text.text = vector2Int.y.ToString();
-                textWithIndividualColor.IndividualColorElement.SetIndividualColor(GlobalConfig.CharacterDefinition.characters[vector2Int.x].color);
+                textWithIndividualColor.IndividualColorElement.SetIndividualColor(GlobalConfig.CharacterDefinition[vector2Int.x].color);
             });
 
             //如果超过最大显示数量，则添加一个带省略号的小UI元素

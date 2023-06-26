@@ -30,7 +30,6 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override void InitializeSpeechBubble(BasicTalkSnippet basicTalkSnippet, SpeechBubbleButton speechBubbleButton)
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
             speechBubbleButton.defaultBGColor = colorUnmatched;
             speechBubbleButton.SetData(basicTalkSnippet, false, false);
 

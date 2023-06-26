@@ -89,3 +89,7 @@ MonoBehaviour:
     name: "\u57CE\u5317 \u7384\u5203"
     icon: {fileID: 21300000, guid: 47ea4d36282a1e74e8ba85d5b6bd657f, type: 3}
     color: {r: 0.59607846, g: 0.8313726, b: 0.5803922, a: 1}
+  - id: 903
+    name: "\u6C34\u7BE0 \u82D1"
+    icon: {fileID: 21300000, guid: 5b09374edcad8aa48b537ea652471190, type: 3}
+    color: {r: 0.64705884, g: 0.43137258, b: 0.4666667, a: 1}

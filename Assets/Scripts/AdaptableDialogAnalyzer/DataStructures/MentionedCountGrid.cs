@@ -7,7 +7,13 @@ namespace AdaptableDialogAnalyzer.DataStructures
     [Serializable]
     public class MentionedCountGrid
     {
+        public int mentionedPersonId;
         public List<int> matchedIndexes = new List<int>();
+
+        public MentionedCountGrid(int mentionedPersonId)
+        {
+            this.mentionedPersonId = mentionedPersonId;
+        }
 
         /// <summary>
         /// 匹配到的次数统计（等同于matched.Count）

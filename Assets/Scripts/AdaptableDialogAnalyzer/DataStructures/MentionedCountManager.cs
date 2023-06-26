@@ -83,11 +83,15 @@ namespace AdaptableDialogAnalyzer.DataStructures
         {
             Dictionary<Vector2Int, string> dictionary = new Dictionary<Vector2Int, string>();
 
-            int size = GlobalConfig.CharacterDefinition.characters.Count;
-            for (int charAId = 0; charAId < size; charAId++)
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            int size = characters.Length;
+            for (int id1 = 0; id1 < size; id1++)
             {
-                for (int charBId = charAId + 1; charBId < size; charBId++)
+                for (int id2 = id1 + 1; id2 < size; id2++)
                 {
+                    int charAId = characters[id1].id;
+                    int charBId = characters[id2].id;
+
                     CharacterMentionStats bigStats = this[charAId, charBId];
                     CharacterMentionStats smallStats = this[charBId, charAId];
                     int big = bigStats.Total;

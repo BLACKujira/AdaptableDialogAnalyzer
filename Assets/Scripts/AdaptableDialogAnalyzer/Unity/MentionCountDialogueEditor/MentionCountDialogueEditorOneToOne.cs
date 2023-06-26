@@ -32,8 +32,8 @@ namespace AdaptableDialogAnalyzer.Unity
                 Refresh();
             });
 
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            colorUnmatched = APCA.GetBlackOrWhite(characters[mentionedPersonId].color, colorWhite, colorBlack);
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            colorUnmatched = APCA.GetBlackOrWhite(GlobalConfig.CharacterDefinition[mentionedPersonId].color, colorWhite, colorBlack);
 
             Initialize(mentionedCountMatrix);
         }
@@ -52,19 +52,18 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override string GetTip()
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            return $"标记对话 | 单角色模式 | {characters[speakerId].name} | {characters[mentionedPersonId].name}";
+            return $"标记对话 | 单角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name} | {GlobalConfig.CharacterDefinition[mentionedPersonId].name}";
         }
 
         protected override void InitializeSpeechBubble(BasicTalkSnippet basicTalkSnippet, SpeechBubbleButton speechBubbleButton)
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
             speechBubbleButton.defaultBGColor = colorUnmatched;
             speechBubbleButton.SetData(basicTalkSnippet, false, false);
 
             if (MentionedCountMatrix[speakerId, mentionedPersonId].HasSerif(basicTalkSnippet.RefIdx))
             {
-                speechBubbleButton.iceContent.SetIndividualColor(characters[mentionedPersonId].color);
+                speechBubbleButton.iceContent.SetIndividualColor(GlobalConfig.CharacterDefinition[mentionedPersonId].color);
             }
 
             speechBubbleButton.button.onClick.AddListener(() =>
@@ -77,7 +76,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 else
                 {
                     MentionedCountMatrix[speakerId, mentionedPersonId].AddMatchedDialogue(basicTalkSnippet.RefIdx);
-                    speechBubbleButton.iceContent.SetIndividualColor(characters[mentionedPersonId].color);
+                    speechBubbleButton.iceContent.SetIndividualColor(GlobalConfig.CharacterDefinition[mentionedPersonId].color);
                 }
 
                 //标记此矩阵已被修改

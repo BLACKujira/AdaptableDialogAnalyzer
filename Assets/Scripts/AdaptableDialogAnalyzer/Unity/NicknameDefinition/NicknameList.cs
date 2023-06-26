@@ -8,6 +8,7 @@ namespace AdaptableDialogAnalyzer.Unity
     [System.Serializable]
     public class NicknameList
     {
+        public int mentionedPersonId;
         public List<string> nicknames = new List<string>();
 
         public string this[int index] => nicknames[index];

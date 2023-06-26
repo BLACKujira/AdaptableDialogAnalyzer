@@ -47,18 +47,33 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
         public bool HasChanged { get => hasChanged; set => hasChanged = value; }
 
-        public MentionedCountRow this[int speakerId] => mentionedCountRows[speakerId];
-        public MentionedCountGrid this[int speakerId, int mentionedPersonId] => mentionedCountRows[speakerId][mentionedPersonId];
+        public MentionedCountRow this[int speakerId]
+        {
+            get
+            {
+                foreach (var mentionedCountRow in mentionedCountRows)
+                {
+                    if(mentionedCountRow.speakerId == speakerId) return mentionedCountRow;
+                }
+                throw new Exception($"此统计矩阵中找不到角色{speakerId}的定义，暂不支持统计后修改角色定义。或者检查是否使用了错误的角色定义");
+            }
+        }
 
-        public MentionedCountMatrix(Chapter chapter, int size)
+        public MentionedCountGrid this[int speakerId, int mentionedPersonId] => this[speakerId][mentionedPersonId];
+
+        public MentionedCountMatrix(Chapter chapter)
         {
             this.chapter = chapter;
             chapterInfo = new ChapterInfo(chapter);
 
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            int size = characters.Length;
+
             mentionedCountRows = new MentionedCountRow[size];
             for (int i = 0; i < size; i++)
             {
-                mentionedCountRows[i] = new MentionedCountRow(size);
+                int characterId = characters[i].id;
+                mentionedCountRows[i] = new MentionedCountRow(characterId);
             }
         }
 
@@ -103,11 +118,15 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 snippetCountDictionary[basicTalkSnippet.RefIdx] = new List<int>();
             }
 
-            int size = GlobalConfig.CharacterDefinition.characters.Count;
-            for (int speakerId = 0; speakerId < size; speakerId++)
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            int size = characters.Length;
+            for (int id1 = 0; id1 < size; id1++)
             {
-                for (int mentionedPersonId = 0; mentionedPersonId < size; mentionedPersonId++)
+                for (int id2 = 0; id2 < size; id2++)
                 {
+                    int speakerId = characters[id1].id; 
+                    int mentionedPersonId = characters[id2].id;
+
                     MentionedCountGrid mentionedCountGrid = this[speakerId, mentionedPersonId];
                     foreach (var refIdx in mentionedCountGrid.matchedIndexes)
                     {

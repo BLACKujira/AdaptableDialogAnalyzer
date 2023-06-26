@@ -52,7 +52,7 @@ namespace AdaptableDialogAnalyzer.Unity
             NicknameDefinition nicknameDefinition = GlobalConfig.NicknameDefinition;
 
             //生成通用昵称列表的正则表达式对象
-            foreach (var nicknameList in nicknameDefinition.commonNicknameMapping.nicknameLists)
+            foreach (var nicknameList in nicknameDefinition.CommonNicknameMapping.nicknameLists)
             {
                 foreach (var regex in nicknameList.nicknames)
                 {
@@ -61,7 +61,7 @@ namespace AdaptableDialogAnalyzer.Unity
             }
 
             //生成角色特殊昵称列表的正则表达式对象
-            foreach (var nicknameMapping in nicknameDefinition.nicknameMappings)
+            foreach (var nicknameMapping in nicknameDefinition.SpecificNicknameMappings)
             {
                 foreach (var nicknameList in nicknameMapping.nicknameLists)
                 {
@@ -73,16 +73,16 @@ namespace AdaptableDialogAnalyzer.Unity
             }
 
             //生成模糊昵称列表的正则表达式对象
-            foreach (var regex in nicknameDefinition.unidentifiedNicknameList.nicknames)
+            foreach (var regex in nicknameDefinition.UnidentifiedNicknameList.nicknames)
             {
                 regexDictionary[regex] = new Regex(regex);
             }
 
             //记录跳过模糊昵称的表
-            foreach (var regexUnidentified in nicknameDefinition.unidentifiedNicknameList.nicknames)
+            foreach (var regexUnidentified in nicknameDefinition.UnidentifiedNicknameList.nicknames)
             {
                 //生成通用昵称列表的正则表达式对象
-                foreach (var nicknameList in nicknameDefinition.commonNicknameMapping.nicknameLists)
+                foreach (var nicknameList in nicknameDefinition.CommonNicknameMapping.nicknameLists)
                 {
                     foreach (var regex in nicknameList.nicknames)
                     {
@@ -94,7 +94,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 }
 
                 //生成角色特殊昵称列表的正则表达式对象
-                foreach (var nicknameMapping in nicknameDefinition.nicknameMappings)
+                foreach (var nicknameMapping in nicknameDefinition.SpecificNicknameMappings)
                 {
                     foreach (var nicknameList in nicknameMapping.nicknameLists)
                     {
@@ -152,7 +152,7 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <param name="chapter"></param>
         MentionedCountMatrix CountChapter(Chapter chapter)
         {
-            MentionedCountMatrix mentionedCountMatrix = new MentionedCountMatrix(chapter, GlobalConfig.CharacterDefinition.characters.Count);
+            MentionedCountMatrix mentionedCountMatrix = new MentionedCountMatrix(chapter);
             mentionedCountMatrix.Chapter = chapter;
 
             BasicTalkSnippet[] talkSnippets = chapter.GetTalkSnippets();
@@ -186,9 +186,11 @@ namespace AdaptableDialogAnalyzer.Unity
             mentionedCountMatrix[talkSnippet.SpeakerId].serifs.Add(talkSnippet.RefIdx);
 
             //首先判断通用昵称
-            for (int mentionedPersonId = 0; mentionedPersonId < nicknameDefinition.commonNicknameMapping.nicknameLists.Count; mentionedPersonId++)
+            for (int i = 0; i < nicknameDefinition.CommonNicknameMapping.nicknameLists.Count; i++)
             {
-                NicknameList nicknameList = nicknameDefinition.commonNicknameMapping.nicknameLists[mentionedPersonId];
+                int mentionedPersonId = nicknameDefinition.CommonNicknameMapping.nicknameLists[i].mentionedPersonId;
+
+                NicknameList nicknameList = nicknameDefinition.CommonNicknameMapping.nicknameLists[i];
                 foreach (var regex in nicknameList.nicknames)
                 {
                     Regex regexObject = regexDictionary[regex]; //获取正则表达式对象
@@ -202,24 +204,31 @@ namespace AdaptableDialogAnalyzer.Unity
             }
 
             //判断角色特殊昵称
-            NicknameMapping nicknameMapping = nicknameDefinition.nicknameMappings[talkSnippet.SpeakerId];
-            for (int mentionedPersonId = 0; mentionedPersonId < nicknameMapping.nicknameLists.Count; mentionedPersonId++)
+            NicknameMapping nicknameMapping = nicknameDefinition.GetSpecificNicknameMapping(talkSnippet.SpeakerId);
+
+            //如果此角色没有特殊昵称列表则跳过判断
+            if (nicknameMapping != null)
             {
-                NicknameList nicknameList = nicknameMapping.nicknameLists[mentionedPersonId];
-                foreach (var regex in nicknameList.nicknames)
+                for (int i = 0; i < nicknameMapping.nicknameLists.Count; i++)
                 {
-                    Regex regexObject = regexDictionary[regex];
-                    Match match = regexObject.Match(talkSnippet.Content);
-                    if (match.Success)
+                    int mentionedPersonId = nicknameMapping.nicknameLists[i].mentionedPersonId;
+
+                    NicknameList nicknameList = nicknameMapping.nicknameLists[i];
+                    foreach (var regex in nicknameList.nicknames)
                     {
-                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
-                        if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(bypassUnidentifiedDictionary[regex]);
+                        Regex regexObject = regexDictionary[regex];
+                        Match match = regexObject.Match(talkSnippet.Content);
+                        if (match.Success)
+                        {
+                            mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
+                            if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(bypassUnidentifiedDictionary[regex]);
+                        }
                     }
                 }
             }
 
             //判断模糊昵称
-            foreach (var regex in nicknameDefinition.unidentifiedNicknameList.nicknames)
+            foreach (var regex in nicknameDefinition.UnidentifiedNicknameList.nicknames)
             {
                 if (bypassUnidentified.Contains(regex)) continue; //跳过已判断的具体昵称
 

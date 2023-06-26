@@ -10,8 +10,28 @@ namespace AdaptableDialogAnalyzer.Unity
     [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/CharacterDefinition/CharacterDefinition")]
     public class CharacterDefinition : ScriptableObject
     {
-        public List<Character> characters;
+        [SerializeField] List<Character> characters;
+        public Character[] Characters => characters.ToArray();
 
-        public Character this[int index] => characters[index];
+        public Character this[int characterId]
+        {
+            get
+            {
+                foreach (Character character in characters) 
+                {
+                    if(character.id == characterId) return character;
+                }
+                throw new System.Exception($"没有定义ID为{characterId}的角色");
+            }
+        }
+
+        public bool HasDefinition(int characterId)
+        {
+            foreach (var character in characters)
+            {
+                if (character.id == characterId) return true; 
+            }
+            return false;
+        }
     }
 }

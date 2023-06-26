@@ -17,7 +17,7 @@ namespace AdaptableDialogAnalyzer.UIElements
 
         public void SetData(int characterId)
         {
-            Character character = GlobalConfig.CharacterDefinition.characters[characterId];
+            Character character = GlobalConfig.CharacterDefinition[characterId];
             foreach (var individualColorElement in iceCharacterColor) individualColorElement.SetIndividualColor(character.color);
             foreach (var image in imgCharacterIcon) image.sprite = character.icon;
             foreach (var text in txtCharacterName) text.text = character.name;

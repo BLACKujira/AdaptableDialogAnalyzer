@@ -8,7 +8,7 @@ namespace AdaptableDialogAnalyzer.Unity
     {
         int speakerId;
 
-        public void Initialize(MentionedCountMatrix mentionedCountMatrix,int speakerId)
+        public void Initialize(MentionedCountMatrix mentionedCountMatrix, int speakerId)
         {
             this.speakerId = speakerId;
 
@@ -34,8 +34,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override string GetTip()
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            return $"标记对话 | 多角色模式 | {characters[speakerId].name}";
+            return $"标记对话 | 多角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name}";
         }
     }
 }

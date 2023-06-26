@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace AdaptableDialogAnalyzer.DataStructures
 {
     /// <summary>
@@ -10,7 +8,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
     {
         public string unidentifiedNickname;
 
-        public UnidentifiedMentions(string unidentifiedNickname)
+        public UnidentifiedMentions(string unidentifiedNickname) : base(0)
         {
             this.unidentifiedNickname = unidentifiedNickname;
         }

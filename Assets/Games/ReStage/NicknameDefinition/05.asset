@@ -12,25 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fd36b4c34a1c04cb2389bc1e53cce5, type: 3}
   m_Name: 05
   m_EditorClassIdentifier: 
+  speakerId: 5
   nicknameLists:
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames:
+  - mentionedPersonId: 3
+    nicknames:
     - "\u90E8\u9577"
-  - nicknames:
+  - mentionedPersonId: 4
+    nicknames:
     - "\u30D7\u30EA\u30F3\u30BB\u30B9"
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []
-  - nicknames: []

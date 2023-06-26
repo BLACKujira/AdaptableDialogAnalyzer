@@ -20,11 +20,13 @@ namespace AdaptableDialogAnalyzer.UIElements
 
         public void Start()
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            layoutGenerator.Generate(characters.Count, (gobj, id) =>
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            layoutGenerator.Generate(characters.Length, (gobj, id) =>
             {
+                int characterId = characters[id].id;
+
                 CharacterInfoElement characterInfoElement = gobj.GetComponent<CharacterInfoElement>();
-                characterInfoElement.SetData(id);
+                characterInfoElement.SetData(characterId);
 
                 Button button = gobj.GetComponent<Button>();
                 button.onClick.AddListener(() =>

@@ -46,8 +46,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override string GetTip()
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-            return $"选择剧情 | 单角色模式 | {characters[speakerId].name} | {characters[mentionedPersonId].name}";
+            return $"选择剧情 | 单角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name} | {GlobalConfig.CharacterDefinition[mentionedPersonId].name}";
         }
 
         protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)

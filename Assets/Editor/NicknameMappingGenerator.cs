@@ -42,16 +42,16 @@ namespace AdaptableDialogAnalyzer.UnityEditor
             nicknameMapping = CreateInstance<NicknameMapping>();
 
             // 遍历 CharacterDefinition 中的角色列表
-            foreach (Character character in characterDefinition.characters)
+            foreach (Character character in characterDefinition.Characters)
             {
                 // 创建一个新的 NicknameList，并将角色的昵称添加到列表中
                 NicknameList nicknameList = new NicknameList();
+                nicknameList.mentionedPersonId = character.id;
 
                 if(character.name.Contains(" "))
                 {
                     string[] nicknames = character.name.Split(' ');
                     nicknameList.nicknames.AddRange(nicknames);
-                    nicknameList.nicknames.Add(character.name.Replace(" ", ""));
                 }
                 else
                 {
@@ -73,7 +73,8 @@ namespace AdaptableDialogAnalyzer.UnityEditor
 
             foreach (var nicknameList in nicknameMapping.nicknameLists)
             {
-                nicknameList.nicknames.RemoveAll(nickname => duplicateNicknames.Contains(nickname));
+                int removeCount = nicknameList.nicknames.RemoveAll(nickname => duplicateNicknames.Contains(nickname));
+                if (removeCount > 0) nicknameList.nicknames.Add(characterDefinition[nicknameList.mentionedPersonId].name.Replace(" ",""));
             }
 
             // 将创建的 NicknameMapping 保存为资源文件

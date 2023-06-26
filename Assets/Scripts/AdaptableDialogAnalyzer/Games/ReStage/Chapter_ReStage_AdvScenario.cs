@@ -1,3 +1,4 @@
+using AdaptableDialogAnalyzer.Unity;
 using AdaptableDialogAnalyzer.YAML;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,11 @@ namespace AdaptableDialogAnalyzer.Games.ReStage
                 AdvPageData advPageData = advScenario.Pages[i];
 
                 int refIdx = i;
-                int speakerId = (int)advPageData.nameCharacter > 18 ? 0 : (int)advPageData.nameCharacter;
+
+                int speakerId = (int)advPageData.nameCharacter;
+                if (speakerId == 902) speakerId = 7;
+                if (!GlobalConfig.CharacterDefinition.HasDefinition(speakerId)) speakerId = 0;
+
                 string content = string.IsNullOrEmpty(advPageData.text) ? string.Empty : advPageData.text.Replace("\\n", "\n");
                 string displayName = advPageData.name;
 
@@ -43,8 +48,8 @@ namespace AdaptableDialogAnalyzer.Games.ReStage
 
         public bool IsVoiceOnly()
         {
-            if (advScenario.Pages.Count >= 5 
-                && (advScenario.Pages[3].text?.Contains("бнбн") ?? false) 
+            if (advScenario.Pages.Count >= 5
+                && (advScenario.Pages[3].text?.Contains("бнбн") ?? false)
                 && (advScenario.Pages[3].text?.Contains("color") ?? false))
             {
                 return true;

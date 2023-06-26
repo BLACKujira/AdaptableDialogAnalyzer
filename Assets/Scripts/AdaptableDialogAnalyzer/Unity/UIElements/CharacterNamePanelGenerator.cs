@@ -23,8 +23,6 @@ namespace AdaptableDialogAnalyzer.UIElements
         /// </summary>
         public void SetData(int[] characterIds)
         {
-            List<Character> characters = GlobalConfig.CharacterDefinition.characters;
-
             ClearItems();
             foreach (int characterId in characterIds)
             {
@@ -32,8 +30,8 @@ namespace AdaptableDialogAnalyzer.UIElements
                 if (generatedObjects.Count != 0) generatedObjects.Add(Instantiate(spacePrefab, rtContent).gameObject);
 
                 TextWithIndividualColor textWithIndividualColor = Instantiate(nameLabelPrefab, rtContent);
-                textWithIndividualColor.text.text = characters[characterId].name;
-                textWithIndividualColor.IndividualColorElement.SetIndividualColor(characters[characterId].color);
+                textWithIndividualColor.text.text = GlobalConfig.CharacterDefinition[characterId].name;
+                textWithIndividualColor.IndividualColorElement.SetIndividualColor(GlobalConfig.CharacterDefinition[characterId].color);
 
                 generatedObjects.Add(textWithIndividualColor.gameObject);
             }
