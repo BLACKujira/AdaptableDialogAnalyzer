@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ab7a514c7a7e5448a6a451084a903c, type: 3}
+  m_Name: Restage_CharacterSD
+  m_EditorClassIdentifier: 
+  indexedSprites:
+  - id: 1
+    sprite: {fileID: 21300000, guid: 0fda44b883b93914ca86b650424aa661, type: 3}
+  - id: 2
+    sprite: {fileID: 21300000, guid: fccaae31d0f725f47be7b44c026f8d7c, type: 3}
+  - id: 3
+    sprite: {fileID: 21300000, guid: bce2a4143536ba441b4d2d5e0d6ce406, type: 3}
+  - id: 4
+    sprite: {fileID: 21300000, guid: d6a088469f93d434ea93e2a027491bd1, type: 3}
+  - id: 5
+    sprite: {fileID: 21300000, guid: a9f942216ccc56a46a24edd3fa77ea19, type: 3}
+  - id: 6
+    sprite: {fileID: 21300000, guid: 095df341a1e19f34e9e45f740c1bab27, type: 3}
+  - id: 7
+    sprite: {fileID: 21300000, guid: 6734c5454883c5540ad74f695d1556ac, type: 3}
+  - id: 8
+    sprite: {fileID: 21300000, guid: d206ad4310e78624f967a1315f564903, type: 3}
+  - id: 9
+    sprite: {fileID: 21300000, guid: d5add3659b9e2e84cbb34e0aefeb72d4, type: 3}
+  - id: 10
+    sprite: {fileID: 21300000, guid: 80c28d5851da8f24a8b5a0857d599e4c, type: 3}
+  - id: 11
+    sprite: {fileID: 21300000, guid: 6775cfe92a277f243b61fc8a1b1a33cd, type: 3}
+  - id: 12
+    sprite: {fileID: 21300000, guid: c9813f39c309d974e8b379297905357b, type: 3}
+  - id: 13
+    sprite: {fileID: 21300000, guid: 4c2d6bb7ab0a0cd4c8be09e8b48c96ae, type: 3}
+  - id: 14
+    sprite: {fileID: 21300000, guid: 5b3227aa8b57bdd47ae138310d0a99ad, type: 3}
+  - id: 15
+    sprite: {fileID: 21300000, guid: 4d5c3f5468720fb479b43a79390b8fd1, type: 3}
+  - id: 16
+    sprite: {fileID: 21300000, guid: 59745d818fec2ad43b2cb98b32fd3c98, type: 3}
+  - id: 17
+    sprite: {fileID: 21300000, guid: d645bcd37ec41584da4b7da8f21cb8c2, type: 3}
+  - id: 18
+    sprite: {fileID: 21300000, guid: ab90eeb1ca6bc1c498532b3422daa009, type: 3}
+  - id: 0
+    sprite: {fileID: 21300000, guid: 0fda44b883b93914ca86b650424aa661, type: 3}

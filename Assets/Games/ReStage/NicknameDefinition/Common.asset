@@ -18,6 +18,7 @@ MonoBehaviour:
     nicknames:
     - "\u821E\u83DC"
     - "\u5F0F\u5BAE\u821E\u83DC"
+    - "\u307E\u30FC?\u3061\u3083\u3093"
   - mentionedPersonId: 2
     nicknames:
     - "\u6708\u5742"
@@ -109,6 +110,3 @@ MonoBehaviour:
     - "\u57CE\u5317\u7384\u5203"
     - "\u30AF\u30ED"
     - "\u304F\u308D\u3061\u3083\u3093"
-  - mentionedPersonId: 903
-    nicknames:
-    - "\u82D1"

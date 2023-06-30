@@ -17,6 +17,8 @@ namespace AdaptableDialogAnalyzer.Unity
         List<CharacterToggle> characterToggles = new List<CharacterToggle>();
         Action<int[]> onApply;
 
+        Character[] characters;
+
         public int[] SelectedIds
         {
             get
@@ -24,8 +26,10 @@ namespace AdaptableDialogAnalyzer.Unity
                 List<int> indexes = new List<int>();
                 for (int i = 0; i < characterToggles.Count; i++)
                 {
+                    int characterId = characters[i].id;
+
                     CharacterToggle toggle = characterToggles[i];
-                    if (toggle != null && toggle.toggle.isOn) indexes.Add(i);
+                    if (toggle != null && toggle.toggle.isOn) indexes.Add(characterId);
                 }
                 return indexes.ToArray();
             }
@@ -33,7 +37,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Awake()
         {
-            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            characters = GlobalConfig.CharacterDefinition.Characters;
             layoutGenerator.Generate(characters.Length, (gobj, id) =>
             {
                 CharacterToggle characterToggle = gobj.GetComponent<CharacterToggle>();

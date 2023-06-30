@@ -43,6 +43,28 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         /// <summary>
+        /// 统计一名角色提到其他所有角色的次数 
+        /// </summary>
+        public int CountMentionTotal(int speakerId, bool passZero, bool passSelf)
+        {
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+
+            int count = 0;
+            foreach (var character in characters)
+            {
+                if (character.id == 0 && passZero) continue;
+                if (character.id == speakerId && passSelf) continue;
+
+                foreach (var mentionedCountMatrix in mentionedCountMatrices)
+                {
+                    count += mentionedCountMatrix[speakerId, character.id].Count;
+                }
+            }
+
+            return count;
+        }
+
+        /// <summary>
         /// 获取包含多义昵称匹配的统计矩阵
         /// </summary>
         /// <returns>以多义昵称为键，统计矩阵列表为值的字典</returns>
@@ -62,7 +84,6 @@ namespace AdaptableDialogAnalyzer.DataStructures
             }
             return dictionary;
         }
-
 
         /// <summary>
         /// 判断相差过大的组合的函数
@@ -104,7 +125,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
 
                     foreach (var kvp in discrepancyCheckFunctions)
                     {
-                        if(kvp.func(big, small))
+                        if (kvp.func(big, small))
                         {
                             dictionary[new Vector2Int(bigStats.SpeakerId, bigStats.MentionedPersonId)] = kvp.reason;
                             break;
@@ -124,6 +145,55 @@ namespace AdaptableDialogAnalyzer.DataStructures
         private static bool DiscrepancyCheck_Missing(int big, int small)
         {
             return big > 10 && small < 3;
+        }
+
+        /// <summary>
+        /// 获取一名角色提及其他角色的信息 
+        /// </summary>
+        public List<CharacterMentionStats> GetMentionStatsList(int speakerId, bool passZero, bool passSelf)
+        {
+            List<CharacterMentionStats> characterMentionStatsList = new List<CharacterMentionStats>();
+
+            CharacterDefinition characterDefinition = GlobalConfig.CharacterDefinition;
+            Character[] characters = characterDefinition.Characters;
+            foreach (Character character in characters)
+            {
+                CharacterMentionStats characterMentionStats = this[speakerId, character.id];
+
+                if (passZero && character.id == 0) continue;
+                if (passSelf && character.id == speakerId) continue;
+
+                characterMentionStatsList.Add(characterMentionStats);
+            }
+
+            return characterMentionStatsList;
+        }
+
+        /// <summary>
+        /// 获取所有角色之间的统计矩阵对(不包括自己对自己)
+        /// </summary>
+        public List<CharacterMentionStatsPair> GetCharacterMentionStatsPairs(bool passZero)
+        {
+            List<CharacterMentionStatsPair> characterMentionStatsPairs = new List<CharacterMentionStatsPair>();
+
+            CharacterDefinition characterDefinition = GlobalConfig.CharacterDefinition;
+            Character[] characters = characterDefinition.Characters;
+
+            for (int i = 0; i < characters.Length; i++)
+            {
+                for (int j = i + 1; j < characters.Length; j++)
+                {
+                    if (passZero && (i == 0 || j == 0)) continue;
+
+                    int characterAId = characters[i].id;
+                    int characterBId = characters[j].id;
+
+                    CharacterMentionStatsPair characterMentionStatsPair = new CharacterMentionStatsPair(this[characterAId, characterBId], this[characterBId, characterAId]);
+                    characterMentionStatsPairs.Add(characterMentionStatsPair);
+                }
+            }
+
+            return characterMentionStatsPairs;
         }
     }
 }

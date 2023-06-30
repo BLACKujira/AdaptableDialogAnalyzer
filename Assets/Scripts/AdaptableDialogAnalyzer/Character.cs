@@ -28,6 +28,18 @@ namespace AdaptableDialogAnalyzer
         /// </summary>
         public Color color;
 
+        /// <summary>
+        /// 获取角色名称最后一个空格后的字符串
+        /// </summary>
+        public string Namae
+        {
+            get
+            {
+                string[] nameArray = name.Split(' ');
+                return nameArray[nameArray.Length - 1];
+            }
+        }
+
         public Character()
         {
         }
