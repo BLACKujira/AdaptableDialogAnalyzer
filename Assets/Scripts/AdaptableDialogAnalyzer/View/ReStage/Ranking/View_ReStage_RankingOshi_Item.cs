@@ -30,7 +30,7 @@ namespace AdaptableDialogAnalyzer.View.ReStage
             string colorB = ColorUtility.ToHtmlStringRGB(characterDefinition[characterBId].color);
 
             txtName.text = $"<color=#{colorA}>{namaeA}</color> → <color=#{colorB}>{namaeB}</color>";
-            txtPercent.text = $"{(float)mentionCount / mentionTotal:00.00}%";
+            txtPercent.text = $"{(float)mentionCount / mentionTotal * 100:00.00}%";
             txtCount.text = $"({mentionCount}/{mentionTotal})";
         }
     }

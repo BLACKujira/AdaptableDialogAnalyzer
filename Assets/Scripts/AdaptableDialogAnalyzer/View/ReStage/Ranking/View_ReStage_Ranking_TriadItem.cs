@@ -1,9 +1,11 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.ReStage
 {
+
     public class View_ReStage_Ranking_TriadItem : MonoBehaviour
     {
         [Header("Components")]

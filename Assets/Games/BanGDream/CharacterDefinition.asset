@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11020cdb76d0ecd47814e409f8362dd2, type: 3}
+  m_Name: CharacterDefinition
+  m_EditorClassIdentifier: 
+  characters:
+  - id: 0
+    name: '?'
+    icon: {fileID: 21300000, guid: 52bdcd506c84be846987f5a3fee1309a, type: 3}
+    color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  - id: 1
+    name: "\u6238\u5C71 \u9999\u6F84"
+    icon: {fileID: 21300000, guid: 3fee39fe3006ac84ea32c3ce1239e27a, type: 3}
+    color: {r: 1, g: 0.33333334, b: 0.12941177, a: 1}
+  - id: 2
+    name: "\u82B1\u5712 \u305F\u3048"
+    icon: {fileID: 21300000, guid: d0bf03944f44e4d47bc9a94892d6d0f9, type: 3}
+    color: {r: 0, g: 0.4666667, b: 0.8705883, a: 1}
+  - id: 3
+    name: "\u725B\u8FBC \u308A\u307F"
+    icon: {fileID: 21300000, guid: 46ecd82a20ba3344294f124c08eafe23, type: 3}
+    color: {r: 1, g: 0.33333334, b: 0.7372549, a: 1}
+  - id: 4
+    name: "\u5C71\u5439 \u6C99\u7DBE"
+    icon: {fileID: 21300000, guid: cd556510c5d103e44902ed6421255b01, type: 3}
+    color: {r: 1, g: 0.80392164, b: 0.0627451, a: 1}
+  - id: 5
+    name: "\u5E02\u30F6\u8C37 \u6709\u54B2"
+    icon: {fileID: 21300000, guid: 368fdb34d39a66d4c8b0d8338c1f58ca, type: 3}
+    color: {r: 0.6666667, g: 0.40000004, b: 0.8705883, a: 1}
+  - id: 6
+    name: "\u7F8E\u7AF9 \u862D"
+    icon: {fileID: 21300000, guid: 0f55a2f1d109a964ebced1e75feeb4af, type: 3}
+    color: {r: 0.93725497, g: 0, b: 0.12941177, a: 1}
+  - id: 7
+    name: "\u9752\u8449 \u30E2\u30AB"
+    icon: {fileID: 21300000, guid: b5c1cc298cd3cf44795a7facb1c685bc, type: 3}
+    color: {r: 0, g: 0.8000001, b: 0.6666667, a: 1}
+  - id: 8
+    name: "\u4E0A\u539F \u3072\u307E\u308A"
+    icon: {fileID: 21300000, guid: ef3b1f72e604a4c4983789fc6660eda8, type: 3}
+    color: {r: 1, g: 0.6039216, b: 0.6039216, a: 1}
+  - id: 9
+    name: "\u5B87\u7530\u5DDD \u5DF4"
+    icon: {fileID: 21300000, guid: 9937641dcbe94e34093328c6016c75fb, type: 3}
+    color: {r: 0.73333335, g: 0, b: 0.20392159, a: 1}
+  - id: 10
+    name: "\u7FBD\u6CA2 \u3064\u3050\u307F"
+    icon: {fileID: 21300000, guid: 6f361ee8127766f409921a9f0adf4797, type: 3}
+    color: {r: 1, g: 0.909804, b: 0.3647059, a: 1}
+  - id: 11
+    name: "\u5F26\u5DFB \u3053\u3053\u308D"
+    icon: {fileID: 21300000, guid: c162b35708194484ca7ff6f82979da3d, type: 3}
+    color: {r: 0.9921569, g: 0.8117648, b: 0.0627451, a: 1}
+  - id: 12
+    name: "\u702C\u7530 \u85AB"
+    icon: {fileID: 21300000, guid: 0d9cc73007b500c48aacf82cc3e99b84, type: 3}
+    color: {r: 0.6666667, g: 0.20000002, b: 0.7960785, a: 1}
+  - id: 13
+    name: "\u5317\u6CA2 \u306F\u3050\u307F"
+    icon: {fileID: 21300000, guid: ad0bc75a18a091145b34c3f76a29c2c8, type: 3}
+    color: {r: 1, g: 0.6039216, b: 0.12941177, a: 1}
+  - id: 14
+    name: "\u677E\u539F \u82B1\u97F3"
+    icon: {fileID: 21300000, guid: 34eed0a230c4ebd428a38a573b6bc581, type: 3}
+    color: {r: 0.26666668, g: 0.8705883, b: 1, a: 1}
+  - id: 15
+    name: "\u5965\u6CA2 \u7F8E\u54B2"
+    icon: {fileID: 21300000, guid: c65ebcb1bd111a440a936d2808c75d7c, type: 3}
+    color: {r: 0.8705883, g: 0.20000002, b: 0.7960785, a: 1}
+  - id: 16
+    name: "\u4E38\u5C71 \u5F69"
+    icon: {fileID: 21300000, guid: f9cfd7671670db645a4500c26447d5e0, type: 3}
+    color: {r: 1, g: 0.53333336, b: 0.73333335, a: 1}
+  - id: 17
+    name: "\u6C37\u5DDD \u65E5\u83DC"
+    icon: {fileID: 21300000, guid: 2e4075ba48158fa4c8f90eb599ee257f, type: 3}
+    color: {r: 0.33333334, g: 0.8705883, b: 0.93725497, a: 1}
+  - id: 18
+    name: "\u767D\u9DFA \u5343\u8056"
+    icon: {fileID: 21300000, guid: c092ebd3b7c310b4ca1d9590d04eee48, type: 3}
+    color: {r: 0.9843138, g: 0.86666673, b: 0.41960788, a: 1}
+  - id: 19
+    name: "\u5927\u548C \u9EBB\u5F25"
+    icon: {fileID: 21300000, guid: 972579c994f942844a603935b631cbb6, type: 3}
+    color: {r: 0.59607846, g: 0.86666673, b: 0.53333336, a: 1}
+  - id: 20
+    name: "\u82E5\u5BAE \u30A4\u30F4"
+    icon: {fileID: 21300000, guid: 6a80ddac218f24946b42ee0995796ae6, type: 3}
+    color: {r: 0.8705883, g: 0.7294118, b: 1, a: 1}
+  - id: 21
+    name: "\u6E4A \u53CB\u5E0C\u90A3"
+    icon: {fileID: 21300000, guid: 6dba7c1f0c0537948aab67f772b8bd81, type: 3}
+    color: {r: 0.53333336, g: 0.0627451, b: 0.53333336, a: 1}
+  - id: 22
+    name: "\u6C37\u5DDD \u7D17\u591C"
+    icon: {fileID: 21300000, guid: 62646cfdd3610cb4a80598c888ec5919, type: 3}
+    color: {r: 0, g: 0.6666667, b: 0.73333335, a: 1}
+  - id: 23
+    name: "\u4ECA\u4E95 \u30EA\u30B5"
+    icon: {fileID: 21300000, guid: f3112ab7111786747b60d6abcdfb9cac, type: 3}
+    color: {r: 0.8705883, g: 0.13333334, b: 0, a: 1}
+  - id: 24
+    name: "\u5B87\u7530\u5DDD \u3042\u3053"
+    icon: {fileID: 21300000, guid: 532e035a1d5c38d449f93cf22faa2c0b, type: 3}
+    color: {r: 0.8705883, g: 0, b: 0.53333336, a: 1}
+  - id: 25
+    name: "\u767D\u91D1 \u71D0\u5B50"
+    icon: {fileID: 21300000, guid: a232586b63390ae4182c799be2c00f70, type: 3}
+    color: {r: 0.73333335, g: 0.73333335, b: 0.73333335, a: 1}
+  - id: 26
+    name: "\u5009\u7530 \u307E\u3057\u308D"
+    icon: {fileID: 21300000, guid: 8fbf495ce87e65147954730167b6406f, type: 3}
+    color: {r: 0.4039216, g: 0.4666667, b: 0.8078432, a: 1}
+  - id: 27
+    name: "\u6850\u30F6\u8C37 \u900F\u5B50"
+    icon: {fileID: 21300000, guid: b6ee7d791078ca14b89dc2ab841a725b, type: 3}
+    color: {r: 0.93725497, g: 0.39607847, b: 0.4039216, a: 1}
+  - id: 28
+    name: "\u5E83\u753A \u4E03\u6DF1"
+    icon: {fileID: 21300000, guid: 3ea3abdff571f854cafc7ebd8dd374f0, type: 3}
+    color: {r: 0.93725497, g: 0.47058827, b: 0.26666668, a: 1}
+  - id: 29
+    name: "\u4E8C\u8449 \u3064\u304F\u3057"
+    icon: {fileID: 21300000, guid: 443fb355db1cb464e955f9c0a7dad80b, type: 3}
+    color: {r: 0.93725497, g: 0.39607847, b: 0.4039216, a: 1}
+  - id: 30
+    name: "\u516B\u6F6E \u7460\u552F"
+    icon: {fileID: 21300000, guid: 5bdd7b743438c1d45b61d6d649f29ad0, type: 3}
+    color: {r: 0.4039216, g: 0.6039216, b: 0.53333336, a: 1}
+  - id: 31
+    name: "\u548C\u594F  \u30EC\u30A4"
+    icon: {fileID: 21300000, guid: 5bdd7b743438c1d45b61d6d649f29ad0, type: 3}
+    color: {r: 0.8078432, g: 0, b: 0, a: 1}
+  - id: 32
+    name: "\u671D\u65E5 \u516D\u82B1"
+    icon: {fileID: 21300000, guid: 5bdd7b743438c1d45b61d6d649f29ad0, type: 3}
+    color: {r: 0.6666667, g: 0.93725497, b: 0.12941177, a: 1}
+  - id: 33
+    name: "\u4F50\u85E4 \u307E\u3059\u304D"
+    icon: {fileID: 21300000, guid: 5bdd7b743438c1d45b61d6d649f29ad0, type: 3}
+    color: {r: 0.93725497, g: 0.73333335, b: 0.26666668, a: 1}
+  - id: 34
+    name: "\u9CF0\u539F \u4EE4\u738B\u90A3"
+    icon: {fileID: 21300000, guid: 5bdd7b743438c1d45b61d6d649f29ad0, type: 3}
+    color: {r: 1, g: 0.6039216, b: 0.73333335, a: 1}
+  - id: 35
+    name: "\u73E0\u624B \u3061\u3086"
+    icon: {fileID: 21300000, guid: 5bdd7b743438c1d45b61d6d649f29ad0, type: 3}
+    color: {r: 0, g: 0.73333335, b: 1, a: 1}

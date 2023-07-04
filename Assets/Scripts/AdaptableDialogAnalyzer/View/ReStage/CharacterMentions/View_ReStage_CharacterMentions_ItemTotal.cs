@@ -17,6 +17,7 @@ namespace AdaptableDialogAnalyzer.View.ReStage
         {
             imgCharIcon.sprite = charIconList[characterID];
             txtCharName.text = GlobalConfig.CharacterDefinition[characterID].name;
+            txtCharName.color = GlobalConfig.CharacterDefinition[characterID].color;
             txtCount.text = $"共提及其他角色{totalMention}次，在{serifCount}句台词中";
         }
     }

@@ -122,7 +122,9 @@ GameObject:
   - component: {fileID: 1222298710676679927}
   - component: {fileID: 1222298710676679913}
   - component: {fileID: 1222298710676679912}
-  - component: {fileID: 1517047533415224416}
+  - component: {fileID: 382797808207627276}
+  - component: {fileID: 1053964480466010606}
+  - component: {fileID: 6384752446338292560}
   m_Layer: 0
   m_Name: RankingOshiItem
   m_TagString: Untagged
@@ -190,7 +192,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1517047533415224416
+--- !u!114 &382797808207627276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,15 +201,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1222298710676679926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 123f26d93e1694a4f96d4e54090c74f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b588d10ee881d449bf121f8f7c92884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imgCharAIcon: {fileID: 1222298711760548469}
   imgCharBIcon: {fileID: 1222298711351605786}
-  txtSum: {fileID: 8648454664966050516}
-  txtAToB: {fileID: 2978253403762843114}
-  txtBToA: {fileID: 0}
+  txtName: {fileID: 8648454664966050516}
+  txtPercent: {fileID: 2978253403762843114}
+  txtCount: {fileID: 1141655255103967433}
   charIconList: {fileID: 11400000, guid: 393d494b4bb02eb44becb2b10d595716, type: 2}
+--- !u!114 &1053964480466010606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222298710676679926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e33add4cb7da534190719bd2dc69009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1222298710676679926}
+--- !u!114 &6384752446338292560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222298710676679926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7557ad804f2ee624dbce4c88bb3571ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 1222298710676679927}
 --- !u!1 &1222298711351605784
 GameObject:
   m_ObjectHideFlags: 0

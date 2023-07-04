@@ -422,6 +422,8 @@ GameObject:
   - component: {fileID: 5928951990661596877}
   - component: {fileID: 5928951990661596876}
   - component: {fileID: 6321935596435488324}
+  - component: {fileID: 4016511949974758883}
+  - component: {fileID: 4842350493691391682}
   m_Layer: 0
   m_Name: RankingSumItem
   m_TagString: Untagged
@@ -507,6 +509,32 @@ MonoBehaviour:
   txtAToB: {fileID: 7774697225876551630}
   txtBToA: {fileID: 733990665623992497}
   charIconList: {fileID: 11400000, guid: 393d494b4bb02eb44becb2b10d595716, type: 2}
+--- !u!114 &4016511949974758883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928951990661596882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e33add4cb7da534190719bd2dc69009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 5928951990661596882}
+--- !u!114 &4842350493691391682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928951990661596882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7557ad804f2ee624dbce4c88bb3571ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 5928951990661596883}
 --- !u!1 &5928951991094693573
 GameObject:
   m_ObjectHideFlags: 0

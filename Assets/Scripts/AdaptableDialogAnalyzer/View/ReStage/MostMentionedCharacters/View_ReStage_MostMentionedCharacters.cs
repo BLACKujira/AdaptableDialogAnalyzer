@@ -1,6 +1,8 @@
 using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Games.ReStage;
+using AdaptableDialogAnalyzer.UIElements;
 using AdaptableDialogAnalyzer.Unity;
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,9 +18,13 @@ namespace AdaptableDialogAnalyzer.View.ReStage
         public bool passZero = true;
         public bool passSelf = true;
         public int speakerId = 1;
+        public float fadeTime = 0.4f;
+        public bool reverse = false;
         [Header("Adapter")]
         public MentionedCountManagerLoader mentionedCountManagerLoader;
 
+        List<GraphicsAlphaController> alphaControllers = new List<GraphicsAlphaController>();
+        List<RectTransform> rectTransforms = new List<RectTransform>();
         MentionedCountManager mentionedCountManager;
 
         private void Start()
@@ -34,7 +40,7 @@ namespace AdaptableDialogAnalyzer.View.ReStage
                 .First();
 
             CharacterMentionStats mostDifferentUnit = characterMentionStatsList
-                .Where(cms => !ReStageHelper.IsInSameGroup(cms.SpeakerId, cms.MentionedPersonId))
+                .Where(cms => reverse ? ReStageHelper.IsInSameGroup(cms.SpeakerId, cms.MentionedPersonId) : !ReStageHelper.IsInSameGroup(cms.SpeakerId, cms.MentionedPersonId))
                 .OrderBy(cms => -cms.Total)
                 .First();
 
@@ -53,10 +59,44 @@ namespace AdaptableDialogAnalyzer.View.ReStage
 平均每{serifCount / mostAll.Total:0.0}句台词提到一次<color=#{colorMostAll}>{charMostAll.Namae}</color>");
 
             itemMostDifferentUnit.SetData(mostDifferentUnit.SpeakerId, mostDifferentUnit.MentionedPersonId,
-                $"组合外提及最多：<color=#{colorDifferentUnit}>{charDifferentUnit.name}</color>",
+                $"组合{(reverse ? "内" : "外")}提及最多：<color=#{colorDifferentUnit}>{charDifferentUnit.name}</color>",
                 $@"在<color=#{colorSpeaker}>{charSpeaker.Namae}</color>的{serifCount}句台词中
 共提及<color=#{colorDifferentUnit}>{charDifferentUnit.Namae}</color>{mostDifferentUnit.Total}次，占比{(float)mostDifferentUnit.Total / serifCount * 100:0.0}%
 平均每{serifCount / mostDifferentUnit.Total:0.0}句台词提到一次<color=#{colorDifferentUnit}>{charDifferentUnit.Namae}</color>");
+
+            alphaControllers.Add(itemMostAll.GetComponent<GraphicsAlphaController>());
+            alphaControllers.Add(itemMostDifferentUnit.GetComponent<GraphicsAlphaController>());
+            rectTransforms.Add(itemMostAll.GetComponent<RectTransform>());
+            rectTransforms.Add(itemMostDifferentUnit.GetComponent<RectTransform>());
+
+            foreach (var alphaController in alphaControllers)
+            {
+                alphaController.Alpha = 0;
+            }
+            foreach (var rectTransform in rectTransforms)
+            {
+                rectTransform.localScale = new Vector3(0, 0, 1);
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Play();
+            }
+        }
+
+        void Play()
+        {
+            foreach (var alphaController in alphaControllers)
+            {
+                alphaController.DoFade(1, fadeTime);
+            }
+            foreach (var rectTransform in rectTransforms)
+            {
+                rectTransform.DOScale(Vector3.one, fadeTime);
+            }
         }
     }
 }
