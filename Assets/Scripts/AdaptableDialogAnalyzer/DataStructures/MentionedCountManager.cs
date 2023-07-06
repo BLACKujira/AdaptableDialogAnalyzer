@@ -100,7 +100,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// 获取存在相差过大的角色组合
         /// </summary>
         /// <returns>字典，键为数字较大的角色，值为数字较小的角色和原因的组合</returns>
-        public Dictionary<Vector2Int, string> GetDiscrepancyPairs()
+        public Dictionary<Vector2Int, string> GetDiscrepancyPairs(bool passZero)
         {
             Dictionary<Vector2Int, string> dictionary = new Dictionary<Vector2Int, string>();
 
@@ -110,6 +110,8 @@ namespace AdaptableDialogAnalyzer.DataStructures
             {
                 for (int id2 = id1 + 1; id2 < size; id2++)
                 {
+                    if(passZero && (id1 == 0 || id2 == 0)) continue;
+
                     int charAId = characters[id1].id;
                     int charBId = characters[id2].id;
 

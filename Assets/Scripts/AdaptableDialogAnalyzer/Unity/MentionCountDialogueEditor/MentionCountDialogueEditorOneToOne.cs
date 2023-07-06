@@ -15,6 +15,8 @@ namespace AdaptableDialogAnalyzer.Unity
         public Color colorBlack = new Color32(68, 68, 102, 255);
         [Header("Prefabs")]
         public SpeechBubbleButton speechBubblePrefab;
+        public Window editorOneToManyPrefab;
+        public Window editorManyToManyPrefab;
 
         int speakerId;
         int mentionedPersonId;
@@ -27,8 +29,10 @@ namespace AdaptableDialogAnalyzer.Unity
             this.speakerId = speakerId;
             this.mentionedPersonId = mentionedPersonId;
 
+            togHideUnmatched.isOn = hideUnmatched;
             togHideUnmatched.onValueChanged.AddListener((value) =>
             {
+                hideUnmatched = value;
                 Refresh();
             });
 
@@ -82,6 +86,18 @@ namespace AdaptableDialogAnalyzer.Unity
                 //标记此矩阵已被修改
                 MentionedCountMatrix.HasChanged = true;
             });
+        }
+
+        public void OpenEditorOneToMany()
+        {
+            MentionCountDialogueEditorOneToMany editorOneToMany = window.OpenWindow<MentionCountDialogueEditorOneToMany>(editorOneToManyPrefab);
+            editorOneToMany.Initialize(MentionedCountMatrix, speakerId);
+        }
+
+        public void OpenEditorManyToMany()
+        {
+            MentionCountDialogueEditorManyToMany editorManyToMany = window.OpenWindow<MentionCountDialogueEditorManyToMany>(editorManyToManyPrefab);
+            editorManyToMany.Initialize(MentionedCountMatrix);
         }
     }
 }

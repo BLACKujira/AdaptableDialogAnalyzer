@@ -31,8 +31,14 @@ namespace AdaptableDialogAnalyzer.Unity
         /// </summary>
         Dictionary<string , Chapter> chapterDictionary = new Dictionary<string, Chapter>();
 
-        protected void Initialize()
+        public void Initialize()
         {
+            if(chapters != null)
+            {
+                Debug.Log("请勿重复调用初始化函数");
+                return;
+            }
+
             chapters = InitializeChapters();
             foreach (Chapter chapter in chapters) 
             {
@@ -57,6 +63,16 @@ namespace AdaptableDialogAnalyzer.Unity
             if(chapters == null) Initialize();
             if(chapterDictionary.ContainsKey(chapterID)) return chapterDictionary[chapterID];
             return null;
+        }
+
+        /// <summary>
+        /// 是否存在某id的剧情
+        /// </summary>
+        /// <param name="chapterID"></param>
+        /// <returns></returns>
+        public bool HasChapter(string chapterID)
+        {
+            return chapterDictionary.ContainsKey(chapterID);
         }
     }
 }

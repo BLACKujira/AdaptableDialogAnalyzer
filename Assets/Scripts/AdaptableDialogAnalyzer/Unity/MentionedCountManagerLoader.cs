@@ -13,7 +13,9 @@ namespace AdaptableDialogAnalyzer.Unity
     {
         public string saveFolder;
         public ChapterLoader chapterLoader;
-    
+        [Header("Settings")]
+        public bool onlyLoadExistChapter;
+
         /// <summary>
         /// 每个统计矩阵对应的文件，value：矩阵保存位置
         /// </summary>
@@ -34,12 +36,16 @@ namespace AdaptableDialogAnalyzer.Unity
         private void Initialize()
         {
             List<MentionedCountMatrix> countMatrices = new List<MentionedCountMatrix>();
+            chapterLoader.Initialize();
 
             string[] files = Directory.GetFiles(saveFolder);
             foreach (string file in files) 
             {
                 if (Path.GetExtension(file).ToLower().Equals(".mcm"))
                 {
+                    string fileName = Path.GetFileNameWithoutExtension(file);
+                    if (onlyLoadExistChapter && !chapterLoader.HasChapter(fileName)) continue;
+
                     string rawMatrix = File.ReadAllText(file);
                     MentionedCountMatrix countMatrix = JsonUtility.FromJson<MentionedCountMatrix>(rawMatrix);
                     countMatrices.Add(countMatrix);

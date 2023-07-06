@@ -17,6 +17,8 @@ namespace AdaptableDialogAnalyzer.Unity
         public Text txtTip;
         public RectTransform rtScrollContent;
 
+        protected static bool hideUnmatched = true;
+
         MentionedCountMatrix mentionedCountMatrix;
         List<SpeechBubbleButton> speechBubbles = new List<SpeechBubbleButton>();
 

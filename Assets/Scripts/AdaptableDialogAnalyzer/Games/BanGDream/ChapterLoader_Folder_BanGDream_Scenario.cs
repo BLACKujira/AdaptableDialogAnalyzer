@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
@@ -8,16 +9,25 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
     {
         public string apkAssetFolder;
         public string assetBundleFolder;
+        [Header("Settings")]
+        public bool loadMainStory = true;
+        public bool loadBandStory = true;
+        public bool loadEventStory = true;
+        public bool loadAreaTalk = true;
+        public bool loadCardStory = true;
+        public bool loadAfterLive = true;
+        public bool loadBirthdayStory = true;
+        public bool loadOtherStory = true;
 
         const string SCENARIO_EXTENSION = ".json";
 
-        const string TYPE_EVENTSTORY = "活动剧情";
-        const string TYPE_BIRTHDAYSTORY = "生日剧情";
-        const string TYPE_AREATALK = "区域对话";
-        const string TYPE_AFTERLIVE = "LIVE结束语言";
-        const string TYPE_BANDSTORY = "乐队剧情";
         const string TYPE_MAINSTORY = "主线剧情";
+        const string TYPE_BANDSTORY = "乐队剧情";
+        const string TYPE_EVENTSTORY = "活动剧情";
+        const string TYPE_AREATALK = "区域对话";
         const string TYPE_CARDSTORY = "卡面剧情";
+        const string TYPE_AFTERLIVE = "LIVE结束语言";
+        const string TYPE_BIRTHDAYSTORY = "生日剧情";
         const string TYPE_OTHERSTORY = "其他剧情";
 
         const string DIR_EVENTSTORY = @"assets\star\forassetbundle\asneeded\scenario\eventstory";
@@ -38,19 +48,22 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             List<Chapter> chapters = new List<Chapter>();
 
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_MAINSTORY), TYPE_MAINSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_BANDSTORY), TYPE_BANDSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_EVENTSTORY), TYPE_EVENTSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_BIRTHDAYSTORY), TYPE_BIRTHDAYSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_AREATALK), TYPE_AREATALK));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_AFTERLIVE), TYPE_AFTERLIVE));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_CARDSTORY), TYPE_CARDSTORY));
+            if(loadMainStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_MAINSTORY), TYPE_MAINSTORY));
+            if (loadBandStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_BANDSTORY), TYPE_BANDSTORY));
+            if (loadEventStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_EVENTSTORY), TYPE_EVENTSTORY));
+            if (loadBirthdayStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_BIRTHDAYSTORY), TYPE_BIRTHDAYSTORY));
+            if (loadAreaTalk) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_AREATALK), TYPE_AREATALK));
+            if (loadAfterLive) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_AFTERLIVE), TYPE_AFTERLIVE));
+            if (loadCardStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_CARDSTORY), TYPE_CARDSTORY));
 
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_LOGINSTORY), TYPE_OTHERSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_AREAOPENINGSTORY), TYPE_OTHERSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_BACKSTAGESTORY), TYPE_OTHERSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_DIGESTSTORY), TYPE_OTHERSTORY));
-            chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_PRECEDINGSTORY), TYPE_OTHERSTORY));
+            if (loadOtherStory)
+            {
+                chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_LOGINSTORY), TYPE_OTHERSTORY));
+                chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_AREAOPENINGSTORY), TYPE_OTHERSTORY));
+                chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_BACKSTAGESTORY), TYPE_OTHERSTORY));
+                chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_DIGESTSTORY), TYPE_OTHERSTORY));
+                chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_PRECEDINGSTORY), TYPE_OTHERSTORY));
+            }
 
             return chapters.ToArray();
         }

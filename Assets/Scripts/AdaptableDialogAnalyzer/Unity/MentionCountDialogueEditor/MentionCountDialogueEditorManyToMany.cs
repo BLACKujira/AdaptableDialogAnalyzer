@@ -9,8 +9,10 @@ namespace AdaptableDialogAnalyzer.Unity
     {
         public new void Initialize(MentionedCountMatrix mentionedCountMatrix)
         {
+            togHideUnmatched.isOn = hideUnmatched;
             togHideUnmatched.onValueChanged.AddListener((value) =>
             {
+                hideUnmatched = value;
                 Refresh();
             });
 

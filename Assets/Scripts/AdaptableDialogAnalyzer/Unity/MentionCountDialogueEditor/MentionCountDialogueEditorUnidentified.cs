@@ -12,8 +12,10 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             this.unidentifiedNickname = unidentifiedNickname;
 
+            togHideUnmatched.isOn = hideUnmatched;
             togHideUnmatched.onValueChanged.AddListener((value) =>
             {
+                hideUnmatched = value;
                 Refresh();
             });
 

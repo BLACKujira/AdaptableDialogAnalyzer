@@ -1538,6 +1538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveFolder: D:\Extract\120
   chapterLoader: {fileID: 682293571}
+  onlyLoadExistChapter: 1
 --- !u!114 &682293569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1609,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
+  loadMainStory: 0
+  loadBandStory: 0
+  loadEventStory: 1
+  loadAreaTalk: 0
+  loadCardStory: 0
+  loadAfterLive: 0
+  loadBirthdayStory: 0
+  loadOtherStory: 0
 --- !u!114 &682293572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,6 +2685,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
+  loadMainStory: 1
+  loadBandStory: 1
+  loadEventStory: 1
+  loadAreaTalk: 1
+  loadCardStory: 1
+  loadAfterLive: 1
+  loadBirthdayStory: 1
+  loadOtherStory: 1
 --- !u!1 &2129188331
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3082,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
+  loadMainStory: 1
+  loadBandStory: 1
+  loadEventStory: 1
+  loadAreaTalk: 1
+  loadCardStory: 1
+  loadAfterLive: 1
+  loadBirthdayStory: 1
+  loadOtherStory: 1
 --- !u!224 &7179031324247312273 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4749914023746969962, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
