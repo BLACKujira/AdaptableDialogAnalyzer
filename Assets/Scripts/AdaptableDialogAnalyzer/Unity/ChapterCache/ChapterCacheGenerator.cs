@@ -40,6 +40,11 @@ namespace AdaptableDialogAnalyzer.Unity
                 ChapterCache chapterCache = new ChapterCache(chapter);
                 string cache = chapterCache.GetSerializedData();
                 string saveFile = Path.Combine(savePath, chapter.ChapterID + ".cc");
+
+                if(File.Exists(saveFile)) 
+                {
+                    Debug.LogWarning($"已存在id为{saveFile}的剧情缓存，之前的文件将被覆盖，请检查剧情ID生成方式，避免出现重复ID");
+                }
                 File.WriteAllText(saveFile, cache);
             }
 
