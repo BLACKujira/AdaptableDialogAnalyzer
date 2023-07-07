@@ -157,3 +157,11 @@ MonoBehaviour:
     name: "\u73E0\u624B \u3061\u3086"
     icon: {fileID: -9195295145555702010, guid: 742098ccf379d3a45833b1bdb3321d63, type: 3}
     color: {r: 0, g: 0.73333335, b: 1, a: 1}
+  - id: 214
+    name: "\u6238\u5C71 \u660E\u65E5\u9999"
+    icon: {fileID: 21300000, guid: 1bcce353d5b83524a909a8d9fe9621b1, type: 3}
+    color: {r: 0.4627451, g: 0.3529412, b: 0.23137255, a: 1}
+  - id: 201
+    name: "\u6708\u5CF6 \u307E\u308A\u306A"
+    icon: {fileID: 21300000, guid: cc8a2f1b1428b3942bdb78af840440df, type: 3}
+    color: {r: 0.40784314, g: 0.3764706, b: 0.3882353, a: 1}

@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85bc5398eff1654f8231e8a673f3651, type: 3}
   m_Name: NicknameDefinition
   m_EditorClassIdentifier: 
-  specificNicknameMappings: []
+  specificNicknameMappings:
+  - {fileID: 11400000, guid: 55a03d8eb6bf4da4a8f79da96d2c6bc1, type: 2}
+  - {fileID: 11400000, guid: b60728e3c6bf71f4095dd724d7f90431, type: 2}
+  - {fileID: 11400000, guid: 01eb3419ce6895842aae54521c6e0e9d, type: 2}
+  - {fileID: 11400000, guid: feee4d1f0cbc81a4e8e1f7723c91b3b4, type: 2}
+  - {fileID: 11400000, guid: fef0f9d46cbb1ac43a051ebfe73f2b9c, type: 2}
   commonNicknameMapping: {fileID: 11400000, guid: d7235e728a75e46488b4aa026a132cdd,
     type: 2}
   unidentifiedNicknameList:

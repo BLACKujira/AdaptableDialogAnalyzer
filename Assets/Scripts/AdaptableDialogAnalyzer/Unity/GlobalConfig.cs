@@ -2,7 +2,6 @@
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
     public class GlobalConfig : MonoBehaviour
     {
         public CharacterDefinition characterDefinition;
@@ -29,6 +28,14 @@ namespace AdaptableDialogAnalyzer.Unity
 
                 return instance;
             }
+        }
+
+        /// <summary>
+        /// 提前初始化已获得实例
+        /// </summary>
+        public static void ForceInitialize()
+        {
+            _ = Instance;
         }
     }
 }

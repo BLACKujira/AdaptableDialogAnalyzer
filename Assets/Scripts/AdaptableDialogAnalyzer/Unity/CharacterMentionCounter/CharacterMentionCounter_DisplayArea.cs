@@ -14,6 +14,8 @@ namespace AdaptableDialogAnalyzer.Unity
         [Header("Components")]
         public EquidistantLayoutGenerator elgSpeaker;
         public EquidistantLayoutGenerator elgMentionedPerson;
+        [Header("Settings")]
+        public int refreshFrame = 120;
 
         int selectedCharacterId = 0;
 
@@ -61,9 +63,29 @@ namespace AdaptableDialogAnalyzer.Unity
             }
             speakerItems[characterId].Checked = true;
             GlobalColor.SetThemeColor(GlobalConfig.CharacterDefinition[characterId].color);
+
+            TrueUpdate();
         }
 
+        int currentFrame = -1;
+        bool lastRefresh = false;
         private void Update()
+        {
+            //如果已经统计完成且完成最后一次刷新，则返回
+            if (characterMentionCounter.Finished && lastRefresh) return;
+
+            //每隔refreshFrame刷新一次
+            currentFrame++;
+            if (currentFrame != refreshFrame) return;
+            currentFrame = -1;
+
+            //完成统计后进行最后一次刷新
+            if (characterMentionCounter.Finished) lastRefresh = true;
+
+            TrueUpdate();
+        }
+
+        private void TrueUpdate()
         {
             CharacterDefinition characterDefinition = GlobalConfig.CharacterDefinition;
             Character[] characters = characterDefinition.Characters;

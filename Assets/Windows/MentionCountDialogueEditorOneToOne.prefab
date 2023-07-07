@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 2149088465418194250, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
       propertyPath: m_Name
-      value: btnManyToMany
+      value: btnOneToMany
       objectReference: {fileID: 0}
     - target: {fileID: 4749914023746969962, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
@@ -555,7 +555,7 @@ PrefabInstance:
     - target: {fileID: 2149088465418194250, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
       propertyPath: m_Name
-      value: btnOneToMany
+      value: btnManyToMany
       objectReference: {fileID: 0}
     - target: {fileID: 4749914023746969962, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}

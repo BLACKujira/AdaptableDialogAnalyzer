@@ -15,6 +15,9 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Start()
         {
+            //防止线程中无法获取组件实例
+            GlobalConfig.ForceInitialize();
+
             countThread = new Thread(() => Generate());
             countThread.Start();
         }

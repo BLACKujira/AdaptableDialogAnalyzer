@@ -45,6 +45,9 @@ namespace AdaptableDialogAnalyzer.Unity
         bool threadAbortFlag = false; //循环中发现这个标志变为true时结束统计
         Thread countThread;
 
+        bool finished = false;
+        public bool Finished => finished;
+
         private void Start()
         {
             chapters = chapterLoader.Chapters;
@@ -109,6 +112,9 @@ namespace AdaptableDialogAnalyzer.Unity
                 }
             }
 
+            //防止线程中无法获取组件实例
+            GlobalConfig.ForceInitialize();
+
             countThread = new Thread(() => Count(chapters));
             countThread.Start();
         }
@@ -117,7 +123,7 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             threadAbortFlag = true;
         }
-
+        
         private void Update()
         {
             int counted = mentionedCountManager.mentionedCountMatrices.Count;
@@ -142,8 +148,13 @@ namespace AdaptableDialogAnalyzer.Unity
                 string savePath = Path.Combine(saveFolder, chapter.ChapterID + ".mcm");
                 File.WriteAllText(savePath, JsonUtility.ToJson(mentionedCountMatrix));
 
-                if (threadAbortFlag) return;
+                if (threadAbortFlag)
+                {
+                    finished  = true;
+                    return;
+                }
             }
+            finished = true;
         }
 
         /// <summary>
@@ -159,7 +170,7 @@ namespace AdaptableDialogAnalyzer.Unity
             foreach (var talkSnippet in talkSnippets)
             {
                 BasicTalkSnippet matchSnippet = talkSnippet;
-                if(removeStrings!=null)
+                if (removeStrings != null)
                 {
                     foreach (var str in removeStrings.strings)
                     {

@@ -1,12 +1,16 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
+using AdaptableDialogAnalyzer.UIElements;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
     public class MentionCountDialogueEditorOneToMany : MentionCountDialogueEditorToMany
     {
         int speakerId;
+        [Header("Prefabs")]
+        public Window editorManyToManyPrefab;
 
         public void Initialize(MentionedCountMatrix mentionedCountMatrix, int speakerId)
         {
@@ -37,6 +41,12 @@ namespace AdaptableDialogAnalyzer.Unity
         protected override string GetTip()
         {
             return $"标记对话 | 多角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name}";
+        }
+
+        public void OpenEditorManyToMany()
+        {
+            MentionCountDialogueEditorManyToMany editorManyToMany = window.OpenWindow<MentionCountDialogueEditorManyToMany>(editorManyToManyPrefab);
+            editorManyToMany.Initialize(MentionedCountMatrix);
         }
     }
 }
