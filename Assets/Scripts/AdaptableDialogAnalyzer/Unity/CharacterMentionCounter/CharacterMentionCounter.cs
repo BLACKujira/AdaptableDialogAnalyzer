@@ -166,7 +166,7 @@ namespace AdaptableDialogAnalyzer.Unity
             MentionedCountMatrix mentionedCountMatrix = new MentionedCountMatrix(chapter);
             mentionedCountMatrix.Chapter = chapter;
 
-            BasicTalkSnippet[] talkSnippets = chapter.GetTalkSnippets();
+            BasicTalkSnippet[] talkSnippets = chapter.TalkSnippets;
             foreach (var talkSnippet in talkSnippets)
             {
                 BasicTalkSnippet matchSnippet = talkSnippet;

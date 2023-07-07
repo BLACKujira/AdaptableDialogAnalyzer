@@ -17,7 +17,7 @@ namespace AdaptableDialogAnalyzer.Unity
             chapterType = chapter.ChapterType;
             chapterTitle = chapter.ChapterTitle;
             extraInfo = chapter.ExtraInfo;
-            talkSnippets = chapter.GetTalkSnippets();
+            talkSnippets = chapter.TalkSnippets;
         }
 
         public string GetSerializedData()

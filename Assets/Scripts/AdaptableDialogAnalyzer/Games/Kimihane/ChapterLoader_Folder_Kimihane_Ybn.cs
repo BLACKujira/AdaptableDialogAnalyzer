@@ -19,7 +19,7 @@ namespace AdaptableDialogAnalyzer.Games.Kimihane
                 chapter.ChapterID = Path.GetFileNameWithoutExtension(file);
                 chapter.ChapterTitle = Path.GetFileNameWithoutExtension(file);
 
-                if (chapter.GetTalkSnippets().Length == 0) chapter.ChapterType = "控制脚本";
+                if (chapter.TalkSnippets.Length == 0) chapter.ChapterType = "控制脚本";
                 else chapter.ChapterType = "剧情脚本";
 
                 chapters.Add(chapter);

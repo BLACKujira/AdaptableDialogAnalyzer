@@ -39,7 +39,7 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             ClearSpeechBubbles();
             Chapter chapter = mentionedCountMatrix.Chapter;
-            List<BasicTalkSnippet> basicTalkSnippets = new List<BasicTalkSnippet>(chapter.GetTalkSnippets());
+            List<BasicTalkSnippet> basicTalkSnippets = new List<BasicTalkSnippet>(chapter.TalkSnippets);
 
             basicTalkSnippets = FilterTalkSnippets(basicTalkSnippets);
 

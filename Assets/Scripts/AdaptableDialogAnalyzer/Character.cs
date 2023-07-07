@@ -28,16 +28,22 @@ namespace AdaptableDialogAnalyzer
         /// </summary>
         public Color color;
 
+        string namae = null;
         /// <summary>
-        /// 获取角色名称最后一个空格后的字符串
+        /// 获取角色名称最后一个空格后的字符串，有缓存，不用担心性能消耗
         /// </summary>
         public string Namae
         {
             get
             {
-                string[] nameArray = name.Split(' ');
-                return nameArray[nameArray.Length - 1];
+                if(string.IsNullOrEmpty(namae)) namae = GetNamae();
+                return namae;
             }
+        }
+        string GetNamae()
+        {
+            string[] nameArray = name.Split(' ');
+            return nameArray[nameArray.Length - 1];
         }
 
         public Character()

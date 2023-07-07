@@ -63,14 +63,28 @@ namespace AdaptableDialogAnalyzer
             {
                 if(serifCount < 0) 
                 {
-                    serifCount = GetTalkSnippets().Length;
+                    serifCount = TalkSnippets.Length;
                 }
                 return serifCount;
             }
         }
 
+        BasicTalkSnippet[] talkSnippets = null;
+
         /// <summary>
-        /// 重载此方法以获取此剧情的基础对话信息
+        /// 此剧情的对话片段。已替代GetTalkSnippets，减少性能消耗。有缓存，非必要请勿修改内容
+        /// </summary>
+        public BasicTalkSnippet[] TalkSnippets
+        {
+            get
+            {
+                if(talkSnippets == null) talkSnippets = GetTalkSnippets();
+                return talkSnippets;
+            }
+        }
+
+        /// <summary>
+        /// 重载此方法以获取此剧情的基础对话信息，每次都会重新获取，请注意性能消耗
         /// </summary>
         /// <returns></returns>
         public abstract BasicTalkSnippet[] GetTalkSnippets();

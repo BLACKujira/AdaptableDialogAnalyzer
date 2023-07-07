@@ -112,7 +112,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         public Dictionary<int, List<int>> GetSnippetCountDictionary()
         {
             Dictionary<int, List<int>> snippetCountDictionary = new Dictionary<int, List<int>>();
-            BasicTalkSnippet[] basicTalkSnippets = chapter.GetTalkSnippets();
+            BasicTalkSnippet[] basicTalkSnippets = chapter.TalkSnippets;
             foreach (var basicTalkSnippet in basicTalkSnippets)
             {
                 snippetCountDictionary[basicTalkSnippet.RefIdx] = new List<int>();

@@ -20,7 +20,7 @@ namespace AdaptableDialogAnalyzer.Unity
         public void Start()
         {
             chapter = chapterLoader.GetChapter();
-            BasicTalkSnippet[] basicTalkSnippets = chapter.GetTalkSnippets();
+            BasicTalkSnippet[] basicTalkSnippets = chapter.TalkSnippets;
             foreach (var basicTalkSnippet in basicTalkSnippets)
             {
                 SpeechBubble speechBubble = Instantiate(speechBubblePrefab, rtScrollContent);
