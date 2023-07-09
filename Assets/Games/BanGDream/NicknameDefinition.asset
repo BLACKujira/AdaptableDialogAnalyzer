@@ -23,5 +23,6 @@ MonoBehaviour:
   unidentifiedNicknameList:
     mentionedPersonId: 0
     nicknames:
+    - "\u6238\u5C71"
     - "\u6C37\u5DDD"
     - "\u5B87\u7530\u5DDD"

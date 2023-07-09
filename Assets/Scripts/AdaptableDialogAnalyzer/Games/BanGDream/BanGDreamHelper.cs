@@ -1,14 +1,55 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
+using System.Collections.Generic;
 
 namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public static class BanGDreamHelper
     {
+        
+        static Dictionary<string,int> characterNamaeMap = null;
+        /// <summary>
+        /// 记录每个角色的标准名称
+        /// </summary>
+        static Dictionary<string,int> CharacterNamaeMap
+        {
+            get
+            {
+                if (characterNamaeMap == null) characterNamaeMap = GetCharacterNamaeMap();
+                return characterNamaeMap;
+            }
+        }
+        static Dictionary<string, int> GetCharacterNamaeMap()
+        {
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            foreach (var character in GlobalConfig.CharacterDefinition.Characters)
+            {
+                if (character.id == 0) continue;
+                dictionary[character.Namae] = character.id;
+            }
+            return dictionary;
+        }
+
         public static int GetCharacterId_Scenario(ScenarioSnippetTalk scenarioSnippetTalk)
         {
             if (scenarioSnippetTalk.talkCharacters == null || scenarioSnippetTalk.talkCharacters.Length <= 0) return 0;
             int characterId = scenarioSnippetTalk.talkCharacters[0].characterId;
-            if (!GlobalConfig.CharacterDefinition.HasDefinition(characterId)) return 0;
+            if (!GlobalConfig.CharacterDefinition.HasDefinition(characterId)) characterId = 0;
+
+            //在显示名称严格等于角色名时也算作是对应角色的台词
+            if(characterId == 0)
+            {
+                if (CharacterNamaeMap.ContainsKey(scenarioSnippetTalk.windowDisplayName))
+                    characterId = characterNamaeMap[scenarioSnippetTalk.windowDisplayName];
+            }
+
+            return characterId;
+        }
+
+        public static int GetCharacterId_BackstageTalk(BackstageTalkSnippet backstageTalkSnippet)
+        {
+            if (backstageTalkSnippet.characterIds == null || backstageTalkSnippet.characterIds.Count <= 0) return 0;
+            int characterId = (int)backstageTalkSnippet.characterIds[0];
+            if (!GlobalConfig.CharacterDefinition.HasDefinition(characterId)) characterId = 0;
             return characterId;
         }
 

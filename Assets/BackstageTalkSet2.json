@@ -1,0 +1,51 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -3939490112071904993
+  },
+  "m_Name": "BackstageTalkSet2",
+  "backstageTalkSetId": 2,
+  "snippets": [
+    {
+      "talkId": 1,
+      "characterIds": [
+        1
+      ],
+      "voiceId": "TalkSet2-1",
+      "talkText": "ふんふんふーん♪",
+      "lipAnimation": "mouth_normal",
+      "fontColorType": 0,
+      "fontSizeType": 0,
+      "balloonType": 0
+    },
+    {
+      "talkId": 2,
+      "characterIds": [
+        5
+      ],
+      "voiceId": "TalkSet2-2",
+      "talkText": "あ、まだ香澄だけか",
+      "lipAnimation": "mouth_normal",
+      "fontColorType": 0,
+      "fontSizeType": 0,
+      "balloonType": 0
+    },
+    {
+      "talkId": 3,
+      "characterIds": [
+        1
+      ],
+      "voiceId": "TalkSet2-3",
+      "talkText": "有咲〜っ！",
+      "lipAnimation": "mouth_normal",
+      "fontColorType": 0,
+      "fontSizeType": 0,
+      "balloonType": 0
+    }
+  ]
+}

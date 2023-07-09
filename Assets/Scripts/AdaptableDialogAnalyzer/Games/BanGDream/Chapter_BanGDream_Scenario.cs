@@ -5,10 +5,10 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public class Chapter_BanGDream_Scenario : Chapter
     {
+        ScenarioSceneData scenarioSceneData;
         /// <summary>
         /// 原始对象
         /// </summary>
-        ScenarioSceneData scenarioSceneData;
         public ScenarioSceneData ScenarioSceneData => scenarioSceneData;
 
         public override BasicTalkSnippet[] GetTalkSnippets()

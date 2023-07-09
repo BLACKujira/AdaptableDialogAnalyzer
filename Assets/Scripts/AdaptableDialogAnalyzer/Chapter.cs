@@ -84,7 +84,7 @@ namespace AdaptableDialogAnalyzer
         }
 
         /// <summary>
-        /// 重载此方法以获取此剧情的基础对话信息，每次都会重新获取，请注意性能消耗
+        /// 重载此方法以获取此剧情的基础对话信息，每次都会重新获取，非必要请使用TalkSnippets
         /// </summary>
         /// <returns></returns>
         public abstract BasicTalkSnippet[] GetTalkSnippets();

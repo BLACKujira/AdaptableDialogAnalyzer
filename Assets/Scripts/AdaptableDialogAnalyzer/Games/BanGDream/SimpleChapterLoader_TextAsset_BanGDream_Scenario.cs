@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
-
     public class SimpleChapterLoader_TextAsset_BanGDream_Scenario : SimpleChapterLoader
     {
         public TextAsset textAsset;
