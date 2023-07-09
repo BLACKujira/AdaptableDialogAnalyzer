@@ -41,6 +41,7 @@ MonoBehaviour:
     - "\u3055\u3084"
     - "\u30B5\u30E4"
     - "\u3055\u3042\u3084\u3061\u3083\u3093"
+    - "\u3055\u3084(?!\u304B)"
   - mentionedPersonId: 5
     nicknames:
     - "\u5E02\u30F6\u8C37"
@@ -69,6 +70,7 @@ MonoBehaviour:
     - "\u5DF4"
     - "\u5B87\u7530\u5DDD\u5DF4"
     - "\u30C8\u30E2\u3061\u3093"
+    - "\u30C8\u30E2\u30A8"
   - mentionedPersonId: 10
     nicknames:
     - "\u7FBD\u6CA2"
@@ -78,7 +80,7 @@ MonoBehaviour:
     nicknames:
     - "\u5F26\u5DFB"
     - "\u3053\u3053\u308D"
-    - "\u30B3\u30B3\u30ED"
+    - "(?<![\u30A1-\u30FA])\u30B3\u30B3\u30ED(?![\u30A1-\u30FA])"
   - mentionedPersonId: 12
     nicknames:
     - "\u702C\u7530"
@@ -87,20 +89,23 @@ MonoBehaviour:
   - mentionedPersonId: 13
     nicknames:
     - "\u5317\u6CA2"
-    - "\u306F\u3050"
+    - "\u306F\u3050\u5148\u8F29"
     - "\u30CF\u30B0\u30DF"
+    - "\u306F\u3050\u307F"
   - mentionedPersonId: 14
     nicknames:
     - "\u677E\u539F"
     - "\u82B1\u97F3"
     - "\u304B\u306E\u3061\u3083\u3093"
     - "\u30DE\u30C4\u30D0\u30E9"
+    - "(?<![\u30A1-\u30FA])\u30AB\u30CE\u30F3(?![\u30A1-\u30FA])"
   - mentionedPersonId: 15
     nicknames:
     - "\u5965\u6CA2"
     - "\u7F8E\u54B2"
     - "\u30DF\u30C3\u30B7\u30A7\u30EB"
     - "\u307F\u304F\u3093"
+    - "\u30DF\u30B5\u30AD"
   - mentionedPersonId: 16
     nicknames:
     - "\u4E38\u5C71"
@@ -132,6 +137,7 @@ MonoBehaviour:
     - "\u6E4A"
     - "\u53CB\u5E0C\u90A3"
     - "\u307F\u306A\u3068"
+    - "\u30E6\u30AD\u30CA"
   - mentionedPersonId: 22
     nicknames:
     - "\u7D17\u591C"
@@ -140,7 +146,7 @@ MonoBehaviour:
   - mentionedPersonId: 23
     nicknames:
     - "\u4ECA\u4E95"
-    - "\u30EA\u30B5"
+    - "(?<![\u30A1-\u30FA])\u30EA\u30B5"
   - mentionedPersonId: 24
     nicknames:
     - "\u3042\u3053"
@@ -162,11 +168,13 @@ MonoBehaviour:
     - "\u6850\u30F6\u8C37"
     - "\u900F\u5B50"
     - "\u3068\u3053\u3061\u3083\u3093"
+    - "\u30C8\u30B3"
   - mentionedPersonId: 28
     nicknames:
     - "\u5E83\u753A"
     - "\u4E03\u6DF1"
     - "\u306A\u306A\u307F"
+    - "\u30CA\u30CA\u30DF"
   - mentionedPersonId: 29
     nicknames:
     - "\u4E8C\u8449"
@@ -178,8 +186,9 @@ MonoBehaviour:
     nicknames:
     - "\u516B\u6F6E"
     - "\u7460\u552F"
-    - "(?<![\u660E\u305A])\u308B\u3044(?!\u308D\u3093)"
+    - "\u308B\u3044\u3055\u3093"
     - "(?<![\u30A1-\u30FA])\u30EB\u30A4(?![\u30A1-\u30FA])"
+    - "\u308B\u3044\u308B\u3044"
   - mentionedPersonId: 31
     nicknames:
     - "\u548C\u594F"
@@ -190,12 +199,12 @@ MonoBehaviour:
     - "\u671D\u65E5"
     - "\u516D\u82B1"
     - "(?<![\u30A1-\u30FA])\u30ED\u30C3\u30AF(?![\u30A1-\u30FA])"
-    - "(?<!\u4E0A\u304C)(?<![\u3084\u5E30\u64AE\u4F5C])\u308D\u3063\u304B"
+    - "(?<!\u4E0A\u304C)(?<![\u3084\u5E30\u64AE\u5199\u4F5C])\u308D\u3063\u304B"
   - mentionedPersonId: 33
     nicknames:
     - "\u4F50\u85E4"
     - "\u307E\u3059\u304D"
-    - "\u30DE\u30B9\u30AD\u30F3\u30B0"
+    - "\u30DE\u30B9\u30AD"
     - "\u30DE\u30C3\u30B9\u3055\u3093"
   - mentionedPersonId: 34
     nicknames:

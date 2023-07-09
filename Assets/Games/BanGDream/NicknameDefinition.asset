@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: NicknameDefinition
   m_EditorClassIdentifier: 
   specificNicknameMappings:
+  - {fileID: 11400000, guid: d0dc88bc71eef364fa135045b66130bc, type: 2}
+  - {fileID: 11400000, guid: 9b41d1a0bd682784e9f7cf51ee07b67e, type: 2}
+  - {fileID: 11400000, guid: 2c91d74f2cab80f458dde998968eb575, type: 2}
+  - {fileID: 11400000, guid: 24cc146069505ec4680eaa4ad14852d9, type: 2}
+  - {fileID: 11400000, guid: 2e14fb1cd01324a4cb433c188433ec75, type: 2}
   - {fileID: 11400000, guid: 55a03d8eb6bf4da4a8f79da96d2c6bc1, type: 2}
+  - {fileID: 11400000, guid: c3d742bb2aa5e0c4dace83b69368031c, type: 2}
   - {fileID: 11400000, guid: b60728e3c6bf71f4095dd724d7f90431, type: 2}
   - {fileID: 11400000, guid: 01eb3419ce6895842aae54521c6e0e9d, type: 2}
   - {fileID: 11400000, guid: feee4d1f0cbc81a4e8e1f7723c91b3b4, type: 2}
@@ -26,3 +32,5 @@ MonoBehaviour:
     - "\u6238\u5C71"
     - "\u6C37\u5DDD"
     - "\u5B87\u7530\u5DDD"
+    - "(?<![\u305A\u3060\u306C\u3044\u660E])\u308B\u3044(?!\u3044\u307E)"
+    - "(?<!\u3067)\u306F\u3050(?!\u308C)"
