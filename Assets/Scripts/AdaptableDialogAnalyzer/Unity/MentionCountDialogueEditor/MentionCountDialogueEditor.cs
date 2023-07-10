@@ -21,6 +21,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         MentionedCountMatrix mentionedCountMatrix;
         List<SpeechBubbleButton> speechBubbles = new List<SpeechBubbleButton>();
+        protected List<SpeechBubbleButton> SpeechBubbles => speechBubbles;
 
         protected abstract SpeechBubbleButton SpeechBubblePrefab { get; }
         protected MentionedCountMatrix MentionedCountMatrix => mentionedCountMatrix;

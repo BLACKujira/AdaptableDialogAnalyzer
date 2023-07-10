@@ -30,6 +30,8 @@ namespace AdaptableDialogAnalyzer.UIElements
         /// <param name="setColor"></param>
         public void SetData(BasicTalkSnippet basicTalkSnippet, bool setNameBGColor = true, bool setContentBGColor = true)
         {
+            this.basicTalkSnippet = basicTalkSnippet;
+
             if (basicTalkSnippet == null)
             {
                 Debug.LogError("Invalid BasicTalkSnippet.");

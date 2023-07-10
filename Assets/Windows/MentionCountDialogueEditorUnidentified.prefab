@@ -153,6 +153,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1244026734726840616, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244026734726840618, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244026734825577852, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244026735115956046, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244026735115956046, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244026735115956046, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1244026735116246712, guid: 8fc7a97d807f30246b0797af51bf46a5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -161,6 +191,11 @@ PrefabInstance:
     - target: {fileID: 1244026735116246712, guid: 8fc7a97d807f30246b0797af51bf46a5,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244026735116246712, guid: 8fc7a97d807f30246b0797af51bf46a5,
+        type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2839970803492524329, guid: 8fc7a97d807f30246b0797af51bf46a5,
@@ -350,9 +385,7 @@ MonoBehaviour:
     type: 3}
   mutiCharacterSelectorPrefab: {fileID: 5127719255978530020, guid: c736f8aff96311a4880cf1218a2159bc,
     type: 3}
-  editorManyToManyPrefab: {fileID: 5388534756877828357, guid: 6a71abc353247ff4ab560a74022e28cf,
-    type: 3}
---- !u!1001 &9041124625132622189
+--- !u!1001 &3166237754593669439
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -362,12 +395,12 @@ PrefabInstance:
     - target: {fileID: 776251512113674412, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
       propertyPath: m_Text
-      value: "\u5168\u89D2\u8272\u6A21\u5F0F"
+      value: "\u6807\u8BB0\u5168\u90E8"
       objectReference: {fileID: 0}
     - target: {fileID: 2149088465418194250, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
       propertyPath: m_Name
-      value: btnManyToMany
+      value: btnMarkAll
       objectReference: {fileID: 0}
     - target: {fileID: 4749914023746969962, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
@@ -497,7 +530,7 @@ PrefabInstance:
     - target: {fileID: 6776315827186054086, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenEditorManyToMany
+      value: MarkAllUnidentifiedNicknames
       objectReference: {fileID: 0}
     - target: {fileID: 6776315827186054086, guid: 6bed31ab7203cc942a0cbfb935d8a3cf,
         type: 3}

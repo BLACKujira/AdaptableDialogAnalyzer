@@ -53,7 +53,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
             {
                 foreach (var mentionedCountRow in mentionedCountRows)
                 {
-                    if(mentionedCountRow.speakerId == speakerId) return mentionedCountRow;
+                    if (mentionedCountRow.speakerId == speakerId) return mentionedCountRow;
                 }
                 throw new Exception($"此统计矩阵中找不到角色{speakerId}的定义，暂不支持统计后修改角色定义。或者检查是否使用了错误的角色定义");
             }
@@ -124,7 +124,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
             {
                 for (int id2 = 0; id2 < size; id2++)
                 {
-                    int speakerId = characters[id1].id; 
+                    int speakerId = characters[id1].id;
                     int mentionedPersonId = characters[id2].id;
 
                     MentionedCountGrid mentionedCountGrid = this[speakerId, mentionedPersonId];
@@ -172,20 +172,58 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         /// <summary>
-        /// 移除任一多义昵称匹配列表中的此台词
+        /// 移除任一多义昵称匹配列表中的此台词，之后检测并移除空多义昵称列表
         /// </summary>
         /// <returns>移除是否成功</returns>
         public bool RemoveUnidentifiedMention(int refIdx)
         {
+            bool success = false;
+
             foreach (var unidentifiedMentions in unidentifiedMentionsList)
             {
-                if(unidentifiedMentions.HasSerif(refIdx))
+                if (unidentifiedMentions.HasSerif(refIdx))
                 {
                     unidentifiedMentions.RemoveMatchedDialogue(refIdx);
-                    return true;
+                    success = true;
                 }
             }
-            return false;
+
+            RemoveEmptyUnidentifiedMentions();
+            return success;
+        }
+
+        /// <summary>
+        /// 移除某多义昵称匹配列表中的此台词，之后检测并移除空多义昵称列表
+        /// </summary>
+        /// <returns>移除是否成功</returns>
+        public bool RemoveUnidentifiedMention(string unidentifiedNickname, int refIdx)
+        {
+            bool success = false;
+
+            UnidentifiedMentions unidentifiedMentions = unidentifiedMentionsList
+                .Where(l => l.unidentifiedNickname.Equals(unidentifiedNickname))
+                .FirstOrDefault();
+
+            if (unidentifiedMentions != null)
+            {
+                if (unidentifiedMentions.HasSerif(refIdx))
+                {
+                    unidentifiedMentions.RemoveMatchedDialogue(refIdx);
+                    success = true;
+                }
+            }
+
+            RemoveEmptyUnidentifiedMentions();
+            return success;
+        }
+
+        void RemoveEmptyUnidentifiedMentions()
+        {
+            UnidentifiedMentions[] removeItems = unidentifiedMentionsList.Where(um => um.Count <= 0).ToArray();
+            foreach (var unidentifiedMentions in removeItems)
+            {
+                unidentifiedMentionsList.Remove(unidentifiedMentions);
+            }
         }
     }
 }

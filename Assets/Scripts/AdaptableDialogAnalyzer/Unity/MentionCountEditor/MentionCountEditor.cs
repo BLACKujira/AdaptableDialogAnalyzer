@@ -120,6 +120,7 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             UnidentifiedMatchSelector unidentifiedMatchSelector = window.OpenWindow<UnidentifiedMatchSelector>(unidentifiedMatchSelectorPrefab);
             unidentifiedMatchSelector.Initialize(mentionedCountManager);
+            unidentifiedMatchSelector.window.OnClose.AddListener(() => Refresh());
         }
 
         public void OpenDiscrepancyChecker()

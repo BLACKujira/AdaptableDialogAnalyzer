@@ -189,6 +189,7 @@ MonoBehaviour:
     - "\u308B\u3044\u3055\u3093"
     - "(?<![\u30A1-\u30FA])\u30EB\u30A4(?![\u30A1-\u30FA])"
     - "\u308B\u3044\u308B\u3044"
+    - "\u308B\u3044\u3061\u3083\u3093"
   - mentionedPersonId: 31
     nicknames:
     - "\u548C\u594F"
