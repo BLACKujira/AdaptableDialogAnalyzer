@@ -30,10 +30,11 @@ namespace AdaptableDialogAnalyzer.Unity
             this.mentionedCountMatrix = mentionedCountMatrix;
             txtTip.text = GetTip();
             Refresh();
+            window.OnReShow.AddListener(() => Refresh());
         }
 
         /// <summary>
-        /// 刷新，仅在初始化和改变筛选方式时调用
+        /// 刷新，仅在初始化、重新打开窗口和改变筛选方式时调用
         /// </summary>
         protected void Refresh()
         {

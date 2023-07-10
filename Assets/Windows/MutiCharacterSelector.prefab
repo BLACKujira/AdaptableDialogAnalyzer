@@ -424,7 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlScript: {fileID: 3008914425591093564}
   mainCameraRender: 0
-  parentWindowEffect: 1
+  parentWindowEffect: 0
   parentWindowRaycast: 1
   OnClose:
     m_PersistentCalls:

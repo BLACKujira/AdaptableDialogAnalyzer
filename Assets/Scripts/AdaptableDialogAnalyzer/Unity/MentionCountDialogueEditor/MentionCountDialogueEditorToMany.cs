@@ -25,6 +25,7 @@ namespace AdaptableDialogAnalyzer.Unity
         protected new void Initialize(MentionedCountMatrix mentionedCountMatrix)
         {
             snippetCountDictionary = mentionedCountMatrix.GetSnippetCountDictionary();
+            window.OnReShow.AddListener(() => snippetCountDictionary = mentionedCountMatrix.GetSnippetCountDictionary());
             base.Initialize(mentionedCountMatrix);
         }
 

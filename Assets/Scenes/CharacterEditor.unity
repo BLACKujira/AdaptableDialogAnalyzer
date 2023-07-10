@@ -1609,15 +1609,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
-  loadMainStory: 1
-  loadBandStory: 1
+  loadMainStory: 0
+  loadBandStory: 0
   loadEventStory: 1
-  loadAreaTalk: 1
-  loadCardStory: 1
-  loadAfterLive: 1
-  loadBirthdayStory: 1
-  loadBackstageTalk: 1
-  loadOtherStory: 1
+  loadAreaTalk: 0
+  loadCardStory: 0
+  loadAfterLive: 0
+  loadBirthdayStory: 0
+  loadBackstageTalk: 0
+  loadOtherStory: 0
 --- !u!114 &682293572
 MonoBehaviour:
   m_ObjectHideFlags: 0
