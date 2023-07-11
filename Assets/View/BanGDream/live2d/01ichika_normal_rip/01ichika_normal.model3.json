@@ -1,0 +1,22 @@
+{
+    "Version": 3,
+    "FileReferences": {
+        "Moc": "01ichika_normal.moc3",
+        "Textures": [
+            "01ichika_normal.2048/texture_00.png"
+        ],
+        "Physics": "01ichika_normal.physics3.json"
+    },
+    "Groups": [
+        {
+            "Target": "Parameter",
+            "Name": "EyeBlink",
+            "Ids": []
+        },
+        {
+            "Target": "Parameter",
+            "Name": "LipSync",
+            "Ids": []
+        }
+    ]
+}
