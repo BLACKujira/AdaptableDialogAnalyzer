@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+  m_Name: s000_templete_morfonica_Atlas
+  m_EditorClassIdentifier: 
+  atlasFile: {fileID: 4900000, guid: 4ae6e5dfcad466c40825f23943fac17d, type: 3}
+  materials:
+  - {fileID: 2100000, guid: c1fa2cebdf2c46b42a9065be5f586bff, type: 2}
+  - {fileID: 2100000, guid: 2ae1bdd2cefedbf49ac6981459ce800d, type: 2}
+  - {fileID: 2100000, guid: c8d1c986310d10d46945795f08c6d339, type: 2}

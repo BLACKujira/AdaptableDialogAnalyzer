@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de5a4f4df0c5314cb181d0b29003366, type: 3}
+  m_Name: templete_morfonica
+  m_EditorClassIdentifier: 
+  spineAtlasAssets:
+  - {fileID: 11400000, guid: 6c9ff9a6246795e4e946ca59d70b2a92, type: 2}
+  - {fileID: 11400000, guid: d7237d0acf7d5b241980e3f723e0898b, type: 2}
+  - {fileID: 11400000, guid: f48051218f303c940845e1ea2b9be58a, type: 2}
+  - {fileID: 11400000, guid: 17e5d8938e184124c819c447760fd497, type: 2}
+  - {fileID: 11400000, guid: 13f5e108a5564394fa4f790dc5ab5599, type: 2}

@@ -1,0 +1,22 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": 1008803689438726606
+  },
+  "m_Name": "u000_templete_morfonica_Atlas",
+  "atlasFile": {
+    "m_FileID": 0,
+    "m_PathID": -5930853002324532770
+  },
+  "materials": [
+    {
+      "m_FileID": 0,
+      "m_PathID": -4887042486562849827
+    }
+  ]
+}

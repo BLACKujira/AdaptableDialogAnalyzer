@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de5a4f4df0c5314cb181d0b29003366, type: 3}
+  m_Name: templete_ras
+  m_EditorClassIdentifier: 
+  spineAtlasAssets:
+  - {fileID: 11400000, guid: d55971a3d806bbd43a37eabd0198574e, type: 2}
+  - {fileID: 11400000, guid: 5e542826525ce61469d710b5192da023, type: 2}
+  - {fileID: 11400000, guid: fc722be23fd292f44a038c059c66a749, type: 2}
+  - {fileID: 11400000, guid: 0a177a35d6f5e784ca317e9416a2b7f2, type: 2}
+  - {fileID: 11400000, guid: 45feac6cfa188604abd56f80de66fd40, type: 2}
