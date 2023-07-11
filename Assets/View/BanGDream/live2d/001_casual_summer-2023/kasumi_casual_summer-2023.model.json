@@ -1,0 +1,12 @@
+{
+  "type": 0,
+  "model": "kasumi_casual_summer-2023.moc",
+  "textures": [
+    "kasumi_casual_summer-2023.1024/texture_00.png",
+    "kasumi_casual_summer-2023.1024/texture_01.png"
+  ],
+  "physics": "kasumi_casual_summer-2023.physics.json",
+  "physics_v2": {
+    "file": "kasumi_casual_summer-2023.physics.json"
+  }
+}
