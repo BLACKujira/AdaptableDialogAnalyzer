@@ -23,6 +23,7 @@ namespace AdaptableDialogAnalyzer.Live2D2
         private float lastVolume = 0;
 
         private MotionQueueManager motionMgr = new MotionQueueManager();
+        private MotionQueueManager expressionMgr = new MotionQueueManager();
 
         AudioSource audioSource;
         private AudioSource AudioSource
@@ -77,6 +78,7 @@ namespace AdaptableDialogAnalyzer.Live2D2
             live2DModel.update();
             UpdateLipSync();
             motionMgr.updateParam(live2DModel);
+            expressionMgr.updateParam(live2DModel);
         }
 
         void UpdateLipSync()
@@ -129,6 +131,11 @@ namespace AdaptableDialogAnalyzer.Live2D2
         public void PlayMotion(Live2DMotion motion)
         {
             motionMgr.startMotion(motion);
+        }
+
+        public void PlayFacial(L2DExpressionMotion expression)
+        {
+            expressionMgr.startMotion(expression);
         }
     }
 }

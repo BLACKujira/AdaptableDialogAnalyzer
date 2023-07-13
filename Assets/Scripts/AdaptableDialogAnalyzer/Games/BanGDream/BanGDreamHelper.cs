@@ -5,12 +5,12 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public static class BanGDreamHelper
     {
-        
-        static Dictionary<string,int> characterNamaeMap = null;
+
+        static Dictionary<string, int> characterNamaeMap = null;
         /// <summary>
         /// 记录每个角色的标准名称
         /// </summary>
-        static Dictionary<string,int> CharacterNamaeMap
+        static Dictionary<string, int> CharacterNamaeMap
         {
             get
             {
@@ -36,7 +36,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
             if (!GlobalConfig.CharacterDefinition.HasDefinition(characterId)) characterId = 0;
 
             //在显示名称严格等于角色名时也算作是对应角色的台词
-            if(characterId == 0)
+            if (characterId == 0)
             {
                 if (CharacterNamaeMap.ContainsKey(scenarioSnippetTalk.windowDisplayName))
                     characterId = characterNamaeMap[scenarioSnippetTalk.windowDisplayName];
@@ -62,10 +62,16 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
             string[] idArray = ids.Split('-');
 
             if (idArray.Length != 2) return null;
-            if(!int.TryParse(idArray[0],out int eventId)) return null;
-            if(!int.TryParse(idArray[1],out int chapter)) return null;
+            if (!int.TryParse(idArray[0], out int eventId)) return null;
+            if (!int.TryParse(idArray[1], out int chapter)) return null;
 
             return new EventStoryInfo(eventId, chapter);
+        }
+
+        public static bool IsMainCharacter(int characterID)
+        {
+            if (characterID >= 1 && characterID <= 35) return true;
+            return false;
         }
     }
 

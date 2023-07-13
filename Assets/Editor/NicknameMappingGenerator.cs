@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.UnityEditor
 {
+
     public class NicknameMappingGenerator : EditorWindow
     {
         private CharacterDefinition characterDefinition;

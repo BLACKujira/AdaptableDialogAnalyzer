@@ -77,6 +77,19 @@ namespace AdaptableDialogAnalyzer.DataStructures
             }
         }
 
+        public MentionedCountMatrix()
+        {
+            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
+            int size = characters.Length;
+
+            mentionedCountRows = new MentionedCountRow[size];
+            for (int i = 0; i < size; i++)
+            {
+                int characterId = characters[i].id;
+                mentionedCountRows[i] = new MentionedCountRow(characterId);
+            }
+        }
+
         /// <summary>
         /// 这段剧情中是否匹配到了模糊昵称，若匹配成功则返回其对象
         /// </summary>
@@ -224,6 +237,14 @@ namespace AdaptableDialogAnalyzer.DataStructures
             {
                 unidentifiedMentionsList.Remove(unidentifiedMentions);
             }
+        }
+
+        /// <summary>
+        /// 获取此统计矩阵对应的剧情，没有加载则返回null 
+        /// </summary>
+        public Chapter TryGetChapter()
+        {
+            return chapter;
         }
     }
 }

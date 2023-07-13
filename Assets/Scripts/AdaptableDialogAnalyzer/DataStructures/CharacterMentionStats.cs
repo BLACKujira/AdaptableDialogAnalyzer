@@ -39,9 +39,18 @@ namespace AdaptableDialogAnalyzer.DataStructures
 
             foreach (var mentionedCountMatrix in mentionedCountMatrices)
             {
-                if (!countDictionary.ContainsKey(mentionedCountMatrix.Chapter.ChapterType)) 
-                    countDictionary[mentionedCountMatrix.Chapter.ChapterType] = 0;
-                countDictionary[mentionedCountMatrix.Chapter.ChapterType] += mentionedCountMatrix[speakerId, mentionedPersonId].Count;
+                string chapterType;
+                if (mentionedCountMatrix.TryGetChapter() != null && !string.IsNullOrEmpty(mentionedCountMatrix.Chapter.ChapterType))
+                {
+                    chapterType = mentionedCountMatrix.Chapter.ChapterType;
+                }
+                else
+                {
+                    chapterType = "default";
+                }
+                if (!countDictionary.ContainsKey(chapterType))
+                    countDictionary[chapterType] = 0;
+                countDictionary[chapterType] += mentionedCountMatrix[speakerId, mentionedPersonId].Count;
             }
         }
 

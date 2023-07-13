@@ -15,36 +15,38 @@ namespace AdaptableDialogAnalyzer.Unity
         public ChapterLoader chapterLoader;
         [Header("Settings")]
         public bool onlyLoadExistChapter;
+        public bool doNotLoadChapter;
 
         /// <summary>
         /// 每个统计矩阵对应的文件，value：矩阵保存位置
         /// </summary>
-        Dictionary<MentionedCountMatrix,string> savePathDictionary = new Dictionary<MentionedCountMatrix, string>();
+        Dictionary<MentionedCountMatrix, string> savePathDictionary = new Dictionary<MentionedCountMatrix, string>();
 
         MentionedCountManager mentionedCountManager = null;
         public MentionedCountManager MentionedCountManager
         {
-            get 
+            get
             {
-                if(mentionedCountManager == null) Initialize();
+                if (mentionedCountManager == null) Initialize();
                 return mentionedCountManager;
             }
         }
 
-        public int ChangedMatricesCount => mentionedCountManager.mentionedCountMatrices.Where(m=>m.HasChanged).Count();
+        public int ChangedMatricesCount => mentionedCountManager.mentionedCountMatrices.Where(m => m.HasChanged).Count();
 
         private void Initialize()
         {
             List<MentionedCountMatrix> countMatrices = new List<MentionedCountMatrix>();
-            chapterLoader.Initialize();
+
+            if (!doNotLoadChapter) chapterLoader.Initialize();
 
             string[] files = Directory.GetFiles(saveFolder);
-            foreach (string file in files) 
+            foreach (string file in files)
             {
                 if (Path.GetExtension(file).ToLower().Equals(".mcm"))
                 {
                     string fileName = Path.GetFileNameWithoutExtension(file);
-                    if (onlyLoadExistChapter && !chapterLoader.HasChapter(fileName)) continue;
+                    if (!doNotLoadChapter && onlyLoadExistChapter && !chapterLoader.HasChapter(fileName)) continue;
 
                     string rawMatrix = File.ReadAllText(file);
                     MentionedCountMatrix countMatrix = JsonUtility.FromJson<MentionedCountMatrix>(rawMatrix);
@@ -53,24 +55,27 @@ namespace AdaptableDialogAnalyzer.Unity
                 }
             }
 
-            mentionedCountManager = new MentionedCountManager();
-            foreach (var countMatrix in countMatrices)
+            if (doNotLoadChapter)
             {
-                Chapter chapter = chapterLoader.GetChapter(countMatrix.chapterInfo.chapterID);
-                if (chapter == null) Debug.LogWarning($"加载章节{countMatrix.chapterInfo.chapterID}失败，可能文件已不存在");
-                countMatrix.Chapter = chapter;
-
-                mentionedCountManager.mentionedCountMatrices.Add(countMatrix);
+                foreach (var countMatrix in countMatrices)
+                {
+                    Chapter chapter = chapterLoader.GetChapter(countMatrix.chapterInfo.chapterID);
+                    if (chapter == null) Debug.LogWarning($"加载章节{countMatrix.chapterInfo.chapterID}失败，可能文件已不存在");
+                    countMatrix.Chapter = chapter;
+                }
             }
+
+            mentionedCountManager = new MentionedCountManager();
+            mentionedCountManager.mentionedCountMatrices = countMatrices;
         }
-    
+
         public int SaveChangedMatrices()
         {
             int count = 0;
             foreach (var countMatrix in MentionedCountManager.mentionedCountMatrices)
             {
                 if (!countMatrix.HasChanged) continue;
-                
+
                 string savePath = savePathDictionary[countMatrix];
                 string saveData = JsonUtility.ToJson(countMatrix);
                 File.WriteAllText(savePath, saveData);
