@@ -55,7 +55,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 }
             }
 
-            if (doNotLoadChapter)
+            if (!doNotLoadChapter)
             {
                 foreach (var countMatrix in countMatrices)
                 {

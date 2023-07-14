@@ -1,12 +1,17 @@
 using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Games.BanGDream;
+using AdaptableDialogAnalyzer.Live2D2;
 using AdaptableDialogAnalyzer.UIElements;
 using AdaptableDialogAnalyzer.Unity;
 using AdaptableDialogAnalyzer.View.ReStage;
+using DG.Tweening;
+using live2d;
+using live2d.framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
@@ -14,14 +19,31 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
     {
         [Header("Components")]
         public List<View_BanGDream_CharacterMentions_Item> items;
+        public List<View_BanGDream_CharacterMentions_Line> lines;
+        public RawImage imgLive2D;
+        public SimpleLive2DModel live2DModel; 
+        public Transform tfUIEffect;
         [Header("Settings")]
         public bool mainCharacterOnly = true;
         public bool passSelf = false;
         public int speakerId = 1;
         [Header("Adapter")]
         public MentionedCountManagerLoader mentionedCountManagerLoader;
+        [Header("Prefab")]
+        public View_BanGDream_ItemEffect itemEffectPrefab;
+        [Header("Time")]
+        public float lineMoveInterval = 0.2f;
+        public float itemFadeInterval = 0.033f;
+        public float live2dFadeInDelay = 3;
+        public float live2dFadeInDuration = 0.3f;
+        public float live2dPlayVoiceDelay = 2;
+        [Header("Assets")]
+        public TextAsset live2DMotionAsset;
+        public TextAsset live2DExpressionAsset;
 
         MentionedCountManager mentionedCountManager;
+        Live2DMotion live2DMotion;
+        L2DExpressionMotion live2DExpression;
 
         public void Start()
         {
@@ -43,6 +65,12 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             int mentionTotal = characterMentionStatsList.Sum(cms => cms.Total);
             int serifCount = mentionedCountManager.CountSerif(speakerId);
 
+            foreach (var item in items)
+            {
+                View_BanGDream_ItemEffect itemEffect = Instantiate(itemEffectPrefab, tfUIEffect);
+                item.Initialize(itemEffect);
+            }
+
             for (int i = 0; i < items.Count; i++)
             {
                 View_BanGDream_CharacterMentions_Item item = items[i];
@@ -56,6 +84,59 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                     item.SetData(characterMentionStats.MentionedPersonId, characterMentionStats.Total, mentionTotal);
                 }
             }
+
+            imgLive2D.color = new Color(1, 1, 1, 0);
+            if(live2DMotionAsset) live2DMotion = Live2DMotion.loadMotion(live2DMotionAsset.bytes);
+            if(live2DExpressionAsset) live2DExpression = L2DExpressionMotion.loadJson(live2DExpressionAsset.bytes);
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                FadeIn();
+            }
+        }
+
+        void FadeIn()
+        {
+            StartCoroutine(CoMoveLines());
+            StartCoroutine(CoFadeInItem());
+            StartCoroutine(CoPlayLive2D());
+        }
+
+        IEnumerator CoMoveLines()
+        {
+            foreach (var line in lines)
+            {
+                line.Move();
+                yield return new WaitForSeconds(lineMoveInterval);
+            }
+        }
+
+        IEnumerator CoFadeInItem()
+        {
+            View_BanGDream_CharacterMentions_Item[] randomItems = MathHelper.GetRandomArray(items.Count)
+                .Select(i => items[i])
+                .Where(i=>i.enabled)
+                .ToArray();
+
+            foreach (var item in randomItems) 
+            {
+                item.FadeIn();
+                yield return new WaitForSeconds(itemFadeInterval);
+            }
+        }
+
+        IEnumerator CoPlayLive2D()
+        {
+            yield return new WaitForSeconds(live2dFadeInDelay);
+            if(live2DMotion != null) live2DModel.PlayMotion(live2DMotion);
+            if(live2DExpression != null) live2DModel.PlayExpression(live2DExpression);
+            imgLive2D.DOFade(1, live2dFadeInDuration);
+
+            yield return new WaitForSeconds(live2dPlayVoiceDelay);
+            live2DModel.AudioSource.Play();
         }
     }
 }

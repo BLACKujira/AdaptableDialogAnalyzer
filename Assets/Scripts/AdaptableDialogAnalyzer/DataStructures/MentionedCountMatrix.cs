@@ -61,24 +61,14 @@ namespace AdaptableDialogAnalyzer.DataStructures
 
         public MentionedCountGrid this[int speakerId, int mentionedPersonId] => this[speakerId][mentionedPersonId];
 
+        /// <summary>
+        /// chapter可以为null，但此类不能有构造函数
+        /// </summary>
         public MentionedCountMatrix(Chapter chapter)
         {
             this.chapter = chapter;
             chapterInfo = new ChapterInfo(chapter);
 
-            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
-            int size = characters.Length;
-
-            mentionedCountRows = new MentionedCountRow[size];
-            for (int i = 0; i < size; i++)
-            {
-                int characterId = characters[i].id;
-                mentionedCountRows[i] = new MentionedCountRow(characterId);
-            }
-        }
-
-        public MentionedCountMatrix()
-        {
             Character[] characters = GlobalConfig.CharacterDefinition.Characters;
             int size = characters.Length;
 

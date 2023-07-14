@@ -6,7 +6,7 @@ using UnityEngine;
 namespace AdaptableDialogAnalyzer.Live2D2
 {
     [ExecuteInEditMode]
-    public class SimpleModel : MonoBehaviour
+    public class SimpleLive2DModel : MonoBehaviour
     {
         public TextAsset mocFile;
         public TextAsset physicsFile;
@@ -26,7 +26,7 @@ namespace AdaptableDialogAnalyzer.Live2D2
         private MotionQueueManager expressionMgr = new MotionQueueManager();
 
         AudioSource audioSource;
-        private AudioSource AudioSource
+        public AudioSource AudioSource
         {
             get
             {
@@ -133,7 +133,7 @@ namespace AdaptableDialogAnalyzer.Live2D2
             motionMgr.startMotion(motion);
         }
 
-        public void PlayFacial(L2DExpressionMotion expression)
+        public void PlayExpression(L2DExpressionMotion expression)
         {
             expressionMgr.startMotion(expression);
         }

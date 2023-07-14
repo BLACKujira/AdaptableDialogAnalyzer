@@ -160,11 +160,10 @@ namespace AdaptableDialogAnalyzer.DataStructures
             Character[] characters = characterDefinition.Characters;
             foreach (Character character in characters)
             {
-                CharacterMentionStats characterMentionStats = this[speakerId, character.id];
-
                 if (passZero && character.id == 0) continue;
                 if (passSelf && character.id == speakerId) continue;
 
+                CharacterMentionStats characterMentionStats = this[speakerId, character.id];
                 characterMentionStatsList.Add(characterMentionStats);
             }
 

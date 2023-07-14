@@ -15,7 +15,7 @@ namespace AdaptableDialogAnalyzer.Unity
         private void Start()
         {
             MentionedCountManager mentionedCountManager = mentionedCountManagerLoader.MentionedCountManager;
-            MentionedCountMatrix mergedMatrix = new MentionedCountMatrix();
+            MentionedCountMatrix mergedMatrix = new MentionedCountMatrix(null);
 
             Character[] characters = GlobalConfig.CharacterDefinition.Characters;
 
@@ -26,8 +26,8 @@ namespace AdaptableDialogAnalyzer.Unity
                     Character speaker = characters[i];
                     Character mentionedPerson = characters[j];
 
-                    List<int> matchedIndexes = mergedMatrix[speaker.id, mentionedPerson.id].matchedIndexes;
-                    matchedIndexes.Add(matchedIndexes.Count);
+                    CharacterMentionStats characterMentionStats = mentionedCountManager[speaker.id, mentionedPerson.id];
+                    mergedMatrix[speaker.id, mentionedPerson.id].overrideCount = characterMentionStats.Total;
                 }
             }
 

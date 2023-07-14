@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AdaptableDialogAnalyzer.DataStructures
 {
     [Serializable]
     public class MentionedCountGrid
     {
+        /// <summary>
+        /// 当此项不为零时， Count属性返回此项的数值
+        /// </summary>
+        public int overrideCount = 0;
+
         public int mentionedPersonId;
         public List<int> matchedIndexes = new List<int>();
 
@@ -16,9 +20,9 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         /// <summary>
-        /// 匹配到的次数统计（等同于matched.Count）
+        /// 匹配到的次数统计，当overrideCount不为0时返回overrideCount，否则等同于matched.Count
         /// </summary>
-        public int Count => matchedIndexes.Count;
+        public int Count => overrideCount <= 0 ? matchedIndexes.Count : overrideCount;
 
         /// <summary>
         /// 获取匹配到所有ID的集合 
@@ -60,7 +64,6 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <param name="refIdx"></param>
         /// <param name="startIndex"></param>
         /// <param name="length"></param>
-
         public bool RemoveMatchedDialogue(int refIdx)
         {
             return matchedIndexes.Remove(refIdx);

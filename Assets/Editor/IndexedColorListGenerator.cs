@@ -16,6 +16,7 @@ namespace AdaptableDialogAnalyzer.UnityEditor
             window.Show();
         }
 
+        // TODO: 改成自动排列的GUILayout
         private void OnGUI()
         {
             GUILayout.Label("Character Definition", EditorStyles.boldLabel);
@@ -29,6 +30,13 @@ namespace AdaptableDialogAnalyzer.UnityEditor
                 {
                     CreateIndexedColorList();
                 }
+
+                GUILayout.Space(10);
+
+                if (GUILayout.Button("Create Indexed HDR Color List"))
+                {
+                    CreateIndexedHDRColorList();
+                }
             }
         }
 
@@ -41,6 +49,34 @@ namespace AdaptableDialogAnalyzer.UnityEditor
             foreach (Character character in characterDefinition.Characters)
             {
                 IndexedColor indexedColor = new IndexedColor();
+                indexedColor.id = character.id;
+                indexedColor.color = character.color;
+
+                // 将昵称列表添加到 NicknameMapping 的列表中
+                indexedColorList.indexedColors.Add(indexedColor);
+            }
+
+            // 将创建的 NicknameMapping 保存为资源文件
+            string path = EditorUtility.SaveFilePanelInProject("Save Nickname Mapping", "IndexedColorList", "asset", "Save Nickname Mapping");
+            if (!string.IsNullOrEmpty(path))
+            {
+                AssetDatabase.CreateAsset(indexedColorList, path);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+
+            Debug.Log("Nickname Mapping created!");
+        }
+
+        private void CreateIndexedHDRColorList()
+        {
+            // 创建一个新的 IndexedColorList
+            IndexedHDRColorList indexedColorList = CreateInstance<IndexedHDRColorList>();
+
+            // 遍历 CharacterDefinition 中的角色列表
+            foreach (Character character in characterDefinition.Characters)
+            {
+                IndexedHDRColor indexedColor = new IndexedHDRColor();
                 indexedColor.id = character.id;
                 indexedColor.color = character.color;
 
