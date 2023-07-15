@@ -457,17 +457,17 @@ PrefabInstance:
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
@@ -477,17 +477,17 @@ PrefabInstance:
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb806c4ff1672f840a6c6aa095052b60, type: 3}
@@ -1514,7 +1514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &682293564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1613,8 +1613,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveFolder: D:\Extract\120
   chapterLoader: {fileID: 682293571}
+  serializeType: 0
   onlyLoadExistChapter: 0
-  doNotLoadChapter: 0
+  doNotLoadChapter: 1
 --- !u!114 &682293569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,7 +1684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab56a167db653e142b9fe919ef321f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
   loadMainStory: 1
   loadBandStory: 1
@@ -2553,17 +2553,17 @@ PrefabInstance:
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862735820519, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
@@ -2573,17 +2573,17 @@ PrefabInstance:
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902986862737700625, guid: cb806c4ff1672f840a6c6aa095052b60,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb806c4ff1672f840a6c6aa095052b60, type: 3}
@@ -3196,13 +3196,18 @@ PrefabInstance:
     - target: {fileID: 3161121589518894609, guid: 28d06e0e9a1bbdf49a62619c622b7fe3,
         type: 3}
       propertyPath: saveFolder
-      value: D:\Extract\127
+      value: D:\Extract\120
       objectReference: {fileID: 0}
     - target: {fileID: 3161121589518894609, guid: 28d06e0e9a1bbdf49a62619c622b7fe3,
         type: 3}
       propertyPath: chapterLoader
       value: 
-      objectReference: {fileID: 1829571972}
+      objectReference: {fileID: 1829571973}
+    - target: {fileID: 3161121589518894609, guid: 28d06e0e9a1bbdf49a62619c622b7fe3,
+        type: 3}
+      propertyPath: serializeType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3161121589518894699, guid: 28d06e0e9a1bbdf49a62619c622b7fe3,
         type: 3}
       propertyPath: m_Name
@@ -3383,6 +3388,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suiteMasterLoader: {fileID: 1829571971}
+--- !u!114 &1829571973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829571970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab56a167db653e142b9fe919ef321f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetBundleFolder: D:\Extract\119
+  loadMainStory: 1
+  loadBandStory: 1
+  loadEventStory: 1
+  loadAreaTalk: 1
+  loadCardStory: 1
+  loadAfterLive: 1
+  loadBirthdayStory: 1
+  loadBackstageTalk: 1
+  loadOtherStory: 1
 --- !u!114 &1900835542 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4406254930885536297, guid: fd8ce945a85227f4086b92a443936a41,
@@ -3846,7 +3873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab56a167db653e142b9fe919ef321f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
   loadMainStory: 1
   loadBandStory: 1
@@ -4134,7 +4160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab56a167db653e142b9fe919ef321f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
   loadMainStory: 1
   loadBandStory: 0
@@ -4993,6 +5018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveFolder: D:\Extract\126
   chapterLoader: {fileID: 8943782723948157837}
+  serializeType: 0
   onlyLoadExistChapter: 1
   doNotLoadChapter: 1
 --- !u!1 &8943782723948157834
@@ -5116,7 +5142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab56a167db653e142b9fe919ef321f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apkAssetFolder: 
   assetBundleFolder: D:\Extract\119
   loadMainStory: 1
   loadBandStory: 0

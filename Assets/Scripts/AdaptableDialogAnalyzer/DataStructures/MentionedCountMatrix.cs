@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml.Linq;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.DataStructures
@@ -18,12 +17,12 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 在编辑器中使用，当修改后变成True
         /// </summary>
-        private bool hasChanged = false;
+        [NonSerialized] private bool hasChanged = false;
 
         /// <summary>
         /// 统计的故事章节，运行时由MentionedCountResultLoader获取，不参与序列化
         /// </summary>
-        private Chapter chapter;
+        [NonSerialized] private Chapter chapter;
 
         /// <summary>
         /// 序列化一部分章节的信息，以便不读取章节的情况下使用某些功能
@@ -64,6 +63,40 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         public MentionedCountGrid this[int speakerId, int mentionedPersonId] => this[speakerId][mentionedPersonId];
+
+        public void Serialize(string filePath, SerializeType serializeType)
+        {
+            switch (serializeType)
+            {
+                case SerializeType.JSON:
+                    string json = SerializeToJSON();
+                    File.WriteAllText(filePath, json);
+                    break;
+                case SerializeType.BinaryFormatter:
+                    SerializeToBinaryFormatter(filePath);
+                    break;
+                default:
+                    throw new Exception($"未知序列化方式：{serializeType}");
+            }
+        }
+
+        public static MentionedCountMatrix Deserialize(string filePath, SerializeType serializeType)
+        {
+            MentionedCountMatrix mentionedCountMatrix;
+            switch (serializeType)
+            {
+                case SerializeType.JSON:
+                    string json = File.ReadAllText(filePath);
+                    mentionedCountMatrix = DeserializeFromJSON(json);
+                    break;
+                case SerializeType.BinaryFormatter:
+                    mentionedCountMatrix = DeserializeFromBinaryFormatter(filePath);
+                    break;
+                default:
+                    throw new Exception($"未知序列化方式：{serializeType}");
+            }
+            return mentionedCountMatrix;
+        }
 
         public string SerializeToJSON()
         {

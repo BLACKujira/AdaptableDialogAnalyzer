@@ -11,12 +11,10 @@ namespace AdaptableDialogAnalyzer.Unity
     /// </summary>
     public class MentionedCountManagerLoader : MonoBehaviour
     {
-        public enum SerializeType { JSON, BinaryFormatter }
-
         public string saveFolder;
         public ChapterLoader chapterLoader;
         [Header("Settings")]
-
+        public SerializeType serializeType;
         public bool onlyLoadExistChapter;
         public bool doNotLoadChapter;
 
@@ -51,8 +49,8 @@ namespace AdaptableDialogAnalyzer.Unity
                     string fileName = Path.GetFileNameWithoutExtension(file);
                     if (!doNotLoadChapter && onlyLoadExistChapter && !chapterLoader.HasChapter(fileName)) continue;
 
-                    string rawMatrix = File.ReadAllText(file);
-                    MentionedCountMatrix countMatrix = JsonUtility.FromJson<MentionedCountMatrix>(rawMatrix);
+                    MentionedCountMatrix countMatrix = MentionedCountMatrix.Deserialize(file, serializeType);
+
                     countMatrices.Add(countMatrix);
                     savePathDictionary[countMatrix] = file;
                 }
@@ -80,8 +78,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 if (!countMatrix.HasChanged) continue;
 
                 string savePath = savePathDictionary[countMatrix];
-                string saveData = JsonUtility.ToJson(countMatrix);
-                File.WriteAllText(savePath, saveData);
+                countMatrix.Serialize(savePath, serializeType);
 
                 countMatrix.HasChanged = false;
                 count++;

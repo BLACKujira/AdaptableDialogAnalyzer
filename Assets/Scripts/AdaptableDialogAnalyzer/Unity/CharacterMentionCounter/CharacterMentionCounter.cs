@@ -16,6 +16,7 @@ namespace AdaptableDialogAnalyzer.Unity
         public Text txtProgress;
         public ProgressBar progressBar;
         [Header("Settings")]
+        public SerializeType serializeType;
         public string saveFolder;
         [Tooltip("可空，不支持正则表达式")] public StringList removeStrings;
         [Header("Adapter")]
@@ -146,7 +147,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 mentionedCountManager.mentionedCountMatrices.Add(mentionedCountMatrix);
 
                 string savePath = Path.Combine(saveFolder, chapter.ChapterID + ".mcm");
-                File.WriteAllText(savePath, JsonUtility.ToJson(mentionedCountMatrix));
+                mentionedCountMatrix.Serialize(savePath, serializeType);
 
                 if (threadAbortFlag)
                 {

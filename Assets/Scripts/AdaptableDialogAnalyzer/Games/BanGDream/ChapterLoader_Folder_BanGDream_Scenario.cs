@@ -9,7 +9,6 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public class ChapterLoader_Folder_BanGDream_Scenario : ChapterLoader
     {
-        public string apkAssetFolder;
         public string assetBundleFolder;
         [Header("Settings")]
         public bool loadMainStory = true;
