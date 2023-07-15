@@ -124,7 +124,7 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             threadAbortFlag = true;
         }
-        
+
         private void Update()
         {
             int counted = mentionedCountManager.mentionedCountMatrices.Count;
@@ -151,7 +151,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
                 if (threadAbortFlag)
                 {
-                    finished  = true;
+                    finished = true;
                     return;
                 }
             }
@@ -195,7 +195,7 @@ namespace AdaptableDialogAnalyzer.Unity
             HashSet<string> bypassUnidentified = new HashSet<string>();
 
             //记录台词
-            mentionedCountMatrix[talkSnippet.SpeakerId].serifs.Add(talkSnippet.RefIdx);
+            mentionedCountMatrix.AddSerifCount(talkSnippet.SpeakerId, talkSnippet.RefIdx);
 
             //首先判断通用昵称
             for (int i = 0; i < nicknameDefinition.CommonNicknameMapping.nicknameLists.Count; i++)
@@ -209,7 +209,7 @@ namespace AdaptableDialogAnalyzer.Unity
                     Match match = regexObject.Match(talkSnippet.Content);
                     if (match.Success)
                     {
-                        mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
+                        mentionedCountMatrix.AddMatchedDialogue(talkSnippet.SpeakerId, mentionedPersonId, talkSnippet.RefIdx);
                         if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(bypassUnidentifiedDictionary[regex]);
                     }
                 }
@@ -232,7 +232,7 @@ namespace AdaptableDialogAnalyzer.Unity
                         Match match = regexObject.Match(talkSnippet.Content);
                         if (match.Success)
                         {
-                            mentionedCountMatrix[talkSnippet.SpeakerId, mentionedPersonId].AddMatchedDialogue(talkSnippet.RefIdx);
+                            mentionedCountMatrix.AddMatchedDialogue(talkSnippet.SpeakerId, mentionedPersonId, talkSnippet.RefIdx);
                             if (bypassUnidentifiedDictionary.ContainsKey(regex)) bypassUnidentified.Add(bypassUnidentifiedDictionary[regex]);
                         }
                     }

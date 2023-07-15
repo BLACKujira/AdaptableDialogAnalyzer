@@ -39,7 +39,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <param name="characterId"></param>
         public int CountSerif(int characterId)
         {
-            return mentionedCountMatrices.Sum(m => m[characterId].SerifCount);
+            return mentionedCountMatrices.Sum(m => m[characterId]?.serifCount ?? 0);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
             {
                 for (int id2 = id1 + 1; id2 < size; id2++)
                 {
-                    if(passZero && (id1 == 0 || id2 == 0)) continue;
+                    if (passZero && (id1 == 0 || id2 == 0)) continue;
 
                     int charAId = characters[id1].id;
                     int charBId = characters[id2].id;

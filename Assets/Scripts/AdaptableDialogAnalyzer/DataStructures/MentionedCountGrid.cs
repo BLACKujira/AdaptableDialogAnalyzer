@@ -47,15 +47,23 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 添加匹配项，不会重复添加相同的，添加成功返回true
         /// </summary>
-        /// <param name="refIdx"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="length"></param>
         public bool AddMatchedDialogue(int refIdx)
         {
             if (HasSerif(refIdx)) return false;
 
             matchedIndexes.Add(refIdx);
             return true;
+        }
+
+        /// <summary>
+        /// 添加多个匹配项，不会重复添加相同的
+        /// </summary>
+        public void AddMatchedDialogues(int[] refIdxes)
+        {
+            foreach (var refIdex in refIdxes)
+            {
+                AddMatchedDialogue(refIdex);
+            }
         }
 
         /// <summary>

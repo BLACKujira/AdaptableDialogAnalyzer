@@ -32,7 +32,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 每个角色提到每个角色的次数
         /// </summary>
-        public MentionedCountRow[] mentionedCountRows;
+        public List<MentionedCountRow> mentionedCountRows = new List<MentionedCountRow>();
 
         /// <summary>
         /// 此剧情中指代不明的提及
@@ -50,6 +50,9 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
         public bool HasChanged { get => hasChanged; set => hasChanged = value; }
 
+        /// <summary>
+        /// 如果不存在行则返回null 
+        /// </summary>
         public MentionedCountRow this[int speakerId]
         {
             get
@@ -58,11 +61,49 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 {
                     if (mentionedCountRow.speakerId == speakerId) return mentionedCountRow;
                 }
-                throw new Exception($"此统计矩阵中找不到角色{speakerId}的定义，暂不支持统计后修改角色定义。或者检查是否使用了错误的角色定义");
+                return null;
             }
         }
 
-        public MentionedCountGrid this[int speakerId, int mentionedPersonId] => this[speakerId][mentionedPersonId];
+        /// <summary>
+        /// 如果行或单元不存在则返回null 
+        /// </summary>
+        public MentionedCountGrid this[int speakerId, int mentionedPersonId] => this[speakerId]?[mentionedPersonId];
+
+        /// <summary>
+        /// 请通过此方法添加匹配到的对话 
+        /// </summary>
+        public void AddMatchedDialogue(int speakerId, int mentionedPersonId, int refIdx)
+        {
+            if (this[speakerId] == null)
+            {
+                mentionedCountRows.Add(new MentionedCountRow(speakerId));
+            }
+            this[speakerId].AddMatchedDialogue(mentionedPersonId, refIdx);
+        }
+
+        /// <summary>
+        /// 增加角色台词数的统计 
+        /// </summary>
+        public void AddSerifCount(int speakerId,int count)
+        {
+            if (this[speakerId] == null)
+            {
+                mentionedCountRows.Add(new MentionedCountRow(speakerId));
+            }
+            this[speakerId].serifCount += count;
+        }
+
+        /// <summary>
+        /// 清除为空的行，保存前调用
+        /// </summary>
+        public void RemoveEmptyGrids()
+        {
+            List<MentionedCountRow> removeRows = mentionedCountRows
+                .Where(r => r == null || (r.mentionedCountGrids.Count == 0 && r.serifCount == 0))
+                .ToList();
+            mentionedCountRows.RemoveAll(r => removeRows.Contains(r));
+        }
 
         public void Serialize(string filePath, SerializeType serializeType)
         {
@@ -131,17 +172,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         public MentionedCountMatrix(Chapter chapter)
         {
             this.chapter = chapter;
-            chapterInfo = new ChapterInfo(chapter);
-
-            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
-            int size = characters.Length;
-
-            mentionedCountRows = new MentionedCountRow[size];
-            for (int i = 0; i < size; i++)
-            {
-                int characterId = characters[i].id;
-                mentionedCountRows[i] = new MentionedCountRow(characterId);
-            }
+            if (chapter != null) chapterInfo = new ChapterInfo(chapter);
         }
 
         /// <summary>
@@ -235,7 +266,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// </summary>
         public int GetSerifCount()
         {
-            return mentionedCountRows.Sum(r => r.SerifCount);
+            return mentionedCountRows.Sum(r => r.serifCount);
         }
 
         /// <summary>

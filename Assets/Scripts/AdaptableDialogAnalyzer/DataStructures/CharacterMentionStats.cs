@@ -50,7 +50,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 }
                 if (!countDictionary.ContainsKey(chapterType))
                     countDictionary[chapterType] = 0;
-                countDictionary[chapterType] += mentionedCountMatrix[speakerId, mentionedPersonId].Count;
+                countDictionary[chapterType] += mentionedCountMatrix[speakerId, mentionedPersonId]?.Count ?? 0;
             }
         }
 

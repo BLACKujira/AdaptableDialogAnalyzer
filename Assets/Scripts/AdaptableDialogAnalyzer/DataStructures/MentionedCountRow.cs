@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.DataStructures
@@ -15,17 +16,12 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 此角色提及其他角色的次数
         /// </summary>
-        public MentionedCountGrid[] mentionedCountGrids;
-
-        /// <summary>
-        /// 此角色的台词
-        /// </summary>
-        public List<int> serifs = new List<int>();
+        public List<MentionedCountGrid> mentionedCountGrids = new List<MentionedCountGrid>();
 
         /// <summary>
         /// 此角色的台词统计
         /// </summary>
-        public int SerifCount => serifs.Count;
+        public int serifCount = 0;
 
         /// <summary>
         /// 以x：角色ID，y：提及次数 的形式返回统计数据
@@ -48,6 +44,9 @@ namespace AdaptableDialogAnalyzer.DataStructures
             }
         }
 
+        /// <summary>
+        /// 如果不存在单元则返回null 
+        /// </summary>
         public MentionedCountGrid this[int mentionedPersonId]
         {
             get
@@ -56,23 +55,36 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 {
                     if (mentionedCountGrid.mentionedPersonId == mentionedPersonId) return mentionedCountGrid;
                 }
-                throw new Exception($"此统计矩阵行中找不到角色{mentionedPersonId}的定义，暂不支持统计后修改角色定义。或者检查是否使用了错误的角色定义");
+                return null;
             }
         }
 
         public MentionedCountRow(int speakerId)
         {
             this.speakerId = speakerId;
+        }
 
-            Character[] characters = GlobalConfig.CharacterDefinition.Characters;
-            int size = characters.Length;
-
-            mentionedCountGrids = new MentionedCountGrid[size];
-            for (int i = 0; i < size; i++)
+        /// <summary>
+        /// 请通过此方法添加匹配到的对话 
+        /// </summary>
+        public void AddMatchedDialogue(int mentionedPersonId, int refIdx)
+        {
+            if (this[mentionedPersonId] == null)
             {
-                int characterId = characters[i].id;
-                mentionedCountGrids[i] = new MentionedCountGrid(characterId);
+                mentionedCountGrids.Add(new MentionedCountGrid(mentionedPersonId));
             }
+            this[mentionedPersonId].AddMatchedDialogue(refIdx);
+        }
+
+        /// <summary>
+        /// 清除为空的单元，保存前调用
+        /// </summary>
+        public void RemoveEmptyGrids()
+        {
+            List<MentionedCountGrid> removeGrids = mentionedCountGrids
+                .Where(g => g == null || g.Count == 0)
+                .ToList();
+            mentionedCountGrids.RemoveAll(g=>removeGrids.Contains(g));
         }
     }
 }
