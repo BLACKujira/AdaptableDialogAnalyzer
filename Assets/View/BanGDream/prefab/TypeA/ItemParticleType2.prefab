@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6358306546093713019}
   - component: {fileID: 2127401342603474119}
   - component: {fileID: 5503080986181402035}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: ItemParticleType2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

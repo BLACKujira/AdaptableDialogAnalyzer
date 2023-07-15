@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgWhiteMask: {fileID: 7508436980725926866}
   uIFollower: {fileID: 7243513003611833631}
+  rtStar: {fileID: 7508436981343187655}
 --- !u!114 &7243513003611833631
 MonoBehaviour:
   m_ObjectHideFlags: 0

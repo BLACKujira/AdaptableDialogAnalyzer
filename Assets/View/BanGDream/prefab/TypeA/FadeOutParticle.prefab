@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 964644719397965805}
   - component: {fileID: 5248990860917955921}
   - component: {fileID: 1801715138241532965}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: FadeOutParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

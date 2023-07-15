@@ -10,6 +10,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         [Header("Components")]
         public Image imgWhiteMask;
         public UIFollower uIFollower;
+        public RectTransform rtStar;
 
         RectTransform rectTransform;
         public RectTransform RectTransform
@@ -19,6 +20,11 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                 if(rectTransform == null) rectTransform = GetComponent<RectTransform>();
                 return rectTransform;
             }
+        }
+
+        private void Awake()
+        {
+            rtStar.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360f));
         }
     }
 }
