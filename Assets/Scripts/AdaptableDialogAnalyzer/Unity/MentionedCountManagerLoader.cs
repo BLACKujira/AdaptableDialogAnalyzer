@@ -11,9 +11,12 @@ namespace AdaptableDialogAnalyzer.Unity
     /// </summary>
     public class MentionedCountManagerLoader : MonoBehaviour
     {
+        public enum SerializeType { JSON, BinaryFormatter }
+
         public string saveFolder;
         public ChapterLoader chapterLoader;
         [Header("Settings")]
+
         public bool onlyLoadExistChapter;
         public bool doNotLoadChapter;
 

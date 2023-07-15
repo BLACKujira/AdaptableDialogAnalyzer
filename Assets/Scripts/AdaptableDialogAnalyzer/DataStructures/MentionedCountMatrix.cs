@@ -1,7 +1,11 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Linq;
+using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.DataStructures
 {
@@ -60,6 +64,33 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         public MentionedCountGrid this[int speakerId, int mentionedPersonId] => this[speakerId][mentionedPersonId];
+
+        public string SerializeToJSON()
+        {
+            return JsonUtility.ToJson(this);
+        }
+
+        public static MentionedCountMatrix DeserializeFromJSON(string json)
+        {
+            return JsonUtility.FromJson<MentionedCountMatrix>(json);
+        }
+
+        public void SerializeToBinaryFormatter(string filePath)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate);
+            formatter.Serialize(fileStream, this);
+            fileStream.Close();
+        }
+
+        public static MentionedCountMatrix DeserializeFromBinaryFormatter(string filePath)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(filePath, FileMode.Open);
+            MentionedCountMatrix mentionedCountMatrix = (MentionedCountMatrix)formatter.Deserialize(fileStream);
+            fileStream.Close();
+            return mentionedCountMatrix;
+        }
 
         /// <summary>
         /// chapter可以为null，但此类不能有构造函数
@@ -219,7 +250,6 @@ namespace AdaptableDialogAnalyzer.DataStructures
             RemoveEmptyUnidentifiedMentions();
             return success;
         }
-
         void RemoveEmptyUnidentifiedMentions()
         {
             UnidentifiedMentions[] removeItems = unidentifiedMentionsList.Where(um => um.Count <= 0).ToArray();
