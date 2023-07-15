@@ -1,7 +1,9 @@
 #if USE_SPINE
+using AdaptableDialogAnalyzer.Unity;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Spine

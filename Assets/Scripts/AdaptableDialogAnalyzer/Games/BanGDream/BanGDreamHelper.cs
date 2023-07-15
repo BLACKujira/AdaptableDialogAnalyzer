@@ -1,11 +1,11 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
 using System.Collections.Generic;
+using static AdaptableDialogAnalyzer.Games.BanGDream.GameDefine;
 
 namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public static class BanGDreamHelper
     {
-
         static Dictionary<string, int> characterNamaeMap = null;
         /// <summary>
         /// 记录每个角色的标准名称
@@ -28,6 +28,45 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
             }
             return dictionary;
         }
+
+        static Dictionary<int, BandIdName> characterBandMap = new Dictionary<int, BandIdName>()
+        {
+            { 1, BandIdName.PoppinParty },
+            { 2, BandIdName.PoppinParty },
+            { 3, BandIdName.PoppinParty },
+            { 4, BandIdName.PoppinParty },
+            { 5, BandIdName.PoppinParty },
+            { 6, BandIdName.Afterglow },
+            { 7, BandIdName.Afterglow },
+            { 8, BandIdName.Afterglow },
+            { 9, BandIdName.Afterglow },
+            { 10, BandIdName.Afterglow },
+            { 11, BandIdName.HelloHappyWorld },
+            { 12, BandIdName.HelloHappyWorld },
+            { 13, BandIdName.HelloHappyWorld },
+            { 14, BandIdName.HelloHappyWorld },
+            { 15, BandIdName.HelloHappyWorld },
+            { 16, BandIdName.PastelPalettes },
+            { 17, BandIdName.PastelPalettes },
+            { 18, BandIdName.PastelPalettes },
+            { 19, BandIdName.PastelPalettes },
+            { 20, BandIdName.PastelPalettes },
+            { 21, BandIdName.Roselia },
+            { 22, BandIdName.Roselia },
+            { 23, BandIdName.Roselia },
+            { 24, BandIdName.Roselia },
+            { 25, BandIdName.Roselia },
+            { 26, BandIdName.Morfonica },
+            { 27, BandIdName.Morfonica },
+            { 28, BandIdName.Morfonica },
+            { 29, BandIdName.Morfonica },
+            { 30, BandIdName.Morfonica },
+            { 31, BandIdName.RaiseASuilen },
+            { 32, BandIdName.RaiseASuilen },
+            { 33, BandIdName.RaiseASuilen },
+            { 34, BandIdName.RaiseASuilen },
+            { 35, BandIdName.RaiseASuilen },
+        };
 
         public static int GetCharacterId_Scenario(ScenarioSnippetTalk scenarioSnippetTalk)
         {
@@ -73,6 +112,12 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             if (characterID >= 1 && characterID <= 35) return true;
             return false;
+        }
+
+        public static BandIdName GetCharacterBand(int characterID)
+        {
+            if(characterBandMap.ContainsKey(characterID)) return characterBandMap[characterID];
+            return BandIdName.None;
         }
     }
 

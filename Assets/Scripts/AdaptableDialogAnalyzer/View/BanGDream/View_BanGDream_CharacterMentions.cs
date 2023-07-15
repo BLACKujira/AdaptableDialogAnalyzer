@@ -1,9 +1,7 @@
 using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Games.BanGDream;
 using AdaptableDialogAnalyzer.Live2D2;
-using AdaptableDialogAnalyzer.UIElements;
 using AdaptableDialogAnalyzer.Unity;
-using AdaptableDialogAnalyzer.View.ReStage;
 using DG.Tweening;
 using live2d;
 using live2d.framework;
@@ -21,7 +19,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public List<View_BanGDream_CharacterMentions_Item> items;
         public List<View_BanGDream_CharacterMentions_Line> lines;
         public RawImage imgLive2D;
-        public SimpleLive2DModel live2DModel; 
+        public SimpleLive2DModel live2DModel;
         public Transform tfUIEffect;
         [Header("Settings")]
         public bool mainCharacterOnly = true;
@@ -86,13 +84,13 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             }
 
             imgLive2D.color = new Color(1, 1, 1, 0);
-            if(live2DMotionAsset) live2DMotion = Live2DMotion.loadMotion(live2DMotionAsset.bytes);
-            if(live2DExpressionAsset) live2DExpression = L2DExpressionMotion.loadJson(live2DExpressionAsset.bytes);
+            if (live2DMotionAsset) live2DMotion = Live2DMotion.loadMotion(live2DMotionAsset.bytes);
+            if (live2DExpressionAsset) live2DExpression = L2DExpressionMotion.loadJson(live2DExpressionAsset.bytes);
         }
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 FadeIn();
             }
@@ -118,10 +116,10 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         {
             View_BanGDream_CharacterMentions_Item[] randomItems = MathHelper.GetRandomArray(items.Count)
                 .Select(i => items[i])
-                .Where(i=>i.enabled)
+                .Where(i => i.enabled)
                 .ToArray();
 
-            foreach (var item in randomItems) 
+            foreach (var item in randomItems)
             {
                 item.FadeIn();
                 yield return new WaitForSeconds(itemFadeInterval);
@@ -131,8 +129,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         IEnumerator CoPlayLive2D()
         {
             yield return new WaitForSeconds(live2dFadeInDelay);
-            if(live2DMotion != null) live2DModel.PlayMotion(live2DMotion);
-            if(live2DExpression != null) live2DModel.PlayExpression(live2DExpression);
+            if (live2DMotion != null) live2DModel.PlayMotion(live2DMotion);
+            if (live2DExpression != null) live2DModel.PlayExpression(live2DExpression);
             imgLive2D.DOFade(1, live2dFadeInDuration);
 
             yield return new WaitForSeconds(live2dPlayVoiceDelay);
