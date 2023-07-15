@@ -33,6 +33,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             if (scenarioSnippetTalk.talkCharacters == null || scenarioSnippetTalk.talkCharacters.Length <= 0) return 0;
             int characterId = scenarioSnippetTalk.talkCharacters[0].characterId;
+            if (characterId == 601) characterId = 15; //合并美咲和ミッシェル
             if (!GlobalConfig.CharacterDefinition.HasDefinition(characterId)) characterId = 0;
 
             //在显示名称严格等于角色名时也算作是对应角色的台词
