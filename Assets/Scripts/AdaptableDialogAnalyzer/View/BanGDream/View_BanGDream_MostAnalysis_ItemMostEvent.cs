@@ -16,17 +16,17 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
         protected override void Initialize(MentionedCountManager mentionedCountManager, int speakerId, bool mainCharacterOnly, bool passSelf)
         {
-            (EventStoryInfo ev, MentionedCountMatrix m)[][] evCountMatrices= mentionedCountManager.mentionedCountMatrices
+            (EventStoryInfo ev, MentionedCountMatrix m)[][] evCountMatrices = mentionedCountManager.mentionedCountMatrices
                 .Where(m => m.chapterInfo.chapterType.Equals(ChapterLoader_Folder_BanGDream_Scenario.TYPE_EVENTSTORY))
                 .Select(m => (BanGDreamHelper.GetEventStoryInfo(m.chapterInfo.chapterID), m))
                 .Where(t => t.Item1 != null)
-                .GroupBy(t=>t.Item1.eventId)
-                .Select(g=>g.ToArray())
+                .GroupBy(t => t.Item1.eventId)
+                .Select(g => g.ToArray())
                 .ToArray();
 
             Character[] characters = GlobalConfig.CharacterDefinition.Characters
-                .Where(c=> !mainCharacterOnly || BanGDreamHelper.IsMainCharacter(c.id))
-                .Where(c=> !passSelf || c.id != speakerId)
+                .Where(c => !mainCharacterOnly || BanGDreamHelper.IsMainCharacter(c.id))
+                .Where(c => !passSelf || c.id != speakerId)
                 .ToArray();
 
             List<(int eventId, int characterId, int mentionCount)> mentionCounts = new List<(int, int, int)>();
@@ -45,7 +45,10 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                         mentionCount += (grid != null) ? grid.Count : 0;
                     }
 
-                    mentionCounts.Add((eventId, character.id, mentionCount));
+                    if (mentionCount > 0)
+                    {
+                        mentionCounts.Add((eventId, character.id, mentionCount));
+                    }
                 }
             }
 
@@ -63,7 +66,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             int serifCount = mentionedCountManager.CountSerif(speakerId);
             int count = mostMention.mentionCount;
 
-            MapField<uint, MasterEvent> events = eventLogoLoader.suiteMasterLoader.SuiteMasterGetResponse.MasterEventMapForExchanges.Entries;
+            MapField<uint, MasterEvent> events = eventLogoLoader.masterLoader.UserEventStoryMemorialResponse.PastEventMap.Entries;
             string eventName = events.ContainsKey((uint)mostEventId) ? events[(uint)mostEventId].EventName : "未知活动";
 
             txtDescription.text =

@@ -1,5 +1,6 @@
 ﻿using AdaptableDialogAnalyzer.Unity;
 using System.Collections.Generic;
+using UnityEngine;
 using static AdaptableDialogAnalyzer.Games.BanGDream.GameDefine;
 
 namespace AdaptableDialogAnalyzer.Games.BanGDream
@@ -108,6 +109,38 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
             return new EventStoryInfo(eventId, chapter);
         }
 
+        static string prefix_Scenarioepisode = "Scenarioepisode";
+        static string prefix_Scenariomemorial = "Scenariomemorial";
+        public static CardStoryInfo GetCardStoryInfo(string chapterId)
+        {
+            string prefix;
+            CardStoryInfo.StoryType storyType;
+            if(chapterId.StartsWith(prefix_Scenarioepisode))
+            {
+                prefix = prefix_Scenarioepisode;
+                storyType = CardStoryInfo.StoryType.episode;
+            }
+            else if (chapterId.StartsWith(prefix_Scenariomemorial))
+            {
+                prefix = prefix_Scenariomemorial;
+                storyType = CardStoryInfo.StoryType.memorial;
+            }
+            else
+            {
+                Debug.Log($"{chapterId}不是标准卡片剧情");
+                return null;
+            }
+
+            string cardIdStr = chapterId.Substring(prefix.Length);
+            if(!int.TryParse(cardIdStr,out int cardId))
+            {
+                Debug.Log($"卡片id无效{cardIdStr}");
+                return null;
+            }
+
+            return new CardStoryInfo(cardId, storyType);
+        }
+
         public static bool IsMainCharacter(int characterID)
         {
             if (characterID >= 1 && characterID <= 35) return true;
@@ -116,7 +149,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
         public static BandIdName GetCharacterBand(int characterID)
         {
-            if(characterBandMap.ContainsKey(characterID)) return characterBandMap[characterID];
+            if (characterBandMap.ContainsKey(characterID)) return characterBandMap[characterID];
             return BandIdName.None;
         }
     }
@@ -130,6 +163,36 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             this.eventId = eventId;
             this.chapter = chapter;
+        }
+    }
+
+    public class CardStoryInfo
+    {
+        public enum StoryType { episode, memorial }
+
+        public int cardId;
+        public StoryType storyType;
+
+        public CardStoryInfo(int cardId, StoryType storyType)
+        {
+            this.cardId = cardId;
+            this.storyType = storyType;
+        }
+
+        public string EpisodeType
+        {
+            get
+            {
+                switch (storyType)
+                {
+                    case StoryType.episode:
+                        return "standard";
+                    case StoryType.memorial:
+                        return "memorial";
+                    default:
+                        return "none";
+                }
+            }
         }
     }
 }

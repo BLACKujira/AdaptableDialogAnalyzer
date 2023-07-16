@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-    [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/IndexedSpriteList")]
-    public class IndexedSpriteList : ScriptableObject
+    [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/StringIndexedSpriteList")]
+    public class StringIndexedSpriteList : ScriptableObject
     {
-        public List<IndexedSprite> indexedSprites = new List<IndexedSprite>();
+        public List<StringIndexedSprite> indexedSprites = new List<StringIndexedSprite>();
         public Sprite defaultSprite;
 
         /// <summary>
@@ -14,7 +14,7 @@ namespace AdaptableDialogAnalyzer.Unity
         /// </summary>
         /// <param name="spriteId"></param>
         /// <returns></returns>
-        public Sprite this[int spriteId]
+        public Sprite this[string spriteId]
         {
             get
             {
@@ -33,11 +33,11 @@ namespace AdaptableDialogAnalyzer.Unity
         /// </summary>
         /// <param name="spriteId"></param>
         /// <returns></returns>
-        public Sprite TryGetSprite(int spriteId)
+        public Sprite TryGetSprite(string spriteId)
         {
             foreach (var indexedSprite in indexedSprites)
             {
-                if (indexedSprite.id == spriteId) return indexedSprite.sprite;
+                if (indexedSprite.id.Equals(spriteId)) return indexedSprite.sprite;
             }
             return null;
         }

@@ -9,7 +9,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
     public class BanGDream_EventLogoLoader : MonoBehaviour
     {
         public string assetBundleFolder;
-        public BanGDream_SuiteMasterLoader suiteMasterLoader;
+        public BanGDream_MasterLoader masterLoader;
 
         Dictionary<string, string> logoPathMap = null;
         Dictionary<int, Texture2D> loadedLogos = new Dictionary<int, Texture2D>();
@@ -55,7 +55,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             if(loadedLogos.ContainsKey(eventId)) return loadedLogos[eventId];
 
-            MapField<uint, MasterEvent> events = suiteMasterLoader.SuiteMasterGetResponse.MasterEventMapForExchanges.Entries;
+            MapField<uint, MasterEvent> events = masterLoader.UserEventStoryMemorialResponse.PastEventMap.Entries;
             if(!events.ContainsKey((uint)eventId))
             {
                 Debug.LogError($"未找到活动{eventId}的数据");

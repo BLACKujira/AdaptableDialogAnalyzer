@@ -6,7 +6,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public class ChapterLoader_BanGDream_SuiteMaster : ChapterLoader
     {
-        public BanGDream_SuiteMasterLoader suiteMasterLoader;
+        public BanGDream_MasterLoader suiteMasterLoader;
 
         public override Chapter[] InitializeChapters()
         {
