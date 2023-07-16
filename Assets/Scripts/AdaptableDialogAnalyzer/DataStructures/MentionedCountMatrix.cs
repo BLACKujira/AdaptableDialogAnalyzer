@@ -85,7 +85,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 增加角色台词数的统计 
         /// </summary>
-        public void AddSerifCount(int speakerId,int count)
+        public void AddSerifCount(int speakerId, int count)
         {
             if (this[speakerId] == null)
             {
@@ -97,8 +97,13 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 清除为空的行，保存前调用
         /// </summary>
-        public void RemoveEmptyGrids()
+        public void RemoveEmptyRowAndGrids()
         {
+            foreach (var mentionedCountRow in mentionedCountRows)
+            {
+                mentionedCountRow.RemoveEmptyGrids();
+            }
+
             List<MentionedCountRow> removeRows = mentionedCountRows
                 .Where(r => r == null || (r.mentionedCountGrids.Count == 0 && r.serifCount == 0))
                 .ToList();
@@ -226,9 +231,12 @@ namespace AdaptableDialogAnalyzer.DataStructures
                     int mentionedPersonId = characters[id2].id;
 
                     MentionedCountGrid mentionedCountGrid = this[speakerId, mentionedPersonId];
-                    foreach (var refIdx in mentionedCountGrid.matchedIndexes)
+                    if (mentionedCountGrid != null)
                     {
-                        snippetCountDictionary[refIdx].Add(mentionedPersonId);
+                        foreach (var refIdx in mentionedCountGrid.matchedIndexes)
+                        {
+                            snippetCountDictionary[refIdx].Add(mentionedPersonId);
+                        }
                     }
                 }
             }

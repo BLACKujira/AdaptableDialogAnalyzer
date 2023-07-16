@@ -77,6 +77,8 @@ namespace AdaptableDialogAnalyzer.Unity
             {
                 if (!countMatrix.HasChanged) continue;
 
+                countMatrix.RemoveEmptyRowAndGrids();
+
                 string savePath = savePathDictionary[countMatrix];
                 countMatrix.Serialize(savePath, serializeType);
 

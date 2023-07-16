@@ -68,7 +68,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
                     foreach (var mentionedPersonId in selectedIds)
                     {
-                        MentionedCountMatrix[speakerId, mentionedPersonId].AddMatchedDialogue(refIdx);
+                        MentionedCountMatrix.AddMatchedDialogue(speakerId, mentionedPersonId, refIdx);
                         if (!SnippetCountDictionary[refIdx].Contains(mentionedPersonId)) SnippetCountDictionary[refIdx].Add(mentionedPersonId);
                     }
 

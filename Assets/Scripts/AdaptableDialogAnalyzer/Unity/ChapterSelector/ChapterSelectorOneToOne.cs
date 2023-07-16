@@ -1,7 +1,6 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,11 +33,11 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices)
         {
-            countMatrices = countMatrices.Where(cm => cm[speakerId].serifCount > 0).ToList();
+            countMatrices = countMatrices.Where(cm => cm[speakerId] != null && cm[speakerId].serifCount > 0).ToList();
 
             if (togHideUnmatched.isOn)
             {
-                countMatrices = countMatrices.Where(cm => cm[speakerId, mentionedPersonId].Count > 0).ToList();
+                countMatrices = countMatrices.Where(cm => cm[speakerId, mentionedPersonId] != null && cm[speakerId, mentionedPersonId].Count > 0).ToList();
             }
 
             return countMatrices;
@@ -51,7 +50,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
-            Vector2Int vector2Int = new Vector2Int(mentionedPersonId, countMatrix[speakerId, mentionedPersonId].Count);
+            Vector2Int vector2Int = new Vector2Int(mentionedPersonId, countMatrix[speakerId, mentionedPersonId]?.Count ?? 0);
 
             if (vector2Int.y > 0) chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount, vector2Int);
             else chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount);

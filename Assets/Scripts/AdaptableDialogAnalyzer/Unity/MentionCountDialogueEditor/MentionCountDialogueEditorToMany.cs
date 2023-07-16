@@ -35,7 +35,7 @@ namespace AdaptableDialogAnalyzer.Unity
             speechBubbleButton.SetData(basicTalkSnippet, false, false);
 
             if (MentionedCountMatrix.HasUnidentifiedMention(basicTalkSnippet.RefIdx)) speechBubbleButton.iceContent.SetIndividualColor(colorUnidentified);
-            else if (SnippetCountDictionary[basicTalkSnippet.RefIdx].Count>0) speechBubbleButton.iceContent.SetIndividualColor(colorMatched);
+            else if (SnippetCountDictionary[basicTalkSnippet.RefIdx].Count > 0) speechBubbleButton.iceContent.SetIndividualColor(colorMatched);
             else speechBubbleButton.iceContent.SetIndividualColor(colorUnmatched);
 
             SpeechBubbleWithLabels speechBubbleWithLabels = speechBubbleButton as SpeechBubbleWithLabels;
@@ -47,7 +47,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
             int[] characterIds = snippetCountDictionary[basicTalkSnippet.RefIdx].ToArray();
             speechBubbleWithLabels.SetCharacterLabels(characterIds);
-            speechBubbleWithLabels.button.onClick.AddListener(() => 
+            speechBubbleWithLabels.button.onClick.AddListener(() =>
             {
                 int[] oldIds = snippetCountDictionary[basicTalkSnippet.RefIdx].ToArray();
                 MutiCharacterSelector mutiCharacterSelector = window.OpenWindow<MutiCharacterSelector>(mutiCharacterSelectorPrefab);
@@ -64,7 +64,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
                     foreach (var id in addId)
                     {
-                        MentionedCountMatrix[basicTalkSnippet.SpeakerId, id].AddMatchedDialogue(basicTalkSnippet.RefIdx);
+                        MentionedCountMatrix.AddMatchedDialogue(basicTalkSnippet.SpeakerId, id, basicTalkSnippet.RefIdx);
                         snippetCountDictionary[basicTalkSnippet.RefIdx].Add(id);
                     }
 

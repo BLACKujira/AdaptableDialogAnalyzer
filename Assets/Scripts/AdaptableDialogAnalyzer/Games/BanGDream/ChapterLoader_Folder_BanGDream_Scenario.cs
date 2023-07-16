@@ -23,15 +23,15 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
         const string SCENARIO_EXTENSION = ".json";
 
-        const string TYPE_MAINSTORY = "主线剧情";
-        const string TYPE_BANDSTORY = "乐队剧情";
-        const string TYPE_EVENTSTORY = "活动剧情";
-        const string TYPE_AREATALK = "区域对话";
-        const string TYPE_CARDSTORY = "卡面剧情";
-        const string TYPE_AFTERLIVE = "LIVE结束语言";
-        const string TYPE_BIRTHDAYSTORY = "生日剧情";
-        const string TYPE_BACKSTAGETALK = "后台对话";
-        const string TYPE_OTHERSTORY = "其他剧情";
+        public const string TYPE_MAINSTORY = "主线剧情";
+        public const string TYPE_BANDSTORY = "乐队剧情";
+        public const string TYPE_EVENTSTORY = "活动剧情";
+        public const string TYPE_AREATALK = "区域对话";
+        public const string TYPE_CARDSTORY = "卡面剧情";
+        public const string TYPE_AFTERLIVE = "LIVE结束语言";
+        public const string TYPE_BIRTHDAYSTORY = "生日剧情";
+        public const string TYPE_BACKSTAGETALK = "后台对话";
+        public const string TYPE_OTHERSTORY = "其他剧情";
 
         const string DIR_EVENTSTORY = @"assets\star\forassetbundle\asneeded\scenario\eventstory";
         const string DIR_BIRTHDAYSTORY = @"assets\star\forassetbundle\asneeded\scenario\birthdaystory";

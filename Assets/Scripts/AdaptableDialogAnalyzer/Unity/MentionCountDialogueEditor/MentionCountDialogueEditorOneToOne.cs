@@ -48,7 +48,9 @@ namespace AdaptableDialogAnalyzer.Unity
 
             if (togHideUnmatched.isOn)
             {
-                talkSnippets = talkSnippets.Where(ts => MentionedCountMatrix[speakerId, mentionedPersonId].HasSerif(ts.RefIdx)).ToList();
+                talkSnippets = talkSnippets
+                    .Where(ts => MentionedCountMatrix[speakerId, mentionedPersonId]?.HasSerif(ts.RefIdx) ?? false)
+                    .ToList();
             }
 
             return talkSnippets;
@@ -79,7 +81,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 }
                 else
                 {
-                    MentionedCountMatrix[speakerId, mentionedPersonId].AddMatchedDialogue(basicTalkSnippet.RefIdx);
+                    MentionedCountMatrix.AddMatchedDialogue(speakerId, mentionedPersonId, basicTalkSnippet.RefIdx);
                     speechBubbleButton.iceContent.SetIndividualColor(GlobalConfig.CharacterDefinition[mentionedPersonId].color);
                 }
 

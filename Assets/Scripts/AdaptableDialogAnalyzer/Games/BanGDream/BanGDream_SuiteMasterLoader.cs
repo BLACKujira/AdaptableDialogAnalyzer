@@ -12,7 +12,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             get
             {
-                if(suiteMasterGetResponse == null) Initialize();
+                if (suiteMasterGetResponse == null) Initialize();
                 return suiteMasterGetResponse;
             }
         }

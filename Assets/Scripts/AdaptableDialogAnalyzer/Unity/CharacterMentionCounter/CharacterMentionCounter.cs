@@ -195,7 +195,7 @@ namespace AdaptableDialogAnalyzer.Unity
             HashSet<string> bypassUnidentified = new HashSet<string>();
 
             //记录台词
-            mentionedCountMatrix.AddSerifCount(talkSnippet.SpeakerId, talkSnippet.RefIdx);
+            mentionedCountMatrix.AddSerifCount(talkSnippet.SpeakerId, 1);
 
             //首先判断通用昵称
             for (int i = 0; i < nicknameDefinition.CommonNicknameMapping.nicknameLists.Count; i++)
