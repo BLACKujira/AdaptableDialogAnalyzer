@@ -376,13 +376,14 @@ MonoBehaviour:
   imgSdCharaL: {fileID: 8897463389301333509}
   imgSdCharaR: {fileID: 2596576438890560577}
   txtInfo: {fileID: 2680670944985359834}
-  imgInitMask: {fileID: 1339579596827570304}
   uIFollower: {fileID: 5320640241964382999}
   sdCharaList: {fileID: 11400000, guid: cf96ebbfa3ae3bd4da9dae845ce1c4be, type: 2}
   bgColorList: {fileID: 11400000, guid: ea0f40d67c3c8ec49a1e7664d0555609, type: 2}
   textColorList: {fileID: 11400000, guid: 4cef457fe28c6e04a89e62533f52ba78, type: 2}
   hdrColorList: {fileID: 11400000, guid: 28c80d43f828afe49a8ca6a6ce265e44, type: 2}
   colorFadeTime: 1
+  fadeInEffect: {fileID: 8552554403077091997, guid: 60deab7bc6a762a479fc9e7753d2405b,
+    type: 3}
 --- !u!1 &5855698436323899134
 GameObject:
   m_ObjectHideFlags: 0

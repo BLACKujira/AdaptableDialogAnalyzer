@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32d62fbd9cefda547a391aa2d724950e, type: 3}
-  m_Name: HDRColor
+  m_Name: char_hdr
   m_EditorClassIdentifier: 
   indexedColors:
   - id: 0

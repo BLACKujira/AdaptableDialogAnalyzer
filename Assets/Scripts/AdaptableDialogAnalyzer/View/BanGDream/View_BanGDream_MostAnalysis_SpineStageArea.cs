@@ -1,8 +1,13 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Games.BanGDream;
+using AdaptableDialogAnalyzer.UIElements;
+using AdaptableDialogAnalyzer.Unity;
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
+using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
@@ -10,9 +15,22 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
     {
         [Header("Components")]
         public List<View_BanGDream_SpineStage> spineStages;
+        public RawImage rimgSpine;
+        public UIFollower uIFollowerStar;
+        public GraphicsAlphaController alphaController;
+        [Header("Settings")]
+        public IndexedHDRColorList bandColorList;
+        public float fadeTime = 0.5f;
+        [Header("Prefab")]
+        public View_BanGDream_ItemEffect itemEffectPrefab;
 
-        public void Initialize(MentionedCountManager mentionedCountManager, int speakerId, bool mainCharacterOnly)
+        public void Initialize(MentionedCountManager mentionedCountManager, int speakerId, bool mainCharacterOnly, Transform spineTransform, Transform uiEffectTransform)
         {
+            foreach (var spineStage in spineStages)
+            {
+                spineStage.Initialize(uiEffectTransform);
+            }
+
             List<CharacterMentionStats> characterMentionStatsList = mentionedCountManager.GetMentionStatsList(speakerId, false, true);
 
             if (mainCharacterOnly)
@@ -42,7 +60,24 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                     modelCharId = characterMentionStats.MentionedPersonId;
                 }
 
-                spineStage.SetModel(modelCharId);
+                spineStage.SetModel(modelCharId, spineTransform);
+            }
+
+            View_BanGDream_ItemEffect view_BanGDream_ItemEffect = Instantiate(itemEffectPrefab, uiEffectTransform);
+            uIFollowerStar.targetTransform = view_BanGDream_ItemEffect.transform;
+            view_BanGDream_ItemEffect.materialController.HDRColor = bandColorList[(int)BanGDreamHelper.GetCharacterBand(speakerId)];
+
+            alphaController.Alpha = 0;
+            rimgSpine.color = new Color(1, 1, 1, 0);
+        }
+    
+        public void FadeIn()
+        {
+            alphaController.DoFade(1, fadeTime);
+            rimgSpine.DOFade(1, fadeTime);
+            foreach (var spineStage in spineStages)
+            {
+                spineStage.FadeIn();
             }
         }
     }

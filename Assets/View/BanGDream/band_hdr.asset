@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d62fbd9cefda547a391aa2d724950e, type: 3}
+  m_Name: band_hdr
+  m_EditorClassIdentifier: 
+  indexedColors:
+  - id: 1
+    color: {r: 3.9686275, g: 0.8627451, b: 1.8980392, a: 1}
+  - id: 2
+    color: {r: 3.6862745, g: 0.84705883, b: 1.1450981, a: 1}
+  - id: 3
+    color: {r: 4, g: 3.469913, b: 0.95200014, a: 1}
+  - id: 4
+    color: {r: 1.0039216, g: 3.4509804, b: 2.682353, a: 1}
+  - id: 5
+    color: {r: 1.0763046, g: 1.4488715, b: 3.4358954, a: 1}
+  - id: 18
+    color: {r: 0.96399987, g: 2.7416565, b: 3.9999995, a: 1}
+  - id: 21
+    color: {r: 1.0208, g: 3.2, b: 3.2, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}

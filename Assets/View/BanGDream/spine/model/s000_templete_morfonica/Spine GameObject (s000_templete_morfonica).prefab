@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5726380580686489263}
   - component: {fileID: 5829096513630785181}
   - component: {fileID: 4476268022320552318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine GameObject (s000_templete_morfonica)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

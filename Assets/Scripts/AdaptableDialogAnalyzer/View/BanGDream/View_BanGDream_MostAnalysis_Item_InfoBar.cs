@@ -12,7 +12,6 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public Image imgSdCharaL;
         public Image imgSdCharaR;
         public Text txtInfo;
-        public Image imgInitMask;
         public UIFollower uIFollower;
         [Header("Settings")]
         public IndexedSpriteList sdCharaList;
@@ -20,13 +19,15 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public IndexedColorList textColorList;
         public IndexedHDRColorList hdrColorList;
         public float colorFadeTime = 1f;
+        [Header("Effect")]
+        public View_BanGDream_ItemEffect fadeInEffect;
 
         View_BanGDream_ItemEffect itemEffect;
         int characterLID; int characterRID;
 
-        public void Initialize(View_BanGDream_ItemEffect itemEffect)
+        public void Initialize(Transform effectTransform)
         {
-            this.itemEffect = itemEffect;
+            itemEffect = Instantiate(fadeInEffect,effectTransform);
             uIFollower.targetTransform = itemEffect.transform;
         }
 
@@ -42,18 +43,11 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             imgBG.color = bgColorList[characterRID];
             txtInfo.color = textColorList[characterRID];
             itemEffect.materialController.HDRColor = hdrColorList[characterRID];
-
-            imgInitMask.color = Color.white;
         }
 
         public void FadeIn()
         {
-            Character character = GlobalConfig.CharacterDefinition[characterRID];
-            Color endColor = character.color;
-            endColor.a = 0;
-
             itemEffect.particle.Play();
-            imgInitMask.DOColor(endColor, colorFadeTime);
         }
     }
 }

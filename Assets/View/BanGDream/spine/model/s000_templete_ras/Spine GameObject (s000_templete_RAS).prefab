@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6495699602693625954}
   - component: {fileID: 5084147838707375105}
   - component: {fileID: 5156174130719791510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine GameObject (s000_templete_RAS)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

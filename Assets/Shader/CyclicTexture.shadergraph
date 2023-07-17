@@ -426,9 +426,9 @@
     "m_Guid": {
         "m_GuidSerialized": "63318f9c-11bb-4701-9f6a-c6d21a6dc294"
     },
-    "m_Name": "speedY",
+    "m_Name": "SpeedY",
     "m_DefaultReferenceName": "Vector1_1c2a79180a2f458cab27d6e9480289de",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "speedY",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -1645,9 +1645,9 @@
     "m_Guid": {
         "m_GuidSerialized": "ef1a94b7-4b4a-49ce-ac31-a4402238e19c"
     },
-    "m_Name": "speedX",
+    "m_Name": "SpeedX",
     "m_DefaultReferenceName": "Vector1_f9f650665780493e8344f02737656617",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "speedX",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

@@ -11,14 +11,13 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public View_BanGDream_MostAnalysis_SpineStageArea spineStageArea;
         public List<View_BanGDream_MostAnalysis_Item> items;
         public Transform tfUIEffect;
+        public Transform tfSpine;
         [Header("Settings")]
         public bool mainCharacterOnly = true;
         public bool passSelf = false;
         public int speakerId = 1;
         [Header("Adapter")]
         public MentionedCountManagerLoader mentionedCountManagerLoader;
-        [Header("Prefab")]
-        public View_BanGDream_ItemEffect itemEffectPrefab;
 
         MentionedCountManager mentionedCountManager;
 
@@ -26,11 +25,27 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         {
             mentionedCountManager = mentionedCountManagerLoader.MentionedCountManager;
 
-            spineStageArea.Initialize(mentionedCountManager,speakerId,mainCharacterOnly);
+            spineStageArea.Initialize(mentionedCountManager, speakerId, mainCharacterOnly, tfSpine, tfUIEffect);
             foreach (var item in items)
             {
-                View_BanGDream_ItemEffect itemEffect = Instantiate(itemEffectPrefab, tfUIEffect);
-                item.Initialize(mentionedCountManager, speakerId, mainCharacterOnly, passSelf, itemEffect);
+                item.Initialize(mentionedCountManager, speakerId, mainCharacterOnly, passSelf, tfUIEffect);
+            }
+        }
+
+        public void FadeIn()
+        {
+            spineStageArea.FadeIn();
+            foreach (var item in items)
+            {
+                item.FadeIn();
+            }
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                FadeIn();
             }
         }
     }

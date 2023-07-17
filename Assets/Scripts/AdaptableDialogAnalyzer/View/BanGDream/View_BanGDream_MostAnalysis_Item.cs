@@ -1,4 +1,5 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
+using AdaptableDialogAnalyzer.UIElements;
 using AdaptableDialogAnalyzer.Unity;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,14 +8,24 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 {
     public abstract class View_BanGDream_MostAnalysis_Item : MonoBehaviour
     {
+        [Header("Fade")]
+        public float fadeTime = 0.5f;
         [Header("Components")]
         public View_BanGDream_MostAnalysis_Item_InfoBar infoBar;
         public Text txtDescription;
+        public GraphicsAlphaController alphaController;
 
-        public void Initialize(MentionedCountManager mentionedCountManager, int speakerId, bool mainCharacterOnly, bool passSelf, View_BanGDream_ItemEffect itemEffect)
+        public void FadeIn()
         {
-            infoBar.Initialize(itemEffect);
+            infoBar.FadeIn();
+            alphaController.DoFade(1, fadeTime);
+        }
+
+        public void Initialize(MentionedCountManager mentionedCountManager, int speakerId, bool mainCharacterOnly, bool passSelf, Transform effectTransform)
+        {
+            infoBar.Initialize(effectTransform);
             Initialize(mentionedCountManager, speakerId, mainCharacterOnly, passSelf);
+            alphaController.Alpha = 0;
         }
 
         protected abstract void Initialize(MentionedCountManager mentionedCountManager, int speakerId, bool mainCharacterOnly, bool passSelf);
