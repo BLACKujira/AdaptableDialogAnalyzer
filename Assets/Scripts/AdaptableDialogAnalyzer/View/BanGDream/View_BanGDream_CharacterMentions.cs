@@ -1,6 +1,7 @@
 using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Games.BanGDream;
 using AdaptableDialogAnalyzer.Live2D2;
+using AdaptableDialogAnalyzer.UIElements;
 using AdaptableDialogAnalyzer.Unity;
 using DG.Tweening;
 using live2d;
@@ -21,6 +22,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public RawImage imgLive2D;
         public SimpleLive2DModel live2DModel;
         public Transform tfUIEffect;
+        public RectTransform rtMain;
+        public GraphicsAlphaController gacMain;
         [Header("Settings")]
         public bool mainCharacterOnly = true;
         public bool passSelf = false;
@@ -38,12 +41,15 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         [Header("Assets")]
         public TextAsset live2DMotionAsset;
         public TextAsset live2DExpressionAsset;
+        [Header("FadeOut")]
+        public float fadeOutMoveX;
+        public float fadeOutDuration;
 
         MentionedCountManager mentionedCountManager;
         Live2DMotion live2DMotion;
         L2DExpressionMotion live2DExpression;
 
-        public void Start()
+        public void Initialize()
         {
             mentionedCountManager = mentionedCountManagerLoader.MentionedCountManager;
 
@@ -88,15 +94,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             if (live2DExpressionAsset) live2DExpression = L2DExpressionMotion.loadJson(live2DExpressionAsset.bytes);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                FadeIn();
-            }
-        }
-
-        void FadeIn()
+        public void FadeIn()
         {
             StartCoroutine(CoMoveLines());
             StartCoroutine(CoFadeInItem());
@@ -135,6 +133,12 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
             yield return new WaitForSeconds(live2dPlayVoiceDelay);
             live2DModel.AudioSource.Play();
+        }
+
+        public void FadeOut()
+        {
+            rtMain.DOAnchorPosX(rtMain.anchoredPosition.x + fadeOutMoveX, fadeOutDuration);
+            gacMain.DoFade(0, fadeOutDuration);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
         MentionedCountManager mentionedCountManager;
 
-        private void Start()
+        public void Initialize()
         {
             mentionedCountManager = mentionedCountManagerLoader.MentionedCountManager;
 
@@ -38,14 +38,6 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             foreach (var item in items)
             {
                 item.FadeIn();
-            }
-        }
-
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                FadeIn();
             }
         }
     }

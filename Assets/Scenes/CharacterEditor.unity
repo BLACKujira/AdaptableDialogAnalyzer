@@ -5999,6 +5999,8 @@ MonoBehaviour:
   imgLive2D: {fileID: 599905951}
   live2DModel: {fileID: 906931787}
   tfUIEffect: {fileID: 1801367582}
+  rtMain: {fileID: 2127933928}
+  gacMain: {fileID: 2127933929}
   mainCharacterOnly: 1
   passSelf: 0
   speakerId: 1
@@ -6012,6 +6014,8 @@ MonoBehaviour:
   live2dPlayVoiceDelay: 0.5
   live2DMotionAsset: {fileID: 4900000, guid: 3547e8e6a25366147a4d871aa5bd8b87, type: 3}
   live2DExpressionAsset: {fileID: 0}
+  fadeOutMoveX: 0
+  fadeOutDuration: 0
 --- !u!1 &2129188331
 GameObject:
   m_ObjectHideFlags: 0
@@ -9831,6 +9835,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 549cc72d0a2bfac4e8a980f4e16b2d7d, type: 3}
+--- !u!114 &3892822498774963259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3892822500011727868, guid: 549cc72d0a2bfac4e8a980f4e16b2d7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3892822498774963258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e9c77b56866d64990ba30d233220a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4725694152812119882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9969,6 +9985,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d547f0ddfc5d6144282df644bdd906b7, type: 3}
+--- !u!114 &5679343346884323223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 972439315457666921, guid: d547f0ddfc5d6144282df644bdd906b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5679343346884323222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9ea9ce6340bd34e896542534cd1427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6379213260621056333 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1609632278806474459, guid: d547f0ddfc5d6144282df644bdd906b7,
@@ -10603,6 +10631,7 @@ GameObject:
   - component: {fileID: 8943782723948157833}
   - component: {fileID: 8943782723948157837}
   - component: {fileID: 8943782723948157836}
+  - component: {fileID: 8943782723948157838}
   m_Layer: 0
   m_Name: CharacterMentions
   m_TagString: Untagged
@@ -10665,3 +10694,24 @@ MonoBehaviour:
   loadBirthdayStory: 0
   loadBackstageTalk: 0
   loadOtherStory: 0
+--- !u!114 &8943782723948157838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943782723948157834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484481e026b80d044a5f8d008c3b9f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterMentions: {fileID: 2127933930}
+  mostAnalysis: {fileID: 1291332720}
+  transitionIn: {fileID: 3892822498774963259}
+  transitionOut: {fileID: 5679343346884323223}
+  delayBeforeFadeIn: 1
+  delayAfterFadeIn: 0.5
+  page1Duration: 15
+  delayAfterPage1: 1.5
+  page2Duration: 12

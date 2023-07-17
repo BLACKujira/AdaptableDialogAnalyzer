@@ -17,7 +17,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         [Header("Prefab")]
         public View_BanGDream_ItemEffect lineEffectPrefab;
 
-        private void Start()
+        public void Initialize()
         {
             foreach (var line in lines)
             {
@@ -26,15 +26,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             }
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                StartTransition();
-            }
-        }
-
-        void StartTransition()
+        public void StartTransition()
         {
             StartCoroutine(CoStartTransition());
         }
