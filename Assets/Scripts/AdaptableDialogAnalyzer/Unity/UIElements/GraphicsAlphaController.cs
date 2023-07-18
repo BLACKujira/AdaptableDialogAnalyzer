@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,10 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.UIElements
 {
-
     /// <summary>
     /// 控制此物体和其所有子物体的alpha
     /// </summary>
+    [Obsolete("Use CanvasGroup instead")]
     public class GraphicsAlphaController : MonoBehaviour
     {
         public GameObject targetObject;
@@ -37,10 +38,10 @@ namespace AdaptableDialogAnalyzer.UIElements
 
         Graphic[] graphics;
         float[] alphas;
-        float _alpha;
+        float _alpha = 1;
         bool Initialized = false;
 
-        private void Initialize()
+        public void Initialize()
         {
             graphics = targetObject.GetComponentsInChildren<Graphic>();
             alphas = new float[graphics.Length];

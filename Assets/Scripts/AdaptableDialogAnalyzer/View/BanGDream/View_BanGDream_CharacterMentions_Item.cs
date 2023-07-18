@@ -38,7 +38,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public void Initialize(View_BanGDream_ItemEffect itemEffect)
         {
             this.itemEffect = itemEffect;
-            uIFollower.targetTransform = itemEffect.transform;
+            uIFollower.TargetTransform = itemEffect.transform;
         }
 
         public void SetData(int characterID, int count, int total)

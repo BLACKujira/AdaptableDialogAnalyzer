@@ -23,7 +23,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
         public void Initialize(View_BanGDream_ItemEffect itemEffect)
         {
-            uIFollower.targetTransform = itemEffect.transform;
+            uIFollower.TargetTransform = itemEffect.transform;
             itemEffect.materialController.HDRColor = materialController.startHDRColor;
         }
     }

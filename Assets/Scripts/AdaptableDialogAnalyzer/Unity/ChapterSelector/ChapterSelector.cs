@@ -1,6 +1,5 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.UIElements;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,8 +23,13 @@ namespace AdaptableDialogAnalyzer.Unity
 
         List<ChapterSelector_TypeItem> typeItems = new List<ChapterSelector_TypeItem>();
 
+        MentionedCountManager mentionedCountManager;
+        public MentionedCountManager MentionedCountManager => mentionedCountManager;
+
         protected void Initialize(MentionedCountManager mentionedCountManager)
         {
+            this.mentionedCountManager = mentionedCountManager;
+
             if (mentionedCountManager.mentionedCountMatrices.Count == 0)
             {
                 Debug.LogError("统计数据为空");

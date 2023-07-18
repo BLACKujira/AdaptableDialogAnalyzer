@@ -23,7 +23,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public SimpleLive2DModel live2DModel;
         public Transform tfUIEffect;
         public RectTransform rtMain;
-        public GraphicsAlphaController gacMain;
+        public CanvasGroup cgMain;
         [Header("Settings")]
         public bool mainCharacterOnly = true;
         public bool passSelf = false;
@@ -42,7 +42,6 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public TextAsset live2DMotionAsset;
         public TextAsset live2DExpressionAsset;
         [Header("FadeOut")]
-        public float fadeOutMoveX;
         public float fadeOutDuration;
 
         MentionedCountManager mentionedCountManager;
@@ -137,8 +136,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
         public void FadeOut()
         {
-            rtMain.DOAnchorPosX(rtMain.anchoredPosition.x + fadeOutMoveX, fadeOutDuration);
-            gacMain.DoFade(0, fadeOutDuration);
+            cgMain.DOFade(0, fadeOutDuration).SetEase(Ease.InCubic);
         }
     }
 }

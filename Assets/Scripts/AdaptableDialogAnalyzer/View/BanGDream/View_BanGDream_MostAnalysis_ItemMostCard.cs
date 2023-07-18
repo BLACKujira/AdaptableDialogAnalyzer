@@ -84,7 +84,7 @@ $@"在 {cardCharacter} 的卡片 {cardName} 的剧情
 「{storyName}」 中，
 {speaker} 一共提到了 {mentionedPerson} {count} 次";
 
-            infoBar.SetData(speakerId, mentionedPersonId, $"单次活动提及次数最多: {count}次");
+            infoBar.SetData(speakerId, mentionedPersonId, $"单篇卡片剧情提及次数最多: {count}次");
             if(cards.ContainsKey((uint)cardInfo.cardId))
             {
                 MasterCharacterSituation masterCharacterSituation = cards[(uint)cardInfo.cardId];

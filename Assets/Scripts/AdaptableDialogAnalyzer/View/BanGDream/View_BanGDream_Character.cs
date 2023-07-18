@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using AdaptableDialogAnalyzer.MaterialController;
+using AdaptableDialogAnalyzer.Unity;
+using System.Collections;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
@@ -10,15 +12,24 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public View_BanGDream_MostAnalysis mostAnalysis;
         public View_BanGDream_TransitionIn transitionIn;
         public View_BanGDream_TransitionOut transitionOut;
+        public MaterialController_HDRColorTexture particleMaterial;
         [Header("Time")]
         public float delayBeforeFadeIn = 1f;
         public float delayAfterFadeIn = 0.5f;
         public float page1Duration = 15;
         public float delayAfterPage1 = 15;
         public float page2Duration = 15;
+        [Header("Settings")]
+        public IndexedHDRColorList characterColorList;
+        public int speakerId = 1;
 
         private void Start()
         {
+            particleMaterial.HDRColor = characterColorList[speakerId];
+
+            characterMentions.speakerId = speakerId;
+            mostAnalysis.speakerId = speakerId;
+
             characterMentions.Initialize();
             mostAnalysis.Initialize();
             transitionIn.Initialize();
@@ -40,16 +51,27 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
         IEnumerator CoPlay() 
         {
+            transitionOut.gameObject.SetActive(true);
+            characterMentions.gameObject.SetActive(true);
             yield return new WaitForSeconds(delayBeforeFadeIn);
-            transitionIn.StartTransition();
-            yield return new WaitForSeconds(delayAfterFadeIn);
-            characterMentions.FadeIn();
-            yield return new WaitForSeconds(page1Duration);
-            characterMentions.FadeOut();
-            yield return new WaitForSeconds(delayAfterPage1);
-            mostAnalysis.FadeIn();
-            yield return new WaitForSeconds(page2Duration);
             transitionOut.StartTransition();
+
+            yield return new WaitForSeconds(delayAfterFadeIn);
+            yield return 1;
+            characterMentions.FadeIn();
+            
+            yield return new WaitForSeconds(page1Duration);
+            transitionOut.gameObject.SetActive(false);
+            characterMentions.FadeOut();
+            
+            yield return new WaitForSeconds(delayAfterPage1);
+            characterMentions.gameObject.SetActive(false);
+            mostAnalysis.gameObject.SetActive(true);
+            mostAnalysis.FadeIn();
+            
+            yield return new WaitForSeconds(page2Duration);
+            transitionIn.gameObject.SetActive(true);
+            transitionIn.StartTransition();
         }
     }
 }

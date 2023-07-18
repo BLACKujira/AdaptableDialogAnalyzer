@@ -64,7 +64,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             }
 
             View_BanGDream_ItemEffect view_BanGDream_ItemEffect = Instantiate(itemEffectPrefab, uiEffectTransform);
-            uIFollowerStar.targetTransform = view_BanGDream_ItemEffect.transform;
+            uIFollowerStar.TargetTransform = view_BanGDream_ItemEffect.transform;
             view_BanGDream_ItemEffect.materialController.HDRColor = bandColorList[(int)BanGDreamHelper.GetCharacterBand(speakerId)];
 
             alphaController.Alpha = 0;

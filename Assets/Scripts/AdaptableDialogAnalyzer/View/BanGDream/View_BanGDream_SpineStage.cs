@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.Games.BanGDream;
 using AdaptableDialogAnalyzer.Unity;
 using Spine.Unity;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using static AdaptableDialogAnalyzer.Games.BanGDream.GameDefine;
@@ -25,7 +26,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public void Initialize(Transform effectTransform)
         {
             itemEffect = Instantiate(fadeInEffect, effectTransform);
-            uIFollower.targetTransform = itemEffect.transform;
+            uIFollower.TargetTransform = itemEffect.transform;
         }
 
         public void SetModel(int characterId, Transform spineTransform)

@@ -26,12 +26,20 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
             iconPathMap = new Dictionary<string, string>();
             Regex regexNormalCard = new Regex("res\\d\\d\\d\\d\\d\\d(?=_normal)");
+            Regex regexNormalCardAT = new Regex("res\\d\\d\\d\\d\\d\\d(?=_after_training)");
             foreach (var file in files)
             {
                 string fileName = Path.GetFileNameWithoutExtension(file);
                 Match match = regexNormalCard.Match(fileName);
                 if (!match.Success) continue;
                 iconPathMap[match.Value] = file;
+            }
+            foreach (var file in files)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(file);
+                Match match = regexNormalCardAT.Match(fileName);
+                if (!match.Success) continue;
+                if(!iconPathMap.ContainsKey(match.Value)) iconPathMap[match.Value] = file;
             }
         }
 

@@ -8,11 +8,27 @@ namespace AdaptableDialogAnalyzer.Unity
     public class UIFollower : MonoBehaviour
     {
         [Header("Components")]
-        public RectTransform sourceRectTransform;
-        public Transform targetTransform;
+        [SerializeField] RectTransform sourceRectTransform;
+        [SerializeField] Transform targetTransform;
         [Header("Settings")]
         public bool onlySyncOnStart = false;
         public bool syncActive = true;
+
+        public RectTransform SourceRectTransform
+        {
+            get => sourceRectTransform;
+            set => sourceRectTransform = value;
+        }
+        public Transform TargetTransform
+        {
+            get => targetTransform;
+            set
+            {
+                targetTransform = value;
+                SyncActive();
+                SyncPosition();
+            }
+        }
 
         private void Start()
         {
@@ -26,18 +42,12 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void OnEnable()
         {
-            if (syncActive && targetTransform && !targetTransform.gameObject.activeSelf)
-            {
-                targetTransform.gameObject.SetActive(true);
-            }
+            SyncActive();
         }
 
         private void OnDisable()
         {
-            if (syncActive && targetTransform && targetTransform.gameObject.activeSelf)
-            {
-                targetTransform.gameObject.SetActive(false);
-            }
+            SyncActive();
         }
 
         private void SyncPosition()
@@ -48,6 +58,14 @@ namespace AdaptableDialogAnalyzer.Unity
             newPosition.z = targetTransform.position.z; // 保持目标对象的 z 位置不变
 
             targetTransform.position = newPosition;
+        }
+
+        private void SyncActive()
+        {
+            if (syncActive && targetTransform && targetTransform.gameObject.activeSelf != sourceRectTransform.gameObject.activeInHierarchy)
+            {
+                targetTransform.gameObject.SetActive(sourceRectTransform.gameObject.activeInHierarchy);
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             txtDescription.text =
 $@"在 {speaker} 的 {serifCount} 句台词中
 一共提到 {mentionedPerson} {count} 次，占比 {percent * 100:00.00}%
-也就是 {speaker} 平均 {1 / percent:0.0} 句就会提到一次 {mentionedPerson}";
+也就是平均 {1 / percent:0.0} 句就会提到一次 {mentionedPerson}";
 
             infoBar.SetData(speakerId, mentionedPersonId, $"提及次数最多: {count}次");
             SetSdChara(speakerId, mentionedPersonId);

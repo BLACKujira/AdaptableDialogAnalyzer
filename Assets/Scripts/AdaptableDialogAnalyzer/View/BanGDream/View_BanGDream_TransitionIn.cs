@@ -24,7 +24,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             foreach (var line in lines) 
             {
                 View_BanGDream_ItemEffect view_BanGDream_ItemEffect = Instantiate(lineEffectPrefab, tfUIEffect);
-                line.uIFollower.targetTransform = view_BanGDream_ItemEffect.transform;
+                line.uIFollower.TargetTransform = view_BanGDream_ItemEffect.transform;
             }
         }
 
