@@ -744,7 +744,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 8550625168821954728, guid: ef8f6dbea27f75648a2686c8a369ab53,
+    - sprite: {fileID: 4076543836345794766, guid: ef8f6dbea27f75648a2686c8a369ab53,
         type: 3}
     flipU: 0
     flipV: 0
@@ -2900,9 +2900,11 @@ MonoBehaviour:
   bandFriends: {fileID: 3691534183589244250}
   transitionIn: {fileID: 377426849184739714}
   transitionOut: {fileID: 4486775656198644895}
+  particleMaterial: {fileID: 8933335214320297061}
   delayBeforeFadeIn: 1
   delayAfterFadeIn: 1
   page1Duration: 13
+  bandColorList: {fileID: 11400000, guid: a3fc63a132d04c646ae1336b1cb40654, type: 2}
 --- !u!1 &1705453581421111652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,7 +3077,7 @@ MonoBehaviour:
   - {fileID: 6874750122899642968}
   tfUIEffect: {fileID: 7760916015420938821}
   cgMain: {fileID: 3691534183589244249}
-  band: 1
+  band: 2
   fadeDuration: 0.8
   mentionedCountManagerLoader: {fileID: 1705453581272101330}
 --- !u!225 &3691534183589244249
@@ -3522,8 +3524,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 92804fbac529a1a4c9dd76321a0c656d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Sprite: {fileID: 21300000, guid: 98360c1d4ac9aa04abb9a33b2e6d0688, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

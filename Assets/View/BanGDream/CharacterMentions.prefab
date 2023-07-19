@@ -2795,7 +2795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fd96da497fa324499c9a65d3f309d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloneMaterial: 0
+  cloneMaterial: 1
   startHDRColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &403528455423468775
 GameObject:
