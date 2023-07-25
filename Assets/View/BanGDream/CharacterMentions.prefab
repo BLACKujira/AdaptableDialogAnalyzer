@@ -6157,7 +6157,7 @@ PrefabInstance:
         type: 3}
       propertyPath: animationReference
       value: 
-      objectReference: {fileID: 11400000, guid: 60351c6a4c433354095f4b1daef0cdd1,
+      objectReference: {fileID: 11400000, guid: 89d0d7ae0d6d7914081f45d5d2aa8cad,
         type: 2}
     - target: {fileID: 3693181159146962863, guid: a47dfbd6b5d8cec47882d650308d2d99,
         type: 3}
@@ -6380,6 +6380,7 @@ MonoBehaviour:
   imgSdCharL: {fileID: 8757018570654419616}
   imgSdCharR: {fileID: 8757018569746801478}
   sdCharaList: {fileID: 11400000, guid: 1746ec3a4132e0441a647660604f2ee6, type: 2}
+  reverse: 0
 --- !u!1001 &8757018570640145124
 PrefabInstance:
   m_ObjectHideFlags: 0

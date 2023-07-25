@@ -73,7 +73,7 @@ MonoBehaviour:
     spineAtlasAsset: {fileID: 11400000, guid: 17e5d8938e184124c819c447760fd497, type: 2}
   - id: 30
     spineAtlasAsset: {fileID: 11400000, guid: 13f5e108a5564394fa4f790dc5ab5599, type: 2}
-  - id: 21
+  - id: 31
     spineAtlasAsset: {fileID: 11400000, guid: d55971a3d806bbd43a37eabd0198574e, type: 2}
   - id: 32
     spineAtlasAsset: {fileID: 11400000, guid: 5e542826525ce61469d710b5192da023, type: 2}

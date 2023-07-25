@@ -2,11 +2,10 @@
 using AdaptableDialogAnalyzer.Unity;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
-    public class View_BanGDream_Band: MonoBehaviour
+    public class View_BanGDream_Band : MonoBehaviour
     {
         [Header("Components")]
         public View_BanGDream_BandFriends bandFriends;

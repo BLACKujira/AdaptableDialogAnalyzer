@@ -1,5 +1,6 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ namespace AdaptableDialogAnalyzer.Unity
 {
     public class MentionCountDialogueEditorManyToMany : MentionCountDialogueEditorToMany
     {
+        [Header("RunTime")]
+        public string outputPath;
+
         public new void Initialize(MentionedCountMatrix mentionedCountMatrix)
         {
             togHideUnmatched.isOn = hideUnmatched;
@@ -34,6 +38,14 @@ namespace AdaptableDialogAnalyzer.Unity
         protected override string GetTip()
         {
             return $"标记对话 | 全角色模式";
+        }
+
+        public void OutputSerifs()
+        {
+            string[] lines = MentionedCountMatrix.Chapter.TalkSnippets
+                .Select(s => $"{s.DisplayName}: {s.content}")
+                .ToArray();
+            File.WriteAllLines($"{outputPath}/{MentionedCountMatrix.chapterInfo.chapterID}.txt", lines);
         }
     }
 }

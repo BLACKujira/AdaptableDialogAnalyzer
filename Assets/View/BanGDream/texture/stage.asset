@@ -29,10 +29,10 @@ MonoBehaviour:
     sprite: {fileID: -1043199874057143583, guid: 120b333839ea9564ea6e64986462daec,
       type: 3}
   - id: 18
-    sprite: {fileID: -4963090733957992909, guid: 120b333839ea9564ea6e64986462daec,
+    sprite: {fileID: -1113303969759838926, guid: 120b333839ea9564ea6e64986462daec,
       type: 3}
   - id: 21
-    sprite: {fileID: -1113303969759838926, guid: 120b333839ea9564ea6e64986462daec,
+    sprite: {fileID: -4963090733957992909, guid: 120b333839ea9564ea6e64986462daec,
       type: 3}
   defaultSprite: {fileID: -3228191359627985810, guid: 120b333839ea9564ea6e64986462daec,
     type: 3}

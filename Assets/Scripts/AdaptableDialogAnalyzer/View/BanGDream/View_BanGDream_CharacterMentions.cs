@@ -1,7 +1,6 @@
 using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Games.BanGDream;
 using AdaptableDialogAnalyzer.Live2D2;
-using AdaptableDialogAnalyzer.UIElements;
 using AdaptableDialogAnalyzer.Unity;
 using DG.Tweening;
 using live2d;
@@ -14,7 +13,7 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
-    public class View_BanGDream_CharacterMentions : MonoBehaviour
+    public class View_BanGDream_CharacterMentions : MonoBehaviour, IInitializable, IFadeIn
     {
         [Header("Components")]
         public List<View_BanGDream_CharacterMentions_Item> items;

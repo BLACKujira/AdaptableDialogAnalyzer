@@ -24,7 +24,7 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices)
         {
-            countMatrices = countMatrices.Where(cm => cm[speakerId].serifCount > 0).ToList();
+            countMatrices = countMatrices.Where(cm => cm[speakerId] != null && cm[speakerId].serifCount > 0).ToList();
             return countMatrices;
         }
 
@@ -37,11 +37,11 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             Vector2Int[] mentionedCountArray = countMatrix[speakerId].MentionedCountArray;
             mentionedCountArray = mentionedCountArray
-                .Where(v2=>v2.y>0)
-                .OrderBy(v2=>-v2.y)
+                .Where(v2 => v2.y > 0)
+                .OrderBy(v2 => -v2.y)
                 .ToArray();
 
-            chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount,mentionedCountArray);
+            chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount, mentionedCountArray);
 
             chapterItem.button.onClick.AddListener(() =>
             {

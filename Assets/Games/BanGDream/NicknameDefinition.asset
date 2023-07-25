@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01eb3419ce6895842aae54521c6e0e9d, type: 2}
   - {fileID: 11400000, guid: feee4d1f0cbc81a4e8e1f7723c91b3b4, type: 2}
   - {fileID: 11400000, guid: fef0f9d46cbb1ac43a051ebfe73f2b9c, type: 2}
-  commonNicknameMapping: {fileID: 11400000, guid: d7235e728a75e46488b4aa026a132cdd,
+  commonNicknameMapping: {fileID: 11400000, guid: f3ea275e8504c2443a61009fcd6a6f5b,
     type: 2}
   unidentifiedNicknameList:
     mentionedPersonId: 0
