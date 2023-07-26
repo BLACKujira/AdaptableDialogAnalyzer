@@ -9,10 +9,10 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
-    public class View_BanGDream_Self : MonoBehaviour, IInitializable, IFadeIn
+    public class View_BanGDream_Sum : MonoBehaviour, IInitializable, IFadeIn
     {
         [Header("Components")]
-        public List<View_BanGDream_Self_Item> items;
+        public List<View_BanGDream_SumItem> items;
         public CanvasGroup cgTitle;
         public SpriteRenderer srGaussian;
         public SpriteRenderer srTriangle;
@@ -70,32 +70,32 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             MentionedCountManager mentionedCountManager = mentionedCountManagerLoader.MentionedCountManager;
             CharacterDefinition characterDefinition = GlobalConfig.CharacterDefinition;
 
-            Character[] characters = characterDefinition.Characters;
+            List<CharacterMentionStatsPair> characterMentionStatsPairs = mentionedCountManager.GetCharacterMentionStatsPairs(false);
             if (mainCharacterOnly)
             {
-                characters = characters
-                    .Where(c => BanGDreamHelper.IsMainCharacter(c.id))
-                    .ToArray();
+                characterMentionStatsPairs = characterMentionStatsPairs
+                    .Where(p => BanGDreamHelper.IsMainCharacter(p.CharacterAId) && BanGDreamHelper.IsMainCharacter(p.CharacterBId))
+                    .ToList();
             }
 
-            //Func<CharacterMentionStats, int> getAllMentionCount = (s) =>
-            //{
-            //    return characters
-            //        .Select(c => mentionedCountManager[s.SpeakerId, c.id])
-            //        .Sum(s => s.Total);
-            //};
+            characterMentionStatsPairs = characterMentionStatsPairs.
+                OrderByDescending(p => p.Sum)
+                .Take(items.Count)
+                .ToList();
 
-            (CharacterMentionStats stats, int total)[] count = characters
-                .Select(c => mentionedCountManager[c.id, c.id])
-                .Select(m => (m, mentionedCountManager.CountSerif(m.SpeakerId)))
-                .OrderByDescending(t => (float)t.m.Total / t.Item2)
-                .ToArray();
-
-            for (int i = 0; i < count.Length; i++)
+            foreach (var pair in characterMentionStatsPairs)
             {
-                View_BanGDream_Self_Item item = items[i];
-                (CharacterMentionStats stats, int total) = count[i];
-                item.SetData(stats.SpeakerId, stats.Total, total);
+                if (pair.StatsAToB.Total < pair.StatsBToA.Total) pair.Swap();
+            }
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                View_BanGDream_SumItem item = items[i];
+                CharacterMentionStatsPair characterMentionStatsPair = characterMentionStatsPairs[i];
+                item.SetData(characterMentionStatsPair.CharacterAId,
+                             characterMentionStatsPair.CharacterBId,
+                             characterMentionStatsPair.StatsAToB.Total,
+                             characterMentionStatsPair.StatsBToA.Total);
             }
         }
     }

@@ -9,10 +9,10 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
-    public class View_BanGDream_Self : MonoBehaviour, IInitializable, IFadeIn
+    public class View_BanGDream_Aisare : MonoBehaviour, IInitializable, IFadeIn
     {
         [Header("Components")]
-        public List<View_BanGDream_Self_Item> items;
+        public List<View_BanGDream_Aisare_Item> items;
         public CanvasGroup cgTitle;
         public SpriteRenderer srGaussian;
         public SpriteRenderer srTriangle;
@@ -78,24 +78,25 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                     .ToArray();
             }
 
-            //Func<CharacterMentionStats, int> getAllMentionCount = (s) =>
-            //{
-            //    return characters
-            //        .Select(c => mentionedCountManager[s.SpeakerId, c.id])
-            //        .Sum(s => s.Total);
-            //};
+            int GetAllMentionCount(int mentionedPersonId, bool sameUnit)
+            {
+                return characters
+                    .Where(c => c.id != mentionedPersonId)
+                    .Where(c => sameUnit ? BanGDreamHelper.GetCharacterBand(mentionedPersonId) == BanGDreamHelper.GetCharacterBand(c.id) : BanGDreamHelper.GetCharacterBand(mentionedPersonId) != BanGDreamHelper.GetCharacterBand(c.id))
+                    .Select(c => mentionedCountManager[c.id, mentionedPersonId])
+                    .Sum(s => s.Total);
+            }
 
-            (CharacterMentionStats stats, int total)[] count = characters
-                .Select(c => mentionedCountManager[c.id, c.id])
-                .Select(m => (m, mentionedCountManager.CountSerif(m.SpeakerId)))
-                .OrderByDescending(t => (float)t.m.Total / t.Item2)
+            (Character character, int countSameUnit, int countOtherUnit)[] count = characters
+                .Select(c => (c, GetAllMentionCount(c.id, true), GetAllMentionCount(c.id, false)))
+                .OrderByDescending(t => t.Item2 + t.Item3)
                 .ToArray();
 
-            for (int i = 0; i < count.Length; i++)
+            for (int i = 0; i < items.Count; i++)
             {
-                View_BanGDream_Self_Item item = items[i];
-                (CharacterMentionStats stats, int total) = count[i];
-                item.SetData(stats.SpeakerId, stats.Total, total);
+                View_BanGDream_Aisare_Item item = items[i];
+                (Character character, int countSameUnit, int countOtherUnit) = count[i];
+                item.SetData(character.id, countSameUnit, countOtherUnit);
             }
         }
     }

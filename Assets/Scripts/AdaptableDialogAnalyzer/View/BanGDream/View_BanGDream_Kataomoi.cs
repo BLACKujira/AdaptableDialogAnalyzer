@@ -9,10 +9,10 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
-    public class View_BanGDream_Self : MonoBehaviour, IInitializable, IFadeIn
+    public class View_BanGDream_Kataomoi : MonoBehaviour, IInitializable, IFadeIn
     {
         [Header("Components")]
-        public List<View_BanGDream_Self_Item> items;
+        public List<View_BanGDream_KataomoiItem> items;
         public CanvasGroup cgTitle;
         public SpriteRenderer srGaussian;
         public SpriteRenderer srTriangle;
@@ -78,24 +78,53 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                     .ToArray();
             }
 
-            //Func<CharacterMentionStats, int> getAllMentionCount = (s) =>
-            //{
-            //    return characters
-            //        .Select(c => mentionedCountManager[s.SpeakerId, c.id])
-            //        .Sum(s => s.Total);
-            //};
-
-            (CharacterMentionStats stats, int total)[] count = characters
-                .Select(c => mentionedCountManager[c.id, c.id])
-                .Select(m => (m, mentionedCountManager.CountSerif(m.SpeakerId)))
-                .OrderByDescending(t => (float)t.m.Total / t.Item2)
-                .ToArray();
-
-            for (int i = 0; i < count.Length; i++)
+            List<CharacterMentionStatsPair> characterMentionStatsPairs = mentionedCountManager.GetCharacterMentionStatsPairs(false);
+            if (mainCharacterOnly)
             {
-                View_BanGDream_Self_Item item = items[i];
-                (CharacterMentionStats stats, int total) = count[i];
-                item.SetData(stats.SpeakerId, stats.Total, total);
+                characterMentionStatsPairs = characterMentionStatsPairs
+                    .Where(p => BanGDreamHelper.IsMainCharacter(p.CharacterAId) && BanGDreamHelper.IsMainCharacter(p.CharacterBId))
+                    .ToList();
+            }
+
+
+            Dictionary<int, int> allMentionCountMap = new Dictionary<int, int>();
+            int GetAllMentionCount(CharacterMentionStats s)
+            {
+                if (!allMentionCountMap.ContainsKey(s.SpeakerId))
+                {
+                    int allMentionCount = characters
+                        .Where(c => c.id != s.SpeakerId)
+                        .Select(c => mentionedCountManager[s.SpeakerId, c.id])
+                        .Sum(s => s.Total);
+                    allMentionCountMap[s.SpeakerId] = allMentionCount;
+                }
+                return allMentionCountMap[s.SpeakerId];
+            }
+
+            List<(CharacterMentionStatsPair statsPair, float percentAToB, float percentBToA)> count = characterMentionStatsPairs
+                .Select(p => (p, (float)p.StatsAToB.Total / GetAllMentionCount(p.StatsAToB), (float)p.StatsBToA.Total / GetAllMentionCount(p.StatsBToA)))
+                .OrderByDescending(t => Mathf.Abs(t.Item2 - t.Item3))
+                .Take(items.Count)
+                .ToList();
+
+            for (int i = 0; i < count.Count; i++)
+            {
+                var (statsPair, percentAToB, percentBToA) = count[i];
+                if (percentAToB < percentBToA)
+                {
+                    statsPair.Swap();
+                    count[i] = (statsPair, percentBToA, percentAToB);
+                }
+            }
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                View_BanGDream_KataomoiItem item = items[i];
+                (CharacterMentionStatsPair statsPair, float percentAToB, float percentBToA) = count[i];
+                item.SetData(statsPair.CharacterAId,
+                             statsPair.CharacterBId,
+                             percentAToB,
+                             percentBToA);
             }
         }
     }

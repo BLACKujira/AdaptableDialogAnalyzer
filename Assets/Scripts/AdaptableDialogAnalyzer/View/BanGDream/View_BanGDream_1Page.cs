@@ -20,7 +20,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
             if (initializable == null)
             {
-                Debug.Log("page必须实现IInitializable接口");
+                Debug.LogError("page必须实现IInitializable接口");
             }
             else
             {
