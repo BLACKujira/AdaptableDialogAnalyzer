@@ -43,7 +43,7 @@ namespace AdaptableDialogAnalyzer.Unity
         public void OutputSerifs()
         {
             string[] lines = MentionedCountMatrix.Chapter.TalkSnippets
-                .Select(s => $"{s.DisplayName}: {s.content}")
+                .Select(s => $"[{s.RefIdx}] {s.DisplayName}: {s.Content.Replace("\n"," ")}")
                 .ToArray();
             File.WriteAllLines($"{outputPath}/{MentionedCountMatrix.chapterInfo.chapterID}.txt", lines);
         }
