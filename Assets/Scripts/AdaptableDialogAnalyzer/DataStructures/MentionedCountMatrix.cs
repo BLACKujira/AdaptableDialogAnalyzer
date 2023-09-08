@@ -12,23 +12,8 @@ namespace AdaptableDialogAnalyzer.DataStructures
     /// 一篇剧情中角色A提到角色B的次数
     /// </summary>
     [Serializable]
-    public class MentionedCountMatrix
+    public class MentionedCountMatrix : CountMatrix
     {
-        /// <summary>
-        /// 在编辑器中使用，当修改后变成True
-        /// </summary>
-        [NonSerialized] private bool hasChanged = false;
-
-        /// <summary>
-        /// 统计的故事章节，运行时由MentionedCountResultLoader获取，不参与序列化
-        /// </summary>
-        [NonSerialized] private Chapter chapter;
-
-        /// <summary>
-        /// 序列化一部分章节的信息，以便不读取章节的情况下使用某些功能
-        /// </summary>
-        public ChapterInfo chapterInfo;
-
         /// <summary>
         /// 每个角色提到每个角色的次数
         /// </summary>
@@ -38,17 +23,6 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// 此剧情中指代不明的提及
         /// </summary>
         public List<UnidentifiedMentions> unidentifiedMentionsList = new List<UnidentifiedMentions>();
-
-        public Chapter Chapter
-        {
-            get
-            {
-                if (chapter == null) throw new Exception("未加载章节，请使用MentionCountEditor加载统计数据，或在代码中设置此属性");
-                return chapter;
-            }
-            set => chapter = value;
-        }
-        public bool HasChanged { get => hasChanged; set => hasChanged = value; }
 
         /// <summary>
         /// 如果不存在行则返回null 
@@ -110,7 +84,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
             mentionedCountRows.RemoveAll(r => removeRows.Contains(r));
         }
 
-        public void Serialize(string filePath, SerializeType serializeType)
+        public void SerializeAndSave(string filePath, SerializeType serializeType)
         {
             switch (serializeType)
             {
@@ -126,7 +100,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
             }
         }
 
-        public static MentionedCountMatrix Deserialize(string filePath, SerializeType serializeType)
+        public static MentionedCountMatrix LoadAndDeserialize(string filePath, SerializeType serializeType)
         {
             MentionedCountMatrix mentionedCountMatrix;
             switch (serializeType)
@@ -172,13 +146,9 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         /// <summary>
-        /// chapter可以为null，但此类不能有构造函数
+        /// chapter可以为null，但此类不能有无参构造函数
         /// </summary>
-        public MentionedCountMatrix(Chapter chapter)
-        {
-            this.chapter = chapter;
-            if (chapter != null) chapterInfo = new ChapterInfo(chapter);
-        }
+        public MentionedCountMatrix(Chapter chapter) : base(chapter) { }
 
         /// <summary>
         /// 这段剧情中是否匹配到了模糊昵称，若匹配成功则返回其对象
@@ -215,7 +185,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         public Dictionary<int, List<int>> GetSnippetCountDictionary()
         {
             Dictionary<int, List<int>> snippetCountDictionary = new Dictionary<int, List<int>>();
-            BasicTalkSnippet[] basicTalkSnippets = chapter.TalkSnippets;
+            BasicTalkSnippet[] basicTalkSnippets = Chapter.TalkSnippets;
             foreach (var basicTalkSnippet in basicTalkSnippets)
             {
                 snippetCountDictionary[basicTalkSnippet.RefIdx] = new List<int>();
@@ -336,7 +306,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// </summary>
         public Chapter TryGetChapter()
         {
-            return chapter;
+            return Chapter;
         }
     }
 }

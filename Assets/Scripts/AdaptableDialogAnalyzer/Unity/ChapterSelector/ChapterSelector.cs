@@ -90,7 +90,7 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <summary>
         /// 筛选显示的剧情
         /// </summary>
-        protected abstract List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices);
+        protected abstract List<MentionedCountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices);
 
         /// <summary>
         /// 左下角的提示

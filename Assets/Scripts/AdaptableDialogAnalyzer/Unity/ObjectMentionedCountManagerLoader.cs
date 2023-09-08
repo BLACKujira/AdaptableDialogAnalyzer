@@ -6,25 +6,21 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-    /// <summary>
-    /// 通过此组件加载统计数据，并与剧情关联
-    /// </summary>
-    public class MentionedCountManagerLoader : MonoBehaviour
+    public class ObjectMentionedCountManagerLoader : MonoBehaviour
     {
         public string saveFolder;
         public ChapterLoader chapterLoader;
         [Header("Settings")]
-        public SerializeType serializeType;
         public bool onlyLoadExistChapter;
         public bool doNotLoadChapter;
 
         /// <summary>
         /// 每个统计矩阵对应的文件，value：矩阵保存位置
         /// </summary>
-        Dictionary<MentionedCountMatrix, string> savePathDictionary = new Dictionary<MentionedCountMatrix, string>();
+        Dictionary<ObjectMentionedCountMatrix, string> savePathDictionary = new Dictionary<ObjectMentionedCountMatrix, string>();
 
-        MentionedCountManager mentionedCountManager = null;
-        public MentionedCountManager MentionedCountManager
+        ObjectMentionedCountManager mentionedCountManager = null;
+        public ObjectMentionedCountManager MentionedCountManager
         {
             get
             {
@@ -37,19 +33,19 @@ namespace AdaptableDialogAnalyzer.Unity
 
         private void Initialize()
         {
-            List<MentionedCountMatrix> countMatrices = new List<MentionedCountMatrix>();
+            List<ObjectMentionedCountMatrix> countMatrices = new List<ObjectMentionedCountMatrix>();
 
             if (!doNotLoadChapter) chapterLoader.Initialize();
 
             string[] files = Directory.GetFiles(saveFolder);
             foreach (string file in files)
             {
-                if (Path.GetExtension(file).ToLower().Equals(".mcm"))
+                if (Path.GetExtension(file).ToLower().Equals(".omcm"))
                 {
                     string fileName = Path.GetFileNameWithoutExtension(file);
                     if (!doNotLoadChapter && onlyLoadExistChapter && !chapterLoader.HasChapter(fileName)) continue;
 
-                    MentionedCountMatrix countMatrix = MentionedCountMatrix.LoadAndDeserialize(file, serializeType);
+                    ObjectMentionedCountMatrix countMatrix = ObjectMentionedCountMatrix.LoadAndDeserialize(file);
 
                     countMatrices.Add(countMatrix);
                     savePathDictionary[countMatrix] = file;
@@ -66,7 +62,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 }
             }
 
-            mentionedCountManager = new MentionedCountManager();
+            mentionedCountManager = new ObjectMentionedCountManager();
             mentionedCountManager.mentionedCountMatrices = countMatrices;
         }
 
@@ -77,10 +73,10 @@ namespace AdaptableDialogAnalyzer.Unity
             {
                 if (!countMatrix.HasChanged) continue;
 
-                countMatrix.RemoveEmptyRowAndGrids();
+                countMatrix.RemoveEmptyRows();
 
                 string savePath = savePathDictionary[countMatrix];
-                countMatrix.SerializeAndSave(savePath, serializeType);
+                countMatrix.SerializeAndSave(savePath);
 
                 countMatrix.HasChanged = false;
                 count++;
