@@ -50,6 +50,23 @@ namespace AdaptableDialogAnalyzer.DataStructures
         }
 
         /// <summary>
+        /// 所有匹配到的对话ID
+        /// </summary>
+        public HashSet<int> MatchedRefIdxSet => new HashSet<int>(mentionedCountRows.SelectMany(r => r.matchedIndexes));
+
+        /// <summary>
+        /// 是否匹配到某句台词
+        /// </summary>
+        public bool HasMatched(int refIdx)
+        {
+            foreach (var mentionedCountRow in mentionedCountRows)
+            {
+                if(mentionedCountRow.HasSerif(refIdx)) return true;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// 如果不存在行则返回null 
         /// </summary>
         public ObjectMentionedCountRow this[int speakerId]
@@ -142,6 +159,11 @@ namespace AdaptableDialogAnalyzer.DataStructures
                 unidentifiedMentionsList.Add(unidentifiedMentions);
             }
             return unidentifiedMentions.AddMatchedDialogue(refIdx);
+        }
+
+        public static explicit operator ObjectMentionedCountMatrix(MentionedCountMatrix v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

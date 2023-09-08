@@ -10,9 +10,9 @@ namespace AdaptableDialogAnalyzer.Unity
     {
         public Toggle togHideUnmatched;
         [Header("Settings")]
-        public Color colorUnmatched = new Color(240, 240, 240, 255);
-        public Color colorMatched = new Color(60, 203, 176, 255);
-        public Color colorUnidentified = new Color(246, 107, 176, 255);
+        public Color colorUnmatched = new Color32(240, 240, 240, 255);
+        public Color colorMatched = new Color32(60, 203, 176, 255);
+        public Color colorUnidentified = new Color32(246, 107, 176, 255);
         [Header("Prefabs")]
         public SpeechBubbleButton speechBubblePrefab;
         public Window mutiCharacterSelectorPrefab;

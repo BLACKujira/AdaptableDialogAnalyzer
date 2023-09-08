@@ -370,6 +370,7 @@ MonoBehaviour:
   txtChanged: {fileID: 7714182924016581922}
   objectNameDefinition: {fileID: 11400000, guid: c21df011fdca09a4894478cb72322f38,
     type: 2}
+  chapterSelectorCharaPrefab: {fileID: 0}
 --- !u!114 &7714182923609464378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,7 +1471,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9181183601911413848, guid: 142dd11d2c2346e48ba16a1baf9f92df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 142dd11d2c2346e48ba16a1baf9f92df, type: 3}
 --- !u!114 &4660053931179164161 stripped
 MonoBehaviour:

@@ -41,5 +41,10 @@ namespace AdaptableDialogAnalyzer.DataStructures
         {
             return mentionedCountMatrices.Sum(m => m[characterId]?.serifCount ?? 0);
         }
+
+        public static explicit operator ObjectMentionedCountManager(CountMatrix v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -18,6 +18,8 @@ namespace AdaptableDialogAnalyzer.Unity
         public Text txtChanged;
         [Header("Settings")]
         public ObjectNameDefinition objectNameDefinition;
+        [Header("Prefabs")]
+        public Window chapterSelectorCharaPrefab;
 
         ObjectMentionedCountManager mentionedCountManager;
 
@@ -31,13 +33,8 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             txtTitle.text = $"统计对象: {(objectNameDefinition == null ? "未知" : objectNameDefinition.Identifier)}";
             Character[] characters = GlobalConfig.CharacterDefinition.Characters;
-            SelectSpeaker(characters[0].id);
+            GlobalColor.SetThemeColor(characters[0].color);
             Refresh();
-        }
-
-        private void SelectSpeaker(int characterId)
-        {
-            GlobalColor.SetThemeColor(GlobalConfig.CharacterDefinition[characterId].color);
         }
 
         private void Refresh()
@@ -58,7 +55,8 @@ namespace AdaptableDialogAnalyzer.Unity
 
                 item.button.onClick.AddListener(() =>
                 {
-                    SelectSpeaker(characterId);
+                    GlobalColor.SetThemeColor(GlobalConfig.CharacterDefinition[characterId].color);
+                    OpenSelectorChara(characterId);
                 });
             });
 
@@ -72,6 +70,13 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             mentionedCountManagerLoader.SaveChangedMatrices();
             Refresh();
+        }
+
+        public void OpenSelectorChara(int speakerId)
+        {
+            ChapterSelectorOMCChara chapterSelector = window.OpenWindow<ChapterSelectorOMCChara>(chapterSelectorCharaPrefab);
+            chapterSelector.Initialize(mentionedCountManager, speakerId);
+            chapterSelector.window.OnClose.AddListener(() => Refresh());
         }
     }
 }
