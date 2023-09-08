@@ -37,13 +37,13 @@ namespace AdaptableDialogAnalyzer.Unity
             Initialize(mentionedCountManager);
         }
 
-        protected override List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices)
+        protected override List<CountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices)
         {
-            countMatrices = countMatrices.Where(cm => cm[speakerId] != null && cm[speakerId].serifCount > 0).ToList();
+            countMatrices = countMatrices.Where(cm => cm is MentionedCountMatrix mcm && mcm[speakerId] != null && mcm[speakerId].serifCount > 0).ToList();
 
             if (togHideUnmatched.isOn)
             {
-                countMatrices = countMatrices.Where(cm => cm[speakerId, mentionedPersonId] != null && cm[speakerId, mentionedPersonId].Count > 0).ToList();
+                countMatrices = countMatrices.Where(cm => cm is MentionedCountMatrix mcm && mcm[speakerId, mentionedPersonId] != null && mcm[speakerId, mentionedPersonId].Count > 0).ToList();
             }
 
             return countMatrices;
@@ -54,17 +54,19 @@ namespace AdaptableDialogAnalyzer.Unity
             return $"选择剧情 | 单角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name} | {GlobalConfig.CharacterDefinition[mentionedPersonId].name}";
         }
 
-        protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
+        protected override void InitializeChapterItem(CountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
-            Vector2Int vector2Int = new Vector2Int(mentionedPersonId, countMatrix[speakerId, mentionedPersonId]?.Count ?? 0);
+            MentionedCountMatrix mentionedCountMatrix = countMatrix as MentionedCountMatrix;
 
-            if (vector2Int.y > 0) chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount, vector2Int);
-            else chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount);
+            Vector2Int vector2Int = new Vector2Int(mentionedPersonId, mentionedCountMatrix[speakerId, mentionedPersonId]?.Count ?? 0);
+
+            if (vector2Int.y > 0) chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount, vector2Int);
+            else chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount);
 
             chapterItem.button.onClick.AddListener(() =>
             {
                 MentionCountDialogueEditorOneToOne dialogueEditor = window.OpenWindow<MentionCountDialogueEditorOneToOne>(dialogueEditorPrefab);
-                dialogueEditor.Initialize(countMatrix, speakerId, mentionedPersonId);
+                dialogueEditor.Initialize(mentionedCountMatrix, speakerId, mentionedPersonId);
                 dialogueEditor.window.OnClose.AddListener(() => Refresh());
             });
         }
@@ -76,7 +78,8 @@ namespace AdaptableDialogAnalyzer.Unity
             .Where(s => s != null)
             .ToArray();
 
-            List<string> serifList = MentionedCountManager.mentionedCountMatrices
+            List<string> serifList = CountManager.CountMatrices
+                .Select(cm => (MentionedCountMatrix)cm)
                 .OrderBy(m => m.chapterInfo.chapterID)
                 .Where(m => m[speakerId, mentionedPersonId] != null)
                 .Select(m => (m, getTalkSnippets(m)))

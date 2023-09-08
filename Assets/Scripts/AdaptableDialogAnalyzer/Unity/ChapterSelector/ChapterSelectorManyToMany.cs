@@ -17,7 +17,7 @@ namespace AdaptableDialogAnalyzer.Unity
             base.Initialize(mentionedCountManager);
         }
 
-        protected override List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices)
+        protected override List<CountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices)
         {
             return countMatrices;
         }
@@ -27,14 +27,14 @@ namespace AdaptableDialogAnalyzer.Unity
             return $"选择剧情 | 全角色模式";
         }
 
-        protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
+        protected override void InitializeChapterItem(CountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
             chapterItem.SetData(countMatrix.Chapter, countMatrix.Chapter.SerifCount);
 
             chapterItem.button.onClick.AddListener(() =>
             {
                 MentionCountDialogueEditorManyToMany dialogueEditor = window.OpenWindow<MentionCountDialogueEditorManyToMany>(dialogueEditorPrefab);
-                dialogueEditor.Initialize(countMatrix);
+                dialogueEditor.Initialize((MentionedCountMatrix)countMatrix);
                 dialogueEditor.window.OnClose.AddListener(() => Refresh());
             });
         }

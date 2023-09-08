@@ -9,9 +9,11 @@ namespace AdaptableDialogAnalyzer.DataStructures
     /// 统计和管理所有剧情的统计结果
     /// </summary>
     [Serializable]
-    public class ObjectMentionedCountManager
+    public class ObjectMentionedCountManager : CountManager
     {
         public List<ObjectMentionedCountMatrix> mentionedCountMatrices = new List<ObjectMentionedCountMatrix>();
+        
+        public override CountMatrix[] CountMatrices => mentionedCountMatrices.ToArray();
 
         public Dictionary<int, int> MentionedCountDictionary
         {

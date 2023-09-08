@@ -29,11 +29,11 @@ namespace AdaptableDialogAnalyzer.Unity
             Initialize(mentionedCountManager);
         }
 
-        protected override List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices)
+        protected override List<CountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices)
         {
             if (togHideUnmatched.isOn)
             {
-                countMatrices = countMatrices.Where(cm => cm.GetUnidentifiedMentions(unidentifiedNickname) != null).ToList();
+                countMatrices = countMatrices.Where(cm => cm is MentionedCountMatrix mcm && mcm.GetUnidentifiedMentions(unidentifiedNickname) != null).ToList();
             }
             return countMatrices;
         }
@@ -43,17 +43,19 @@ namespace AdaptableDialogAnalyzer.Unity
             return $"选择剧情 | 多义昵称模式 | {unidentifiedNickname}";
         }
 
-        protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
+        protected override void InitializeChapterItem(CountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
-            UnidentifiedMentions unidentifiedMentions = countMatrix.GetUnidentifiedMentions(unidentifiedNickname);
+            MentionedCountMatrix mentionedCountMatrix = countMatrix as MentionedCountMatrix;
 
-            if (unidentifiedMentions != null) chapterItem.SetData(countMatrix.Chapter, countMatrix.GetSerifCount(), new Vector2Int(0,unidentifiedMentions.Count));
-            else chapterItem.SetData(countMatrix.Chapter, countMatrix.GetSerifCount());
+            UnidentifiedMentions unidentifiedMentions = mentionedCountMatrix.GetUnidentifiedMentions(unidentifiedNickname);
+
+            if (unidentifiedMentions != null) chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix.GetSerifCount(), new Vector2Int(0, unidentifiedMentions.Count));
+            else chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix.GetSerifCount());
 
             chapterItem.button.onClick.AddListener(() =>
             {
                 MentionCountDialogueEditorUnidentified dialogueEditor = window.OpenWindow<MentionCountDialogueEditorUnidentified>(dialogueEditorPrefab);
-                dialogueEditor.Initialize(countMatrix, unidentifiedNickname);
+                dialogueEditor.Initialize(mentionedCountMatrix, unidentifiedNickname);
                 dialogueEditor.window.OnClose.AddListener(() => Refresh());
             });
         }

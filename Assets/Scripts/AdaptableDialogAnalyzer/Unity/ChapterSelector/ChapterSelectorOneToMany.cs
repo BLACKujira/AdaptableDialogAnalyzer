@@ -22,9 +22,11 @@ namespace AdaptableDialogAnalyzer.Unity
             Initialize(mentionedCountManager);
         }
 
-        protected override List<MentionedCountMatrix> FilterCountMatrices(List<MentionedCountMatrix> countMatrices)
+        protected override List<CountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices)
         {
-            countMatrices = countMatrices.Where(cm => cm[speakerId] != null && cm[speakerId].serifCount > 0).ToList();
+            countMatrices = countMatrices
+                .Where(cm => cm is MentionedCountMatrix mcm && mcm[speakerId] != null && mcm[speakerId].serifCount > 0)
+                .ToList();
             return countMatrices;
         }
 
@@ -33,20 +35,22 @@ namespace AdaptableDialogAnalyzer.Unity
             return $"选择剧情 | 多角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name}";
         }
 
-        protected override void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
+        protected override void InitializeChapterItem(CountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
-            Vector2Int[] mentionedCountArray = countMatrix[speakerId].MentionedCountArray;
+            MentionedCountMatrix mentionedCountMatrix = (MentionedCountMatrix)countMatrix;
+
+            Vector2Int[] mentionedCountArray = mentionedCountMatrix[speakerId].MentionedCountArray;
             mentionedCountArray = mentionedCountArray
                 .Where(v2 => v2.y > 0)
                 .OrderBy(v2 => -v2.y)
                 .ToArray();
 
-            chapterItem.SetData(countMatrix.Chapter, countMatrix[speakerId].serifCount, mentionedCountArray);
+            chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount, mentionedCountArray);
 
             chapterItem.button.onClick.AddListener(() =>
             {
                 MentionCountDialogueEditorOneToMany dialogueEditor = window.OpenWindow<MentionCountDialogueEditorOneToMany>(dialogueEditorPrefab);
-                dialogueEditor.Initialize(countMatrix, speakerId);
+                dialogueEditor.Initialize(mentionedCountMatrix, speakerId);
                 dialogueEditor.window.OnClose.AddListener(() => Refresh());
             });
         }

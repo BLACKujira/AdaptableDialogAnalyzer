@@ -18,26 +18,27 @@ namespace AdaptableDialogAnalyzer.Unity
         public EquidistantLayoutGenerator elgTypes;
         public EquidistantLayoutGenerator elgChapters;
 
-        Dictionary<string, List<MentionedCountMatrix>> chapters = new Dictionary<string, List<MentionedCountMatrix>>();
+        Dictionary<string, List<CountMatrix>> chapters = new Dictionary<string, List<CountMatrix>>();
         string selectedType;
 
         List<ChapterSelector_TypeItem> typeItems = new List<ChapterSelector_TypeItem>();
 
-        MentionedCountManager mentionedCountManager;
-        public MentionedCountManager MentionedCountManager => mentionedCountManager;
+        CountManager countManager;
+        public CountManager CountManager => countManager;
 
-        protected void Initialize(MentionedCountManager mentionedCountManager)
+        protected void Initialize(CountManager countManager)
         {
-            this.mentionedCountManager = mentionedCountManager;
+            this.countManager = CountManager;
 
-            if (mentionedCountManager.mentionedCountMatrices.Count == 0)
+            chapters = countManager.GetCountMatrixByType();
+
+            if (chapters.Count == 0)
             {
                 Debug.LogError("统计数据为空");
             }
 
             txtTip.text = GetTip();
 
-            chapters = mentionedCountManager.GetCountMatrixByType();
             string[] types = chapters.Select(kvp => kvp.Key).ToArray();
             elgTypes.Generate(types.Length, (gobj, id) =>
             {
@@ -73,7 +74,7 @@ namespace AdaptableDialogAnalyzer.Unity
         protected void Refresh()
         {
             elgChapters.ClearItems();
-            List<MentionedCountMatrix> countMatrices = chapters[selectedType];
+            List<CountMatrix> countMatrices = chapters[selectedType];
             countMatrices = FilterCountMatrices(countMatrices);
             elgChapters.Generate(countMatrices.Count, (gobj, id) =>
             {
@@ -85,12 +86,12 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <summary>
         /// 根据不同类型的子类调用不同的章节对象处理方式
         /// </summary>
-        protected abstract void InitializeChapterItem(MentionedCountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem);
+        protected abstract void InitializeChapterItem(CountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem);
 
         /// <summary>
         /// 筛选显示的剧情
         /// </summary>
-        protected abstract List<MentionedCountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices);
+        protected abstract List<CountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices);
 
         /// <summary>
         /// 左下角的提示
