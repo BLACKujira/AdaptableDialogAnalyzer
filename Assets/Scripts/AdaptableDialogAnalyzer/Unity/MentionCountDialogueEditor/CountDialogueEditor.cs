@@ -33,6 +33,11 @@ namespace AdaptableDialogAnalyzer.Unity
             txtTip.text = GetTip();
             Refresh();
             window.OnReShow.AddListener(() => Refresh());
+
+            if(countMatrix.Chapter != null) 
+            {
+                Debug.Log(TimeHelper.UnixTimeMSToDateTimeTST(countMatrix.Chapter.ChapterTime));
+            }
         }
 
         /// <summary>

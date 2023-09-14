@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad681ec4b0967d14eb1a61b05018ae12, type: 3}
-  m_Name: hakanai
+  m_Name: ellipsis
   m_EditorClassIdentifier: 
-  identifier: "\u511A\u3044"
+  identifier: ......
   commonNameList:
-  - "\u511A"
+  - \.\.\.
+  - "\u2026"
+  - "\uFF0E\uFF0E\uFF0E"
   specificNameLists: []
-  unidentifiedNameList:
-  - "\u306F\u304B\u306A(?!\u308A)"
-  - "\u30CF\u30AB\u30CA"
+  unidentifiedNameList: []

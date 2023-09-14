@@ -21,7 +21,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 此剧情中需要手动判断的提及
         /// </summary>
-        public List<UnidentifiedObjectMentions> unidentifiedMentionsList = new List<UnidentifiedObjectMentions>();
+        public ObjectMentionedCountRow unidentifiedMentionsRow = new ObjectMentionedCountRow(0);
 
         /// <summary>
         /// 所有角色提到{对象}的次数的合计
@@ -53,6 +53,27 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// 所有匹配到的对话ID
         /// </summary>
         public HashSet<int> MatchedRefIdxSet => new HashSet<int>(mentionedCountRows.SelectMany(r => r.matchedIndexes));
+
+        /// <summary>
+        /// 是否没有任何一句台词匹配
+        /// </summary>
+        public bool NoMatch
+        {
+            get
+            {
+                if (mentionedCountRows == null || mentionedCountRows.Count == 0) return true;
+                foreach (var row in mentionedCountRows)
+                {
+                    if (row.Count > 0) return false;
+                }
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// 是否不存在有歧义的匹配
+        /// </summary>
+        public bool NoUnidentifiedMatch => unidentifiedMentionsRow.Count == 0;
 
         /// <summary>
         /// 是否匹配到某句台词
@@ -134,36 +155,11 @@ namespace AdaptableDialogAnalyzer.DataStructures
         public ObjectMentionedCountMatrix(Chapter chapter) : base(chapter) { }
 
         /// <summary>
-        /// 这段剧情中是否匹配到了模糊名称，若匹配成功则返回其对象
+        /// 返回每个角色台词的合计（不用获取TalkSnippets的情况下获取台词数） 
         /// </summary>
-        public UnidentifiedObjectMentions GetUnidentifiedMentions(string unidentifiedNickname)
+        public int GetSerifCount()
         {
-            foreach (var unidentifiedMentions in unidentifiedMentionsList)
-            {
-                if (unidentifiedMentions.unidentifiedName.Equals(unidentifiedNickname))
-                    return unidentifiedMentions;
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// 添加模糊名称的匹配结果
-        /// </summary>
-        public bool AddUnidentifiedSerif(string unidentifiedName, int refIdx)
-        {
-            UnidentifiedObjectMentions unidentifiedMentions;
-            unidentifiedMentions = GetUnidentifiedMentions(unidentifiedName);
-            if (unidentifiedMentions == null)
-            {
-                unidentifiedMentions = new UnidentifiedObjectMentions(unidentifiedName);
-                unidentifiedMentionsList.Add(unidentifiedMentions);
-            }
-            return unidentifiedMentions.AddMatchedDialogue(refIdx);
-        }
-
-        public static explicit operator ObjectMentionedCountMatrix(MentionedCountMatrix v)
-        {
-            throw new NotImplementedException();
+            return mentionedCountRows.Sum(r => r.serifCount);
         }
     }
 }

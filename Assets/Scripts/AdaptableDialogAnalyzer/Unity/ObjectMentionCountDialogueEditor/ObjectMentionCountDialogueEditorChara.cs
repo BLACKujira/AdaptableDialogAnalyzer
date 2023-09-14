@@ -6,6 +6,8 @@ namespace AdaptableDialogAnalyzer.Unity
 {
     public class ObjectMentionCountDialogueEditorChara : ObjectMentionCountDialogueEditor
     {
+        public Window editorFullPrefab;
+
         int speakerId;
 
         public void Initialize(ObjectMentionedCountMatrix mentionedCountMatrix, int speakerId)

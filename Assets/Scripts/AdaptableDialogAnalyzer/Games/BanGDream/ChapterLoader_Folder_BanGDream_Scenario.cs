@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
     public class ChapterLoader_Folder_BanGDream_Scenario : ChapterLoader
     {
         public string assetBundleFolder;
+        public BanGDream_MasterLoader masterLoader;
         [Header("Settings")]
         public bool loadMainStory = true;
         public bool loadBandStory = true;
@@ -48,6 +50,8 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         const string DIR_DIGESTSTORY = @"assets\star\forassetbundle\asneeded\scenario\digeststory";
         const string DIR_PRECEDINGSTORY = @"assets\star\forassetbundle\asneeded\scenario\precedingstory";
 
+        const string DIR_ACTIONSET = @"assets\star\forassetbundle\startapp\actionset";
+
         Regex regex_BackstageTalk;
         Regex Regex_BackstageTalk
         {
@@ -61,8 +65,14 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
             }
         }
 
+        SuiteMasterGetResponse suiteMasterGetResponse;
+        UserEventStoryMemorialResponse userEventStoryMemorialResponse;
+
         public override Chapter[] InitializeChapters()
         {
+            suiteMasterGetResponse = masterLoader.SuiteMasterGetResponse;
+            userEventStoryMemorialResponse = masterLoader.UserEventStoryMemorialResponse;
+
             List<Chapter> chapters = new List<Chapter>();
 
             if (loadMainStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_MAINSTORY), TYPE_MAINSTORY));
@@ -103,9 +113,14 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
                 chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_PRECEDINGSTORY), TYPE_OTHERSTORY));
             }
 
+            foreach (var chapter in chapters)
+            {
+                Debug.Log(TimeHelper.UnixTimeMSToDateTimeTST(chapter.ChapterTime));
+            }
             return chapters.ToArray();
         }
 
+        #region 获取剧情
         /// <summary>
         /// 获取一个文件夹中的所有剧情，并标记为type,func:路径，返回类型 
         /// </summary>
@@ -123,6 +138,10 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
                 Chapter chapter = getChapter(raw);
                 chapter.ChapterID = Path.GetFileNameWithoutExtension(file);
                 chapter.ChapterType = getType(file);
+
+                //设置世界并再次判断是否排除此文件
+                if (!SetTimeAndAccept(chapter)) continue;
+
                 chapters.Add(chapter);
             }
 
@@ -160,6 +179,169 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         public List<Chapter> LoadScenarioFromSubFolders(string folder, string type)
         {
             return LoadScenarioFromSubFolders(Chapter_BanGDream_Scenario.LoadText, folder, (_) => type, (_) => true);
+        }
+        #endregion
+
+        List<ActionSetData> actionSetDataList = null;
+        public List<ActionSetData> GetActionSetDataList()
+        {
+            return Directory.GetDirectories(Path.Combine(assetBundleFolder,DIR_ACTIONSET))
+                .SelectMany(dir => Directory.GetFiles(dir))
+                .Where(file => Path.GetFileName(file).StartsWith("ActionSet"))
+                .Select(file => JsonUtility.FromJson<ActionSetData>(File.ReadAllText(file)))
+                .ToList();
+        }
+
+        /// <summary>
+        /// 设置剧情的时间，并选择是否丢弃剧情
+        /// </summary>
+        public bool SetTimeAndAccept(Chapter chapter)
+        {
+            switch (chapter.ChapterType)
+            {
+                case TYPE_MAINSTORY: return SetTimeAndAccept_MainStory(chapter);
+                case TYPE_BIRTHDAYSTORY: return SetTimeAndAccept_BirthdayStory(chapter);
+                case TYPE_AREATALK: return SetTimeAndAccept_AreaTalk(chapter);
+                case TYPE_BACKSTAGETALK: return SetTimeAndAccept_BackstageTalk(chapter);
+                default: return true;
+            }
+        }
+
+        Dictionary<string, MasterMainStory> masterMainStoryMap = null;
+        public bool SetTimeAndAccept_MainStory(Chapter chapter)
+        {
+            if (masterMainStoryMap == null)
+            {
+                //初始化字典
+                masterMainStoryMap = new Dictionary<string, MasterMainStory>();
+                foreach (var keyValuePair in suiteMasterGetResponse.MasterMainStoryMap.Entries)
+                {
+                    masterMainStoryMap["Scenario" + keyValuePair.Value.ScenarioId] = keyValuePair.Value;
+                }
+            }
+
+            if (masterMainStoryMap.ContainsKey(chapter.ChapterID))
+            {
+                chapter.ChapterTime = (long)masterMainStoryMap[chapter.ChapterID].PublishedAt;
+                return true;
+            }
+
+            return false;
+        }
+
+        Dictionary<string, MasterBirthdayStory> masterBirthdayStoryMap = null;
+        public bool SetTimeAndAccept_BirthdayStory(Chapter chapter)
+        {
+            if (masterMainStoryMap == null)
+            {
+                //初始化字典
+                masterBirthdayStoryMap = new Dictionary<string, MasterBirthdayStory>();
+                foreach (var keyValuePair in suiteMasterGetResponse.MasterBirthdayStoryMap.Entries)
+                {
+                    masterBirthdayStoryMap["Scenario" + keyValuePair.Value.ScenarioId] = keyValuePair.Value;
+                }
+            }
+
+            if (masterBirthdayStoryMap.ContainsKey(chapter.ChapterID))
+            {
+                chapter.ChapterTime = (long)masterBirthdayStoryMap[chapter.ChapterID].StartAt;
+                return true;
+            }
+
+            return false;
+        }
+
+        Dictionary<string, MasterActionSet> masterActionSetMap = null;
+        public bool SetTimeAndAccept_AreaTalk(Chapter chapter)
+        {
+            if (masterMainStoryMap == null)
+            {
+                if(actionSetDataList == null) actionSetDataList = GetActionSetDataList();
+
+                IEnumerable<(string, MasterActionSet)> rawMap = actionSetDataList
+                    .Where(d => d.details.Count > 0)
+                    .Select(d => ("Scenario" + d.details.FirstOrDefault().reactionTypeBelongId, d.actionSetId))
+                    .Where(t => suiteMasterGetResponse.MasterActionSetMap.Entries.ContainsKey(t.actionSetId))
+                    .Select(t => (t.Item1, suiteMasterGetResponse.MasterActionSetMap.Entries[t.actionSetId]));
+
+                masterActionSetMap = new Dictionary<string, MasterActionSet>();
+                foreach ((string fileName, MasterActionSet actionSet) in rawMap)
+                {
+                    masterActionSetMap[fileName] = actionSet;
+                }
+            }
+
+            if (masterActionSetMap.ContainsKey(chapter.ChapterID))
+            {
+                MasterActionSet masterActionSet = masterActionSetMap[chapter.ChapterID];
+
+                //通过活动时间推测区域对话发生时间
+                PastEventMap pastEventMap = userEventStoryMemorialResponse.PastEventMap;
+                if (pastEventMap.Entries.ContainsKey(masterActionSet.EventId))
+                {
+                    MasterEvent masterEvent = pastEventMap.Entries[masterActionSet.EventId];
+                    chapter.ChapterTime = (long)masterEvent.StartAt;
+                    return true;
+                }
+
+                //通过特殊时段推测剧情发生时间
+                //特殊区域的对话似乎一定发生在特殊时段，故不做特殊处理
+                MasterSeasonSpecialMap masterSeasonSpecialMap = suiteMasterGetResponse.MasterSeasonSpecialMap;
+                if (masterSeasonSpecialMap.Entries.ContainsKey(masterActionSet.SeasonSpecialId))
+                {
+                    MasterSeasonSpecial masterSeasonSpecial = masterSeasonSpecialMap.Entries[masterActionSet.SeasonSpecialId];
+                    chapter.ChapterTime = (long)masterSeasonSpecial.StartAt;
+                    return true;
+                }
+
+                //剩余的确定到剧情的季度
+                chapter.ChapterTime = BanGDreamHelper.GetSeasonStartTime(masterActionSet.StartSeason);
+                return true;
+            }
+
+            return false;
+        }
+
+        Dictionary<string, MasterBackstageTalkSet> masterBackstageTalkSetMap = null;
+        public bool SetTimeAndAccept_BackstageTalk(Chapter chapter)
+        {
+            if (masterBackstageTalkSetMap == null)
+            {
+                //初始化字典
+                masterBackstageTalkSetMap = new Dictionary<string, MasterBackstageTalkSet>();
+                foreach (var keyValuePair in suiteMasterGetResponse.MasterBackstageTalkSetMap.Entries)
+                {
+                    masterBackstageTalkSetMap["BackstageTalkSet" + keyValuePair.Value.BackstageTalkSetId] = keyValuePair.Value;
+                }
+            }
+
+            if (masterBackstageTalkSetMap.ContainsKey(chapter.ChapterID))
+            {
+                MasterBackstageTalkSet masterBackstageTalkSet = masterBackstageTalkSetMap[chapter.ChapterID];
+
+                //通过特殊时段推测剧情发生时间
+                MasterSeasonSpecialMap masterSeasonSpecialMap = suiteMasterGetResponse.MasterSeasonSpecialMap;
+                if (masterSeasonSpecialMap.Entries.ContainsKey(masterBackstageTalkSet.SeasonSpecialId))
+                {
+                    MasterSeasonSpecial masterSeasonSpecial = masterSeasonSpecialMap.Entries[masterBackstageTalkSet.SeasonSpecialId];
+                    chapter.ChapterTime = (long)masterSeasonSpecial.StartAt;
+                    return true;
+                }
+
+                //通过季节推断时间
+                MasterSeasonBasicMap masterSeasonBasicMap = suiteMasterGetResponse.MasterSeasonBasicMap;
+                if (masterSeasonBasicMap.Entries.ContainsKey(masterBackstageTalkSet.SeasonBasicId))
+                {
+                    MasterSeasonBasic masterSeasonBasic = masterSeasonBasicMap.Entries[masterBackstageTalkSet.SeasonBasicId];
+                    chapter.ChapterTime = (long)masterSeasonBasic.StartAt;
+                    return true;
+                }
+
+                chapter.ChapterTime = BanGDreamHelper.GetSeasonStartTime(masterBackstageTalkSet.StartSeason);
+                return true;
+            }
+
+            return false;
         }
     }
 }

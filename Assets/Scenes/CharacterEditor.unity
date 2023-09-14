@@ -454,6 +454,46 @@ MonoBehaviour:
   characterDefinition: {fileID: 11400000, guid: 2546baa3d1c76004e926fa584851c14f,
     type: 2}
   nicknameDefinition: {fileID: 11400000, guid: 645c8e48befaae042a790edf0066f510, type: 2}
+--- !u!1 &1561309548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7714182923609464368, guid: 1fe9700ed7ebf9749960aba55afd7680,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174584166140273426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1561309549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561309548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42238141697d1b48abb53d1c35abb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suiteMasterGetResponseFile: D:\BackUp\230714\00\master_dec_decomp
+  userEventStoryMemorialResponseFile: D:\BackUp\230726\00\UserEventStoryMemorialResponse_dec
+--- !u!1 &1649542708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4056904668527328619, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410622956885472897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1649542709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649542708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42238141697d1b48abb53d1c35abb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suiteMasterGetResponseFile: D:\BackUp\230726\00\master_dec_decomp
+  userEventStoryMemorialResponseFile: 
 --- !u!1001 &1174584166140273426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,6 +501,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1679306647647744566, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679306647647744566, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8881870787061398819}
+    - target: {fileID: 1679306647647744566, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSelectorFull
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679306647647744566, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdaptableDialogAnalyzer.Unity.ObjectMentionCountEditor, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2767118701181775245, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -506,6 +566,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: AdaptableDialogAnalyzer.Unity.ObjectMentionCountEditor, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3820186256405696322, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8881870787061398819}
+    - target: {fileID: 3820186256405696322, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSelectorUnidentified
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820186256405696322, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdaptableDialogAnalyzer.Unity.ObjectMentionCountEditor, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7714182923609464368, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
       propertyPath: m_Name
@@ -518,9 +593,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714182923609464369, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
+      propertyPath: chapterSelectorFullPrefab
+      value: 
+      objectReference: {fileID: 224677000417634714, guid: ef19faa62dcb3a1448ef87f110fbae3d,
+        type: 3}
+    - target: {fileID: 7714182923609464369, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
       propertyPath: chapterSelectorCharaPrefab
       value: 
       objectReference: {fileID: 7115367722444026409, guid: 5fd6d0d95820429429d28b3a070281b3,
+        type: 3}
+    - target: {fileID: 7714182923609464369, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: chapterSelectorUnidentifiedPrefab
+      value: 
+      objectReference: {fileID: 750311003816401444, guid: 0a94025bb8f762c48a887ee4f0879f47,
         type: 3}
     - target: {fileID: 7714182923609464372, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
@@ -625,6 +712,66 @@ PrefabInstance:
     - target: {fileID: 7714182923609464372, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464378, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: saveFolder
+      value: D:\Extract\134
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464378, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: onlyLoadExistChapter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadAreaTalk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: masterLoader
+      value: 
+      objectReference: {fileID: 1561309549}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadAfterLive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadBandStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadCardStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadMainStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadEventStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadOtherStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadBackstageTalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
+        type: 3}
+      propertyPath: loadBirthdayStory
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -935,6 +1082,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadAreaTalk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: masterLoader
+      value: 
+      objectReference: {fileID: 1649542709}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadAfterLive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadBandStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadCardStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadEventStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadOtherStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadBackstageTalk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: loadBirthdayStory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328625, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: saveFolder
+      value: D:\Extract\135
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328625, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
+      propertyPath: objectNameDefinition
+      value: 
+      objectReference: {fileID: 11400000, guid: 53af8258d2589b74197f290c8bc9aa0c,
+        type: 2}
     - target: {fileID: 7031291219584388851, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -973,7 +1176,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1174584166140273426}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1561309548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c001da7bc8b344593d042fd2259597, type: 3}

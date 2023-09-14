@@ -37,6 +37,11 @@ namespace AdaptableDialogAnalyzer.Unity
         Dictionary<int, int> mentionedCountDictionary = new Dictionary<int, int>();
         public Dictionary<int, int> MentionedCountDictionary => mentionedCountDictionary;
 
+        /// <summary>
+        /// 需要手动处理的记录的统计
+        /// </summary>
+        int unidentifiedMentionCount = 0;
+        public int UnidentifiedMentionCount => unidentifiedMentionCount;
 
         /// <summary>
         /// 已经生成好的正则表达式字典，key：模式，value：正则表达式对象 
@@ -234,7 +239,10 @@ namespace AdaptableDialogAnalyzer.Unity
                 Regex regexObject = regexDictionary[regex];
                 Match match = regexObject.Match(talkSnippet.Content);
                 if (match.Success)
-                    mentionedCountMatrix.AddUnidentifiedSerif(regex, talkSnippet.RefIdx);
+                {
+                    mentionedCountMatrix.unidentifiedMentionsRow.AddMatchedDialogue(talkSnippet.RefIdx);
+                    unidentifiedMentionCount++;
+                }
             }
         }
     }

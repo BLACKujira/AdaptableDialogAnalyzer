@@ -9,13 +9,11 @@ namespace AdaptableDialogAnalyzer.Unity
     {
         public Toggle togHideUnmatched;
         [Header("Settings")]
-        public Color colorWhite = new Color32(240, 240, 240, 255);
-        public Color colorBlack = new Color32(68, 68, 102, 255);
+        public Color colorUnmatched = new Color32(240, 240, 240, 255);
+        public Color colorMatched = new Color32(60, 203, 176, 255);
+        public Color colorUnidentified = new Color32(246, 107, 176, 255);
         [Header("Prefabs")]
         public SpeechBubbleButton speechBubblePrefab;
-        public Window editorFullPrefab;
-
-        Color colorUnmatched;
 
         protected override SpeechBubbleButton SpeechBubblePrefab => speechBubblePrefab;
 
@@ -34,7 +32,6 @@ namespace AdaptableDialogAnalyzer.Unity
             });
 
             Character[] characters = GlobalConfig.CharacterDefinition.Characters;
-            colorUnmatched = APCA.GetBlackOrWhite(GlobalColor.ThemeColor, colorWhite, colorBlack);
 
             base.Initialize(mentionedCountMatrix);
         }
@@ -47,9 +44,13 @@ namespace AdaptableDialogAnalyzer.Unity
 
             ObjectMentionedCountMatrix countMatrix = (ObjectMentionedCountMatrix)CountMatrix;
 
+            if (countMatrix.unidentifiedMentionsRow.HasSerif(basicTalkSnippet.RefIdx))
+            {
+                speechBubbleButton.iceContent.SetIndividualColor(colorUnidentified);
+            }
             if (countMatrix.HasMatched(basicTalkSnippet.RefIdx))
             {
-                speechBubbleButton.iceContent.SetIndividualColor(GlobalColor.ThemeColor);
+                speechBubbleButton.iceContent.SetIndividualColor(colorMatched);
             }
 
             speechBubbleButton.button.onClick.AddListener(() =>

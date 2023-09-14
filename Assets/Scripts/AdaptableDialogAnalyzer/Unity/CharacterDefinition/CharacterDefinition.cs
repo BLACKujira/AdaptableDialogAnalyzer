@@ -10,8 +10,11 @@ namespace AdaptableDialogAnalyzer.Unity
     [CreateAssetMenu(menuName = "AdaptableDialogAnalyzer/CharacterDefinition/CharacterDefinition")]
     public class CharacterDefinition : ScriptableObject
     {
+        public int defaultCharacterId = 0;
         [SerializeField] List<Character> characters;
         public Character[] Characters => characters.ToArray();
+
+        public Character DefaultCharacter => this[defaultCharacterId];
 
         public Character this[int characterId]
         {

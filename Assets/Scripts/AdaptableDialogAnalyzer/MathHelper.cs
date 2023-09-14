@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace AdaptableDialogAnalyzer
 {
-    public class MathHelper : MonoBehaviour
+    public static class MathHelper
     {
         /// <summary>
         /// 使用洗牌算法返回一个乱序数组

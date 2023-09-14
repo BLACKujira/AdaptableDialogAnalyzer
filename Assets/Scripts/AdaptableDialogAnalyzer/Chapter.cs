@@ -23,6 +23,11 @@ namespace AdaptableDialogAnalyzer
         /// </summary>
         private string chapterID = null;
 
+        /// <summary>
+        /// 剧情发生的时间，可以是现实中的发布时间或游戏世界中发生的世界
+        /// </summary>
+        private long chapterTime;
+
         public string ChapterType
         {
             get => chapterType;
@@ -52,6 +57,11 @@ namespace AdaptableDialogAnalyzer
                 return chapterID;
             }
             set => chapterID = value;
+        }
+        public long ChapterTime
+        {
+            get => chapterTime;
+            set => chapterTime = value;
         }
 
         public virtual string ExtraInfo => "无附加信息";

@@ -20,6 +20,8 @@ namespace AdaptableDialogAnalyzer.Unity
         public ObjectNameDefinition objectNameDefinition;
         [Header("Prefabs")]
         public Window chapterSelectorCharaPrefab;
+        public Window chapterSelectorFullPrefab;
+        public Window chapterSelectorUnidentifiedPrefab;
 
         ObjectMentionedCountManager mentionedCountManager;
 
@@ -72,10 +74,24 @@ namespace AdaptableDialogAnalyzer.Unity
             Refresh();
         }
 
-        public void OpenSelectorChara(int speakerId)
+        void OpenSelectorChara(int speakerId)
         {
             ChapterSelectorOMCChara chapterSelector = window.OpenWindow<ChapterSelectorOMCChara>(chapterSelectorCharaPrefab);
             chapterSelector.Initialize(mentionedCountManager, speakerId);
+            chapterSelector.window.OnClose.AddListener(() => Refresh());
+        }
+
+        public void OpenSelectorFull()
+        {
+            ChapterSelectorOMCFull chapterSelector = window.OpenWindow<ChapterSelectorOMCFull>(chapterSelectorFullPrefab);
+            chapterSelector.Initialize(mentionedCountManager);
+            chapterSelector.window.OnClose.AddListener(() => Refresh());
+        }
+
+        public void OpenSelectorUnidentified()
+        {
+            ChapterSelectorOMCUnidentified chapterSelector = window.OpenWindow<ChapterSelectorOMCUnidentified>(chapterSelectorUnidentifiedPrefab);
+            chapterSelector.Initialize(mentionedCountManager);
             chapterSelector.window.OnClose.AddListener(() => Refresh());
         }
     }

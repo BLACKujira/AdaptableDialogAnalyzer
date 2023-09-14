@@ -7,6 +7,10 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public static class BanGDreamHelper
     {
+        public const long SEASON_1_STARTTIME = 0;
+        public const long SEASON_2_STARTTIME = 0;
+        public const long SEASON_3_STARTTIME = 0;
+
         static Dictionary<string, int> characterNamaeMap = null;
         /// <summary>
         /// 记录每个角色的标准名称
@@ -151,6 +155,17 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         {
             if (characterBandMap.ContainsKey(characterID)) return characterBandMap[characterID];
             return BandIdName.None;
+        }
+
+        public static long GetSeasonStartTime(string season)
+        {
+            switch (season) 
+            {
+                case "season_1": return SEASON_1_STARTTIME;
+                case "season_2": return SEASON_2_STARTTIME;
+                case "season_3": return SEASON_3_STARTTIME;
+                default : return SEASON_1_STARTTIME; 
+            }
         }
     }
 

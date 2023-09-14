@@ -12,7 +12,7 @@ namespace AdaptableDialogAnalyzer.Unity
     /// <summary>
     /// 单角色模式选择器
     /// </summary>
-    public class ChapterSelectorOMCChara : ChapterSelector
+    public class ChapterSelectorOMCFull : ChapterSelector
     {
         public Toggle togHideUnmatched;
         [Header("Prefabs")]
@@ -20,28 +20,25 @@ namespace AdaptableDialogAnalyzer.Unity
         [Header("RunTime")]
         public int linesPerFile = 100;
         public string outputPath;
+        [Header("Color")]
+        public Color colorMatched = new Color32(60, 203, 176, 255);
+        public Color colorUnidentified = new Color32(246, 107, 176, 255);
 
-        int speakerId;
-
-        public void Initialize(ObjectMentionedCountManager mentionedCountManager, int speakerId)
+        public void Initialize(ObjectMentionedCountManager mentionedCountManager)
         {
-            this.speakerId = speakerId;
-
             togHideUnmatched.onValueChanged.AddListener((value) =>
             {
                 Refresh();
             });
 
-            Initialize(mentionedCountManager);
+            base.Initialize(mentionedCountManager);
         }
 
         protected override List<CountMatrix> FilterCountMatrices(List<CountMatrix> countMatrices)
         {
-            countMatrices = countMatrices.Where(cm => cm is ObjectMentionedCountMatrix omcm && omcm[speakerId] != null && omcm[speakerId].serifCount > 0).ToList();
-
             if (togHideUnmatched.isOn)
             {
-                countMatrices = countMatrices.Where(cm => cm is ObjectMentionedCountMatrix omcm && omcm[speakerId] != null && omcm[speakerId].matchedIndexes.Count > 0).ToList();
+                countMatrices = countMatrices.Where(cm => cm is ObjectMentionedCountMatrix omcm && !omcm.NoMatch).ToList();
             }
 
             return countMatrices;
@@ -49,22 +46,22 @@ namespace AdaptableDialogAnalyzer.Unity
 
         protected override string GetTip()
         {
-            return $"选择剧情 | 单角色模式 | {GlobalConfig.CharacterDefinition[speakerId].name}";
+            return $"选择剧情 | 多角色模式";
         }
 
         protected override void InitializeChapterItem(CountMatrix countMatrix, ChapterSelector_ChapterItem chapterItem)
         {
             ObjectMentionedCountMatrix mentionedCountMatrix = countMatrix as ObjectMentionedCountMatrix;
 
-            Vector2Int vector2Int = new Vector2Int(speakerId, mentionedCountMatrix[speakerId]?.Count ?? 0);
-
-            if (vector2Int.y > 0) chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount, vector2Int);
-            else chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount);
+            List<KeyValuePair<Color, int>> panelData = new List<KeyValuePair<Color, int>>();
+            if (!mentionedCountMatrix.NoMatch) panelData.Add(new KeyValuePair<Color, int>(colorMatched, mentionedCountMatrix.Total));
+            if (!mentionedCountMatrix.NoUnidentifiedMatch) panelData.Add(new KeyValuePair<Color, int>(colorUnidentified, mentionedCountMatrix.unidentifiedMentionsRow.Count));
+            chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix.Total, panelData.ToArray());
 
             chapterItem.button.onClick.AddListener(() =>
             {
-                ObjectMentionCountDialogueEditorChara dialogueEditor = window.OpenWindow<ObjectMentionCountDialogueEditorChara>(dialogueEditorPrefab);
-                dialogueEditor.Initialize(mentionedCountMatrix, speakerId);
+                ObjectMentionCountDialogueEditorFull dialogueEditor = window.OpenWindow<ObjectMentionCountDialogueEditorFull>(dialogueEditorPrefab);
+                dialogueEditor.Initialize(mentionedCountMatrix);
                 dialogueEditor.window.OnClose.AddListener(() => Refresh());
             });
         }
@@ -73,8 +70,8 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             BasicTalkSnippet[] getTalkSnippets(ObjectMentionedCountMatrix m)
             {
-                if (m[speakerId] == null) return new BasicTalkSnippet[0];
-                return m[speakerId].matchedIndexes
+                if (m.NoMatch) return new BasicTalkSnippet[0];
+                return m.MatchedRefIdxSet
                     .Select(i => m.Chapter.TalkSnippets.Where(s => s.RefIdx == i).FirstOrDefault())
                     .Where(s => s != null)
                     .ToArray();
@@ -83,7 +80,7 @@ namespace AdaptableDialogAnalyzer.Unity
             List<string> serifList = CountManager.CountMatrices
                 .Select(cm => (ObjectMentionedCountMatrix)cm)
                 .OrderBy(m => m.chapterInfo.chapterID)
-                .Where(m => m[speakerId] != null)
+                .Where(m => !m.NoMatch)
                 .Select(m => (m, getTalkSnippets(m)))
                 .SelectMany(t => t.Item2.Select(s => (t.m, s)))
                 .Select(t => $"[{t.m.chapterInfo.chapterID}:{t.s.RefIdx}] {t.s.Content.Replace("\n", "")}")
@@ -94,7 +91,7 @@ namespace AdaptableDialogAnalyzer.Unity
             for (int i = 0; i < fileCount; i++)
             {
                 string fileId = (i + 1).ToString("D3");  // 文件ID，使用递增的数字，例如 001、002、003...
-                string fileName = $"{speakerId:D2}_{fileId}.txt";  // 文件名，例如 serif_001.txt、serif_002.txt...
+                string fileName = $"{fileId}.txt";  // 文件名，例如 serif_001.txt、serif_002.txt...
 
                 // 计算当前文件需要写入的行数范围
                 int startLine = i * linesPerFile;

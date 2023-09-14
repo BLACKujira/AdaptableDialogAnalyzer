@@ -71,9 +71,8 @@ namespace AdaptableDialogAnalyzer.Unity
                 items[characterId].Count = objectMentionCounter.MentionedCountDictionary.ContainsKey(characterId) ? objectMentionCounter.MentionedCountDictionary[characterId] : 0;
             }
 
-            txtTotal.text = objectMentionCounter.MentionedCountDictionary
-                .Sum(kvp=>kvp.Value)
-                .ToString(); 
+            int sum = objectMentionCounter.MentionedCountDictionary.Sum(kvp => kvp.Value);
+            txtTotal.text = $"{sum} + Unidentified {objectMentionCounter.UnidentifiedMentionCount}"; 
         }
     }
 }
