@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.Unity
 {
-
     /// <summary>
     /// 其他组件通过此组件获取故事章节，可以一次读取篇剧情，可能会通过其存放文件夹判断剧情类型
     /// 需要设置剧情ID、获取标题和判断剧情类型，这对接下来的开发很重要

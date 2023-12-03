@@ -52,18 +52,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
         const string DIR_ACTIONSET = @"assets\star\forassetbundle\startapp\actionset";
 
-        Regex regex_BackstageTalk;
-        Regex Regex_BackstageTalk
-        {
-            get
-            {
-                if (regex_BackstageTalk == null)
-                {
-                    regex_BackstageTalk = new Regex("BackstageTalkSet\\d+\\.json");
-                }
-                return regex_BackstageTalk;
-            }
-        }
+        Regex regex_BackstageTalk = new Regex("BackstageTalkSet\\d+\\.json");
 
         SuiteMasterGetResponse suiteMasterGetResponse;
         UserEventStoryMemorialResponse userEventStoryMemorialResponse;
@@ -100,7 +89,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
                 (path) =>
                 {
                     string fileName = Path.GetFileName(path);
-                    if (Regex_BackstageTalk.IsMatch(fileName)) return true;
+                    if (regex_BackstageTalk.IsMatch(fileName)) return true;
                     return false;
                 }));
 
@@ -115,7 +104,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
             foreach (var chapter in chapters)
             {
-                Debug.Log(TimeHelper.UnixTimeMSToDateTimeTST(chapter.ChapterTime));
+                if (chapter.ChapterTime <= BanGDreamHelper.SEASON_1_STARTTIME) Debug.Log($"{chapter.ChapterID}");
             }
             return chapters.ToArray();
         }
@@ -185,11 +174,25 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         List<ActionSetData> actionSetDataList = null;
         public List<ActionSetData> GetActionSetDataList()
         {
-            return Directory.GetDirectories(Path.Combine(assetBundleFolder,DIR_ACTIONSET))
+            return Directory.GetDirectories(Path.Combine(assetBundleFolder, DIR_ACTIONSET))
                 .SelectMany(dir => Directory.GetFiles(dir))
                 .Where(file => Path.GetFileName(file).StartsWith("ActionSet"))
                 .Select(file => JsonUtility.FromJson<ActionSetData>(File.ReadAllText(file)))
                 .ToList();
+        }
+
+        Dictionary<uint, MasterEvent> allEventMap = null;
+        public void InitAllEventMap()
+        {
+            allEventMap = new Dictionary<uint, MasterEvent>();
+            foreach (var keyValuePair in userEventStoryMemorialResponse.PastEventMap.Entries)
+            {
+                allEventMap[keyValuePair.Key] = keyValuePair.Value;
+            }
+            foreach (var keyValuePair in suiteMasterGetResponse.MasterEventMap.Entries)
+            {
+                allEventMap[keyValuePair.Key] = keyValuePair.Value;
+            }
         }
 
         /// <summary>
@@ -197,12 +200,16 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         /// </summary>
         public bool SetTimeAndAccept(Chapter chapter)
         {
+            if (allEventMap == null) InitAllEventMap();
             switch (chapter.ChapterType)
             {
                 case TYPE_MAINSTORY: return SetTimeAndAccept_MainStory(chapter);
                 case TYPE_BIRTHDAYSTORY: return SetTimeAndAccept_BirthdayStory(chapter);
                 case TYPE_AREATALK: return SetTimeAndAccept_AreaTalk(chapter);
                 case TYPE_BACKSTAGETALK: return SetTimeAndAccept_BackstageTalk(chapter);
+                case TYPE_BANDSTORY: return SetTimeAndAccept_BandStory(chapter);
+                case TYPE_EVENTSTORY: return SetTimeAndAccept_EventStory(chapter);
+                case TYPE_CARDSTORY: return SetTimeAndAccept_CardStory(chapter);
                 default: return true;
             }
         }
@@ -232,7 +239,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         Dictionary<string, MasterBirthdayStory> masterBirthdayStoryMap = null;
         public bool SetTimeAndAccept_BirthdayStory(Chapter chapter)
         {
-            if (masterMainStoryMap == null)
+            if (masterBirthdayStoryMap == null)
             {
                 //初始化字典
                 masterBirthdayStoryMap = new Dictionary<string, MasterBirthdayStory>();
@@ -254,9 +261,9 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         Dictionary<string, MasterActionSet> masterActionSetMap = null;
         public bool SetTimeAndAccept_AreaTalk(Chapter chapter)
         {
-            if (masterMainStoryMap == null)
+            if (masterActionSetMap == null)
             {
-                if(actionSetDataList == null) actionSetDataList = GetActionSetDataList();
+                if (actionSetDataList == null) actionSetDataList = GetActionSetDataList();
 
                 IEnumerable<(string, MasterActionSet)> rawMap = actionSetDataList
                     .Where(d => d.details.Count > 0)
@@ -277,9 +284,9 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
                 //通过活动时间推测区域对话发生时间
                 PastEventMap pastEventMap = userEventStoryMemorialResponse.PastEventMap;
-                if (pastEventMap.Entries.ContainsKey(masterActionSet.EventId))
+                if (allEventMap.ContainsKey(masterActionSet.EventId))
                 {
-                    MasterEvent masterEvent = pastEventMap.Entries[masterActionSet.EventId];
+                    MasterEvent masterEvent = allEventMap[masterActionSet.EventId];
                     chapter.ChapterTime = (long)masterEvent.StartAt;
                     return true;
                 }
@@ -338,6 +345,117 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
                 }
 
                 chapter.ChapterTime = BanGDreamHelper.GetSeasonStartTime(masterBackstageTalkSet.StartSeason);
+                return true;
+            }
+
+            return false;
+        }
+
+        Dictionary<string, MasterBandStory> masterBandStoryMap = null;
+        public bool SetTimeAndAccept_BandStory(Chapter chapter)
+        {
+            if (masterBandStoryMap == null)
+            {
+                //初始化字典
+                MasterBandStoryMap[] masterBandStoryMaps = new MasterBandStoryMap[]
+                {
+                    suiteMasterGetResponse.MasterPoppinPartyStoryMap,
+                    suiteMasterGetResponse.MasterAfterglowStoryMap,
+                    suiteMasterGetResponse.MasterHelloHappyWorldStoryMap,
+                    suiteMasterGetResponse.MasterPastelPalettesStoryMap,
+                    suiteMasterGetResponse.MasterRoseliaStoryMap,
+                    suiteMasterGetResponse.MasterMorfonicaStoryMap,
+                    suiteMasterGetResponse.MasterRaiseASuilenStoryMap
+                };
+
+                IEnumerable<KeyValuePair<uint, MasterBandStory>> entries = masterBandStoryMaps.SelectMany(m => m.Entries);
+
+                masterBandStoryMap = new Dictionary<string, MasterBandStory>();
+                foreach (var keyValuePair in entries)
+                {
+                    masterBandStoryMap["Scenario" + keyValuePair.Value.ScenarioId] = keyValuePair.Value;
+                }
+            }
+
+            if (masterBandStoryMap.ContainsKey(chapter.ChapterID))
+            {
+                chapter.ChapterTime = (long)masterBandStoryMap[chapter.ChapterID].PublishedAt;
+                return true;
+            }
+
+            return false;
+        }
+
+        Dictionary<string, MasterEvent> masterEventMap = null;
+        Regex regex_GetEventStoryEvent = new Regex("Scenarioevent\\d+(?=-\\d{2})");
+        public bool SetTimeAndAccept_EventStory(Chapter chapter)
+        {
+            if (masterEventMap == null)
+            {
+                //初始化字典
+                masterEventMap = new Dictionary<string, MasterEvent>();
+                foreach (var keyValuePair in allEventMap)
+                {
+                    masterEventMap[$"Scenarioevent{keyValuePair.Value.EventId:00}"] = keyValuePair.Value;
+                }
+            }
+
+            Match match = regex_GetEventStoryEvent.Match(chapter.ChapterID);
+            if (match.Success)
+            {
+                string key = match.Value;
+                if (masterEventMap.ContainsKey(key))
+                {
+                    chapter.ChapterTime = (long)masterEventMap[key].StartAt;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        Dictionary<string, MasterCharacterSituation> masterCharacterSituationMap = null;
+        Dictionary<uint, MasterEvent> masterSituationEventMap = null;
+        public bool SetTimeAndAccept_CardStory(Chapter chapter)
+        {
+            if (masterCharacterSituationMap == null)
+            {
+                //初始化字典
+                masterCharacterSituationMap = new Dictionary<string, MasterCharacterSituation>();
+                foreach (var keyValuePair in suiteMasterGetResponse.MasterCharacterSituationMap.Entries)
+                {
+                    if (keyValuePair.Value.Episodes == null) continue;
+                    foreach (var masterEpisode in keyValuePair.Value.Episodes.Entries)
+                    {
+                        masterCharacterSituationMap[$"Scenario{masterEpisode.ScenarioId}"] = keyValuePair.Value;
+                    }
+                }
+
+                masterSituationEventMap = new Dictionary<uint, MasterEvent>();
+                foreach (var keyValuePair in suiteMasterGetResponse.MasterEventSituationMap.Entries)
+                {
+                    if (allEventMap.ContainsKey(keyValuePair.Key))
+                    {
+                        foreach (var masterEventSituation in keyValuePair.Value.Entries)
+                        {
+                            masterSituationEventMap[masterEventSituation.SituationId] = allEventMap[keyValuePair.Key];
+                        }
+                    }
+                }
+            }
+
+            if (masterCharacterSituationMap.ContainsKey(chapter.ChapterID))
+            {
+                MasterCharacterSituation masterCharacterSituation = masterCharacterSituationMap[chapter.ChapterID];
+
+                //先通过卡片所属的活动判断发生时间
+                if (masterSituationEventMap.ContainsKey(masterCharacterSituation.SituationId))
+                {
+                    chapter.ChapterTime = (long)masterSituationEventMap[masterCharacterSituation.SituationId].StartAt;
+                    return true;
+                }
+
+                chapter.ChapterTime = (long)masterCharacterSituation.ReleasedAt;
                 return true;
             }
 

@@ -8,12 +8,12 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// <summary>
         /// 在编辑器中使用，当修改后变成True
         /// </summary>
-        [NonSerialized] private bool hasChanged = false;
+        [NonSerialized] protected bool hasChanged = false;
 
         /// <summary>
         /// 统计的故事章节，运行时由MentionedCountResultLoader获取，不参与序列化
         /// </summary>
-        [NonSerialized] private Chapter chapter;
+        [NonSerialized] protected Chapter chapter;
 
         /// <summary>
         /// 序列化一部分章节的信息，以便不读取章节的情况下使用某些功能

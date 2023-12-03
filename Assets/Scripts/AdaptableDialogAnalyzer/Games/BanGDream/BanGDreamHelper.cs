@@ -7,7 +7,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 {
     public static class BanGDreamHelper
     {
-        public const long SEASON_1_STARTTIME = 0;
+        public const long SEASON_1_STARTTIME = 1489626000000;
         public const long SEASON_2_STARTTIME = 0;
         public const long SEASON_3_STARTTIME = 0;
 

@@ -306,7 +306,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         /// </summary>
         public Chapter TryGetChapter()
         {
-            return Chapter;
+            return chapter;
         }
     }
 }
