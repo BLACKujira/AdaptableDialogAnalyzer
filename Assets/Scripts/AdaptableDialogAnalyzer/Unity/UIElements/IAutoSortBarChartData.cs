@@ -3,8 +3,7 @@
     public interface IAutoSortBarChartData
     {
         int Id { get; }
-        int ValueMax { get; }
-        int Value { get; }
+        float Value { get; }
         IAutoSortBarChartData Lerp(IAutoSortBarChartData target, float t);
     }
 

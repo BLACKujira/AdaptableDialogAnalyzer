@@ -1,13 +1,15 @@
 using AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount;
 using AdaptableDialogAnalyzer.Games.ProjectSekai;
 using AdaptableDialogAnalyzer.Unity;
+using AdaptableDialogAnalyzer.Unity.UIElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.ProjectSekai
 {
-    public class View_ProjectSekai_PixivCharacterPostCount : MonoBehaviour
+    public class View_ProjectSekai_PixivCharacterPostCount : AutoSortBarChart
     {
         [Header("Components")]
         public View_ProjectSekai_TimelineTypeA timeline;
@@ -20,6 +22,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public CharacterPostCountManager CountManager => countManager;
 
        Dictionary<string, int> tagCharacterIdPair;
+       Dictionary<int, DateTime> datetimeIndexes;
 
         private void Awake()
         {
@@ -41,10 +44,15 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
             CharacterPostCountManager characterPostCountManager = characterPostCounter.Count(mergedResponse);
             countManager = characterPostCountManager.ToTotalMode();
+            datetimeIndexes = countManager.GetDateTimeIndexes();
 
             timeline.Initialize(this);
+            Play();
         }
 
+        /// <summary>
+        /// 统计函数用，根据标签获取角色ID
+        /// </summary>
         int[] GetCharacterByTag(List<string> tags)
         {
             List<int> characterIds = new List<int>();
@@ -56,6 +64,28 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 }
             }
             return characterIds.ToArray();
+        }
+
+        protected override List<IAutoSortBarChartData> GetData(int dataFrame)
+        {
+            //TODO: Remove
+            if(!datetimeIndexes.ContainsKey(dataFrame) || !countManager.days.ContainsKey(datetimeIndexes[dataFrame]))
+            {
+                Debug.Log(dataFrame);
+                Debug.Log(datetimeIndexes[dataFrame]);
+            }
+            return countManager.days[datetimeIndexes[dataFrame]].GetAutoSortBarChartData();
+        }
+
+        protected override int GetTotalDataFrames()
+        {
+            return datetimeIndexes.Count;
+        }
+
+        protected override void PlayFrame(float currentDataFrame)
+        {
+            base.PlayFrame(currentDataFrame);
+            timeline.SetPosition(currentDataFrame);
         }
     }
 }

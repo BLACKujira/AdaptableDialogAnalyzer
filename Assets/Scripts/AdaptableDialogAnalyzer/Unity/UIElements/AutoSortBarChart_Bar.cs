@@ -16,15 +16,17 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         /// <summary>
         /// 机械更新，没有插值。请在图表控制类中计算两数据帧的插值。
         /// </summary>
-        public void SetData(IAutoSortBarChartData data)
+        public virtual void SetData(IAutoSortBarChartData data, float valueMax)
         {
             if (direction == Direction2.Horizontal)
             {
-                barTransform.sizeDelta = new Vector2(maxLength * data.Value / data.ValueMax, barTransform.sizeDelta.y);
+                float x = valueMax == 0 ? 0 : maxLength * data.Value / valueMax;
+                barTransform.sizeDelta = new Vector2(x, barTransform.sizeDelta.y);
             }
             else
             {
-                barTransform.sizeDelta = new Vector2(barTransform.sizeDelta.x, maxLength * data.Value / data.ValueMax);
+                float y = valueMax == 0 ? 0 : maxLength * data.Value / valueMax;
+                barTransform.sizeDelta = new Vector2(barTransform.sizeDelta.x, y);
             }
         }
 

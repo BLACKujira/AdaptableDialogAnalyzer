@@ -14,5 +14,11 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse
         public List<Artwork.DataItem> artworks = new List<Artwork.DataItem>();
         [ProtoMember(2)]
         public List<Novel.DataItem> novels = new List<Novel.DataItem>();
+
+        public void RemoveUseAI()
+        {
+            artworks.RemoveAll(d => d.aiType == 2);
+            novels.RemoveAll(d => d.aiType == 2);
+        }
     }
 }

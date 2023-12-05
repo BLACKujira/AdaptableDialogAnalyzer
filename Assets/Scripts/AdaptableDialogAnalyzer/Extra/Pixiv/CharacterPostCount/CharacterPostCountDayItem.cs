@@ -1,0 +1,53 @@
+﻿using AdaptableDialogAnalyzer.Unity.UIElements;
+using UnityEngine;
+
+namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
+{
+    public class CharacterPostCountDayItem: IAutoSortBarChartData
+    {
+        public int characterId;
+        public float total = 0;
+        public float nsfwCount = 0;
+
+        public CharacterPostCountDayItem(int characterId)
+        {
+            this.characterId = characterId;
+        }
+
+        public int Id => characterId;
+        public float Value => total;
+
+        public IAutoSortBarChartData Lerp(IAutoSortBarChartData target, float t)
+        {
+            CharacterPostCountDayItem targetItem = target as CharacterPostCountDayItem;
+            CharacterPostCountDayItem result = new CharacterPostCountDayItem(characterId);
+            result.total = Mathf.Lerp(total, targetItem.total, t);
+            result.nsfwCount = Mathf.Lerp(nsfwCount, targetItem.nsfwCount, t);
+            return result;
+        }
+
+        public static CharacterPostCountDayItem operator +(CharacterPostCountDayItem a, CharacterPostCountDayItem b)
+        {
+            CharacterPostCountDayItem result = new CharacterPostCountDayItem(a.characterId);
+            result.total = a.total + b.total;
+            result.nsfwCount = a.nsfwCount + b.nsfwCount;
+            return result;
+        }
+
+        public static CharacterPostCountDayItem operator -(CharacterPostCountDayItem a, CharacterPostCountDayItem b)
+        {
+            CharacterPostCountDayItem result = new CharacterPostCountDayItem(a.characterId);
+            result.total = a.total - b.total;
+            result.nsfwCount = a.nsfwCount - b.nsfwCount;
+            return result;
+        }
+
+        public CharacterPostCountDayItem Clone()
+        {
+            CharacterPostCountDayItem result = new CharacterPostCountDayItem(characterId);
+            result.total = total;
+            result.nsfwCount = nsfwCount;
+            return result;
+        }
+    }
+}

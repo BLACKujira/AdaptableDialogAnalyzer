@@ -25,8 +25,11 @@ namespace AdaptableDialogAnalyzer.Unity
         public string path;
         public PathType folderStructureType = PathType.Folder_Tag_Type;
         [Header("Settings")]
+        [Tooltip("在File_MergedResponse模式不适用")] public bool loadArtwork = true;
+        [Tooltip("在File_MergedResponse模式不适用")] public bool loadNovel = true;
         public string removePostBefore;
-        public bool removeUseAI;
+        public string removePostAfter;
+        public bool removeUseAI = false;
         public List<string> removeHasTags;
 
         MergedResponse mergedResponse = new MergedResponse();
@@ -139,15 +142,15 @@ namespace AdaptableDialogAnalyzer.Unity
                 string mangaFolder = Path.Combine(tagFolder, "manga");
                 string novelFolder = Path.Combine(tagFolder, "novel");
 
-                if(Directory.Exists(illustFolder))
+                if(loadArtwork && Directory.Exists(illustFolder))
                 {
                     LoadAndAdd(Directory.GetFiles(illustFolder), ResponseType.illustrations);
                 }
-                if (Directory.Exists(mangaFolder))
+                if (loadArtwork && Directory.Exists(mangaFolder))
                 {
                     LoadAndAdd(Directory.GetFiles(mangaFolder), ResponseType.manga);
                 }
-                if (Directory.Exists(novelFolder))
+                if (loadNovel && Directory.Exists(novelFolder))
                 {
                     LoadAndAdd(Directory.GetFiles(novelFolder), ResponseType.novels);
                 }
@@ -180,6 +183,8 @@ namespace AdaptableDialogAnalyzer.Unity
                     LoadFile_MergedResponse();
                     break;
             }
+
+            ApplyFilters();
         }
 
         /// <summary>
@@ -194,6 +199,11 @@ namespace AdaptableDialogAnalyzer.Unity
             mergedResponse.novels = MergedResponse.novels
                 .OrderBy(a => DateTime.Parse(a.createDate))
                 .ToList();
+        }
+
+        public void ApplyFilters()
+        {
+            if (removeUseAI) mergedResponse.RemoveUseAI();
         }
     }
 }

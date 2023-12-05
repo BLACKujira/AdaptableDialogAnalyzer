@@ -24,11 +24,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         DateTime endDateTime;
         Dictionary<DateTime, int> datetimeIndexes = new Dictionary<DateTime, int>();
         List<View_ProjectSekai_TimelineTypeA_Label> labels = new List<View_ProjectSekai_TimelineTypeA_Label>();
-        ProjectSekai_MasterLoader masterLoader;
+        View_ProjectSekai_PixivCharacterPostCount pixivCharacterPostCount;
 
         public void Initialize(View_ProjectSekai_PixivCharacterPostCount pixivCharacterPostCount)
         {
-            masterLoader = pixivCharacterPostCount.masterLoader;
+            this.pixivCharacterPostCount = pixivCharacterPostCount;
 
             datetimeIndexes = pixivCharacterPostCount.CountManager.days
                 .Select(d => d.Key)
@@ -88,7 +88,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
         void InstantiateEventLabel()
         {
-            foreach (var masterEvent in masterLoader.MasterEvent)
+            foreach (var masterEvent in pixivCharacterPostCount.masterLoader.MasterEvent)
             {
                 DateTime selectedDate = GetNearestDate(masterEvent.StartTime);
 
@@ -120,6 +120,12 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 }
                 currentYear++;
             }
+        }
+
+        public void SetPosition(float dataFrame)
+        {
+            float targetPosition = -dataFrame * dataFrameWidth;
+            timeLineTransform.anchoredPosition = new Vector2(targetPosition, 0f);
         }
     }
 }

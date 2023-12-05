@@ -27,7 +27,7 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
                 DateTime dateTime = DateTime.Parse(dataItem.createDate);
                 foreach (var characterId in characterIds)
                 {
-                    characterPostCountManager.Add(dateTime.Date, characterId);
+                    characterPostCountManager.Add(dateTime.Date, characterId, dataItem.xRestrict != 0);
                 }
             }
 
@@ -37,7 +37,7 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
                 DateTime dateTime = DateTime.Parse(dataItem.createDate);
                 foreach (var characterId in characterIds)
                 {
-                    characterPostCountManager.Add(dateTime.Date, characterId);
+                    characterPostCountManager.Add(dateTime.Date, characterId, dataItem.xRestrict != 0);
                 }
             }
 

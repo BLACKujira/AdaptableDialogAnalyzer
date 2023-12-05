@@ -9,6 +9,8 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
 {
     public abstract class AutoSortBarChart : MonoBehaviour
     {
+        [Header("Components")]
+        public RectTransform barContainerTransform;
         [Header("Settings")]
         public Direction2 direction = Direction2.Horizontal;
         public int maxBarCount = 10;
@@ -21,7 +23,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         /// <summary>
         /// 上一帧位置，目标位置，这一帧的时间，返回这一帧的位置
         /// </summary>
-        public Func<Vector2, Vector2, float, Vector2> moveFunc;
+        public Func<Vector2, Vector2, float, Vector2> moveFunc = DefaultMoveFunc;
 
         /// <summary>
         /// 当前在图表中显示的条
@@ -120,7 +122,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         /// <summary>
         /// 对条进行的额外初始化，默认为空
         /// </summary>
-        protected void InitializeBar(AutoSortBarChart_Bar bar, IAutoSortBarChartData data)
+        protected virtual void InitializeBar(AutoSortBarChart_Bar bar, IAutoSortBarChartData data)
         {
 
         }
@@ -131,7 +133,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         protected virtual void AddBar(IAutoSortBarChartData data)
         {
             int rank = activeBars.Count;
-            AutoSortBarChart_Bar bar = Instantiate(barPrefab, transform);
+            AutoSortBarChart_Bar bar = Instantiate(barPrefab, barContainerTransform);
             InitializeBar(bar, data);
             bar.barTransform.anchoredPosition = GetTargetPosition(rank);
             bar.FadeIn();
@@ -191,19 +193,17 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
             while(currentDataFrame< totalDataFrames)
             {
                 PlayFrame(currentDataFrame);
+                currentDataFrame += Time.deltaTime * dataFramePerSec;
                 yield return 1;
             }
         }
 
-        void PlayFrame(float currentDataFrame)
+        protected virtual void PlayFrame(float currentDataFrame)
         {
             currentDataFrame += Time.deltaTime * dataFramePerSec;
-            if (currentDataFrame >= maxBarCount)
-            {
-                currentDataFrame = 0;
-            }
 
             List<IAutoSortBarChartData> lerpedDataFrame = GetLerpedDataFrame(currentDataFrame);
+            float valueMax = lerpedDataFrame.Max(df => df.Value);
 
             // 淡出
             foreach (var barManager in activeBars)
@@ -223,7 +223,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
             for (int i = 0; i < lerpedDataFrame.Count && i < maxBarCount; i++)
             {
                 IAutoSortBarChartData data = lerpedDataFrame[i];
-                if (!activeBars.Any(ab => ab.IsRecycling && ab.Id == data.Id))
+                if (!activeBars.Any(ab => !ab.IsRecycling && ab.Id == data.Id))
                 {
                     AddBar(data);
                 }
@@ -235,7 +235,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
                 IAutoSortBarChartData data = lerpedDataFrame.Where(df => df.Id == barManager.Id).FirstOrDefault();
                 if (data != null)
                 {
-                    barManager.bar.SetData(data);
+                    barManager.bar.SetData(data, valueMax);
                     if (!barManager.IsRecycling)
                     {
                         barManager.TargetPosition = GetTargetPosition(lerpedDataFrame.IndexOf(data)); // 如果没有回收则更新位置
@@ -248,6 +248,17 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
             {
                 barManager.Move(Time.deltaTime);
             }
+        }
+
+        public static Vector2 DefaultMoveFunc(Vector2 lastPosition, Vector2 targetPosition, float deltaTime)
+        {
+            const float LERPT = 2f;
+            const float MOVE_DELTA_ADD = 150F;
+
+            Vector2 vector2 = Vector2.Lerp(lastPosition, targetPosition, LERPT * Mathf.Min(deltaTime, 1));
+            vector2 = Vector2.MoveTowards(vector2, targetPosition, MOVE_DELTA_ADD * deltaTime);
+
+            return vector2;
         }
     }
 }

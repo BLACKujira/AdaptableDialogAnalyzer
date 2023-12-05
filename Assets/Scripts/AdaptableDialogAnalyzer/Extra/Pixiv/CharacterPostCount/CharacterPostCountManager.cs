@@ -1,26 +1,28 @@
-﻿using System;
+﻿using Spine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
 {
-    public enum CountManagerType
-    {
-        /// <summary>
-        /// 每日增量
-        /// </summary>
-        Delta, 
-        /// <summary>
-        /// 当日总计
-        /// </summary>
-        Total
-    }
-
     public class CharacterPostCountManager
     {
         public CountManagerType type;
         public Dictionary<DateTime, CharacterPostCountDay> days = new Dictionary<DateTime, CharacterPostCountDay>();
+
+        public Dictionary<int, DateTime> GetDateTimeIndexes()
+        {
+            Dictionary<int, DateTime> result = new Dictionary<int, DateTime>();
+            int index = 0;
+            var sortedDays = days.OrderBy(d => d.Key);
+            foreach (var day in sortedDays)
+            {
+                result[index] = day.Key;
+                index++;
+            }
+            return result;
+        }
 
         public CharacterPostCountManager(CountManagerType type)
         {
@@ -30,15 +32,23 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         /// <summary>
         /// 向某一天添加某一角色的计数
         /// </summary>
-        public void Add(DateTime date, int characterId, int count = 1)
+        public void Add(DateTime date, int characterId, bool isNsfw, int count = 1)
         {
             if(!days.ContainsKey(date))
             {
                 days.Add(date, new CharacterPostCountDay(date));
             }
-            days[date].Add(characterId, count);
+            days[date].Add(characterId, isNsfw , count);
         }
-        
+
+        public void AddOrReplace(DateTime date, CharacterPostCountDayItem characterPostCountDayItem)
+        {
+            if (!days.ContainsKey(date))
+            {
+                days.Add(date, new CharacterPostCountDay(date));
+            }
+            days[date].AddOrReplace(characterPostCountDayItem);
+        }
 
         /// <summary>
         /// 转化为总计模式
@@ -53,7 +63,7 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
 
             CharacterPostCountManager characterPostCountManager = new CharacterPostCountManager(CountManagerType.Total);
 
-            Dictionary<int, int> currentCount = new Dictionary<int, int>();
+            Dictionary<int, CharacterPostCountDayItem> currentCount = new Dictionary<int, CharacterPostCountDayItem>();
             List<CharacterPostCountDay> characterPostCountDays = days
                 .Select(d => d.Value)
                 .OrderBy(d => d.date)
@@ -61,22 +71,45 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
 
             foreach (var characterPostCountDay in characterPostCountDays)
             {
-                foreach (var characterCount in characterPostCountDay.characterCountPairs)
+                foreach (var characterCount in characterPostCountDay.characterTotalPairs)
                 {
                     if(!currentCount.ContainsKey(characterCount.Key))
                     {
-                        currentCount.Add(characterCount.Key, 0);
+                        currentCount[characterCount.Key] = new CharacterPostCountDayItem(characterCount.Key);
                     }
                     currentCount[characterCount.Key] += characterCount.Value;
                 }
 
                 foreach (var keyValuePair in currentCount)
                 {
-                    characterPostCountManager.Add(characterPostCountDay.date, keyValuePair.Key, keyValuePair.Value);
+                    characterPostCountManager.AddOrReplace(characterPostCountDay.date, keyValuePair.Value);
                 }
             }
 
             return characterPostCountManager;
+        }
+
+        public void FillEmpty(bool beforeAppear = false)
+        {
+            HashSet<int> appearedCharacterId = new HashSet<int>();
+            if (beforeAppear)
+            {
+                appearedCharacterId.AddAll(Unity.GlobalConfig.CharacterDefinition.Characters
+                    .Select(c => c.id)
+                    .ToArray());
+            }
+
+            foreach (var day in days)
+            {
+                foreach (var characterId in appearedCharacterId)
+                {
+                    day.Value.Add(characterId, false, 0);
+                }
+                appearedCharacterId.AddAll(day.Value.characterTotalPairs
+                    .Where(kvp => kvp.Value.total > 0)
+                    .Select(kvp => kvp.Value.characterId)
+                    .ToArray());
+            }
         }
     }
 }
