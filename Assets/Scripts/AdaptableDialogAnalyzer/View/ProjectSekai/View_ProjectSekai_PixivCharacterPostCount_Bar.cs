@@ -15,6 +15,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public IndividualColorElement individualColorElement;
         [Header("Settings")]
         public SpriteList iconList;
+        public float nsfwBarMultiple = 3;
 
         public override void SetData(IAutoSortBarChartData data, float valueMax)
         {
@@ -25,14 +26,14 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 if (direction == Direction2.Horizontal)
                 {
                     float x = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.x * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
-                    x *= 10;
-                    nsfwBarTransform.sizeDelta = new Vector2(x, sizeDelta.y);
+                    x *= nsfwBarMultiple;
+                    nsfwBarTransform.sizeDelta = new Vector2(x, nsfwBarTransform.sizeDelta.y);
                 }
                 else
                 {
                     float y = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.y * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
-                    y *= 10;
-                    nsfwBarTransform.sizeDelta = new Vector2(sizeDelta.x, y);
+                    y *= nsfwBarMultiple;
+                    nsfwBarTransform.sizeDelta = new Vector2(nsfwBarTransform.sizeDelta.x, y);
                 }
 
                 imgIcon.sprite = iconList[characterPostCountDayItem.characterId];
