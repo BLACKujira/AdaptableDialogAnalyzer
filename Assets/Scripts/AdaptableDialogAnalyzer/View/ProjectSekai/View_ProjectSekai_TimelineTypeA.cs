@@ -9,7 +9,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
     public class View_ProjectSekai_TimelineTypeA : MonoBehaviour
     {
         [Header("Components")]
-        public RectTransform rectTransform;
+        public RectTransform timeLineTransform;
         [Header("Prefabs")]
         public View_ProjectSekai_TimelineTypeA_LabelMonth prefabLabelMonth;
         public View_ProjectSekai_TimelineTypeA_LabelEvent prefabLabelEvent;
@@ -26,25 +26,36 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         List<View_ProjectSekai_TimelineTypeA_Label> labels = new List<View_ProjectSekai_TimelineTypeA_Label>();
         ProjectSekai_MasterLoader masterLoader;
 
-        public void Initialize(ProjectSekai_MasterLoader masterLoader)
+        public void Initialize(View_ProjectSekai_PixivCharacterPostCount pixivCharacterPostCount)
         {
-            this.masterLoader = masterLoader;
+            masterLoader = pixivCharacterPostCount.masterLoader;
+
+            datetimeIndexes = pixivCharacterPostCount.CountManager.days
+                .Select(d => d.Key)
+                .OrderBy(d => d)
+                .Select((d, i) => new { d, i })
+                .ToDictionary(pair => pair.d, pair => pair.i);
 
             startDateTime = DateTime.Parse(startDateTimeString);
             endDateTime = datetimeIndexes
                 .Select(kvp => kvp.Key)
                 .OrderByDescending(datetime => datetime)
                 .First();
+
+            InstantiateEventLabel();
+            InstantiateBirthdayLabel();
+            InstantiateMonthLabel();
         }
 
         DateTime GetNearestDate(DateTime dateTime)
         {
             while (dateTime < endDateTime)
             {
-                if (datetimeIndexes.ContainsKey(new DateTime(dateTime.Year, dateTime.Month, 1)))
+                if (datetimeIndexes.ContainsKey(dateTime.Date))
                 {
-                    return dateTime;
+                    return dateTime.Date;
                 }
+                dateTime.AddDays(1);
             }
             return DateTime.MinValue;
         }
@@ -65,9 +76,12 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 if (dateTime.Year != lastYearMouth.Year || dateTime.Month != lastYearMouth.Month)
                 {
                     string labelText = dateTime.ToString("yyyy.MM");
-                    View_ProjectSekai_TimelineTypeA_LabelMonth labelMonth = Instantiate(prefabLabelMonth, rectTransform);
+                    View_ProjectSekai_TimelineTypeA_LabelMonth labelMonth = Instantiate(prefabLabelMonth, timeLineTransform);
                     labelMonth.SetText(labelText);
                     labelMonth.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[dateTime] * dataFrameWidth, 0f);
+                    labels.Add(labelMonth);
+
+                    lastYearMouth = dateTime;
                 }
             }
         }
@@ -76,11 +90,13 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         {
             foreach (var masterEvent in masterLoader.MasterEvent)
             {
-                DateTime dateTime = masterEvent.StartTime;
+                DateTime selectedDate = GetNearestDate(masterEvent.StartTime);
 
-                View_ProjectSekai_TimelineTypeA_LabelEvent labelEvent = Instantiate(prefabLabelEvent, rectTransform);
+                View_ProjectSekai_TimelineTypeA_LabelEvent labelEvent = Instantiate(prefabLabelEvent, timeLineTransform);
                 labelEvent.SetData(masterEvent.id);
-                labelEvent.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[dateTime] * dataFrameWidth, 0f);
+                labelEvent.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[selectedDate] * dataFrameWidth, 0f);
+
+                labels.Add(labelEvent);
             }
         }
 
@@ -96,9 +112,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
                     if (birthday < startDateTime || birthday > endDateTime) continue;
                     DateTime selectedDate = GetNearestDate(birthday);
-                    View_ProjectSekai_TimelineTypeA_LabelBirthday labelBirthday = Instantiate(prefabLabelBirthday, rectTransform);
+                    View_ProjectSekai_TimelineTypeA_LabelBirthday labelBirthday = Instantiate(prefabLabelBirthday, timeLineTransform);
                     labelBirthday.SetData(i);
                     labelBirthday.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[selectedDate] * dataFrameWidth, 0f);
+
+                    labels.Add(labelBirthday);
                 }
                 currentYear++;
             }

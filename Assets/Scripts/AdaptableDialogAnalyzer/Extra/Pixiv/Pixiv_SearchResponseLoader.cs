@@ -1,5 +1,6 @@
 using AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse;
 using DG.Tweening;
+using ProtoBuf;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -159,8 +160,10 @@ namespace AdaptableDialogAnalyzer.Unity
         /// </summary>
         void LoadFile_MergedResponse()
         {
-            string json = File.ReadAllText(path);
-            mergedResponse = JsonUtility.FromJson<MergedResponse>(json);
+            using (var fileStream = File.OpenRead(path))
+            {
+                mergedResponse = Serializer.Deserialize<MergedResponse>(fileStream);
+            }
         }
 
         /// <summary>

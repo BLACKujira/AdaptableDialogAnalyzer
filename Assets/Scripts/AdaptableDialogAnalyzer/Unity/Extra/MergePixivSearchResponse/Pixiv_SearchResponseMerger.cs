@@ -1,3 +1,4 @@
+using ProtoBuf;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +16,10 @@ namespace AdaptableDialogAnalyzer.Unity
         private void Start()
         {
             searchResponseLoader.Sort();
-            File.WriteAllText(saveFile, JsonUtility.ToJson(searchResponseLoader.MergedResponse));
+            using(var saveFileStream = File.Create(saveFile))
+            {
+                Serializer.Serialize(saveFileStream, searchResponseLoader.MergedResponse);
+            }
             Priority = 1;
             Progress = "Íê³É";
         }
