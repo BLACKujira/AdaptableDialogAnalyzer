@@ -190,7 +190,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         {
             float currentDataFrame = 0;
             int totalDataFrames = GetTotalDataFrames();
-            while(currentDataFrame< totalDataFrames)
+            while (currentDataFrame < totalDataFrames - 1)
             {
                 PlayFrame(currentDataFrame);
                 currentDataFrame += Time.deltaTime * dataFramePerSec;
@@ -212,9 +212,9 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
                 {
                     continue;
                 }
-                if (!lerpedDataFrame.Any(df => df.Id == barManager.Id))
+                if (!lerpedDataFrame.Any(df => df.Id == barManager.Id) || lerpedDataFrame.FindIndex(df => df.Id == barManager.Id) >= maxBarCount)
                 {
-                    barManager.TargetPosition += new Vector2(0, fadeOutMoveDistance); // 淡出时移动
+                    barManager.TargetPosition += direction == Direction2.Horizontal ? new Vector2(fadeOutMoveDistance, 0) : new Vector2(0, fadeOutMoveDistance); // 淡出时移动
                     barManager.Recycle(activeBars); // 淡出并移除
                 }
             }
@@ -225,6 +225,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
                 IAutoSortBarChartData data = lerpedDataFrame[i];
                 if (!activeBars.Any(ab => !ab.IsRecycling && ab.Id == data.Id))
                 {
+                    Debug.Log(data.Id);
                     AddBar(data);
                 }
             }

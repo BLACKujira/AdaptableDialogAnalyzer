@@ -25,11 +25,13 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 if (direction == Direction2.Horizontal)
                 {
                     float x = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.x * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
+                    x *= 10;
                     nsfwBarTransform.sizeDelta = new Vector2(x, sizeDelta.y);
                 }
                 else
                 {
                     float y = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.y * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
+                    y *= 10;
                     nsfwBarTransform.sizeDelta = new Vector2(sizeDelta.x, y);
                 }
 

@@ -3672,8 +3672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barContainerTransform: {fileID: 1501845033}
   direction: 0
-  maxBarCount: 10
-  distance: 88.5
+  maxBarCount: 20
+  distance: 90
   dataFramePerSec: 3
   fadeOutMoveDistance: 30
   barPrefab: {fileID: 1354692040732149622, guid: b200035b4d44b9c40b19a2f8aa6c0ec2,
