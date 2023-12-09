@@ -11,6 +11,19 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         public CountManagerType type;
         public Dictionary<DateTime, CharacterPostCountDay> days = new Dictionary<DateTime, CharacterPostCountDay>();
 
+        bool deltaCalculated = false;
+
+        /// <summary>
+        /// 增量是否已经计算
+        /// </summary>
+        public bool DeltaCalculated => deltaCalculated;
+
+        /// <summary>
+        /// 增量计算范围
+        /// </summary>
+        int deltaCalculationRange = -1;
+        public int DeltaCalculationRange => deltaCalculationRange;
+
         public Dictionary<int, DateTime> GetDateTimeIndexes()
         {
             Dictionary<int, DateTime> result = new Dictionary<int, DateTime>();
@@ -34,13 +47,16 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         /// </summary>
         public void Add(DateTime date, int characterId, bool isNsfw, int count = 1)
         {
-            if(!days.ContainsKey(date))
+            if (!days.ContainsKey(date))
             {
                 days.Add(date, new CharacterPostCountDay(date));
             }
-            days[date].Add(characterId, isNsfw , count);
+            days[date].Add(characterId, isNsfw, count);
         }
 
+        /// <summary>
+        /// 向某一天添加某一角色的计数，或者替换原有的计数
+        /// </summary>
         public void AddOrReplace(DateTime date, CharacterPostCountDayItem characterPostCountDayItem)
         {
             if (!days.ContainsKey(date))
@@ -53,9 +69,9 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         /// <summary>
         /// 转化为总计模式
         /// </summary>
-        public CharacterPostCountManager ToTotalMode() 
+        public CharacterPostCountManager ToTotalMode()
         {
-            if(type == CountManagerType.Total)
+            if (type == CountManagerType.Total)
             {
                 Debug.Log("此统计结果已是总计模式");
                 return this;
@@ -73,7 +89,7 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
             {
                 foreach (var characterCount in characterPostCountDay.characterTotalPairs)
                 {
-                    if(!currentCount.ContainsKey(characterCount.Key))
+                    if (!currentCount.ContainsKey(characterCount.Key))
                     {
                         currentCount[characterCount.Key] = new CharacterPostCountDayItem(characterCount.Key);
                     }
@@ -89,6 +105,9 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
             return characterPostCountManager;
         }
 
+        /// <summary>
+        /// 将之前出现但是没有计数的角色填充为0，如果beforeAppear为true，则填充定义的所有角色
+        /// </summary>
         public void FillEmpty(bool beforeAppear = false)
         {
             HashSet<int> appearedCharacterId = new HashSet<int>();
@@ -110,6 +129,55 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
                     .Select(kvp => kvp.Value.characterId)
                     .ToArray());
             }
+        }
+
+        /// <summary>
+        /// 计算前deltaCalculationRange天的增量
+        /// </summary>
+        /// <param name="deltaCalculationRange"></param>
+        public void CalcDelta(int deltaCalculationRange = 7)
+        {
+            List<CharacterPostCountDay> characterPostCountDays = days
+                .OrderBy(d => d.Key)
+                .Select(d => d.Value)
+                .ToList();
+
+            for (int i = 0; i < characterPostCountDays.Count; i++)
+            {
+                CharacterPostCountDay currentDay = characterPostCountDays[i];
+                foreach (var characterTotalPair in currentDay.characterTotalPairs)
+                {
+                    characterTotalPair.Value.deltaCalculationRange = deltaCalculationRange;
+                    characterTotalPair.Value.deltaCalculated = true;
+
+                    if (type == CountManagerType.Delta) // 增量模式，将每天的增量设置为前deltaCalculationRange天的总计
+                    {
+                        for (int j = 0; j <= deltaCalculationRange; j++)
+                        {
+                            if (i - j < 0) break; // 超出范围
+                            CharacterPostCountDay prevDay = characterPostCountDays[i - j];
+                            if (!prevDay.characterTotalPairs.ContainsKey(characterTotalPair.Key)) break; // 前j天没有这个角色
+                            characterTotalPair.Value.delta += prevDay.characterTotalPairs[characterTotalPair.Key].total;
+                        }
+                    }
+                    else // 总计模式，将每天的增量设置为前deltaCalculationRange天的增量
+                    {
+                        int prevDayIndex = Math.Max(i - deltaCalculationRange, 0);
+                        for (int j = prevDayIndex; j <= i; j++) // 寻找第一个有此角色统计结果的天
+                        {
+                            CharacterPostCountDay prevDay = characterPostCountDays[j];
+                            if (prevDay.characterTotalPairs.ContainsKey(characterTotalPair.Key))
+                            {
+                                characterTotalPair.Value.delta = characterTotalPair.Value.total - prevDay.characterTotalPairs[characterTotalPair.Key].total;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            deltaCalculated = true;
+            this.deltaCalculationRange = deltaCalculationRange;
         }
     }
 }

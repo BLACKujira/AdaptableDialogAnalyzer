@@ -44,6 +44,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
             CharacterPostCountManager characterPostCountManager = characterPostCounter.Count(mergedResponse);
             countManager = characterPostCountManager.ToTotalMode();
+            countManager.CalcDelta();
             datetimeIndexes = countManager.GetDateTimeIndexes();
 
             timeline.Initialize(this);

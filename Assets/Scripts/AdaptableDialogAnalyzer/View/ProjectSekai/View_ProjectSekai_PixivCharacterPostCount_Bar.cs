@@ -9,10 +9,12 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
     public class View_ProjectSekai_PixivCharacterPostCount_Bar : AutoSortBarChart_Bar
     {
         [Header("Components")]
-        public RectTransform nsfwBarTransform;
         public Image imgIcon;
         public ManualGrowWidthLabel lblTotal;
         public IndividualColorElement individualColorElement;
+        [Header("Optional Components")]
+        public RectTransform nsfwBarTransform;
+        public ManualGrowWidthLabel lblDelta;
         [Header("Settings")]
         public SpriteList iconList;
         public float nsfwBarMultiple = 3;
@@ -22,18 +24,27 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             base.SetData(data, valueMax);
             if (data is CharacterPostCountDayItem characterPostCountDayItem)
             {
-                Vector2 sizeDelta = barTransform.sizeDelta;
-                if (direction == Direction2.Horizontal)
+                // 设置NSFW条长度
+                if (nsfwBarTransform)
                 {
-                    float x = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.x * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
-                    x *= nsfwBarMultiple;
-                    nsfwBarTransform.sizeDelta = new Vector2(x, nsfwBarTransform.sizeDelta.y);
+                    Vector2 sizeDelta = barTransform.sizeDelta;
+                    if (direction == Direction2.Horizontal)
+                    {
+                        float x = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.x * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
+                        x *= nsfwBarMultiple;
+                        nsfwBarTransform.sizeDelta = new Vector2(x, nsfwBarTransform.sizeDelta.y);
+                    }
+                    else
+                    {
+                        float y = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.y * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
+                        y *= nsfwBarMultiple;
+                        nsfwBarTransform.sizeDelta = new Vector2(nsfwBarTransform.sizeDelta.x, y);
+                    }
                 }
-                else
+
+                if(lblDelta)
                 {
-                    float y = characterPostCountDayItem.total == 0 ? 0 : sizeDelta.y * characterPostCountDayItem.nsfwCount / characterPostCountDayItem.total;
-                    y *= nsfwBarMultiple;
-                    nsfwBarTransform.sizeDelta = new Vector2(nsfwBarTransform.sizeDelta.x, y);
+                    lblDelta.Text = $"+{characterPostCountDayItem.delta:0}";
                 }
 
                 imgIcon.sprite = iconList[characterPostCountDayItem.characterId];
