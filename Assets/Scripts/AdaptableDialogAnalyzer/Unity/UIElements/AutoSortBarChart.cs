@@ -95,7 +95,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         /// <summary>
         /// 获取第dataFrame个数据帧的数据
         /// </summary>
-        protected abstract List<IAutoSortBarChartData> GetData(int dataFrame);
+        protected abstract List<IAutoSortBarChartData> GetDataFrame(int dataFrame);
 
         /// <summary>
         /// 获取数据帧总数，当达到最后一个数据帧时，会停止播放。
@@ -136,6 +136,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
             AutoSortBarChart_Bar bar = Instantiate(barPrefab, barContainerTransform);
             InitializeBar(bar, data);
             bar.barTransform.anchoredPosition = GetTargetPosition(rank);
+            bar.canvasGroup.alpha = 0;
             bar.FadeIn();
 
             BarManager barManager = new BarManager(this, bar, data.Id);
@@ -158,8 +159,8 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         List<IAutoSortBarChartData> GetLerpedDataFrame(float currentDataFrame)
         {
             List<IAutoSortBarChartData> lerpedDataFrame = new List<IAutoSortBarChartData>();
-            List<IAutoSortBarChartData> dataFrame1 = GetData((int)currentDataFrame);
-            List<IAutoSortBarChartData> dataFrame2 = GetData((int)currentDataFrame + 1);
+            List<IAutoSortBarChartData> dataFrame1 = GetDataFrame((int)currentDataFrame);
+            List<IAutoSortBarChartData> dataFrame2 = GetDataFrame((int)currentDataFrame + 1);
 
             float t = currentDataFrame - (int)currentDataFrame;
             foreach (var data1 in dataFrame1)
@@ -176,8 +177,6 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
                 }
             }
 
-            lerpedDataFrame = GetSortedDataFrame(lerpedDataFrame);
-
             return lerpedDataFrame;
         }
 
@@ -189,8 +188,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         IEnumerator CoPlay()
         {
             float currentDataFrame = 0;
-            int totalDataFrames = GetTotalDataFrames();
-            while (currentDataFrame < totalDataFrames - 1)
+            while (true)
             {
                 PlayFrame(currentDataFrame);
                 currentDataFrame += Time.deltaTime * dataFramePerSec;
@@ -200,9 +198,18 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
 
         protected virtual void PlayFrame(float currentDataFrame)
         {
-            currentDataFrame += Time.deltaTime * dataFramePerSec;
+            List<IAutoSortBarChartData> lerpedDataFrame;
+            int totalDataFrames = GetTotalDataFrames();
+            if (currentDataFrame >= totalDataFrames - 1)
+            {
+                lerpedDataFrame = GetDataFrame(totalDataFrames - 1);
+            }
+            else
+            {
+                lerpedDataFrame = GetLerpedDataFrame(currentDataFrame);
+            }
 
-            List<IAutoSortBarChartData> lerpedDataFrame = GetLerpedDataFrame(currentDataFrame);
+            lerpedDataFrame = GetSortedDataFrame(lerpedDataFrame);
             float valueMax = lerpedDataFrame.Max(df => df.Value);
 
             // 淡出
@@ -225,7 +232,6 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
                 IAutoSortBarChartData data = lerpedDataFrame[i];
                 if (!activeBars.Any(ab => !ab.IsRecycling && ab.Id == data.Id))
                 {
-                    Debug.Log(data.Id);
                     AddBar(data);
                 }
             }

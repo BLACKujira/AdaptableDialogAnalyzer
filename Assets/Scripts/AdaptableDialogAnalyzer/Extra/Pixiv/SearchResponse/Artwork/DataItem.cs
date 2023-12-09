@@ -56,5 +56,8 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse.Artwork
         public int aiType;
         [ProtoMember(24)]
         public string profileImageUrl;
+
+        public DateTime CreateDate => DateTime.Parse(createDate);
+        public DateTime UpdateDate => DateTime.Parse(updateDate);
     }
 }

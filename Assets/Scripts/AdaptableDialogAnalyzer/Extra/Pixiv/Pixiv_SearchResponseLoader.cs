@@ -18,6 +18,7 @@ namespace AdaptableDialogAnalyzer.Unity
         public enum PathType
         {
             Folder_Tag_Type,
+            Folder_Type,
             File_MergedResponse
         }
 
@@ -155,7 +156,26 @@ namespace AdaptableDialogAnalyzer.Unity
                     LoadAndAdd(Directory.GetFiles(novelFolder), ResponseType.novels);
                 }
             }
-            Distinct();
+        }
+
+        void LoadFile_Type(string tagFolder)
+        {
+            string illustFolder = Path.Combine(tagFolder, "illust");
+            string mangaFolder = Path.Combine(tagFolder, "manga");
+            string novelFolder = Path.Combine(tagFolder, "novel");
+
+            if (loadArtwork && Directory.Exists(illustFolder))
+            {
+                LoadAndAdd(Directory.GetFiles(illustFolder), ResponseType.illustrations);
+            }
+            if (loadArtwork && Directory.Exists(mangaFolder))
+            {
+                LoadAndAdd(Directory.GetFiles(mangaFolder), ResponseType.manga);
+            }
+            if (loadNovel && Directory.Exists(novelFolder))
+            {
+                LoadAndAdd(Directory.GetFiles(novelFolder), ResponseType.novels);
+            }
         }
 
         /// <summary>
@@ -179,11 +199,15 @@ namespace AdaptableDialogAnalyzer.Unity
                 case PathType.Folder_Tag_Type:
                     LoadFile_TagType();
                     break;
-                 case PathType.File_MergedResponse:
+                case PathType.File_MergedResponse:
                     LoadFile_MergedResponse();
+                    break;
+                case PathType.Folder_Type:
+                    LoadFile_Type(path);
                     break;
             }
 
+            Distinct();
             ApplyFilters();
         }
 

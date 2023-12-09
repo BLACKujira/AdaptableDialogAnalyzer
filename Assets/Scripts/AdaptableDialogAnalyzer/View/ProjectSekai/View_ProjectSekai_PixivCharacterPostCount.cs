@@ -66,7 +66,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             return characterIds.ToArray();
         }
 
-        protected override List<IAutoSortBarChartData> GetData(int dataFrame)
+        protected override List<IAutoSortBarChartData> GetDataFrame(int dataFrame)
         {
             //TODO: Remove
             if(!datetimeIndexes.ContainsKey(dataFrame) || !countManager.days.ContainsKey(datetimeIndexes[dataFrame]))
