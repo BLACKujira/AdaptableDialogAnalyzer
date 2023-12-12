@@ -1,4 +1,5 @@
 ﻿using UnityEngine.UI;
+using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.ProjectSekai
 {

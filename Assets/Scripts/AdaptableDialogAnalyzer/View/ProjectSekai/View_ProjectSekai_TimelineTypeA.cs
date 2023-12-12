@@ -8,6 +8,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 {
     public class View_ProjectSekai_TimelineTypeA : MonoBehaviour
     {
+        public enum LabelType { Month, Event, Birthday, Anniversary }
+
         [Header("Components")]
         public RectTransform timeLineTransform;
         [Header("Prefabs")]
@@ -15,23 +17,27 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public View_ProjectSekai_TimelineTypeA_LabelEvent prefabLabelEvent;
         public View_ProjectSekai_TimelineTypeA_LabelBirthday prefabLabelBirthday;
         public View_ProjectSekai_TimelineTypeA_LabelAnniversary prefabLabelAnniversary;
+        [Header("Optional Components")]
+        public View_ProjectSekai_TimelineTypeA_Bottom bottom;
         [Header("Settings")]
         [Tooltip("第一张非重名作品/角色图片的发布时间")]
         public string startDateTimeString = "2020/10/1 00:00:00";
         public float dataFrameWidth = 3f;
+        [Header("Adapter")]
+        public ProjectSekai_MasterLoader masterLoader;
 
         DateTime startDateTime;
         DateTime endDateTime;
         Dictionary<DateTime, int> datetimeIndexes = new Dictionary<DateTime, int>();
         List<View_ProjectSekai_TimelineTypeA_Label> labels = new List<View_ProjectSekai_TimelineTypeA_Label>();
-        View_ProjectSekai_PixivCharacterPostCount pixivCharacterPostCount;
 
-        public void Initialize(View_ProjectSekai_PixivCharacterPostCount pixivCharacterPostCount)
+        public event Action<View_ProjectSekai_TimelineTypeA_Label> OnGenerate;
+
+        public void Initialize(DateTime[] days)
         {
-            this.pixivCharacterPostCount = pixivCharacterPostCount;
+            bottom.Initialize();
 
-            datetimeIndexes = pixivCharacterPostCount.CountManager.days
-                .Select(d => d.Key)
+            datetimeIndexes = days
                 .OrderBy(d => d)
                 .Select((d, i) => new { d, i })
                 .ToDictionary(pair => pair.d, pair => pair.i);
@@ -81,6 +87,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                     labelMonth.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[dateTime] * dataFrameWidth, 0f);
                     labels.Add(labelMonth);
 
+                    OnGenerate?.Invoke(labelMonth);
+
                     lastYearMouth = dateTime;
                 }
             }
@@ -88,13 +96,17 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
         void InstantiateEventLabel()
         {
-            foreach (var masterEvent in pixivCharacterPostCount.masterLoader.MasterEvent)
+            foreach (var masterEvent in masterLoader.Events)
             {
+                if (masterEvent.StartTime > endDateTime) return;
+
                 DateTime selectedDate = GetNearestDate(masterEvent.StartTime);
 
                 View_ProjectSekai_TimelineTypeA_LabelEvent labelEvent = Instantiate(prefabLabelEvent, timeLineTransform);
                 labelEvent.SetData(masterEvent.id);
                 labelEvent.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[selectedDate] * dataFrameWidth, 0f);
+
+                OnGenerate?.Invoke(labelEvent);
 
                 labels.Add(labelEvent);
             }
@@ -115,6 +127,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                     View_ProjectSekai_TimelineTypeA_LabelBirthday labelBirthday = Instantiate(prefabLabelBirthday, timeLineTransform);
                     labelBirthday.SetData(i);
                     labelBirthday.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[selectedDate] * dataFrameWidth, 0f);
+
+                    OnGenerate.Invoke(labelBirthday);
 
                     labels.Add(labelBirthday);
                 }

@@ -9,16 +9,11 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
     {
         public string masterFolder;
 
-        MasterEvent[] masterEvent;
-        
-        public MasterEvent[] MasterEvent
-        {
-            get
-            {
-                masterEvent ??= LoadMaster<MasterEvent>("events");
-                return masterEvent;
-            }
-        }
+        MasterEvent[] events;
+        public MasterEvent[] Events => events ??= LoadMaster<MasterEvent>("events");
+
+        MasterEventStory[] eventStories;
+        public MasterEventStory[] EventStories => eventStories ??= LoadMaster<MasterEventStory>("eventStories");
 
         /// <summary>
         /// 读取指定名称的数据表

@@ -47,7 +47,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             countManager.CalcDelta();
             datetimeIndexes = countManager.GetDateTimeIndexes();
 
-            timeline.Initialize(this);
+            timeline.Initialize(countManager.days.Keys.ToArray());
             Play();
         }
 

@@ -11,8 +11,13 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         [Header("settings")]
         public SpriteList charIconList;
 
+        int characterID;
+        public int CharacterID => characterID;
+
         public void SetData(int characterID)
         {
+            this.characterID = characterID;
+
             icon.sprite = charIconList[characterID];
             Character character = GlobalConfig.CharacterDefinition[characterID];
             individualColorElement.SetIndividualColor(character.color);

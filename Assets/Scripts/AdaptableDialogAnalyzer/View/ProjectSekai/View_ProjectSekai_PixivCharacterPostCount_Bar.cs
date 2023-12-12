@@ -15,9 +15,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         [Header("Optional Components")]
         public RectTransform nsfwBarTransform;
         public ManualGrowWidthLabel lblDelta;
+        public Text txtName;
         [Header("Settings")]
         public SpriteList iconList;
         public float nsfwBarMultiple = 3;
+        public StringList nameList;
 
         public override void SetData(IAutoSortBarChartData data, float valueMax)
         {
@@ -45,6 +47,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 if(lblDelta)
                 {
                     lblDelta.Text = $"+{characterPostCountDayItem.delta:0}";
+                }
+
+                if(txtName)
+                {
+                    txtName.text = nameList[characterPostCountDayItem.characterId];
                 }
 
                 imgIcon.sprite = iconList[characterPostCountDayItem.characterId];

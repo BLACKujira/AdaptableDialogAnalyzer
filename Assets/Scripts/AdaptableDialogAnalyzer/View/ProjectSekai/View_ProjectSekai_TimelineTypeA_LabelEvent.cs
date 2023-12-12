@@ -10,8 +10,19 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         [Header("settings")]
         public SpriteList eventIconList;
 
+        int eventID;
+        public int EventID => eventID;
+
         public void SetData(int eventID)
         {
+            this.eventID = eventID;
+
+            if(eventID >= eventIconList.sprites.Count)
+            {
+                Debug.Log($"活动 {eventID} 没有对应的图标");
+                return;
+            }
+
             icon.sprite = eventIconList[eventID];
         }
     }
