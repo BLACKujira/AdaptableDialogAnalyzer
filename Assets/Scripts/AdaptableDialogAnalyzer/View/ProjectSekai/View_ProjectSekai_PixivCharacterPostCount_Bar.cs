@@ -16,10 +16,13 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public RectTransform nsfwBarTransform;
         public ManualGrowWidthLabel lblDelta;
         public Text txtName;
+        public Image imgGlow;
         [Header("Settings")]
         public SpriteList iconList;
         public float nsfwBarMultiple = 3;
         public StringList nameList;
+
+        CharacterPostCountDayItem characterPostCountDayItem => (CharacterPostCountDayItem)CurrentData;
 
         public override void SetData(IAutoSortBarChartData data, float valueMax)
         {
@@ -44,14 +47,21 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                     }
                 }
 
-                if(lblDelta)
+                if (lblDelta)
                 {
                     lblDelta.Text = $"+{characterPostCountDayItem.delta:0}";
                 }
 
-                if(txtName)
+                if (txtName)
                 {
                     txtName.text = nameList[characterPostCountDayItem.characterId];
+                }
+
+                if (imgGlow)
+                {
+                    Color glowColor = imgGlow.color;
+                    glowColor.a = GetGlowAlpha();
+                    imgGlow.color = glowColor;
                 }
 
                 imgIcon.sprite = iconList[characterPostCountDayItem.characterId];
@@ -63,6 +73,37 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 Debug.LogError("数据类型错误");
                 return;
             }
+        }
+
+        float GetGlowAlpha()
+        {
+            if (characterPostCountDayItem == null)
+            {
+                return 0;
+            }
+
+            float deltaOfDelta = Mathf.Max(0, characterPostCountDayItem.deltaOfDelta);
+
+            // 以增加的百分比计算亮度
+            float increasePercent = deltaOfDelta / characterPostCountDayItem.Value;
+            float mulValue0 = 20f;
+            float mulValue1 = Mathf.Min((deltaOfDelta - 5) / 10f, 10) * 0.1f; // 如果增加的数量大于5，那么达到最大亮度
+            mulValue1 = Mathf.Max(0, mulValue1);
+            float mulValue2 = (CurrentValueMax / characterPostCountDayItem.Value + 1) * .8f; // 补偿低人气角色的亮度
+
+            float alphaPercent = increasePercent * mulValue0 * mulValue1 * mulValue2;
+
+            // 以增加的数量 计算亮度
+            float addValue = (deltaOfDelta - 20) * 0.01f;
+
+            float alphaDelta = addValue;
+
+            // 按一定比例混合
+            alphaPercent = Mathf.Clamp01(alphaPercent);
+            alphaDelta = Mathf.Clamp01(alphaDelta);
+            float alpha = Mathf.Clamp01(alphaPercent * .3f + alphaDelta * .7f);
+
+            return alpha;
         }
     }
 }

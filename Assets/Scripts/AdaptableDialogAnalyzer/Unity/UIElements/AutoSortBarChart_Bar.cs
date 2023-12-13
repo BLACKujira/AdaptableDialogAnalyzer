@@ -13,11 +13,20 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         public float maxLength = 600;
         public float fadeDuration = 0.5f;
 
+        IAutoSortBarChartData currentData;
+        protected IAutoSortBarChartData CurrentData => currentData;
+
+        float currentValueMax;
+        protected float CurrentValueMax => currentValueMax;
+
         /// <summary>
         /// 机械更新，没有插值。请在图表控制类中计算两数据帧的插值。
         /// </summary>
         public virtual void SetData(IAutoSortBarChartData data, float valueMax)
         {
+            currentData = data;
+            currentValueMax = valueMax;
+
             if (direction == Direction2.Horizontal)
             {
                 float x = valueMax == 0 ? 0 : maxLength * data.Value / valueMax;

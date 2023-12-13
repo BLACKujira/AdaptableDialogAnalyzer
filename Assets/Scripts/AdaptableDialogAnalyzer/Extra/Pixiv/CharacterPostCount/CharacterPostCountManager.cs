@@ -12,17 +12,28 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         public Dictionary<DateTime, CharacterPostCountDay> days = new Dictionary<DateTime, CharacterPostCountDay>();
 
         bool deltaCalculated = false;
+        bool deltaOfDeltaCalculated;
 
         /// <summary>
         /// 增量是否已经计算
         /// </summary>
         public bool DeltaCalculated => deltaCalculated;
+        /// <summary>
+        /// 增量的增量是否已经计算
+        /// </summary>
+        public bool DeltaOfDeltaCalculated => deltaOfDeltaCalculated;
 
         /// <summary>
         /// 增量计算范围
         /// </summary>
         int deltaCalculationRange = -1;
         public int DeltaCalculationRange => deltaCalculationRange;
+
+        /// <summary>
+        /// 增量的增量计算范围
+        /// </summary>
+        int deltaOfDeltaCalculationRange = -1;
+        public int DeltaOfDeltaCalculationRange => deltaOfDeltaCalculationRange;
 
         public Dictionary<int, DateTime> GetDateTimeIndexes()
         {
@@ -178,6 +189,47 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
 
             deltaCalculated = true;
             this.deltaCalculationRange = deltaCalculationRange;
+        }
+
+        /// <summary>
+        /// 计算前deltaOfDeltaCalculationRange增量的增量
+        /// </summary>
+        /// <param name="deltaCalculationRange"></param>
+        public void CalcDeltaOfDelta(int deltaOfDeltaCalculationRange = 7)
+        {
+            if(!deltaCalculated)
+            {
+                Debug.LogError("请先计算增量");
+                return;
+            }
+
+            List<CharacterPostCountDay> characterPostCountDays = days
+                .OrderBy(d => d.Key)
+                .Select(d => d.Value)
+                .ToList();
+
+            for (int i = 0; i < characterPostCountDays.Count; i++)
+            {
+                CharacterPostCountDay currentDay = characterPostCountDays[i];
+                foreach (var characterTotalPair in currentDay.characterTotalPairs)
+                {
+                    characterTotalPair.Value.deltaOfDeltaCalculationRange = deltaOfDeltaCalculationRange;
+                    characterTotalPair.Value.deltaOfDeltaCalculated = true;
+                    int prevDayIndex = Math.Max(i - deltaOfDeltaCalculationRange, 0);
+                    for (int j = prevDayIndex; j <= i; j++) // 寻找第一个有此角色统计结果的天
+                    {
+                        CharacterPostCountDay prevDay = characterPostCountDays[j];
+                        if (prevDay.characterTotalPairs.ContainsKey(characterTotalPair.Key))
+                        {
+                            characterTotalPair.Value.deltaOfDelta = characterTotalPair.Value.delta - prevDay.characterTotalPairs[characterTotalPair.Key].delta;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            deltaOfDeltaCalculated = true;
+            this.deltaOfDeltaCalculationRange = deltaOfDeltaCalculationRange;
         }
     }
 }

@@ -13,6 +13,10 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         public int deltaCalculationRange = -1;
         public float delta = 0;
 
+        public bool deltaOfDeltaCalculated;
+        public int deltaOfDeltaCalculationRange = -1;
+        public float deltaOfDelta = 0;
+
         public CharacterPostCountDayItem(int characterId)
         {
             this.characterId = characterId;
@@ -27,6 +31,7 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
             CharacterPostCountDayItem result = new CharacterPostCountDayItem(characterId);
             result.total = Mathf.Lerp(total, targetItem.total, t);
             result.nsfwCount = Mathf.Lerp(nsfwCount, targetItem.nsfwCount, t);
+
             if(deltaCalculated && targetItem.deltaCalculated)
             {
                 if(deltaCalculationRange != targetItem.deltaCalculationRange)
@@ -35,6 +40,16 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
                 }
                 result.delta = Mathf.Lerp(delta, targetItem.delta, t);
             }
+
+            if(deltaOfDeltaCalculated && targetItem.deltaOfDeltaCalculated)
+            {
+                if(deltaOfDeltaCalculationRange != targetItem.deltaOfDeltaCalculationRange)
+                {
+                    Debug.LogError("deltaOfDeltaCalculationRange不一致");
+                }
+                result.deltaOfDelta = Mathf.Lerp(deltaOfDelta, targetItem.deltaOfDelta, t);
+            }
+
             return result;
         }
 
