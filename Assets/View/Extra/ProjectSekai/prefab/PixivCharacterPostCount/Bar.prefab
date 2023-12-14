@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 1832058606993209612}
   - component: {fileID: 4376835857126299004}
   - component: {fileID: 8750653363835729281}
+  - component: {fileID: 6179222126484852134}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -258,7 +259,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloneMaterial: 1
-  startHDRColor: {r: 0.8540741, g: 1.4308515, b: 2.1185474, a: 1}
+  startHDRColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6179222126484852134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2190457547557745626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a737ecf3e0948a4fb6a5211ca52c66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 4376835857126299004}
+  hDRColorTexture: {fileID: 8750653363835729281}
 --- !u!1 &2248290399997619607
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,10 +753,11 @@ MonoBehaviour:
   nsfwBarTransform: {fileID: 0}
   lblDelta: {fileID: 1352491813728483461}
   txtName: {fileID: 5025938949477491418}
-  imgGlow: {fileID: 4376835857126299004}
+  lightGlow: {fileID: 6179222126484852134}
   iconList: {fileID: 11400000, guid: 259df91ef13079b44a26feef113c7835, type: 2}
   nsfwBarMultiple: 3
-  nameList: {fileID: 11400000, guid: e25fce439bdb0d64baa412b742d84219, type: 2}
+  nameList: {fileID: 11400000, guid: a16c0da1203ace94e85e8c7dcef278e9, type: 2}
+  glowLightList: {fileID: 11400000, guid: 3bd51cd0a4c6d1a41b9afb85bfd5b988, type: 2}
 --- !u!225 &1028588226928618231
 CanvasGroup:
   m_ObjectHideFlags: 0

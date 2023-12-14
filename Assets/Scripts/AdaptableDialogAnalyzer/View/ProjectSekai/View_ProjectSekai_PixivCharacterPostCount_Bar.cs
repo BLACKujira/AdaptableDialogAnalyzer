@@ -16,13 +16,32 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public RectTransform nsfwBarTransform;
         public ManualGrowWidthLabel lblDelta;
         public Text txtName;
-        public Image imgGlow;
+        public View_ProjectSekai_PixivCharacterPostCount_Bar_Light lightGlow;
         [Header("Settings")]
         public SpriteList iconList;
         public float nsfwBarMultiple = 3;
         public StringList nameList;
+        public IndexedHDRColorList glowLightList;
 
         CharacterPostCountDayItem characterPostCountDayItem => (CharacterPostCountDayItem)CurrentData;
+
+        public void Initialize(IAutoSortBarChartData data)
+        {
+            if (data is CharacterPostCountDayItem characterPostCountDayItem)
+            {
+                imgIcon.sprite = iconList[characterPostCountDayItem.characterId];
+                individualColorElement.SetIndividualColor(GlobalConfig.CharacterDefinition.Characters[characterPostCountDayItem.characterId].color);
+                if (lightGlow)
+                {
+                    lightGlow.hDRColorTexture.HDRColor = glowLightList[characterPostCountDayItem.characterId];
+                }
+            }
+            else
+            {
+                Debug.LogError("数据类型错误");
+                return;
+            }
+        }
 
         public override void SetData(IAutoSortBarChartData data, float valueMax)
         {
@@ -57,16 +76,14 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                     txtName.text = nameList[characterPostCountDayItem.characterId];
                 }
 
-                if (imgGlow)
+                if (lightGlow)
                 {
-                    Color glowColor = imgGlow.color;
+                    Color glowColor = lightGlow.image.color;
                     glowColor.a = GetGlowAlpha();
-                    imgGlow.color = glowColor;
+                    lightGlow.image.color = glowColor;
                 }
 
-                imgIcon.sprite = iconList[characterPostCountDayItem.characterId];
                 lblTotal.Text = ((int)characterPostCountDayItem.total).ToString();
-                individualColorElement.SetIndividualColor(GlobalConfig.CharacterDefinition.Characters[characterPostCountDayItem.characterId].color);
             }
             else
             {

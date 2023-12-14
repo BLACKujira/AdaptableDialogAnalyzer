@@ -89,5 +89,19 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             base.PlayFrame(currentDataFrame);
             timeline.SetPosition(currentDataFrame);
         }
+
+        protected override AutoSortBarChart_Bar AddBar(IAutoSortBarChartData data)
+        {
+            AutoSortBarChart_Bar bar = base.AddBar(data);
+            if(bar is View_ProjectSekai_PixivCharacterPostCount_Bar pixivCharacterPostCount_Bar)
+            {
+                pixivCharacterPostCount_Bar.Initialize(data);
+            }
+            else
+            {
+                Debug.LogError("错误的条类型");
+            }
+            return bar;
+        }
     }
 }

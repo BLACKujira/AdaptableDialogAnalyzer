@@ -130,7 +130,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         /// <summary>
         /// 向图表中添加一个条
         /// </summary>
-        protected virtual void AddBar(IAutoSortBarChartData data)
+        protected virtual AutoSortBarChart_Bar AddBar(IAutoSortBarChartData data)
         {
             int rank = activeBars.Count;
             AutoSortBarChart_Bar bar = Instantiate(barPrefab, barContainerTransform);
@@ -141,6 +141,7 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
 
             BarManager barManager = new BarManager(this, bar, data.Id);
             activeBars.Add(barManager);
+            return bar;
         }
 
         /// <summary>
