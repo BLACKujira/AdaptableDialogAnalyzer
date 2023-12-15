@@ -21,25 +21,22 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         CharacterPostCountManager countManager;
         public CharacterPostCountManager CountManager => countManager;
 
-       Dictionary<string, int> tagCharacterIdPair;
-       Dictionary<int, DateTime> datetimeIndexes;
+        Dictionary<int, DateTime> datetimeIndexes;
 
         private void Awake()
         {
-            tagCharacterIdPair = GlobalConfig.CharacterDefinition.Characters
-                .Where(c => c.id >= 1 && c.id <= 20)
-                .ToDictionary(c => c.name.Replace(" ", string.Empty), c => c.id);
+            CharacterGetterByPixivTag characterGetterByPixivTag = new CharacterGetterByPixivTag();
 
             Extra.Pixiv.SearchResponse.MergedResponse mergedResponse = searchResponseLoader.MergedResponse;
             CharacterPostCounter characterPostCounter = new CharacterPostCounter();
 
             characterPostCounter.getArtworkCharacters = (artwork) =>
             {
-                return GetCharacterByTag(artwork.tags);
+                return characterGetterByPixivTag.GetCharacterByTag(artwork.tags);
             };
             characterPostCounter.getNovelCharacters = (novel) =>
             {
-                return GetCharacterByTag(novel.tags);
+                return characterGetterByPixivTag.GetCharacterByTag(novel.tags);
             };
 
             CharacterPostCountManager characterPostCountManager = characterPostCounter.Count(mergedResponse);
@@ -50,22 +47,6 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
             timeline.Initialize(countManager.days.Keys.ToArray());
             Play();
-        }
-
-        /// <summary>
-        /// 统计函数用，根据标签获取角色ID
-        /// </summary>
-        int[] GetCharacterByTag(List<string> tags)
-        {
-            List<int> characterIds = new List<int>();
-            foreach (var tag in tags)
-            {
-                if (tagCharacterIdPair.ContainsKey(tag))
-                {
-                    characterIds.Add(tagCharacterIdPair[tag]);
-                }
-            }
-            return characterIds.ToArray();
         }
 
         protected override List<IAutoSortBarChartData> GetDataFrame(int dataFrame)

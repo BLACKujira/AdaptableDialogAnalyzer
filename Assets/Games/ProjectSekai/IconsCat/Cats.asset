@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce36d38839ef9c409549dde3a779696, type: 3}
+  m_Name: Cats
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: aec7f85bd77043049a4aa842296411a9, type: 3}
+  - {fileID: 21300000, guid: 94087032d4e8bc24bbc356b88a9b7bd0, type: 3}
+  - {fileID: 21300000, guid: 2e0472216824bc043b8aca7f9d129f96, type: 3}
+  - {fileID: 21300000, guid: 1fa67f9409a87964b8cd2ce41a1cd31e, type: 3}
+  - {fileID: 21300000, guid: 7792c349491f2ac4fbffe80dd28f37ca, type: 3}
+  - {fileID: 21300000, guid: dc7a37120462d5f40950463261c0f3ac, type: 3}
+  - {fileID: 21300000, guid: b7aa886fab6f81d40bafa50d8ef6f4c7, type: 3}
+  - {fileID: 21300000, guid: 243dab998beb3fe4d90e8f99944cd5f6, type: 3}
+  - {fileID: 21300000, guid: 4dd5ab91e663a8548b67f4c98ea3e4ef, type: 3}
+  - {fileID: 21300000, guid: f902b384efc4aec409ab41037b87674b, type: 3}
+  - {fileID: 21300000, guid: c5cbd2283a692f741985a1e32643edf5, type: 3}
+  - {fileID: 21300000, guid: 73226f9666e6d384a8cd39d60ccf930b, type: 3}
+  - {fileID: 21300000, guid: 0a8c2031eb110ba4a97ff14373772ce2, type: 3}
+  - {fileID: 21300000, guid: bedc878dab50a284e8f463c1f0979f47, type: 3}
+  - {fileID: 21300000, guid: d88cf31708356964587be6191e1cf417, type: 3}
+  - {fileID: 21300000, guid: e88af4b137679d74c82599eafa503c89, type: 3}
+  - {fileID: 21300000, guid: 8d1a08910f0ace64b9004566f50346f7, type: 3}
+  - {fileID: 21300000, guid: a2bec041c9656da449fa050b233b42cc, type: 3}
+  - {fileID: 21300000, guid: 968cd0114ff224040a4a30344dfd9001, type: 3}
+  - {fileID: 21300000, guid: 4eefac9b6000b7a4a981cf3ff7d1e182, type: 3}
