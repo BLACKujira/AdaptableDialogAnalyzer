@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 3751769993059114373}
   - component: {fileID: 3751769993059114372}
   - component: {fileID: 3751769993059114371}
-  - component: {fileID: 6100229651855369036}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -207,26 +206,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &6100229651855369036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751769993059114369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb59d1b8973c31844bb1c18fa693f4aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorGraphics:
-  - {fileID: 3751769993178463638}
-  - {fileID: 3751769992662600224}
-  textColorGraphics:
-  - {fileID: 3751769993059114374}
-  colorWhite: {r: 1, g: 1, b: 1, a: 1}
-  colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
-  fadeTime: 0.25
 --- !u!1 &3751769993061377614
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +295,7 @@ GameObject:
   - component: {fileID: 3751769993178463638}
   - component: {fileID: 5435868365584181565}
   - component: {fileID: 3902736095682246590}
+  - component: {fileID: 8240228895648740702}
   m_Layer: 0
   m_Name: RankItem
   m_TagString: Untagged
@@ -412,11 +392,32 @@ MonoBehaviour:
   txtRank: {fileID: 3751769992662600224}
   txtData: {fileID: 3751769993059114374}
   imgIcon: {fileID: 3751769993217154679}
-  individualColorElement: {fileID: 0}
+  individualColorElement: {fileID: 8240228895648740702}
   overrideIcon: 0
   iconSpriteList: {fileID: 11400000, guid: 8cb72ddb625b0804daa3283653b16170, type: 2}
   fontSize_digit1: 26
   fontSize_digit2: 20
+--- !u!114 &8240228895648740702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751769993178463636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb59d1b8973c31844bb1c18fa693f4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorGraphics:
+  - {fileID: 3751769993178463638}
+  - {fileID: 3751769992662600224}
+  textColorGraphics:
+  - {fileID: 3751769993059114374}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
+  colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
+  fadeTime: 0.25
+  colorShadow: 1
 --- !u!1 &3751769993217154677
 GameObject:
   m_ObjectHideFlags: 0

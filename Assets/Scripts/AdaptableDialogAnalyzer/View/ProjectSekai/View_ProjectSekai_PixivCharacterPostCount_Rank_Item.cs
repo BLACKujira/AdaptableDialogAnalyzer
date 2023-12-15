@@ -1,4 +1,5 @@
-﻿using AdaptableDialogAnalyzer.Unity;
+﻿using AdaptableDialogAnalyzer.Games.ProjectSekai;
+using AdaptableDialogAnalyzer.Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,11 +23,23 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
         public void SetData(int characterId, int rank, string data)
         {
-
             Character character = GlobalConfig.CharacterDefinition[characterId];
             txtData.text = data;
-            individualColorElement.SetIndividualColor(character.color);
             imgIcon.sprite = iconSpriteList[characterId];
+
+            if(ProjectSekaiHelper.forceDarkThemeCharacterId.Contains(characterId))
+            {
+                individualColorElement.theme = UIElementTheme.Dark;
+            }
+            else if(ProjectSekaiHelper.forceLightThemeCharacterId.Contains(characterId))
+            {
+                individualColorElement.theme = UIElementTheme.Light;
+            }
+            else
+            {
+                individualColorElement.theme = UIElementTheme.Auto;
+            }
+            individualColorElement.SetIndividualColor(character.color);
 
             if (txtName)
             {

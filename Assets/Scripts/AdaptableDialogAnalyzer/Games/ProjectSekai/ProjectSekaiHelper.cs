@@ -177,5 +177,8 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
             TimeZoneInfo timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
             return TimeZoneInfo.ConvertTime(dateTimeOffset, timeZoneInfo).DateTime;
         }
+
+        public static HashSet<int> forceDarkThemeCharacterId = new HashSet<int>() { 20 };
+        public static HashSet<int> forceLightThemeCharacterId = new HashSet<int>() { 2 };
     }
 }
