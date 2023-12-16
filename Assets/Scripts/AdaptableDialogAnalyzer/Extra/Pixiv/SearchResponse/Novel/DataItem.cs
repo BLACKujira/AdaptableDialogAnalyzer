@@ -64,5 +64,8 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse.Novel
         public int aiType;
         [ProtoMember(28)]
         public string genre;
+
+        public DateTime CreateDate => DateTime.Parse(createDate);
+        public DateTime UpdateDate => DateTime.Parse(updateDate);
     }
 }

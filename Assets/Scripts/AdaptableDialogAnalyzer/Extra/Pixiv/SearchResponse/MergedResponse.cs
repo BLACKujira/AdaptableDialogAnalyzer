@@ -20,5 +20,17 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse
             artworks.RemoveAll(d => d.aiType == 2);
             novels.RemoveAll(d => d.aiType == 2);
         }
+
+        public void RemoveBefore(DateTime dateTime)
+        {
+            artworks.RemoveAll(d => d.CreateDate < dateTime);
+            novels.RemoveAll(d => d.CreateDate < dateTime);
+        }
+
+        public void RemoveAfter(DateTime dateTime)
+        {
+            artworks.RemoveAll(d => d.CreateDate > dateTime);
+            novels.RemoveAll(d => d.CreateDate > dateTime);
+        }
     }
 }

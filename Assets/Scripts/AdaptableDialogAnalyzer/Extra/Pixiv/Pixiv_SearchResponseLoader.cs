@@ -2,6 +2,7 @@ using AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse;
 using DG.Tweening;
 using ProtoBuf;
 using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -228,6 +229,8 @@ namespace AdaptableDialogAnalyzer.Unity
         public void ApplyFilters()
         {
             if (removeUseAI) mergedResponse.RemoveUseAI();
+            if(!string.IsNullOrEmpty(removePostBefore)) mergedResponse.RemoveBefore(DateTime.Parse(removePostBefore));
+            if (!string.IsNullOrEmpty(removePostAfter)) mergedResponse.RemoveAfter(DateTime.Parse(removePostAfter));
         }
     }
 }
