@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount;
 using AdaptableDialogAnalyzer.Unity;
 using AdaptableDialogAnalyzer.Unity.UIElements;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public Image imgIcon;
         public ManualGrowWidthLabel lblTotal;
         public IndividualColorElement individualColorElement;
+        public CanvasGroup cgIncrease;
         [Header("Optional Components")]
         public RectTransform nsfwBarTransform;
         public ManualGrowWidthLabel lblDelta;
@@ -22,10 +24,13 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public float nsfwBarMultiple = 3;
         public StringList nameList;
         public IndexedHDRColorList glowLightList;
+        public float increaseFadeDuration = 1;
+        public float lightFadeDuration = 1;
 
         CharacterPostCountDayItem characterPostCountDayItem => (CharacterPostCountDayItem)CurrentData;
+        float glowLimitation = 1;
 
-        public void Initialize(IAutoSortBarChartData data)
+        public void Initialize(IAutoSortBarChartData data, bool glowOn = false)
         {
             if (data is CharacterPostCountDayItem characterPostCountDayItem)
             {
@@ -35,6 +40,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 {
                     lightGlow.hDRColorTexture.HDRColor = glowLightList[characterPostCountDayItem.characterId];
                 }
+                glowLimitation = glowOn ? 1 : 0;
             }
             else
             {
@@ -79,7 +85,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 if (lightGlow)
                 {
                     Color glowColor = lightGlow.image.color;
-                    glowColor.a = GetGlowAlpha();
+                    glowColor.a = GetGlowAlpha() * glowLimitation;
                     lightGlow.image.color = glowColor;
                 }
 
@@ -121,6 +127,28 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             float alpha = Mathf.Clamp01(alphaPercent * .3f + alphaDelta * .7f);
 
             return alpha;
+        }
+
+        public void FadeIncrease(float alpha)
+        {
+            cgIncrease.DOFade(alpha, increaseFadeDuration);
+        }
+
+        public void ToggleIncrease(float alpha)
+        {
+            cgIncrease.alpha = alpha;
+        }
+
+        public void ToggleGlow(bool on)
+        {
+            if (on)
+            {
+                DOTween.To(() => glowLimitation, value => glowLimitation = value, 1f, lightFadeDuration);
+            }
+            else
+            {
+                DOTween.To(() => glowLimitation, value => glowLimitation = value, 0f, lightFadeDuration);
+            }
         }
     }
 }

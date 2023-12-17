@@ -14,6 +14,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         [Header("Components")]
         public View_ProjectSekai_TimelineTypeA timeline;
         public View_ProjectSekai_TimelineTypeA_Effects effects;
+        [Header("Time")]
+        public float preReleaseDFPS = 10;
+        public float year0Duration = 100;
+        public float year1Duration = 100;
+        public float year2Duration = 100;
         [Header("Adapter")]
         public ProjectSekai_MasterLoader masterLoader;
         public Pixiv_SearchResponseLoader searchResponseLoader;
@@ -24,6 +29,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         Dictionary<int, DateTime> datetimeIndexes;
         Dictionary<DateTime, Action> datetimeActions = new Dictionary<DateTime, Action>();
         DateTime lastDateTime;
+
+        int releaseDataFrame;
+        float year0DFPS = 3;
+        float year1DFPS = 3;
+        float year2DFPS = 3;
 
         private void Awake()
         {
@@ -49,6 +59,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
             timeline.Initialize(countManager.days.Keys.ToArray());
             InitDatetimeActions();
+            CalcDataFramePerSec();
+            dataFramePerSec = preReleaseDFPS;
             Play();
         }
 
@@ -85,6 +97,12 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 }
             }
             lastDateTime = dateTime;
+
+            // 在正式开服前，插值每秒数据帧数
+            if (currentDataFrame < releaseDataFrame)
+            {
+                dataFramePerSec = Mathf.Lerp(preReleaseDFPS, year0DFPS, currentDataFrame / (float)releaseDataFrame);
+            }
         }
 
         protected override AutoSortBarChart_Bar AddBar(IAutoSortBarChartData data)
@@ -101,11 +119,65 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             return bar;
         }
 
+        void CalcDataFramePerSec()
+        {
+            int[] yearDataFrameCount = new int[4];
+
+            yearDataFrameCount[1] = countManager.days
+                .Where(kvp => kvp.Key >= ProjectSekaiHelper.anniversary0 && kvp.Key < ProjectSekaiHelper.anniversary1)
+                .Count();
+            yearDataFrameCount[2] = countManager.days
+                .Where(kvp => kvp.Key >= ProjectSekaiHelper.anniversary1 && kvp.Key < ProjectSekaiHelper.anniversary2)
+                .Count();
+            yearDataFrameCount[3] = countManager.days
+                .Where(kvp => kvp.Key >= ProjectSekaiHelper.anniversary2 && kvp.Key < ProjectSekaiHelper.anniversary3)
+                .Count();
+
+            year0DFPS = (float)yearDataFrameCount[1] / year0Duration;
+            year1DFPS = (float)yearDataFrameCount[2] / year1Duration;
+            year2DFPS = (float)yearDataFrameCount[3] / year2Duration;
+
+            releaseDataFrame = countManager.days
+                .OrderBy(kvp => kvp.Key)
+                .Select((kvp, id) => (kvp, id))
+                .First(t => t.kvp.Key >= ProjectSekaiHelper.anniversary0).id;
+        }
+
         void InitDatetimeActions()
         {
-            datetimeActions[ProjectSekaiHelper.anniversary1] = () => effects.PlayAnniversaryEffect(1);
-            datetimeActions[ProjectSekaiHelper.anniversary2] = () => effects.PlayAnniversaryEffect(2);
-            datetimeActions[ProjectSekaiHelper.anniversary3] = () => effects.PlayAnniversaryEffect(3);
+            datetimeActions[ProjectSekaiHelper.anniversary0] = () =>
+            {
+                dataFramePerSec = year0DFPS;
+                foreach (var barManager in activeBars)
+                {
+                    View_ProjectSekai_PixivCharacterPostCount_Bar bar = (View_ProjectSekai_PixivCharacterPostCount_Bar)barManager.bar;
+                    bar.FadeIncrease(1);
+                    bar.ToggleGlow(true);
+                }
+            };
+            datetimeActions[ProjectSekaiHelper.anniversary1] = () =>
+            {
+                effects.PlayAnniversaryEffect(1);
+                dataFramePerSec = year1DFPS;
+            };
+            datetimeActions[ProjectSekaiHelper.anniversary2] = () =>
+            {
+                effects.PlayAnniversaryEffect(2);
+                dataFramePerSec = year2DFPS;
+            };
+            datetimeActions[ProjectSekaiHelper.anniversary3] = () =>
+            {
+                effects.PlayAnniversaryEffect(3);
+            };
+            datetimeActions[countManager.days.Max(kvp => kvp.Key)] = () =>
+            {
+                foreach (var barManager in activeBars)
+                {
+                    View_ProjectSekai_PixivCharacterPostCount_Bar bar = (View_ProjectSekai_PixivCharacterPostCount_Bar)barManager.bar;
+                    bar.FadeIncrease(0);
+                    bar.ToggleGlow(false);
+                }
+            };
         }
     }
 }

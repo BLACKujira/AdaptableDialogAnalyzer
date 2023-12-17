@@ -750,6 +750,7 @@ MonoBehaviour:
   imgIcon: {fileID: 8104401202459537749}
   lblTotal: {fileID: 4440568637079939486}
   individualColorElement: {fileID: 7360900968666124155}
+  cgIncrease: {fileID: 6594053065589890713}
   nsfwBarTransform: {fileID: 0}
   lblDelta: {fileID: 1352491813728483461}
   txtName: {fileID: 5025938949477491418}
@@ -758,6 +759,9 @@ MonoBehaviour:
   nsfwBarMultiple: 3
   nameList: {fileID: 11400000, guid: a16c0da1203ace94e85e8c7dcef278e9, type: 2}
   glowLightList: {fileID: 11400000, guid: 3bd51cd0a4c6d1a41b9afb85bfd5b988, type: 2}
+  increaseFadeDuration: 1
+  lightFadeDuration: 1
+  lightOn: 0
 --- !u!225 &1028588226928618231
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -790,6 +794,8 @@ MonoBehaviour:
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   fadeTime: 0.25
+  colorShadow: 0
+  theme: 1
 --- !u!114 &5853454252993677835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +913,7 @@ GameObject:
   - component: {fileID: 1352491813728483461}
   - component: {fileID: 2640180687965106915}
   - component: {fileID: 6887844951335649090}
+  - component: {fileID: 6594053065589890713}
   m_Layer: 0
   m_Name: Delta
   m_TagString: Untagged
@@ -989,6 +996,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.7
+--- !u!225 &6594053065589890713
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382407887592237176}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9043949286995020382
 GameObject:
   m_ObjectHideFlags: 0

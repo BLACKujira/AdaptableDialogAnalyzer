@@ -2198,7 +2198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &298612909
 Transform:
   m_ObjectHideFlags: 0
@@ -16957,7 +16957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1628590774641113929
 Transform:
   m_ObjectHideFlags: 0
@@ -17030,6 +17030,10 @@ MonoBehaviour:
     type: 3}
   timeline: {fileID: 152732505}
   effects: {fileID: 1628590774641113933}
+  preReleaseDFPS: 20
+  year0Duration: 100
+  year1Duration: 100
+  year2Duration: 100
   masterLoader: {fileID: 1628590774641113931}
   searchResponseLoader: {fileID: 1628590774641113930}
 --- !u!114 &1628590774641113933
