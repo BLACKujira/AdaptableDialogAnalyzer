@@ -13,7 +13,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
     {
         [Header("Components")]
         public View_ProjectSekai_TimelineTypeA timeline;
-
+        public View_ProjectSekai_TimelineTypeA_Effects effects;
         [Header("Adapter")]
         public ProjectSekai_MasterLoader masterLoader;
         public Pixiv_SearchResponseLoader searchResponseLoader;
@@ -22,6 +22,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public CharacterPostCountManager CountManager => countManager;
 
         Dictionary<int, DateTime> datetimeIndexes;
+        Dictionary<DateTime, Action> datetimeActions = new Dictionary<DateTime, Action>();
+        DateTime lastDateTime;
 
         private void Awake()
         {
@@ -46,13 +48,14 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             datetimeIndexes = countManager.GetDateTimeIndexes();
 
             timeline.Initialize(countManager.days.Keys.ToArray());
+            InitDatetimeActions();
             Play();
         }
 
         protected override List<IAutoSortBarChartData> GetDataFrame(int dataFrame)
         {
             //TODO: Remove
-            if(!datetimeIndexes.ContainsKey(dataFrame) || !countManager.days.ContainsKey(datetimeIndexes[dataFrame]))
+            if (!datetimeIndexes.ContainsKey(dataFrame) || !countManager.days.ContainsKey(datetimeIndexes[dataFrame]))
             {
                 Debug.Log(dataFrame);
                 Debug.Log(datetimeIndexes[dataFrame]);
@@ -69,12 +72,25 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         {
             base.PlayFrame(currentDataFrame);
             timeline.SetPosition(currentDataFrame);
+
+            // 触发日期事件
+            if (currentDataFrame >= GetTotalDataFrames()) return;
+            int currentDataFrameInt = (int)currentDataFrame;
+            DateTime dateTime = datetimeIndexes[currentDataFrameInt];
+            foreach (var keyValuePair in datetimeActions)
+            {
+                if (keyValuePair.Key > lastDateTime && keyValuePair.Key <= dateTime)
+                {
+                    keyValuePair.Value();
+                }
+            }
+            lastDateTime = dateTime;
         }
 
         protected override AutoSortBarChart_Bar AddBar(IAutoSortBarChartData data)
         {
             AutoSortBarChart_Bar bar = base.AddBar(data);
-            if(bar is View_ProjectSekai_PixivCharacterPostCount_Bar pixivCharacterPostCount_Bar)
+            if (bar is View_ProjectSekai_PixivCharacterPostCount_Bar pixivCharacterPostCount_Bar)
             {
                 pixivCharacterPostCount_Bar.Initialize(data);
             }
@@ -83,6 +99,13 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 Debug.LogError("错误的条类型");
             }
             return bar;
+        }
+
+        void InitDatetimeActions()
+        {
+            datetimeActions[ProjectSekaiHelper.anniversary1] = () => effects.PlayAnniversaryEffect(1);
+            datetimeActions[ProjectSekaiHelper.anniversary2] = () => effects.PlayAnniversaryEffect(2);
+            datetimeActions[ProjectSekaiHelper.anniversary3] = () => effects.PlayAnniversaryEffect(3);
         }
     }
 }

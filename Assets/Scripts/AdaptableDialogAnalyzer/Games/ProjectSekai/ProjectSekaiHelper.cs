@@ -180,5 +180,9 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
 
         public static HashSet<int> forceDarkThemeCharacterId = new HashSet<int>() { 20 };
         public static HashSet<int> forceLightThemeCharacterId = new HashSet<int>() { 2 };
+        public static DateTime anniversary0 = new DateTime(2020, 9, 30);
+        public static DateTime anniversary1 = new DateTime(2021, 9, 30);
+        public static DateTime anniversary2 = new DateTime(2022, 9, 30);
+        public static DateTime anniversary3 = new DateTime(2023, 9, 30);
     }
 }

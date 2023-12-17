@@ -48,6 +48,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 .OrderByDescending(datetime => datetime)
                 .First();
 
+            InstantiateAnniversaryLabel();
             InstantiateEventLabel();
             InstantiateBirthdayLabel();
             InstantiateMonthLabel();
@@ -133,6 +134,19 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                     labels.Add(labelBirthday);
                 }
                 currentYear++;
+            }
+        }
+
+        void InstantiateAnniversaryLabel()
+        {
+            DateTime[] anniversaries = new DateTime[] { ProjectSekaiHelper.anniversary1, ProjectSekaiHelper.anniversary2, ProjectSekaiHelper.anniversary3 };
+            for (int i = 0; i < anniversaries.Length; i++)
+            {
+                if (anniversaries[i] < startDateTime || anniversaries[i] > endDateTime) continue;
+                DateTime selectedDate = GetNearestDate(anniversaries[i]);
+                View_ProjectSekai_TimelineTypeA_LabelAnniversary labelAnniversary = Instantiate(prefabLabelAnniversary, timeLineTransform);
+                labelAnniversary.SetData(i + 1);
+                labelAnniversary.RectTransform.anchoredPosition = new Vector2(datetimeIndexes[selectedDate] * dataFrameWidth, 0f);
             }
         }
 
