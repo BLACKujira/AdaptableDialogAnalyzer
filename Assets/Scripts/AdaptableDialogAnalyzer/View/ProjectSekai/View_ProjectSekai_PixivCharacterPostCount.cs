@@ -3,6 +3,7 @@ using AdaptableDialogAnalyzer.Games.ProjectSekai;
 using AdaptableDialogAnalyzer.Unity;
 using AdaptableDialogAnalyzer.Unity.UIElements;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,11 +15,14 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         [Header("Components")]
         public View_ProjectSekai_TimelineTypeA timeline;
         public View_ProjectSekai_TimelineTypeA_Effects effects;
+        public GraphicColorTransition transitionIn;
+        public GraphicColorTransition transitionOut;
         [Header("Time")]
         public float preReleaseDFPS = 10;
         public float year0Duration = 100;
         public float year1Duration = 100;
         public float year2Duration = 100;
+        public float transitionOutDelay = 10;
         [Header("Adapter")]
         public ProjectSekai_MasterLoader masterLoader;
         public Pixiv_SearchResponseLoader searchResponseLoader;
@@ -117,6 +121,36 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 Debug.LogError("错误的条类型");
             }
             return bar;
+        }
+
+        protected override void Play()
+        {
+            base.Play();
+            StartCoroutine(CoTransitionOut());
+        }
+
+        protected override IEnumerator CoPlay()
+        {
+            bool keepWaiting = true;
+            transitionIn.OnTransitionMiddle += () => keepWaiting = false;
+            transitionIn.StartTransition();
+
+            while (keepWaiting)
+            {
+                yield return 1;
+            }
+
+            yield return base.CoPlay();
+        }
+
+        IEnumerator CoTransitionOut()
+        {
+            while(CurrentDataFrame < GetTotalDataFrames())
+            {
+                yield return 1;
+            }
+            yield return new WaitForSeconds(transitionOutDelay);
+            transitionOut.StartTransition();
         }
 
         void CalcDataFramePerSec()

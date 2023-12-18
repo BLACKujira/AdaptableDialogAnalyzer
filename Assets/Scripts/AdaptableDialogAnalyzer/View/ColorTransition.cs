@@ -10,6 +10,7 @@ namespace AdaptableDialogAnalyzer.View
         public List<GameObject> activeObjects;
         [Header("Settings")]
         public float transitionInDuration = 0.5f;
+        public float transitionMiddleHoldTime = 0f;
         public float transitionOutDuration = 0.5f;
         public bool destroyOnEnd = false;
 
@@ -41,6 +42,8 @@ namespace AdaptableDialogAnalyzer.View
             FadeAlpha(1, transitionInDuration);
             yield return new WaitForSeconds(transitionInDuration);
             OnTransitionMiddle?.Invoke();
+
+            yield return new WaitForSeconds(transitionMiddleHoldTime);
 
             FadeAlpha(0, transitionInDuration);
             yield return new WaitForSeconds(transitionOutDuration);

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ce36d38839ef9c409549dde3a779696, type: 3}
-  m_Name: PJSK_Cats_Artworks
+  m_Name: PJSK_Cats_Novels
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 0}
@@ -22,13 +22,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 101c83d58e6d2ab42a5c256389a416e3, type: 3}
   - {fileID: 21300000, guid: 03c8c922d36c5234e8dffead265ca60a, type: 3}
   - {fileID: 21300000, guid: 98e715df39ce2534ba20460c564d3ceb, type: 3}
-  - {fileID: 21300000, guid: 9e25e7c5d2d48004891155add596b751, type: 3}
+  - {fileID: 21300000, guid: b2361f36007757f4699e85fca2150926, type: 3}
   - {fileID: 21300000, guid: bfea7168a04090a439b47c863e75df22, type: 3}
   - {fileID: 21300000, guid: 2a6bcffeb3faf4c498124ea4785f1087, type: 3}
   - {fileID: 21300000, guid: 61fc6bf19aef03b499870e091f9928b1, type: 3}
   - {fileID: 21300000, guid: 1d959610da1b8324a93a977e7928621b, type: 3}
-  - {fileID: 21300000, guid: 770ec9959f780af4d9800905aac496fa, type: 3}
-  - {fileID: 21300000, guid: d40b41bb6cd16af4ab68b873e6773541, type: 3}
+  - {fileID: 21300000, guid: be7da4cd15633e849afb4bdf986fe548, type: 3}
+  - {fileID: 21300000, guid: c6ee57617c7eabe49bbe1f81db3b84a9, type: 3}
   - {fileID: 21300000, guid: 0bec906654c4c4a44b08c54e73ce1fe1, type: 3}
   - {fileID: 21300000, guid: 758d0dc52f44ae24bb63a0438218951d, type: 3}
   - {fileID: 21300000, guid: a1e37e043d043a242bc2b5881d12138b, type: 3}

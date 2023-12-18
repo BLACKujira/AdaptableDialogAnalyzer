@@ -25,7 +25,6 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         {
             Character character = GlobalConfig.CharacterDefinition[characterId];
             txtData.text = data;
-            imgIcon.sprite = iconSpriteList[characterId];
 
             if(ProjectSekaiHelper.forceDarkThemeCharacterId.Contains(characterId))
             {
@@ -45,7 +44,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             {
                 txtName.text = character.name;
             }
-            if (overrideIcon)
+            if (!overrideIcon)
             {
                 imgIcon.sprite = iconSpriteList[characterId];
             }

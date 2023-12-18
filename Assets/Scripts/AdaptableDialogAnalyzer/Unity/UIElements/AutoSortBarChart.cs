@@ -30,6 +30,9 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
         /// </summary>
         protected List<BarManager> activeBars = new List<BarManager>();
 
+        float currentDataFrame = 0;
+        public float CurrentDataFrame => currentDataFrame;
+
         /// <summary>
         /// 条管理类
         /// </summary>
@@ -181,14 +184,13 @@ namespace AdaptableDialogAnalyzer.Unity.UIElements
             return lerpedDataFrame;
         }
 
-        public void Play()
+        protected virtual void Play()
         {
             StartCoroutine(CoPlay());
         }
 
-        IEnumerator CoPlay()
+        protected virtual IEnumerator CoPlay()
         {
-            float currentDataFrame = 0;
             while (true)
             {
                 PlayFrame(currentDataFrame);
