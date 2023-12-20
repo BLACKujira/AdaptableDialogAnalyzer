@@ -41,8 +41,6 @@ namespace AdaptableDialogAnalyzer.Unity
             string targetTagFolder;
             string tag;
 
-
-
             public Checker(string targetTagFolder, Pixiv_SearchResponseIntegrityCheck owner)
             {
                 this.owner = owner;

@@ -23,6 +23,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         public float year1Duration = 100;
         public float year2Duration = 100;
         public float transitionOutDelay = 10;
+        [Header("Settings")]
+        public ColorList yearColorTheme;
         [Header("Adapter")]
         public ProjectSekai_MasterLoader masterLoader;
         public Pixiv_SearchResponseLoader searchResponseLoader;
@@ -65,7 +67,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             InitDatetimeActions();
             CalcDataFramePerSec();
             dataFramePerSec = preReleaseDFPS;
-            Play();
+
+            GlobalColor.SetThemeColor(yearColorTheme[0]);
         }
 
         protected override List<IAutoSortBarChartData> GetDataFrame(int dataFrame)
@@ -145,7 +148,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 
         IEnumerator CoTransitionOut()
         {
-            while(CurrentDataFrame < GetTotalDataFrames())
+            while (CurrentDataFrame < GetTotalDataFrames())
             {
                 yield return 1;
             }
@@ -193,15 +196,18 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             {
                 effects.PlayAnniversaryEffect(1);
                 dataFramePerSec = year1DFPS;
+                GlobalColor.SetThemeColor(yearColorTheme[1]);
             };
             datetimeActions[ProjectSekaiHelper.anniversary2] = () =>
             {
                 effects.PlayAnniversaryEffect(2);
                 dataFramePerSec = year2DFPS;
+                GlobalColor.SetThemeColor(yearColorTheme[2]);
             };
             datetimeActions[ProjectSekaiHelper.anniversary3] = () =>
             {
                 effects.PlayAnniversaryEffect(3);
+                GlobalColor.SetThemeColor(yearColorTheme[3]);
             };
             datetimeActions[countManager.days.Max(kvp => kvp.Key)] = () =>
             {
@@ -212,6 +218,14 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                     bar.ToggleGlow(false);
                 }
             };
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Play();
+            }
         }
     }
 }

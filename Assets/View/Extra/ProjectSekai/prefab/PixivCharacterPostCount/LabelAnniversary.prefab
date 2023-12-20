@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementBg: {fileID: 6577984933867992334}
-  colorList: {fileID: 11400000, guid: 9f466b8e93a1da34f8d4d66bce54b5a6, type: 2}
+  colorList: {fileID: 11400000, guid: f5cce95ca0614244d9339a5a46744822, type: 2}
 --- !u!114 &6577984933867992334
 MonoBehaviour:
   m_ObjectHideFlags: 0

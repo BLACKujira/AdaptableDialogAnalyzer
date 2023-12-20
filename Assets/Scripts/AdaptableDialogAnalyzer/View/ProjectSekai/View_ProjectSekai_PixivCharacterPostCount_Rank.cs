@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.ProjectSekai
 {
-
     public class View_ProjectSekai_PixivCharacterPostCount_Rank : MonoBehaviour
     {
         [Header("Components")]
