@@ -8,6 +8,8 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
 {
     public class View_ProjectSekai_MobPostRank : MonoBehaviour
     {
+        [Header("Components")]
+        public List<View_ProjectSekai_MobPostRank_Item> items;
         [Header("Settings")]
         public CharacterDefinition mobDefinition;
         public NicknameMapping mobNickname;
@@ -45,10 +47,11 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
                 .OrderByDescending(kvp => kvp.Value)
                 .ToList();
 
-            for (int i = 0; i < countList.Count; i++)
+            for (int i = 0; i < countList.Count && i < items.Count; i++)
             {
                 KeyValuePair<int, int> keyValuePair = countList[i];
-                Debug.Log($"{i} {mobDefinition[keyValuePair.Key].name}: {keyValuePair.Value}");
+                View_ProjectSekai_MobPostRank_Item item = items[i];
+                item.SetMobId(i + 1, keyValuePair.Key, keyValuePair.Value);
             }
         }
 

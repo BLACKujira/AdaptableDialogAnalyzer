@@ -496,8 +496,8 @@ GameObject:
   - component: {fileID: 3696318946482414541}
   - component: {fileID: 3696318946482414530}
   - component: {fileID: 3696318946482414531}
-  - component: {fileID: 3696318946482414528}
   - component: {fileID: 3696318946482414540}
+  - component: {fileID: 3698383818234793587}
   m_Layer: 0
   m_Name: RankItem
   m_TagString: Untagged
@@ -589,27 +589,6 @@ MonoBehaviour:
   fadeTime: 0.25
   colorShadow: 1
   theme: 1
---- !u!114 &3696318946482414528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3696318946482414534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653dff4ab98fd2c4198c4b04c21fb6b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtName: {fileID: 3696318945128385338}
-  txtRank: {fileID: 3696318945950748255}
-  txtData: {fileID: 3696318945678775187}
-  imgIcon: {fileID: 3696318944838119523}
-  individualColorElement: {fileID: 3696318946482414531}
-  overrideIcon: 0
-  iconSpriteList: {fileID: 11400000, guid: baf68093f47868540839e4bdebc2f086, type: 2}
-  fontSize_digit1: 26
-  fontSize_digit2: 20
 --- !u!114 &3696318946482414540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,3 +602,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &3698383818234793587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696318946482414534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a0d3ea526825a489965a518062a0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtRank: {fileID: 3696318945950748255}
+  txtName: {fileID: 3696318945128385338}
+  txtCount: {fileID: 3696318945678775187}
+  iceColor: {fileID: 3696318946482414531}
+  mobDefinition: {fileID: 11400000, guid: 2377efcc7e1d07d4dae9026e58368b26, type: 2}

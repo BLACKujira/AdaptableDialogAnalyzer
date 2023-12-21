@@ -17,112 +17,112 @@ MonoBehaviour:
   - id: 36
     name: "\u767D\u77F3\u8B19"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 40
     name: "\u30CD\u30CD\u30ED\u30DC"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 1, g: 0.6, b: 0, a: 1}
   - id: 42
     name: "\u771F\u4F9D"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.8666667, b: 0.26666668, a: 1}
   - id: 43
     name: "\u4E09\u7530\u6D38\u592A\u90CE"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 76
     name: "\u30A4\u30AA\u30EA"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.26666668, g: 0.33333334, b: 0.8666667, a: 1}
   - id: 77
     name: "\u9752\u9F8D\u9662\u6AFB\u5B50"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 1, g: 0.6, b: 0, a: 1}
   - id: 82
     name: "\u9CF3\u3072\u306A\u305F"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 1, g: 0.6, b: 0, a: 1}
   - id: 83
     name: "\u9CF3\u6676\u4ECB"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 1, g: 0.6, b: 0, a: 1}
   - id: 84
     name: "\u9CF3\u6176\u4ECB"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 1, g: 0.6, b: 0, a: 1}
   - id: 85
     name: "\u65E9\u5DDD\u306A\u306A\u307F"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.8666667, b: 0.26666668, a: 1}
   - id: 86
     name: "\u30DF\u30AA"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.26666668, g: 0.33333334, b: 0.8666667, a: 1}
   - id: 87
     name: "\u9060\u91CE\u65B0"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 108
     name: "\u5BAE\u7530\u98AF\u771F"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 90
     name: "\u53E4\u7027\u5927\u6CB3"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 92
     name: "\u5185\u5C71\u552F\u5948"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.8666667, b: 0.26666668, a: 1}
   - id: 123
     name: "\u658E\u85E4\u5F69\u9999"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.8666667, b: 0.26666668, a: 1}
   - id: 107
     name: "\u9577\u8C37\u5DDD\u91CC\u5E06"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.8666667, b: 0.26666668, a: 1}
   - id: 96
     name: "\u53E4\u7027\u51EA"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 103
     name: "\u9AD8\u6728\u672A\u7FBD"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.26666668, g: 0.33333334, b: 0.8666667, a: 1}
   - id: 104
     name: "\u590F\u91CE\u4E8C\u8449"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.26666668, b: 0.6, a: 1}
   - id: 106
     name: "\u5409\u5D0E\u82B1\u4E43"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.26666668, g: 0.33333334, b: 0.8666667, a: 1}
   - id: 109
     name: "\u9AD8\u5742\u6714"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 110
     name: "\u5CA1\u5D0E\u9054\u4E5F"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 111
     name: "\u7384\u6B66\u65ED"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.93333334, g: 0.06666667, b: 0.4, a: 1}
   - id: 113
     name: "\u771F\u5802\u826F\u6A39"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.26666668, g: 0.33333334, b: 0.8666667, a: 1}
   - id: 114
     name: "\u65E5\u66AE\u30A2\u30EA\u30B5"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.8666667, b: 0.26666668, a: 1}
   - id: 115
     name: "\u307E\u3075\u3086\u30DE\u30DE"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.26666668, b: 0.6, a: 1}
   - id: 89
     name: "\u594F\u30DE\u30DE"
     icon: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.53333336, g: 0.26666668, b: 0.6, a: 1}
