@@ -51,7 +51,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
             {
                 View_ProjectSekai_PixivCharacterPostCount_Rank_Item rankItem = items[i];
                 KeyValuePair<int, DateTime> pair = characterIdCreateDatePairs[i];
-                rankItem.SetData(pair.Key, i + 1, pair.Value.ToString("yy/MM/dd"));
+                rankItem.SetData(pair.Key, i + 1, pair.Value.ToString("yyyy-MM-dd"));
             }
         }
     }

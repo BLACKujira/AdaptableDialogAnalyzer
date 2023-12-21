@@ -197,7 +197,7 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
         /// <param name="deltaCalculationRange"></param>
         public void CalcDeltaOfDelta(int deltaOfDeltaCalculationRange = 7)
         {
-            if(!deltaCalculated)
+            if (!deltaCalculated)
             {
                 Debug.LogError("请先计算增量");
                 return;
@@ -230,6 +230,52 @@ namespace AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount
 
             deltaOfDeltaCalculated = true;
             this.deltaOfDeltaCalculationRange = deltaOfDeltaCalculationRange;
+        }
+
+        public List<RankPercentage> GetRankPercentageList()
+        {
+            if(type != CountManagerType.Total)
+            {
+                Debug.LogError("请先转化为总计模式");
+                return null;
+            }
+
+            // 排名，List<角色ID>
+            Dictionary<int, List<int>> ranks = new Dictionary<int, List<int>>();
+
+            // 获取每一天的排名
+            foreach (var day in days)
+            {
+                IEnumerable<(int rank, int characterId)> dayRanks = day.Value.characterTotalPairs
+                    .OrderByDescending(kvp => kvp.Value.Value)
+                    .Select((kvp, rank) => (rank, kvp.Key));
+
+                foreach (var dayRank in dayRanks)
+                {
+                    if(!ranks.ContainsKey(dayRank.rank))
+                    {
+                        ranks[dayRank.rank] = new List<int>();
+                    }
+                    ranks[dayRank.rank].Add(dayRank.characterId);
+                }
+            }
+
+            // 计算各排名各角色所占的百分比
+            List<RankPercentage> result = new List<RankPercentage>();
+            foreach (var rank in ranks)
+            {
+                RankPercentage rankPercentage = new RankPercentage(rank.Key);
+                HashSet<int> appearCharacters = new HashSet<int>(rank.Value);
+                foreach (var characterId in appearCharacters)
+                {
+                    float percent = rank.Value.Count(c => c == characterId) / (float)rank.Value.Count;
+                    KeyValuePair<int, float> resultItem = new KeyValuePair<int, float>(rank.Key, percent);
+                    rankPercentage.percentageByCharacter.Add(characterId, percent);
+                }
+                result.Add(rankPercentage);
+            }
+
+            return result; 
         }
     }
 }

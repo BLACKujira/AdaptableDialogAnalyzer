@@ -12,9 +12,33 @@ namespace AdaptableDialogAnalyzer.View
         public List<GameObject> activeOnTransitionInMiddle;
         [Header("Settings")]
         public float holdTime = 10f;
+        public bool manualPlay = false;
+
+        bool isPlaying = false;
 
         private void Start()
         {
+            if(!manualPlay)
+            {
+                Play();
+            }
+        }
+
+        private void Update()
+        {
+            if(manualPlay && Input.GetKeyDown(KeyCode.Space))
+            {
+                Play();
+            }
+        }
+
+        public void Play()
+        {
+            if(isPlaying)
+            {
+                Debug.LogWarning("Transitioner is already playing");
+                return;
+            }
             StartCoroutine(CoProcess());
         }
 
@@ -24,7 +48,6 @@ namespace AdaptableDialogAnalyzer.View
             {
                 obj.SetActive(true);
             }
-        
         }
 
         IEnumerator CoProcess()
