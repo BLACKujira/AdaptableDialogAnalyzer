@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fd36b4c34a1c04cb2389bc1e53cce5, type: 3}
+  m_Name: MobNicknameMapping
+  m_EditorClassIdentifier: 
+  speakerId: 0
+  nicknameLists:
+  - mentionedPersonId: 36
+    nicknames:
+    - "\u767D\u77F3\u8B19"
+  - mentionedPersonId: 40
+    nicknames:
+    - "\u30CD\u30CD\u30ED\u30DC"
+  - mentionedPersonId: 42
+    nicknames:
+    - "\u771F\u4F9D"
+    - "\u771F\u4F9D(\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u30BB\u30AB\u30A4)"
+  - mentionedPersonId: 43
+    nicknames:
+    - "\u4E09\u7530\u6D38\u592A\u90CE"
+  - mentionedPersonId: 76
+    nicknames:
+    - "\u30A4\u30AA\u30EA"
+    - "\u30A4\u30AA\u30EA(\u30D7\u30ED\u30BB\u30AB)"
+    - "\u30A4\u30AA\u30EA(\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u30BB\u30AB\u30A4)"
+  - mentionedPersonId: 77
+    nicknames:
+    - "\u9752\u9F8D\u9662\u6AFB\u5B50"
+  - mentionedPersonId: 82
+    nicknames:
+    - "\u9CF3\u3072\u306A\u305F"
+  - mentionedPersonId: 83
+    nicknames:
+    - "\u9CF3\u6676\u4ECB"
+  - mentionedPersonId: 84
+    nicknames:
+    - "\u9CF3\u6176\u4ECB"
+  - mentionedPersonId: 85
+    nicknames:
+    - "\u65E9\u5DDD\u306A\u306A\u307F"
+  - mentionedPersonId: 86
+    nicknames:
+    - "\u30DF\u30AA"
+    - "\u30DF\u30AA(\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u30BB\u30AB\u30A4)"
+  - mentionedPersonId: 87
+    nicknames:
+    - "\u9060\u91CE\u65B0"
+  - mentionedPersonId: 108
+    nicknames:
+    - "\u5BAE\u7530\u98AF\u771F"
+  - mentionedPersonId: 90
+    nicknames:
+    - "\u53E4\u7027\u5927\u6CB3"
+  - mentionedPersonId: 92
+    nicknames:
+    - "\u5185\u5C71\u552F\u5948"
+  - mentionedPersonId: 123
+    nicknames:
+    - "\u658E\u85E4\u5F69\u9999"
+  - mentionedPersonId: 107
+    nicknames:
+    - "\u9577\u8C37\u5DDD\u91CC\u5E06"
+  - mentionedPersonId: 96
+    nicknames:
+    - "\u53E4\u7027\u51EA"
+  - mentionedPersonId: 103
+    nicknames:
+    - "\u9AD8\u6728\u672A\u7FBD"
+  - mentionedPersonId: 104
+    nicknames:
+    - "\u590F\u91CE\u4E8C\u8449"
+  - mentionedPersonId: 106
+    nicknames:
+    - "\u5409\u5D0E\u82B1\u4E43"
+  - mentionedPersonId: 109
+    nicknames:
+    - "\u9AD8\u5742\u6714"
+  - mentionedPersonId: 110
+    nicknames:
+    - "\u5CA1\u5D0E\u9054\u4E5F"
+  - mentionedPersonId: 111
+    nicknames:
+    - "\u7384\u6B66\u65ED"
+  - mentionedPersonId: 113
+    nicknames:
+    - "\u771F\u5802\u826F\u6A39"
+  - mentionedPersonId: 114
+    nicknames:
+    - "\u65E5\u66AE\u30A2\u30EA\u30B5"
+  - mentionedPersonId: 115
+    nicknames:
+    - "\u307E\u3075\u3086\u30DE\u30DE"
+  - mentionedPersonId: 89
+    nicknames:
+    - "\u594F\u30DE\u30DE"

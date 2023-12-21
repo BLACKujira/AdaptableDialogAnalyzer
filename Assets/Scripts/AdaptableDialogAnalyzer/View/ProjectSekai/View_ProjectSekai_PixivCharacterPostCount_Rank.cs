@@ -1,4 +1,5 @@
 ﻿using AdaptableDialogAnalyzer.Extra.Pixiv.CharacterPostCount;
+using AdaptableDialogAnalyzer.Extra.Pixiv.SearchResponse;
 using AdaptableDialogAnalyzer.Games.ProjectSekai;
 using AdaptableDialogAnalyzer.Unity;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace AdaptableDialogAnalyzer.View.ProjectSekai
         {
             CharacterGetterByPixivTag characterGetterByPixivTag = new CharacterGetterByPixivTag();
 
-            Extra.Pixiv.SearchResponse.MergedResponse mergedResponse = searchResponseLoader.MergedResponse;
+            MergedResponse mergedResponse = searchResponseLoader.MergedResponse;
             CharacterPostCounter characterPostCounter = new CharacterPostCounter();
 
             characterPostCounter.getArtworkCharacters = (artwork) =>

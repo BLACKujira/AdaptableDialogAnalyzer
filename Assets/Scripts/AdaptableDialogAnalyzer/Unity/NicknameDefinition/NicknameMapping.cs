@@ -34,5 +34,22 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             return nicknameLists.FirstOrDefault(nl=>nl.mentionedPersonId == mentionedPersonId);
         }
+
+        /// <summary>
+        /// 获取一个以昵称为键，角色ID为值的字典
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, int> GetCacheDictionary()
+        {
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            foreach (var nicknameList in nicknameLists)
+            {
+                foreach (var nickname in nicknameList.nicknames)
+                {
+                    dictionary.Add(nickname, nicknameList.mentionedPersonId);
+                }
+            }
+            return dictionary;
+        }
     }
 }
