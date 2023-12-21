@@ -184,5 +184,26 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
         public static DateTime anniversary1 = new DateTime(2021, 9, 30);
         public static DateTime anniversary2 = new DateTime(2022, 9, 30);
         public static DateTime anniversary3 = new DateTime(2023, 9, 30);
+
+        public static int UnitToId(Unit unit)
+        {
+            switch (unit)
+            {
+                case Unit.VirtualSinger:
+                    return 1;
+                case Unit.Leoneed:
+                    return 2;
+                case Unit.MOREMOREJUMP:
+                    return 3;
+                case Unit.VividBADSQUAD:
+                    return 4;
+                case Unit.WonderlandsShowtime:
+                    return 5;
+                case Unit.NightCord:
+                    return 6;
+                default:
+                    return 0;
+            }
+        }
     }
 }
