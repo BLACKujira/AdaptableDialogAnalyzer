@@ -1,4 +1,6 @@
-﻿using AdaptableDialogAnalyzer.UIElements;
+﻿using AdaptableDialogAnalyzer.DataStructures;
+using AdaptableDialogAnalyzer.UIElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,28 +18,41 @@ namespace AdaptableDialogAnalyzer.Unity
         [Header("Settings")]
         public int maxMentionCountPanels = 4;
 
-        public void SetData(Chapter chapter, int total)
+        public void SetData(ChapterInfo chapterInfo, int total)
         {
-            SetData(chapter, total, new KeyValuePair<Color, int>[0]);
+            SetData(chapterInfo, total, new KeyValuePair<Color, int>[0]);
         }
 
         /// <summary>
         /// total为显示在最右边的数字，mentionCounts的x表示角色（的代表色）y表示数字
         /// </summary>
-        public void SetData(Chapter chapter, int total, params Vector2Int[] mentionCounts)
+        public void SetData(ChapterInfo chapterInfo, int total, params Vector2Int[] mentionCounts)
         {
             KeyValuePair<Color, int>[] keyValuePairs = mentionCounts
-                .Select(m => new KeyValuePair<Color, int>(GlobalConfig.CharacterDefinition[m.x].color,m.y))
+                .Select(m => new KeyValuePair<Color, int>(GlobalConfig.CharacterDefinition[m.x].color, m.y))
                 .ToArray();
-            SetData(chapter, total, keyValuePairs);
+            SetData(chapterInfo, total, keyValuePairs);
         }
 
         /// <summary>
         /// total为显示在最右边的数字，mentionCounts的x表示角色（的代表色）y表示数字
         /// </summary>
-        public void SetData(Chapter chapter, int total, params KeyValuePair<Color,int>[] mentionCounts)
+        [Obsolete]
+        public void SetData(Chapter chapter, int total, params KeyValuePair<Color, int>[] mentionCounts)
         {
-            txtName.text = $"{chapter.ChapterTitle} [{chapter.ChapterID}]";
+            ChapterInfo chapterInfo = new ChapterInfo(chapter);
+            chapterInfo.chapterType = chapter.ChapterType;
+            chapterInfo.chapterID = chapter.ChapterID;
+            chapterInfo.chapterTitle = chapter.ChapterTitle;
+            SetData(chapterInfo, total, mentionCounts);
+        }
+
+        /// <summary>
+        /// total为显示在最右边的数字，mentionCounts的x表示角色（的代表色）y表示数字
+        /// </summary>
+        public void SetData(ChapterInfo chapterInfo, int total, params KeyValuePair<Color,int>[] mentionCounts)
+        {
+            txtName.text = $"{chapterInfo.chapterTitle} [{chapterInfo.chapterID}]";
             txtTotal.text = total.ToString();
 
             //生成表示提及角色的小UI元素

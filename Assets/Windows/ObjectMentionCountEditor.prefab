@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 7714182923609464369}
   - component: {fileID: 7714182923609464378}
   - component: {fileID: 7714182923609464392}
+  - component: {fileID: 767419977}
   m_Layer: 0
   m_Name: ObjectMentionCountEditor
   m_TagString: Untagged
@@ -322,6 +323,8 @@ MonoBehaviour:
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   fadeTime: 0.25
+  colorShadow: 0
+  theme: 1
 --- !u!114 &7714182923609464393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +373,12 @@ MonoBehaviour:
   txtChanged: {fileID: 7714182924016581922}
   objectNameDefinition: {fileID: 11400000, guid: c21df011fdca09a4894478cb72322f38,
     type: 2}
-  chapterSelectorCharaPrefab: {fileID: 0}
+  chapterSelectorCharaPrefab: {fileID: 7115367722444026409, guid: 5fd6d0d95820429429d28b3a070281b3,
+    type: 3}
+  chapterSelectorFullPrefab: {fileID: 224677000417634714, guid: ef19faa62dcb3a1448ef87f110fbae3d,
+    type: 3}
+  chapterSelectorUnidentifiedPrefab: {fileID: 750311003816401444, guid: 0a94025bb8f762c48a887ee4f0879f47,
+    type: 3}
 --- !u!114 &7714182923609464378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetBundleFolder: D:\Extract\119
+  masterLoader: {fileID: 767419977}
   loadMainStory: 1
   loadBandStory: 1
   loadEventStory: 1
@@ -409,6 +418,21 @@ MonoBehaviour:
   loadBirthdayStory: 1
   loadBackstageTalk: 1
   loadOtherStory: 1
+  setTimeAndRemoveUnused: 1
+--- !u!114 &767419977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714182923609464368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42238141697d1b48abb53d1c35abb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suiteMasterGetResponseFile: D:\BackUp\230726\00\master_dec_decomp
+  userEventStoryMemorialResponseFile: D:\BackUp\230726\00\UserEventStoryMemorialResponse_dec
 --- !u!1 &7714182923649428692
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +790,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb806c4ff1672f840a6c6aa095052b60, type: 3}
+--- !u!224 &2767118701341149071 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3902986862593223909, guid: cb806c4ff1672f840a6c6aa095052b60,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174584165092633450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2767118701440622527 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3902986863024043221, guid: cb806c4ff1672f840a6c6aa095052b60,
@@ -775,12 +805,6 @@ RectTransform:
 --- !u!1 &2767118701341149070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3902986862593223908, guid: cb806c4ff1672f840a6c6aa095052b60,
-    type: 3}
-  m_PrefabInstance: {fileID: 1174584165092633450}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2767118701341149071 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3902986862593223909, guid: cb806c4ff1672f840a6c6aa095052b60,
     type: 3}
   m_PrefabInstance: {fileID: 1174584165092633450}
   m_PrefabAsset: {fileID: 0}

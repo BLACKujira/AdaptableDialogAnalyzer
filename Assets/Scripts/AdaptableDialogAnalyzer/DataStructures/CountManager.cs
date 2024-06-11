@@ -15,11 +15,11 @@ namespace AdaptableDialogAnalyzer.DataStructures
             Dictionary<string, List<CountMatrix>> dictionary = new Dictionary<string, List<CountMatrix>>();
             foreach (var countMatrix in CountMatrices)
             {
-                if (!dictionary.ContainsKey(countMatrix.Chapter.ChapterType))
+                if (!dictionary.ContainsKey(countMatrix.chapterInfo.chapterType))
                 {
-                    dictionary[countMatrix.Chapter.ChapterType] = new List<CountMatrix>();
+                    dictionary[countMatrix.chapterInfo.chapterType] = new List<CountMatrix>();
                 }
-                dictionary[countMatrix.Chapter.ChapterType].Add(countMatrix);
+                dictionary[countMatrix.chapterInfo.chapterType].Add(countMatrix);
             }
             return dictionary;
         }

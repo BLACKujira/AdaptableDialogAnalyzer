@@ -24,7 +24,7 @@ namespace AdaptableDialogAnalyzer.DataStructures
         {
             get
             {
-                if (chapter == null) throw new Exception("未加载章节，请使用MentionCountEditor加载统计数据，或在代码中设置此属性");
+                if (chapter == null) throw new Exception($"未加载章节，请使用MentionCountEditor加载统计数据，或在代码中设置此属性\n章节信息 {chapterInfo.chapterType} {chapterInfo.chapterID} {chapterInfo.chapterTitle}");
                 return chapter;
             }
             set => chapter = value;

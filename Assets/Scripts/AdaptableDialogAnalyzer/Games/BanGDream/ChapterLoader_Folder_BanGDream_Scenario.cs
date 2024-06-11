@@ -22,6 +22,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         public bool loadBirthdayStory = true;
         public bool loadBackstageTalk = true;
         public bool loadOtherStory = true;
+        public bool setTimeAndRemoveUnused = true;
 
         const string SCENARIO_EXTENSION = ".json";
 
@@ -102,10 +103,10 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
                 chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_PRECEDINGSTORY), TYPE_OTHERSTORY));
             }
 
-            foreach (var chapter in chapters)
-            {
-                if (chapter.ChapterTime <= BanGDreamHelper.SEASON_1_STARTTIME) Debug.Log($"{chapter.ChapterID}");
-            }
+            //foreach (var chapter in chapters)
+            //{
+            //    if (chapter.ChapterTime <= BanGDreamHelper.SEASON_1_STARTTIME) Debug.Log($"剧情时间未找到 {chapter.ChapterID}");
+            //}
             return chapters.ToArray();
         }
 
@@ -129,7 +130,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
                 chapter.ChapterType = getType(file);
 
                 //设置世界并再次判断是否排除此文件
-                if (!SetTimeAndAccept(chapter)) continue;
+                if (setTimeAndRemoveUnused && !SetTimeAndAccept(chapter)) continue;
 
                 chapters.Add(chapter);
             }

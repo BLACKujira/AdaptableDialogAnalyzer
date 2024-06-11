@@ -60,8 +60,8 @@ namespace AdaptableDialogAnalyzer.Unity
 
             Vector2Int vector2Int = new Vector2Int(mentionedPersonId, mentionedCountMatrix[speakerId, mentionedPersonId]?.Count ?? 0);
 
-            if (vector2Int.y > 0) chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount, vector2Int);
-            else chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount);
+            if (vector2Int.y > 0) chapterItem.SetData(countMatrix.chapterInfo, mentionedCountMatrix[speakerId].serifCount, vector2Int);
+            else chapterItem.SetData(countMatrix.chapterInfo, mentionedCountMatrix[speakerId].serifCount);
 
             chapterItem.button.onClick.AddListener(() =>
             {

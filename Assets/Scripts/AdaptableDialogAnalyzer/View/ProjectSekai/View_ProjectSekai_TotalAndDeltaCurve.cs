@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View.ProjectSekai
 {
-
     public class View_ProjectSekai_TotalAndDeltaCurve : MonoBehaviour
     {
         [Header("Components")]

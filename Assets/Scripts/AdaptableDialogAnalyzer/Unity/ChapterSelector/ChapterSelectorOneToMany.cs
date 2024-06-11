@@ -45,7 +45,7 @@ namespace AdaptableDialogAnalyzer.Unity
                 .OrderBy(v2 => -v2.y)
                 .ToArray();
 
-            chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix[speakerId].serifCount, mentionedCountArray);
+            chapterItem.SetData(countMatrix.chapterInfo, mentionedCountMatrix[speakerId].serifCount, mentionedCountArray);
 
             chapterItem.button.onClick.AddListener(() =>
             {
