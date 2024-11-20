@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11020cdb76d0ecd47814e409f8362dd2, type: 3}
   m_Name: CharacterDefinition
   m_EditorClassIdentifier: 
+  defaultCharacterId: 0
   characters:
   - id: 0
     name: '?'
@@ -169,3 +170,23 @@ MonoBehaviour:
     name: "\u30DF\u30C3\u30B7\u30A7\u30EB"
     icon: {fileID: -7701567137413274800, guid: 742098ccf379d3a45833b1bdb3321d63, type: 3}
     color: {r: 0.87058824, g: 0.2, b: 0.79607844, a: 1}
+  - id: 36
+    name: "\u9AD8\u677E \u71C8"
+    icon: {fileID: 21300000, guid: a39c3b8ec6ec39c47874ea2e1379fcda, type: 3}
+    color: {r: 0.46666667, g: 0.73333335, b: 0.8666667, a: 1}
+  - id: 37
+    name: "\u5343\u65E9 \u611B\u97F3"
+    icon: {fileID: 21300000, guid: a398ab43d39490540a2eb08e58474636, type: 3}
+    color: {r: 1, g: 0.53333336, b: 0.6, a: 1}
+  - id: 38
+    name: "\u8981 \u697D\u5948"
+    icon: {fileID: 21300000, guid: 5a988933555a2554686acd04e797ccf9, type: 3}
+    color: {r: 0.46666667, g: 0.8666667, b: 0.46666667, a: 1}
+  - id: 39
+    name: "\u9577\u5D0E \u305D\u3088"
+    icon: {fileID: 21300000, guid: fa21777cf19e22d478187742ae36150a, type: 3}
+    color: {r: 1, g: 0.8666667, b: 0.53333336, a: 1}
+  - id: 40
+    name: "\u690E\u540D \u7ACB\u5E0C"
+    icon: {fileID: 21300000, guid: 2aae87de640a3d94895dc491b4e07fee, type: 3}
+    color: {r: 0.46666667, g: 0.46666667, b: 0.6666667, a: 1}

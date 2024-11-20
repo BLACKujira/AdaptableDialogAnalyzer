@@ -50,7 +50,7 @@ namespace AdaptableDialogAnalyzer.Unity
             UnidentifiedMentions unidentifiedMentions = mentionedCountMatrix.GetUnidentifiedMentions(unidentifiedNickname);
 
             if (unidentifiedMentions != null) chapterItem.SetData(countMatrix.chapterInfo, mentionedCountMatrix.GetSerifCount(), new Vector2Int(0, unidentifiedMentions.Count));
-            else chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix.GetSerifCount());
+            else chapterItem.SetData(countMatrix.chapterInfo, mentionedCountMatrix.GetSerifCount());
 
             chapterItem.button.onClick.AddListener(() =>
             {

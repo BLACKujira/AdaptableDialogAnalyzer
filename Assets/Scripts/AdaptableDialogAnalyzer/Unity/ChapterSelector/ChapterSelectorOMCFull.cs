@@ -56,7 +56,7 @@ namespace AdaptableDialogAnalyzer.Unity
             List<KeyValuePair<Color, int>> panelData = new List<KeyValuePair<Color, int>>();
             if (!mentionedCountMatrix.NoMatch) panelData.Add(new KeyValuePair<Color, int>(colorMatched, mentionedCountMatrix.Total));
             if (!mentionedCountMatrix.NoUnidentifiedMatch) panelData.Add(new KeyValuePair<Color, int>(colorUnidentified, mentionedCountMatrix.unidentifiedMentionsRow.Count));
-            chapterItem.SetData(countMatrix.Chapter, mentionedCountMatrix.Total, panelData.ToArray());
+            chapterItem.SetData(countMatrix.chapterInfo, mentionedCountMatrix.Total, panelData.ToArray());
 
             chapterItem.button.onClick.AddListener(() =>
             {

@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad681ec4b0967d14eb1a61b05018ae12, type: 3}
   m_Name: ellipsis
   m_EditorClassIdentifier: 
-  identifier: ......
+  identifier: "\uFF0E\uFF0E\uFF0E"
   commonNameList:
-  - \.\.\.
-  - "\u2026"
-  - "\uFF0E\uFF0E\uFF0E"
+  - "([\\.\uFF0E\u3002]{3}|[\\.\uFF0E\u3002]{6})"
   specificNameLists: []
   unidentifiedNameList: []

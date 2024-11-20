@@ -37,15 +37,15 @@ namespace AdaptableDialogAnalyzer.Unity
         /// <summary>
         /// total为显示在最右边的数字，mentionCounts的x表示角色（的代表色）y表示数字
         /// </summary>
-        [Obsolete]
-        public void SetData(Chapter chapter, int total, params KeyValuePair<Color, int>[] mentionCounts)
-        {
-            ChapterInfo chapterInfo = new ChapterInfo(chapter);
-            chapterInfo.chapterType = chapter.ChapterType;
-            chapterInfo.chapterID = chapter.ChapterID;
-            chapterInfo.chapterTitle = chapter.ChapterTitle;
-            SetData(chapterInfo, total, mentionCounts);
-        }
+        //[Obsolete]
+        //public void SetData(Chapter chapter, int total, params KeyValuePair<Color, int>[] mentionCounts)
+        //{
+        //    ChapterInfo chapterInfo = new ChapterInfo(chapter);
+        //    chapterInfo.chapterType = chapter.ChapterType;
+        //    chapterInfo.chapterID = chapter.ChapterID;
+        //    chapterInfo.chapterTitle = chapter.ChapterTitle;
+        //    SetData(chapterInfo, total, mentionCounts);
+        //}
 
         /// <summary>
         /// total为显示在最右边的数字，mentionCounts的x表示角色（的代表色）y表示数字
