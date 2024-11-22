@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 852505508157659736, guid: aa8c0a61a60cf1845a06e6048f6a9852,
         type: 3}
       propertyPath: m_Name
-      value: SpeechBubbleWithInt Variant
+      value: SpeechBubbleWithIntAndButton Variant
       objectReference: {fileID: 0}
     - target: {fileID: 852505508157659737, guid: aa8c0a61a60cf1845a06e6048f6a9852,
         type: 3}
@@ -487,6 +487,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1465793552445746429, guid: aa8c0a61a60cf1845a06e6048f6a9852,
+        type: 3}
+      propertyPath: colorGraphics.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465793552445746429, guid: aa8c0a61a60cf1845a06e6048f6a9852,
+        type: 3}
+      propertyPath: colorGraphics.Array.data[1]
+      value: 
+      objectReference: {fileID: 5244408255394533685}
+    - target: {fileID: 1465793552445746429, guid: aa8c0a61a60cf1845a06e6048f6a9852,
+        type: 3}
+      propertyPath: textColorGraphics.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465793552445746429, guid: aa8c0a61a60cf1845a06e6048f6a9852,
+        type: 3}
+      propertyPath: textColorGraphics.Array.data[1]
+      value: 
+      objectReference: {fileID: 6775089310524165612}
     m_RemovedComponents:
     - {fileID: 852505508157659746, guid: aa8c0a61a60cf1845a06e6048f6a9852, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa8c0a61a60cf1845a06e6048f6a9852, type: 3}

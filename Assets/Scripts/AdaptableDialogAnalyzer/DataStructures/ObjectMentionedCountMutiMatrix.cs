@@ -156,10 +156,10 @@ namespace AdaptableDialogAnalyzer.DataStructures
             File.WriteAllText(filePath, json);
         }
 
-        public static ObjectMentionedCountMatrix LoadAndDeserialize(string filePath)
+        public static ObjectMentionedCountMutiMatrix LoadAndDeserialize(string filePath)
         {
             string json = File.ReadAllText(filePath);
-            return JsonUtility.FromJson<ObjectMentionedCountMatrix>(json);
+            return JsonUtility.FromJson<ObjectMentionedCountMutiMatrix>(json);
         }
 
         public ObjectMentionedCountMutiMatrix(Chapter chapter) : base(chapter) { }

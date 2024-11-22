@@ -45,13 +45,19 @@ namespace AdaptableDialogAnalyzer.Unity
         {
             // 将匹配信息放入字典中，等待排序
             Dictionary<RegexCapture,bool> captureAndUndefinedDic = new Dictionary<RegexCapture,bool>();
-            foreach (var regexCapture in grid.regexCaptures)
+            if (grid != null)
             {
-                captureAndUndefinedDic.Add(regexCapture, false);
+                foreach (var regexCapture in grid.regexCaptures)
+                {
+                    captureAndUndefinedDic.Add(regexCapture, false);
+                }
             }
-            foreach (var regexCapture in gridUndefined.regexCaptures)
+            if (gridUndefined != null)
             {
-                captureAndUndefinedDic.Add(regexCapture, true);
+                foreach (var regexCapture in gridUndefined.regexCaptures)
+                {
+                    captureAndUndefinedDic.Add(regexCapture, true);
+                }
             }
 
             // 按startIndex排序匹配信息
@@ -63,13 +69,13 @@ namespace AdaptableDialogAnalyzer.Unity
             // 插入富文本标签
             foreach (var captureAndUndefined in captureAndUndefinedArray)
             {
-                Color color = captureAndUndefined.Value ? colorMatched : colorUndefined;
+                Color color = captureAndUndefined.Value ? colorUndefined : colorMatched;
                 string strStart = $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>";
                 string strEnd = "</color>";
 
-                outSerif.Insert(captureAndUndefined.Key.index + currentOffset, strStart);
+                outSerif = outSerif.Insert(captureAndUndefined.Key.index + currentOffset, strStart);
                 currentOffset += strStart.Length;
-                outSerif.Insert(captureAndUndefined.Key.index + captureAndUndefined.Key.length  + currentOffset, strEnd);
+                outSerif = outSerif.Insert(captureAndUndefined.Key.index + captureAndUndefined.Key.length  + currentOffset, strEnd);
                 currentOffset += strEnd.Length;
             }
 

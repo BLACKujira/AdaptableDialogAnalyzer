@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad681ec4b0967d14eb1a61b05018ae12, type: 3}
-  m_Name: ellipsis2
+  m_Name: ellipsis3
   m_EditorClassIdentifier: 
-  identifier: "^[\uFF0E\\.\u3002\u2026]+$"
+  identifier: "^.{0,5}[\uFF0E\\.\u3002\u2026]+.{0,5}$"
   commonNameList:
-  - "^[\uFF0E\\.\u3002\u2026]+$"
-  specificNameLists: []
-  unidentifiedNameList:
   - "^.{0,5}[\uFF0E\\.\u3002\u2026]+.{0,5}$"
+  specificNameLists: []
+  unidentifiedNameList: []

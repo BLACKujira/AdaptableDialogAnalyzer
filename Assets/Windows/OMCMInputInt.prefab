@@ -206,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8647999243780697200}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -534,7 +534,10 @@ MonoBehaviour:
   colorGraphics:
   - {fileID: 8647999243125699507}
   - {fileID: 9128976610520297905}
+  - {fileID: 9128976611319714710}
+  - {fileID: 9128976611296289297}
   textColorGraphics:
+  - {fileID: 8647999244708560511}
   - {fileID: 8647999244003367466}
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
@@ -709,8 +712,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 0
-    m_HorizontalOverflow: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'TEXT
@@ -949,6 +952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InputFieldOri
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926937493022252431, guid: 622ff25afd1f28445893bbb070b8ed35,
+        type: 3}
+      propertyPath: m_ReadOnly
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622ff25afd1f28445893bbb070b8ed35, type: 3}
@@ -1271,7 +1279,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6544963459932483755}
     - target: {fileID: 9181183601911413848, guid: 142dd11d2c2346e48ba16a1baf9f92df,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1285,7 +1293,7 @@ PrefabInstance:
     - target: {fileID: 9181183601911413848, guid: 142dd11d2c2346e48ba16a1baf9f92df,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AdaptableDialogAnalyzer.Unity.MutiCharacterSelector, Assembly-CSharp
+      value: AdaptableDialogAnalyzer.Unity.OMCMInputInt, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9181183601911413848, guid: 142dd11d2c2346e48ba16a1baf9f92df,
         type: 3}
