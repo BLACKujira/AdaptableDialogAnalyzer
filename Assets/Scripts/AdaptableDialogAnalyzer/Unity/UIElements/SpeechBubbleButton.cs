@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.UIElements
 {
-
     /// <summary>
     /// 带按钮的对话气泡
     /// </summary>

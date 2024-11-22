@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace AdaptableDialogAnalyzer.DataStructures
 {
@@ -53,8 +54,8 @@ namespace AdaptableDialogAnalyzer.DataStructures
         public bool AddMatchedDialogue(int refIdx)
         {
             if (HasSerif(refIdx)) return false;
-
             matchedIndexes.Add(refIdx);
+
             return true;
         }
 

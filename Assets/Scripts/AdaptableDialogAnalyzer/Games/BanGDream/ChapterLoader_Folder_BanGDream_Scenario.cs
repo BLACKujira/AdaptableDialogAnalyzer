@@ -60,8 +60,8 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
         public override Chapter[] InitializeChapters()
         {
-            suiteMasterGetResponse = masterLoader.SuiteMasterGetResponse;
-            userEventStoryMemorialResponse = masterLoader.UserEventStoryMemorialResponse;
+            //suiteMasterGetResponse = masterLoader.SuiteMasterGetResponse;
+            //userEventStoryMemorialResponse = masterLoader.UserEventStoryMemorialResponse;
 
             List<Chapter> chapters = new List<Chapter>();
 
