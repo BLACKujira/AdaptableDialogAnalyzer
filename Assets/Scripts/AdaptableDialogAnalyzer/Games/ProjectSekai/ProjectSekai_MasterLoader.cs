@@ -15,6 +15,9 @@ namespace AdaptableDialogAnalyzer.Games.ProjectSekai
         MasterEventStory[] eventStories;
         public MasterEventStory[] EventStories => eventStories ??= LoadMaster<MasterEventStory>("eventStories");
 
+        MasterCharacter3D[] masterCharacter3Ds;
+        public MasterCharacter3D[] MasterCharacter3Ds => masterCharacter3Ds ??= LoadMaster<MasterCharacter3D>("character3Ds");
+
         /// <summary>
         /// 读取指定名称的数据表
         /// </summary>
