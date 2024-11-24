@@ -127,6 +127,8 @@ MonoBehaviour:
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}
   fadeTime: 0.25
+  colorShadow: 0
+  theme: 1
 --- !u!1 &3689296987417008641
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: "\u751F\u6210\u7C7B\u578B\u4E3ASimpleMentionCountResult\u7684\u7EDF\u8BA1\u7ED3\u679C\uFF0C\u4EC5\u4FDD\u7559\u8BA1\u6570\u548C\u53F0\u8BCD\u8BA1\u6570"
 --- !u!1 &3689296988117761486
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: "\u751F\u6210ObjectMentionedCountManager\u7684\u7EDF\u8BA1\u7ED3\u679C"
 --- !u!1 &3689296988518699941
 GameObject:
   m_ObjectHideFlags: 0

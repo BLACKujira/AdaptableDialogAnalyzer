@@ -9,5 +9,6 @@ namespace AdaptableDialogAnalyzer.Unity
         public List<Sprite> sprites;
 
         public Sprite this[int index] => sprites[index];
+        public Sprite this[string name] => sprites.Find(s => s.name == name);
     }
 }

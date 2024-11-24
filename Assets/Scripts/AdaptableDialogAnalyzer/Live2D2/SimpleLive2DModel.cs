@@ -35,6 +35,15 @@ namespace AdaptableDialogAnalyzer.Live2D2
             }
         }
 
+        public void SetData(ModelInfo modelInfo)
+        {
+            mocFile = modelInfo.mocFile;
+            physicsFile = modelInfo.physicsFile;
+            textureFiles = modelInfo.textureFiles;
+            scaleVolume = modelInfo.scaleVolume;
+            smoothing = modelInfo.smoothing;
+        }
+
         void Start()
         {
             live2d.Live2D.init();
