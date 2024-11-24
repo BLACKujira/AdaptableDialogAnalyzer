@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.UnityEditor
 {
+
     public class ProjectSekai_EventIconListGenerator : EditorWindow
     {
         public string masterEventPath;

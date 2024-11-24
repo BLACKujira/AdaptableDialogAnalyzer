@@ -12,6 +12,11 @@ namespace AdaptableDialogAnalyzer.Live2D2
     {
         public List<IndexedModelInfo> IndexedModelInfos = new List<IndexedModelInfo>();
 
+        public IndexedModelInfoList(List<IndexedModelInfo> indexedModelInfos)
+        {
+            IndexedModelInfos = indexedModelInfos;
+        }
+
         public IndexedModelInfo this[int index] => IndexedModelInfos.Where(i=>i.index ==  index).FirstOrDefault();
     }
 }
