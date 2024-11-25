@@ -1,6 +1,5 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Live2D2;
-using AdaptableDialogAnalyzer.MaterialController;
 using AdaptableDialogAnalyzer.Unity;
 using DG.Tweening;
 using System.Collections;
@@ -13,6 +12,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
     public class View_BanGDream_OMCItem : MonoBehaviour
     {
         [Header("Components")]
+        public Image imgBG;
         public RawImage rimgLive2D;
         public RawImage rimgLive2DOutline;
         public Image ImgNameLabel;
@@ -31,6 +31,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public SpriteList nameLabelCoverSpriteList;
         public IndexedLive2D2AnimationSequenceList animationSequenceList;
         public IndexedColorList BGColorList;
+        public SpriteList BGSpriteList;
         public float fadeDuration = 0.5f;
         public float animationDelay = 1f;
         public float deltaRankTextBiggerThan19 = 1f;
@@ -49,6 +50,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             this.animationSequence = animationSequenceList[mentionCountResultItem.characterID]?.animationSequence;
 
             // 设置UI元素
+            imgBG.sprite = BGSpriteList[(mentionCountResultItem.characterID - 1) / 5];
+
             string nameLabelSpriteName = $"name_top_chr{mentionCountResultItem.characterID:00}";
             ImgNameLabel.sprite = nameLabelSpriteList[nameLabelSpriteName];
             ImgNameLabelCover.sprite = nameLabelCoverSpriteList[nameLabelSpriteName];
@@ -61,7 +64,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             txtRankPercent.text = mentionCountResultItem.percentRank.ToString();
             if (mentionCountResultItem.percentRank > 19)
                 txtRankPercent.rectTransform.anchoredPosition = new Vector2(txtRankPercent.rectTransform.anchoredPosition.x + deltaRankTextBiggerThan19, txtRankPercent.rectTransform.anchoredPosition.y); // 当数字大于19时,调整位置
-            
+
             iceBGColor.SetIndividualColor(BGColorList[mentionCountResultItem.characterID]);
             iceThemeColor.SetIndividualColor(startThemeColor);
             rimgLive2DOutline.color = GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color;
@@ -103,9 +106,9 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
             if (animationSequence != null && animationSequence[0] != null)
             {
-                if(animationSequence[0].Live2DExpression != null)
+                if (animationSequence[0].Live2DExpression != null)
                     modelInstanceInfo.simpleLive2DModel.PlayExpression(animationSequence[0].Live2DExpression);
-                if(animationSequence[0].live2DMotion != null)
+                if (animationSequence[0].live2DMotion != null)
                     modelInstanceInfo.simpleLive2DModel.PlayMotion(animationSequence[0].Live2DMotion);
             }
         }
@@ -133,7 +136,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
         IEnumerator CoFadeThemeColor()
         {
-            for(float i = 0;  i < fadeDuration; i += Time.deltaTime)
+            for (float i = 0; i < fadeDuration; i += Time.deltaTime)
             {
                 iceThemeColor.SetIndividualColor(Color.Lerp(startThemeColor, GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color, i / fadeDuration));
                 yield return null;

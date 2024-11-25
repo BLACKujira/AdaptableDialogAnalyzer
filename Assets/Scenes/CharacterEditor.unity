@@ -1030,7 +1030,8 @@ MonoBehaviour:
   equidistantLayoutGenerator: {fileID: 655262860}
   scrollRectTransform: {fileID: 1983246757}
   enableScroll: 0
-  scrollSpeed: 0
+  scrollSpeed: 100
+  stopAtScrollEnd: 1
 --- !u!114 &655262860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,7 +1048,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 1120640509861361411, guid: e7deec8066620f24eaaeabb6bba6f8b3,
     type: 3}
   blank: 0
-  distance: 600
+  distance: 547
   direction: 1
   reverse: 0
 --- !u!1001 &767419975
@@ -8861,7 +8862,7 @@ PrefabInstance:
     - target: {fileID: 8987936906793785159, guid: c0875f2cab2ade243a44f30d78a384c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8987936906793785159, guid: c0875f2cab2ade243a44f30d78a384c9,
         type: 3}

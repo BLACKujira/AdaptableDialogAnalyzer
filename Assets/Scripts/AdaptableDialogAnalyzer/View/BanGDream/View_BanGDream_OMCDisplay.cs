@@ -44,7 +44,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             {
                 gobj.GetComponent<View_BanGDream_OMCItem>().FadeIn();
             };
-            equidistantLayoutScroll.scrollEvents.Add(scrollEvent);
+            equidistantLayoutScroll.scrollItemEvents.Add(scrollEvent);
 
             equidistantLayoutScroll.onItemExit += (gobj) =>
             {
@@ -52,6 +52,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                 gobj.SetActive(false);
             };
 
+            ReverseItems();
             StartCoroutine(CoPlay());
         }
 
@@ -105,6 +106,14 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             });
 
             equidistantLayoutScroll.enableScroll = true;
+        }
+
+        void ReverseItems()
+        {
+            foreach (var item in equidistantLayoutScroll.equidistantLayoutGenerator.Items)
+            {
+                item.transform.SetAsFirstSibling();
+            }
         }
     }
 }

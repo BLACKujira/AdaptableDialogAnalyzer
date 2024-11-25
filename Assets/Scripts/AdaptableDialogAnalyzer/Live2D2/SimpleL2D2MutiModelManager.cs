@@ -42,8 +42,8 @@ namespace AdaptableDialogAnalyzer.Live2D2
 
             // 设置相机和模型距离
             float xPosition = distance * index;
-            live2DCamera.transform.localPosition = new Vector3(xPosition, 0, live2DCamera.transform.localPosition.z);
-            simpleLive2DModel.transform.localPosition = new Vector3(xPosition, 0, simpleLive2DModel.transform.localPosition.z);
+            simpleLive2DModel.transform.localPosition = new Vector3(xPosition, simpleLive2DModel.transform.localPosition.y, simpleLive2DModel.transform.localPosition.z);
+            live2DCamera.transform.localPosition = new Vector3(xPosition, live2DCamera.transform.localPosition.y, live2DCamera.transform.localPosition.z);
 
             return modelInstanceInfo;
         }

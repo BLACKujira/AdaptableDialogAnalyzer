@@ -1179,7 +1179,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 0}
+  m_SizeDelta: {x: 550, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1120640509861361414
 CanvasRenderer:
@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498615a4b9174ba42bab054348f45bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgBG: {fileID: 1120640509561243447}
   rimgLive2D: {fileID: 1120640510696351790}
   rimgLive2DOutline: {fileID: 1120640509992029722}
   ImgNameLabel: {fileID: 1120640510749875301}
@@ -1265,6 +1266,7 @@ MonoBehaviour:
   animationSequenceList: {fileID: 11400000, guid: 690275a24e107604d9f3a16ed0516aba,
     type: 2}
   BGColorList: {fileID: 11400000, guid: 110aaf5fea1618d4d9fc5356ef898f03, type: 2}
+  BGSpriteList: {fileID: 11400000, guid: 5439b286e22889a4d95c305dd9218553, type: 2}
   fadeDuration: 0.5
   animationDelay: 2
   deltaRankTextBiggerThan19: 1
