@@ -100,6 +100,8 @@ namespace AdaptableDialogAnalyzer.UnityEditor
             }
 
             IndexedModelInfoList indexedModelInfoList = ScriptableObject.CreateInstance<IndexedModelInfoList>();
+            indexedModelInfoList.IndexedModelInfos = modelInfos;
+
             AssetDatabase.CreateAsset(indexedModelInfoList, assetPath);
 
             // Save the asset
@@ -117,7 +119,7 @@ namespace AdaptableDialogAnalyzer.UnityEditor
         /// <returns>The file name of the `.moc.bytes` file, or `null` if not found.</returns>
         string GetMocFileName(int characterId)
         {
-            string folder = Path.Combine(assetPath, $"{characterId:000}_live_default");
+            string folder = Path.Combine(modelPath, $"{characterId:000}_live_default");
 
             // Check if the directory exists
             if (!Directory.Exists(folder))
@@ -145,7 +147,7 @@ namespace AdaptableDialogAnalyzer.UnityEditor
         /// <returns>The file name of the `.physics.json` file, or `null` if not found.</returns>
         string GetPhysicsFileName(int characterId)
         {
-            string folder = Path.Combine(assetPath, $"{characterId:000}_live_default");
+            string folder = Path.Combine(modelPath, $"{characterId:000}_live_default");
 
             // Check if the directory exists
             if (!Directory.Exists(folder))

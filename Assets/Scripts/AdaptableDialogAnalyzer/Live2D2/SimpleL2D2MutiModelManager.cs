@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.Live2D2
 {
-    public partial class SimpleMutiModelManager : MonoBehaviour
+    public partial class SimpleL2D2MutiModelManager : MonoBehaviour
     {
         [Header("Components")]
         public Transform spawnTransform;
@@ -41,11 +41,9 @@ namespace AdaptableDialogAnalyzer.Live2D2
             modelInstanceInfo.index = index;
 
             // 设置相机和模型距离
-            float zPosition = distance * index;
-            live2DCamera.transform.localPosition = new Vector3(0, 0, zPosition);
-            simpleLive2DModel.transform.localPosition = new Vector3(0, 0, zPosition);
-
-            Debug.Log($"Added ModelInstanceInfo at index {index}. Total models: {modelInstanceInfos.Count}");
+            float xPosition = distance * index;
+            live2DCamera.transform.localPosition = new Vector3(xPosition, 0, live2DCamera.transform.localPosition.z);
+            simpleLive2DModel.transform.localPosition = new Vector3(xPosition, 0, simpleLive2DModel.transform.localPosition.z);
 
             return modelInstanceInfo;
         }

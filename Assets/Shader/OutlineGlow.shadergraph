@@ -279,9 +279,9 @@
     "m_Guid": {
         "m_GuidSerialized": "b70ecbe1-00e4-4921-8c91-2d79d1af2e6a"
     },
-    "m_Name": "outlineColor",
+    "m_Name": "OutlineColor",
     "m_DefaultReferenceName": "Color_03d5f6d48b27455eb90043a48970492b",
-    "m_OverrideReferenceName": "_outlineColor",
+    "m_OverrideReferenceName": "outlineColor",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -473,7 +473,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "20d3fb36becd43c59ed632e99c4ee5d7",
     "m_Id": 0,
-    "m_DisplayName": "searchWidth",
+    "m_DisplayName": "SearchWidth",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -554,9 +554,9 @@
     "m_Guid": {
         "m_GuidSerialized": "57b39c61-b571-4c33-95e6-3a80356c6b62"
     },
-    "m_Name": "outlineWidth",
+    "m_Name": "OutlineWidth",
     "m_DefaultReferenceName": "Vector1_40f8fefc5c7d42879186945a15bbd2b1",
-    "m_OverrideReferenceName": "_outlineWidth",
+    "m_OverrideReferenceName": "outlineWidth",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -713,9 +713,9 @@
     "m_Guid": {
         "m_GuidSerialized": "c8ae5dca-a809-406a-a85b-f895bbfac3e9"
     },
-    "m_Name": "searchWidth",
+    "m_Name": "SearchWidth",
     "m_DefaultReferenceName": "Vector1_575a697090d64e98965a905b82d81474",
-    "m_OverrideReferenceName": "_searchWidth",
+    "m_OverrideReferenceName": "searchWidth",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -1145,7 +1145,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "c51cba19754b49af95f7c28c0493f88d",
     "m_Id": 0,
-    "m_DisplayName": "outlineWidth",
+    "m_DisplayName": "OutlineWidth",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1255,7 +1255,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "e47eee983aad4e8a97834155887225a7",
     "m_Id": 0,
-    "m_DisplayName": "baseTextureTexelSize",
+    "m_DisplayName": "BaseTextureTexelSize",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1406,7 +1406,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "faf5972018dc4390a40d707dce758775",
     "m_Id": 0,
-    "m_DisplayName": "outlineColor",
+    "m_DisplayName": "OutlineColor",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1468,9 +1468,9 @@
     "m_Guid": {
         "m_GuidSerialized": "b1fad983-5bf3-42d9-8fd1-d6d80686708c"
     },
-    "m_Name": "baseTextureTexelSize",
+    "m_Name": "BaseTextureTexelSize",
     "m_DefaultReferenceName": "Vector1_fe3e931cced945ff9e61d78dd83eaf44",
-    "m_OverrideReferenceName": "_baseTextureTexelSize",
+    "m_OverrideReferenceName": "baseTextureTexelSize",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

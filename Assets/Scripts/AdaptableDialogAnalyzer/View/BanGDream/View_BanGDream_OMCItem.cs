@@ -1,10 +1,11 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Live2D2;
+using AdaptableDialogAnalyzer.MaterialController;
 using AdaptableDialogAnalyzer.Unity;
-using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
@@ -21,6 +22,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public Text txtRankPercent;
         public CanvasGroup cgNameLabelCover;
         public CanvasGroup cgCountAreaCover;
+        public IndividualColorElement iceThemeColor;
         [Header("Settings")]
         public IndexedModelInfoList indexedModelInfoList;
         public SpriteList nameLabelSpriteList;
@@ -28,18 +30,19 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public IndexedLive2D2AnimationSequenceList animationSequenceList;
         public float fadeDuration = 0.5f;
         public float animationDelay = 1f;
+        public float deltaRankTextBiggerThan19 = 1f;
 
-        SimpleMutiModelManager mutiModelManager;
+        SimpleL2D2MutiModelManager mutiModelManager;
         SimpleMentionCountResultItemWithRank mentionCountResultItem;
         ModelInstanceInfo modelInstanceInfo;
         Live2D2AnimationSequence animationSequence;
 
-        public void Initlize(SimpleMentionCountResultItemWithRank mentionCountResultItem, SimpleMutiModelManager mutiModelManager)
+        public void Initlize(SimpleMentionCountResultItemWithRank mentionCountResultItem, SimpleL2D2MutiModelManager mutiModelManager)
         {
             // 设置本地变量
             this.mutiModelManager = mutiModelManager;
             this.mentionCountResultItem = mentionCountResultItem;
-            this.animationSequence = animationSequenceList[mentionCountResultItem.characterID].animationSequence;
+            this.animationSequence = animationSequenceList[mentionCountResultItem.characterID]?.animationSequence;
 
             // 设置UI元素
             string nameLabelSpriteName = $"name_top_chr{mentionCountResultItem.characterID:00}";
@@ -47,8 +50,15 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             ImgNameLabelCover.sprite = nameLabelCoverSpriteList[nameLabelSpriteName];
             txtCount.text = mentionCountResultItem.count.ToString();
             txtPercent.text = $"{mentionCountResultItem.Percent * 100:00.00}%";
+
             txtRank.text = mentionCountResultItem.rank.ToString();
+            if (mentionCountResultItem.rank > 19)
+                txtCount.rectTransform.anchoredPosition = new Vector2(txtCount.rectTransform.anchoredPosition.x + deltaRankTextBiggerThan19, txtCount.rectTransform.anchoredPosition.y); // 当数字大于19时,调整位置
             txtRankPercent.text = mentionCountResultItem.percentRank.ToString();
+            if (mentionCountResultItem.percentRank > 19)
+                txtRankPercent.rectTransform.anchoredPosition = new Vector2(txtRankPercent.rectTransform.anchoredPosition.x + deltaRankTextBiggerThan19, txtRankPercent.rectTransform.anchoredPosition.y); // 当数字大于19时,调整位置
+            
+            iceThemeColor.SetIndividualColor(GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color);
 
             // 设置Live2D
             IndexedModelInfo indexedModelInfo = indexedModelInfoList[mentionCountResultItem.characterID];
@@ -69,7 +79,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public void SetInitState()
         {
             rimgLive2D.color = Color.black;
-            rimgLive2DOutline.color = GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color;
+            rimgLive2DOutline.color = new Color(rimgLive2DOutline.color.r, rimgLive2DOutline.color.g, rimgLive2DOutline.color.b, 1);
             cgNameLabelCover.alpha = 1;
             cgCountAreaCover.alpha = 1;
 
@@ -87,6 +97,15 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
             modelInstanceInfo.simpleLive2DModel.PlayExpression(animationSequence[0].Live2DExpression);
             modelInstanceInfo.simpleLive2DModel.PlayMotion(animationSequence[0].Live2DMotion);
+        }
+
+        /// <summary>
+        /// 禁用模型和相机
+        /// </summary>
+        public void InactiveModel()
+        {
+            modelInstanceInfo.simpleLive2DModel.gameObject.SetActive(false);
+            modelInstanceInfo.live2DCamera.gameObject.SetActive(false);
         }
 
         // 淡入UI

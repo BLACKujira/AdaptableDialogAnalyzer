@@ -72,15 +72,12 @@ namespace AdaptableDialogAnalyzer.UnityEditor
                     return;
                 }
 
-                // Create or update the SpriteList asset
-                SpriteList spriteList = AssetDatabase.LoadAssetAtPath<SpriteList>(assetPath);
-                if (spriteList == null)
-                {
-                    spriteList = ScriptableObject.CreateInstance<SpriteList>();
-                    AssetDatabase.CreateAsset(spriteList, assetPath);
-                }
 
+                SpriteList spriteList = ScriptableObject.CreateInstance<SpriteList>();
                 spriteList.sprites = sprites;
+
+                AssetDatabase.CreateAsset(spriteList, assetPath);
+
 
                 // Save the asset
                 AssetDatabase.SaveAssets();

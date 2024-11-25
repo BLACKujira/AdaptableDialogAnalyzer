@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace AdaptableDialogAnalyzer.View
 {
+
     public abstract class ColorTransition : MonoBehaviour, ITransition
     {
         public List<GameObject> activeObjects;
