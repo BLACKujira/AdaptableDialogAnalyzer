@@ -23,6 +23,7 @@ namespace AdaptableDialogAnalyzer.Live2D2
         }
         [NonSerialized]
         public L2DExpressionMotion live2DExpression;
+
         public L2DExpressionMotion Live2DExpression
         {
             get
@@ -40,6 +41,16 @@ namespace AdaptableDialogAnalyzer.Live2D2
         void LoadExpression()
         {
             if (expressionAsset != null) live2DExpression = L2DExpressionMotion.loadJson(expressionAsset.bytes);
+        }
+
+        public Live2D2Animation(TextAsset motionAsset, TextAsset expressionAsset)
+        {
+            this.motionAsset = motionAsset;
+            this.expressionAsset = expressionAsset;
+        }
+
+        public Live2D2Animation()
+        {
         }
     }
 }

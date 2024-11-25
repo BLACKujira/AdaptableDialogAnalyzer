@@ -1,7 +1,4 @@
 ﻿using AdaptableDialogAnalyzer.Live2D2;
-using AdaptableDialogAnalyzer.Unity;
-using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

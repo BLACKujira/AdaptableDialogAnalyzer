@@ -14,9 +14,10 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public EquidistantLayoutScroll equidistantLayoutScroll;
         public SimpleMentionCountResultLoader mentionCountResultLoader;
         public SimpleL2D2MutiModelManager mutiModelManager;
-        [Header("Setting")]
+        [Header("Settings")]
         public float delayTime = 3f;
         public float fadeInScrollValue = 800;
+        public List<int> debugCharacterIDs = new List<int>();
 
         private void Start()
         {
@@ -24,38 +25,31 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             HackCountResult(countResult);
             List<SimpleMentionCountResultItemWithRank> sortedCountResult = countResult.GetResultWithRank().OrderByDescending(x => x.rank).ToList();
 
-            try
+            equidistantLayoutScroll.equidistantLayoutGenerator.Generate(sortedCountResult.Count, (gobj, id) =>
             {
-                equidistantLayoutScroll.equidistantLayoutGenerator.Generate(sortedCountResult.Count, (gobj, id) =>
-                {
-                    View_BanGDream_OMCItem oMCItem = gobj.GetComponent<View_BanGDream_OMCItem>();
-                    oMCItem.Initlize(sortedCountResult[id], mutiModelManager);
-                });
-            }
-            catch (System.Exception ex)
-            {
-                Debug.Log(ex.Message);
-            }
+                View_BanGDream_OMCItem oMCItem = gobj.GetComponent<View_BanGDream_OMCItem>();
+                oMCItem.Initlize(sortedCountResult[id], mutiModelManager);
+                gobj.SetActive(false);
+            });
 
             // 注册事件
             equidistantLayoutScroll.onItemEnter += (gobj) =>
             {
-                Debug.Log("onItemEnter");
+                gobj.SetActive(true);
                 gobj.GetComponent<View_BanGDream_OMCItem>().ActiveModel();
             };
 
             ScrollEvent scrollEvent = new ScrollEvent(fadeInScrollValue);
             scrollEvent.callEvent += (gobj) =>
             {
-                Debug.Log("callEvent");
                 gobj.GetComponent<View_BanGDream_OMCItem>().FadeIn();
             };
             equidistantLayoutScroll.scrollEvents.Add(scrollEvent);
 
             equidistantLayoutScroll.onItemExit += (gobj) =>
             {
-                Debug.Log("onItemExit");
                 gobj.GetComponent<View_BanGDream_OMCItem>().InactiveModel();
+                gobj.SetActive(false);
             };
 
             StartCoroutine(CoPlay());
@@ -68,13 +62,24 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             countResult.items[15].serifCount += countResult[601].serifCount;
 
             // 移除0、601、214、201
-            List<SimpleMentionCountResultItem> removeItems = new List<SimpleMentionCountResultItem>
+            HashSet<SimpleMentionCountResultItem> removeItems = new HashSet<SimpleMentionCountResultItem>
             {
                 countResult[0],
                 countResult[601],
                 countResult[214],
                 countResult[201]
             };
+            if (debugCharacterIDs.Count > 0)
+            {
+                foreach (var item in countResult.items)
+                {
+                    if (!debugCharacterIDs.Contains(item.characterID))
+                    {
+                        removeItems.Add(item);
+                    }
+                }
+            }
+
             foreach (var item in removeItems)
             {
                 countResult.items.Remove(item);
@@ -88,7 +93,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             // 初始化已经进入范围内的item
             equidistantLayoutScroll.ForEachAlreadyEnterRect((gobj) =>
             {
-                Debug.Log("onItemEnter");
+                gobj.SetActive(true);
                 gobj.GetComponent<View_BanGDream_OMCItem>().ActiveModel();
             });
 
@@ -96,7 +101,6 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
 
             equidistantLayoutScroll.ForEachAlreadyEnter(fadeInScrollValue, (gobj) =>
             {
-                Debug.Log("callEvent");
                 gobj.GetComponent<View_BanGDream_OMCItem>().FadeIn();
             });
 

@@ -1030,7 +1030,7 @@ MonoBehaviour:
   equidistantLayoutGenerator: {fileID: 655262860}
   scrollRectTransform: {fileID: 1983246757}
   enableScroll: 0
-  scrollSpeed: 100
+  scrollSpeed: 0
 --- !u!114 &655262860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2918,8 +2918,9 @@ MonoBehaviour:
   equidistantLayoutScroll: {fileID: 655262859}
   mentionCountResultLoader: {fileID: 4004120336537311576}
   mutiModelManager: {fileID: 62237960}
-  delayTime: 3
+  delayTime: 0
   fadeInScrollValue: 1300
+  debugCharacterIDs: 
 --- !u!4 &4039690436351691540
 Transform:
   m_ObjectHideFlags: 0

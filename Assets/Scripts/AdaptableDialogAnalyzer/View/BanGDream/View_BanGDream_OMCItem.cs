@@ -4,6 +4,7 @@ using AdaptableDialogAnalyzer.MaterialController;
 using AdaptableDialogAnalyzer.Unity;
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public Text txtRankPercent;
         public CanvasGroup cgNameLabelCover;
         public CanvasGroup cgCountAreaCover;
+        public IndividualColorElement iceBGColor;
         public IndividualColorElement iceThemeColor;
         [Header("Settings")]
         public IndexedModelInfoList indexedModelInfoList;
@@ -32,11 +34,12 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public float fadeDuration = 0.5f;
         public float animationDelay = 1f;
         public float deltaRankTextBiggerThan19 = 1f;
+        public Color startThemeColor = Color.black;
 
         SimpleL2D2MutiModelManager mutiModelManager;
         SimpleMentionCountResultItemWithRank mentionCountResultItem;
         ModelInstanceInfo modelInstanceInfo;
-        Live2D2AnimationSequence animationSequence;
+        List<Live2D2Animation> animationSequence = new List<Live2D2Animation>();
 
         public void Initlize(SimpleMentionCountResultItemWithRank mentionCountResultItem, SimpleL2D2MutiModelManager mutiModelManager)
         {
@@ -59,7 +62,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             if (mentionCountResultItem.percentRank > 19)
                 txtRankPercent.rectTransform.anchoredPosition = new Vector2(txtRankPercent.rectTransform.anchoredPosition.x + deltaRankTextBiggerThan19, txtRankPercent.rectTransform.anchoredPosition.y); // 当数字大于19时,调整位置
             
-            iceThemeColor.SetIndividualColor(BGColorList[mentionCountResultItem.characterID]);
+            iceBGColor.SetIndividualColor(BGColorList[mentionCountResultItem.characterID]);
+            iceThemeColor.SetIndividualColor(startThemeColor);
             rimgLive2DOutline.color = GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color;
 
             // 设置Live2D
@@ -123,7 +127,17 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             cgNameLabelCover.DOFade(0, fadeDuration);
             cgCountAreaCover.DOFade(0, fadeDuration);
 
+            StartCoroutine(CoFadeThemeColor());
             StartCoroutine(CoPlayAnimation());
+        }
+
+        IEnumerator CoFadeThemeColor()
+        {
+            for(float i = 0;  i < fadeDuration; i += Time.deltaTime)
+            {
+                iceThemeColor.SetIndividualColor(Color.Lerp(startThemeColor, GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color, i / fadeDuration));
+                yield return null;
+            }
         }
 
         IEnumerator CoPlayAnimation()
