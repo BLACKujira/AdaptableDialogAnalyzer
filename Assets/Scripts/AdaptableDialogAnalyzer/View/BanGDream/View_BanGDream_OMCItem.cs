@@ -28,6 +28,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public SpriteList nameLabelSpriteList;
         public SpriteList nameLabelCoverSpriteList;
         public IndexedLive2D2AnimationSequenceList animationSequenceList;
+        public IndexedColorList BGColorList;
         public float fadeDuration = 0.5f;
         public float animationDelay = 1f;
         public float deltaRankTextBiggerThan19 = 1f;
@@ -58,7 +59,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             if (mentionCountResultItem.percentRank > 19)
                 txtRankPercent.rectTransform.anchoredPosition = new Vector2(txtRankPercent.rectTransform.anchoredPosition.x + deltaRankTextBiggerThan19, txtRankPercent.rectTransform.anchoredPosition.y); // 当数字大于19时,调整位置
             
-            iceThemeColor.SetIndividualColor(GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color);
+            iceThemeColor.SetIndividualColor(BGColorList[mentionCountResultItem.characterID]);
+            rimgLive2DOutline.color = GlobalConfig.CharacterDefinition[mentionCountResultItem.characterID].color;
 
             // 设置Live2D
             IndexedModelInfo indexedModelInfo = indexedModelInfoList[mentionCountResultItem.characterID];
@@ -95,8 +97,13 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             modelInstanceInfo.simpleLive2DModel.gameObject.SetActive(true);
             modelInstanceInfo.live2DCamera.gameObject.SetActive(true);
 
-            modelInstanceInfo.simpleLive2DModel.PlayExpression(animationSequence[0].Live2DExpression);
-            modelInstanceInfo.simpleLive2DModel.PlayMotion(animationSequence[0].Live2DMotion);
+            if (animationSequence != null && animationSequence[0] != null)
+            {
+                if(animationSequence[0].Live2DExpression != null)
+                    modelInstanceInfo.simpleLive2DModel.PlayExpression(animationSequence[0].Live2DExpression);
+                if(animationSequence[0].live2DMotion != null)
+                    modelInstanceInfo.simpleLive2DModel.PlayMotion(animationSequence[0].Live2DMotion);
+            }
         }
 
         /// <summary>

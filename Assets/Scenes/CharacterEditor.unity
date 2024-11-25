@@ -2919,7 +2919,7 @@ MonoBehaviour:
   mentionCountResultLoader: {fileID: 4004120336537311576}
   mutiModelManager: {fileID: 62237960}
   delayTime: 3
-  fadeInScrollValue: 1000
+  fadeInScrollValue: 1300
 --- !u!4 &4039690436351691540
 Transform:
   m_ObjectHideFlags: 0

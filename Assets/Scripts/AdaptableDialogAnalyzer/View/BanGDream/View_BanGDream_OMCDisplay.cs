@@ -1,6 +1,7 @@
 ﻿using AdaptableDialogAnalyzer.DataStructures;
 using AdaptableDialogAnalyzer.Live2D2;
 using AdaptableDialogAnalyzer.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -36,6 +37,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                 Debug.Log(ex.Message);
             }
 
+            // 注册事件
             equidistantLayoutScroll.onItemEnter += (gobj) =>
             {
                 Debug.Log("onItemEnter");
@@ -55,6 +57,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                 Debug.Log("onItemExit");
                 gobj.GetComponent<View_BanGDream_OMCItem>().InactiveModel();
             };
+
+            StartCoroutine(CoPlay());
         }
 
         void HackCountResult(SimpleMentionCountResult countResult)
@@ -75,6 +79,28 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             {
                 countResult.items.Remove(item);
             }
+        }
+
+        IEnumerator CoPlay()
+        {
+            yield return new WaitForSeconds(delayTime);
+
+            // 初始化已经进入范围内的item
+            equidistantLayoutScroll.ForEachAlreadyEnterRect((gobj) =>
+            {
+                Debug.Log("onItemEnter");
+                gobj.GetComponent<View_BanGDream_OMCItem>().ActiveModel();
+            });
+
+            yield return 1;
+
+            equidistantLayoutScroll.ForEachAlreadyEnter(fadeInScrollValue, (gobj) =>
+            {
+                Debug.Log("callEvent");
+                gobj.GetComponent<View_BanGDream_OMCItem>().FadeIn();
+            });
+
+            equidistantLayoutScroll.enableScroll = true;
         }
     }
 }

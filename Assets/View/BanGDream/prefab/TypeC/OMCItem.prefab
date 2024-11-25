@@ -1259,7 +1259,6 @@ MonoBehaviour:
   cgNameLabelCover: {fileID: 1120640511036030711}
   cgCountAreaCover: {fileID: 1120640510291523109}
   iceThemeColor: {fileID: 525991865116481017}
-  outlineGlow: {fileID: 8523628604191644416}
   indexedModelInfoList: {fileID: 11400000, guid: e08cbd16870f4e148aa1fd4243050004,
     type: 2}
   nameLabelSpriteList: {fileID: 11400000, guid: c7da8489c99d7ae49a455995cf033f05,
@@ -1268,8 +1267,7 @@ MonoBehaviour:
     type: 2}
   animationSequenceList: {fileID: 11400000, guid: 690275a24e107604d9f3a16ed0516aba,
     type: 2}
-  characterEdgeColorList: {fileID: 11400000, guid: 28c80d43f828afe49a8ca6a6ce265e44,
-    type: 2}
+  BGColorList: {fileID: 11400000, guid: 110aaf5fea1618d4d9fc5356ef898f03, type: 2}
   fadeDuration: 0.5
   animationDelay: 1
   deltaRankTextBiggerThan19: 1
@@ -1291,7 +1289,6 @@ MonoBehaviour:
   - {fileID: 1120640510649036023}
   - {fileID: 1120640510116297180}
   - {fileID: 2539948522812749530}
-  - {fileID: 1120640509992029722}
   textColorGraphics: []
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}

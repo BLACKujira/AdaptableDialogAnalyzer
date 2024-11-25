@@ -58,7 +58,8 @@ namespace AdaptableDialogAnalyzer.View
             }
 
             // 移动卷轴
-            scrollRectTransform.anchoredPosition = new Vector2(scrollRectTransform.anchoredPosition.x - scrollSpeed * Time.deltaTime, 0f);
+            if(enableScroll)
+                scrollRectTransform.anchoredPosition = new Vector2(scrollRectTransform.anchoredPosition.x - scrollSpeed * Time.deltaTime, 0f);
 
             // 缓存这一帧的位置
             foreach (var item in equidistantLayoutGenerator.Items)
@@ -95,6 +96,39 @@ namespace AdaptableDialogAnalyzer.View
                         scrollEvent?.CallEvent(item);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// 对所有进入范围内的元素进行操作
+        /// </summary>
+        public void ForEachAlreadyEnterRect(Action<GameObject> action, bool excludeExitItems = true)
+        {
+            ForEachAlreadyEnter(RectTransform.rect.width, action, excludeExitItems);
+        }
+
+        /// <summary>
+        ///  对所有进入范围内的元素进行操作
+        /// </summary>
+        public void ForEachAlreadyEnter(float scrollValue, Action<GameObject> action, bool excludeExitItems = true)
+        {
+            List<GameObject> selectedItems = new List<GameObject>();
+            foreach (var item in equidistantLayoutGenerator.Items)
+            {
+                RectTransform itemRectTransform = GetRectTransform(item);
+                float currItemPosition = itemRectTransform.anchoredPosition.x + scrollRectTransform.anchoredPosition.x;
+                if (!excludeExitItems || currItemPosition >= 0)
+                {
+                    if (currItemPosition <= scrollValue)
+                    {
+                        selectedItems.Add(item);
+                    }
+                }
+            }
+
+            foreach (var item in selectedItems)
+            {
+                action(item);
             }
         }
     }
