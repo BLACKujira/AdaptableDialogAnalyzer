@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s000_templete_MyGO_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: 739ce7fa5dd111b449fd947c1b6ef4d8, type: 2}
+  - {fileID: 11400000, guid: 3a1d2ca69cfc1654fb0b33281eab462c, type: 2}
   scale: 0.01
   skeletonJSON: {fileID: 4900000, guid: 49c3c625d5168da44a99c055751860d3, type: 3}
   isUpgradingBlendModeMaterials: 0
