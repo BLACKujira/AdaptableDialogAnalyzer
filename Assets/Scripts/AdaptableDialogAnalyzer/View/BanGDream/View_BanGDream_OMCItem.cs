@@ -37,6 +37,16 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public float deltaRankTextBiggerThan19 = 1f;
         public Color startThemeColor = Color.black;
 
+        RectTransform rectTransform;
+        public RectTransform RectTransform
+        {
+            get
+            {
+                if (rectTransform == null) rectTransform = GetComponent<RectTransform>();
+                return rectTransform;
+            }
+        }
+
         SimpleL2D2MutiModelManager mutiModelManager;
         SimpleMentionCountResultItemWithRank mentionCountResultItem;
         ModelInstanceInfo modelInstanceInfo;
