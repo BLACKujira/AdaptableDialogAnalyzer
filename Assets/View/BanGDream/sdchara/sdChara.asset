@@ -83,4 +83,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 35ca4edb4b82bbb4c82ade3c47a6bfe0, type: 3}
   - id: 35
     sprite: {fileID: 21300000, guid: e71e11a58355c7d46b2582f49ef90f0d, type: 3}
+  - id: 36
+    sprite: {fileID: 21300000, guid: 5771ad79212940c44a760edcd1f78a64, type: 3}
+  - id: 37
+    sprite: {fileID: 21300000, guid: 02d8e02a3fbcfa6459c1e1cd569c6519, type: 3}
+  - id: 38
+    sprite: {fileID: 21300000, guid: c1e2df48efd320d4191ff78a98735a92, type: 3}
+  - id: 39
+    sprite: {fileID: 21300000, guid: b730bf35e831ed94a966b58c0ce6fea5, type: 3}
+  - id: 40
+    sprite: {fileID: 21300000, guid: ac61d9fe6d05dce4faf8c462248d5b59, type: 3}
   defaultSprite: {fileID: 21300000, guid: 9720395825f2f5746bfda1ffd3bc2243, type: 3}

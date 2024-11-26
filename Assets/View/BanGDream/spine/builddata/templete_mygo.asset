@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: templete_mygo
   m_EditorClassIdentifier: 
   spineAtlasAssets:
-  - {fileID: 11400000, guid: d55971a3d806bbd43a37eabd0198574e, type: 2}
-  - {fileID: 11400000, guid: 5e542826525ce61469d710b5192da023, type: 2}
-  - {fileID: 11400000, guid: fc722be23fd292f44a038c059c66a749, type: 2}
-  - {fileID: 11400000, guid: 0a177a35d6f5e784ca317e9416a2b7f2, type: 2}
-  - {fileID: 11400000, guid: 45feac6cfa188604abd56f80de66fd40, type: 2}
+  - {fileID: 11400000, guid: 3a1d2ca69cfc1654fb0b33281eab462c, type: 2}
+  - {fileID: 11400000, guid: 59c969492471bda409a3c9df2799c01d, type: 2}
+  - {fileID: 11400000, guid: 1ff44109a2755c74a91bff688e6ef90e, type: 2}
+  - {fileID: 11400000, guid: 302024f2a3e8f4d44931b8cb7e97cc2b, type: 2}
+  - {fileID: 11400000, guid: d0c16175d1bf53f40ad0b443f16fc0e5, type: 2}

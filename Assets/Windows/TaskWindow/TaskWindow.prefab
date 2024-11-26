@@ -13,9 +13,6 @@ GameObject:
   - component: {fileID: 1949769359293616866}
   - component: {fileID: 1949769359293616867}
   - component: {fileID: 1949769359293616869}
-  - component: {fileID: 2141395154}
-  - component: {fileID: 2141395155}
-  - component: {fileID: 2141395156}
   m_Layer: 0
   m_Name: TaskWindow
   m_TagString: Untagged
@@ -132,64 +129,6 @@ MonoBehaviour:
   fadeTime: 0.25
   colorShadow: 0
   theme: 1
---- !u!114 &2141395154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949769359293616868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ddbebad84133914981356040e05fd44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progressBar: {fileID: 7449255016501719799}
-  txtProgress: {fileID: 3689296988518699963}
-  mentionedCountManagerLoader: {fileID: 2141395156}
-  ChapterLoader: {fileID: 2141395155}
-  modelPath: Assets/View/BanGDream/live2d
-  saveFile: Assets/View/BanGDream/prefab/TypeC/AnimationList.asset
---- !u!114 &2141395155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949769359293616868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab56a167db653e142b9fe919ef321f69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assetBundleFolder: E:\Extract\145
-  masterLoader: {fileID: 0}
-  loadMainStory: 1
-  loadBandStory: 1
-  loadEventStory: 1
-  loadAreaTalk: 1
-  loadCardStory: 1
-  loadAfterLive: 0
-  loadBirthdayStory: 0
-  loadBackstageTalk: 0
-  loadOtherStory: 0
-  setTimeAndRemoveUnused: 0
---- !u!114 &2141395156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949769359293616868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15600d6289dc49a4db1ca4e44e5571fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveFolder: E:\Extract\149
-  chapterLoader: {fileID: 0}
-  onlyLoadExistChapter: 0
-  doNotLoadChapter: 0
 --- !u!1 &3689296987417008641
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4EC5\u9002\u7528\u4E8EBanGDream"
+  m_Text: Description
 --- !u!1 &3689296988117761486
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u751F\u6210\u89D2\u8272\u7684\u6700\u5E38\u7528\u8868\u60C5\u548C\u52A8\u4F5C\u7EDF\u8BA1"
+  m_Text: Title
 --- !u!1 &3689296988518699941
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,15 +693,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3689296986637058060}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7449255016501719799 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6075942934468522747, guid: badca915daae8ac43bd28565f85d0acd,
-    type: 3}
-  m_PrefabInstance: {fileID: 3689296986637058060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7273667b21b9a8c449ea8087185e711b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
