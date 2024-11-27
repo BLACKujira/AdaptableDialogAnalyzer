@@ -88,5 +88,10 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             itemEffect.particle.Play();
             canvasGroup.DOFade(1, fadeDuration);
         }
+
+        public void FadeOut()
+        {
+            canvasGroup.DOFade(0, fadeDuration);
+        }
     }
 }
