@@ -15,8 +15,9 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public EquidistantLayoutScroll equidistantLayoutScroll;
         public SimpleMentionCountResultLoader mentionCountResultLoader;
         public SimpleL2D2MutiModelManager mutiModelManager;
+        public ColorTransition transitionIn;
+        public ColorTransition transitionOut;
         [Header("Settings")]
-        public float delayTime = 3f;
         public float fadeInScrollValue = 800;
         public List<int> debugCharacterIDs = new List<int>();
         [Header("Settings2")]
@@ -26,8 +27,11 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public float initFadeDelay = 1f; // 初始化淡入效果的延迟时间
         public float initFadeInterval = 550f / 100f; // 初始化淡入效果的间隔时间
         public float delayBeforeEnableScroll= 5f; // 延迟启用滚动的时间
-        [Header("Settings2")]
+        [Header("Settings3")]
         public float delayBeforeLastItemFadeIn = (800f - 550f) / 100f;
+        public float transitionInDelay = 5f;
+        public float playDelay = 1f;
+        public float transitionOutDelay = 5f;
 
         private void Start()
         {
@@ -132,7 +136,11 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
                 item.RectTransform.anchoredPosition = new Vector2(item.RectTransform.anchoredPosition.x + initItemPosDelta, item.RectTransform.anchoredPosition.y);
             }
 
-            yield return new WaitForSeconds(delayTime); // 等待延迟时间
+            yield return new WaitForSeconds(transitionInDelay);
+
+            // 播放转场动画
+            transitionIn.StartTransition();
+            yield return new WaitForSeconds(playDelay); // 等待延迟时间
 
             // 播放Item的移动动画
             foreach (var item in initItems)
@@ -177,6 +185,9 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             yield return new WaitForSeconds(delayBeforeLastItemFadeIn);
             View_BanGDream_OMCItem lastItem = equidistantLayoutScroll.equidistantLayoutGenerator.Items.Last().GetComponent<View_BanGDream_OMCItem>();
             lastItem.FadeIn();
+
+            yield return new WaitForSeconds(transitionOutDelay);
+            transitionOut.StartTransition();
         }
     }
 }

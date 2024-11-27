@@ -19,6 +19,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         [Header("Adapter")]
         public SimpleMentionCountResultLoader mentionCountResultLoader;
         [Header("Time")]
+        public float playDelay = 2f;
         public float itemFadeDelay = 5f; // 首个 item 淡入前的延迟
         public float bgFadeDuration = 1.0f; // 背景淡入的持续时间
         public float itemFadeInterval = 0.033f; // 每个 item 淡入之间的间隔时间
@@ -51,6 +52,8 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         /// </summary>
         IEnumerator CoFadeIn()
         {
+            yield return new WaitForSeconds(playDelay);
+
             title.FadeIn(); // 标题淡入
             yield return new WaitForSeconds(itemFadeDelay);
 
