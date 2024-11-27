@@ -507,7 +507,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 3107963899185245626}
   - {fileID: 1415817318960950798}
-  - {fileID: 2382652361404288078}
+  - {fileID: 2382652360053060369}
   textColorGraphics: []
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   colorBlack: {r: 0.26666668, g: 0.26666668, b: 0.4, a: 1}

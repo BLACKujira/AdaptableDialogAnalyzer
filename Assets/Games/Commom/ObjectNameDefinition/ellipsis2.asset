@@ -16,5 +16,4 @@ MonoBehaviour:
   commonNameList:
   - "^[\uFF0E\\.\u3002\u2026]+$"
   specificNameLists: []
-  unidentifiedNameList:
-  - "^.{0,5}[\uFF0E\\.\u3002\u2026]+.{0,5}$"
+  unidentifiedNameList: []

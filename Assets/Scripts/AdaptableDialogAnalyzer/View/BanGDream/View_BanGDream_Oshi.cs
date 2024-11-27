@@ -25,7 +25,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         [Header("Time")]
         public float textFadeDuration = 0.5f;
         public float bgFadeDuration = 1.0f;
-        public float itemFadeInterval = 0.033f;
+        public float itemFadeInterval = 0.067f;
         public float triangleAlpha = 0.05f;
 
         public void FadeIn()

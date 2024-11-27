@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,10 +44,11 @@ namespace AdaptableDialogAnalyzer.Unity
             {
                 if(chapterDictionary.ContainsKey(chapter.ChapterID))
                 {
-                    Debug.LogWarning("剧情ID已重复，先前加载的相同ID剧情被覆盖");
+                    Debug.LogWarning($"剧情ID\"{chapter.ChapterID}\"已重复，先前加载的相同ID剧情被覆盖");
                 }
                 chapterDictionary[chapter.ChapterID] = chapter;
             }
+            chapters = chapterDictionary.Values.ToArray();
         }
 
         /// <summary>
@@ -72,6 +74,25 @@ namespace AdaptableDialogAnalyzer.Unity
         public bool HasChapter(string chapterID)
         {
             return chapterDictionary.ContainsKey(chapterID);
+        }
+
+        /// <summary>
+        /// 检查chapterID是否唯一
+        /// </summary>
+        public void CheckIndependency()
+        {
+            Dictionary<string, Chapter> usedChapterID = new Dictionary<string, Chapter>();
+            foreach (Chapter chapter in chapters)
+            {
+                if(!usedChapterID.ContainsKey(chapter.ChapterID))
+                {
+                    usedChapterID.Add(chapter.ChapterID, chapter);
+                }
+                else
+                {
+                    Debug.Log($"ChapterID\"{chapter.ChapterID}\" 发生碰撞。");
+                }
+            }
         }
     }
 }

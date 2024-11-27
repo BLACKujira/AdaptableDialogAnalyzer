@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
+
     public class View_BanGDream_OMCPercent_Item : MonoBehaviour
     {
         [Header("Components")]
@@ -46,7 +47,31 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             imgAreaShadow.color = shadowColor;
 
             txtPercent.text = $"{countResultItem.Percent * 100:00.00}%";
-            txtCount.text = $"{countResultItem.count} / ( {countResultItem.serifCount} )";
+            txtCount.text = $"{countResultItem.count} / {countResultItem.serifCount}";
+
+            ItemEffect.materialController.HDRColor = hdrColorList[countResultItem.characterID];
+            canvasGroup.alpha = 0;
+        }
+
+        /// <summary>
+        /// 以总数统计模式设置内容 
+        /// </summary>
+        public void SetData_Count(SimpleMentionCountResultItemWithRank countResultItem)
+        {
+            CharacterDefinition characterDefinition = GlobalConfig.CharacterDefinition;
+
+            txtRank.text = countResultItem.rank.ToString();
+
+            imgSpeaker.sprite = charIconList[countResultItem.characterID];
+            iceBGColor.SetIndividualColor(bgColorList[countResultItem.characterID]);
+            iceTextColor.SetIndividualColor(textColorList[countResultItem.characterID]);
+
+            Color shadowColor = characterDefinition[countResultItem.characterID].color;
+            shadowColor.a = areaShadowAlpha;
+            imgAreaShadow.color = shadowColor;
+
+            txtPercent.text = $"{countResultItem.count}";
+            txtCount.text = $"{countResultItem.count} / {countResultItem.serifCount}";
 
             ItemEffect.materialController.HDRColor = hdrColorList[countResultItem.characterID];
             canvasGroup.alpha = 0;
