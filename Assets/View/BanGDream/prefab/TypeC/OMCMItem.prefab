@@ -2864,7 +2864,7 @@ MonoBehaviour:
     type: 2}
   nameLabelCoverSpriteList: {fileID: 11400000, guid: 19e97138a19a71f4392654c51e8c01d1,
     type: 2}
-  animationSequenceList: {fileID: 11400000, guid: 690275a24e107604d9f3a16ed0516aba,
+  animationSequenceList: {fileID: 11400000, guid: 9bd4de7911d30b84987ab63998f50af8,
     type: 2}
   BGColorList: {fileID: 11400000, guid: 110aaf5fea1618d4d9fc5356ef898f03, type: 2}
   BGSpriteList: {fileID: 11400000, guid: 5439b286e22889a4d95c305dd9218553, type: 2}

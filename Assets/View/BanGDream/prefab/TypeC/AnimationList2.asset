@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87134d75b6617db44adcc98c794f1b12, type: 3}
+  m_Name: AnimationList2
+  m_EditorClassIdentifier: 
+  indexedLive2D2AnimationSequences:
+  - index: 1
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 4ebc8ef26740a6a4d8cb4791d504045f, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 33913bd88c7722a449645d8625ae75c5, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 5c7c14db4f2529b48812dc37de85505a, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 7fd3598851c67b84498894ad9818b2eb, type: 3}
+  - index: 2
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 0133764ff68425d4dbfb4797bdaf4cbe, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f5cc95f978734ba478fd5f3e1066bbde, type: 3}
+    - motionAsset: {fileID: 0}
+      expressionAsset: {fileID: 4900000, guid: de9a950c6bda65543ab77a157b288854, type: 3}
+  - index: 3
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 3008aa10ff772f54cac6b51748404a84, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 60a3628a5344f5741aedd003be8b2a54, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 34d90add1add4c44fa3a07ba2a319230, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 8f57383149b2feb439beb290183a6ed0, type: 3}
+  - index: 4
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: e4830c6c7a8c89a449a779b22cf1cff3, type: 3}
+      expressionAsset: {fileID: 4900000, guid: d3cff741e514a104bab15df3b35b89b8, type: 3}
+    - motionAsset: {fileID: 4900000, guid: afbdb5b8c490e624e86ca765261beece, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 9e90090a323a5194982519c3e50a2a8a, type: 3}
+  - index: 5
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 143725ff042f2324eaec6c279290a7cd, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 987df472b0f196642b650a23a3e74642, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 73db9cf7f0cce3646b890c00e9b5ad80, type: 3}
+      expressionAsset: {fileID: 4900000, guid: c8b0c8d5828c7bb4dbe5520f70b86ec8, type: 3}
+  - index: 6
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: bf0ab6209889e3c4cb2e500ec89f9164, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 8b4fdd615523ae24ebee2298c52f88b8, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 9efbf3cb5a6c1cf4eb03a860f97c537f, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 78cda2a0f3c187740a76e1deea640e3d, type: 3}
+  - index: 7
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: be2ac63baa9b13047be71746cf0e0e2f, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 7e133b5fc993de94fbbfd72e5dd910d1, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 98ab1dc5df5f75a4a879de35471c54f3, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f909b4e084f6925468febbc006d106d5, type: 3}
+  - index: 8
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 0e6794c2d78e56544b434213e787d57e, type: 3}
+      expressionAsset: {fileID: 4900000, guid: bd6281db878d11a45b01f4082be252c0, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 72abf262f0610c740b9a5d55ad040f7a, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 7446bccb898e0a14b954248b3c4260b8, type: 3}
+  - index: 9
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: e65af4f1c8491ed498530c2a1a088e3c, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 06a79245da7e3cf4f8a575d76250f691, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 1c5cff44f0bd03c4d99cd5d61f72d060, type: 3}
+      expressionAsset: {fileID: 4900000, guid: cbfbd9055a854a4438260c2b0f6a7c24, type: 3}
+  - index: 10
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: ce0e450c3fd71f94fbfefa55d4769164, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f11ade33c8d64bc45b7d15f5fbfe9c5b, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 78852f89002e0664f83555c0926b0521, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f11ade33c8d64bc45b7d15f5fbfe9c5b, type: 3}
+  - index: 11
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 5fcf70d6cd20ca343a44f8387a367ba7, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 4aea63a9e59ff974ea62897f50bbd6de, type: 3}
+    - motionAsset: {fileID: 0}
+      expressionAsset: {fileID: 4900000, guid: 4aea63a9e59ff974ea62897f50bbd6de, type: 3}
+  - index: 12
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: f4503ba84855f2548881c18ab3aade49, type: 3}
+      expressionAsset: {fileID: 4900000, guid: c4c2e14b554ebbe4cbc565cad32e02ca, type: 3}
+    - motionAsset: {fileID: 0}
+      expressionAsset: {fileID: 4900000, guid: c4c2e14b554ebbe4cbc565cad32e02ca, type: 3}
+  - index: 13
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 0f86065d95606e04f91f978d34e038f3, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 69a9509cb57bf084e8ba784475813b66, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 4c4f83e669f0796468fc8f53911ebe7f, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ca75570d458914241802acddf78e12eb, type: 3}
+  - index: 14
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: a123c3c6668d1fb4cb9de765fb61c51c, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 85d94bc31a13d85408db3a86e60d9359, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 0bcc21da4e9dded4c921ef3fa3dab2fb, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 2176c8ffbb669ec4a88a6e543d2a86d6, type: 3}
+  - index: 15
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: edece245447d2d3439904c93c23a99a7, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 480cca9fae85e8746afa1e51a5ea209a, type: 3}
+    - motionAsset: {fileID: 4900000, guid: d66ef8a9f1380ad40a8f6110d8374587, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 0ec7b1fbfb6259a4886d5b07e8bf815c, type: 3}
+  - index: 16
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 3023d74cda54aae4e938fde0db2a813a, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 1d4dc0ae6a470884b9d595292b069206, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 735d16309918c9347b79db095e0ec0db, type: 3}
+      expressionAsset: {fileID: 4900000, guid: d93ba8b408046c24ab8f089ae228eaa6, type: 3}
+  - index: 17
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: a2a4453874bc01e498aac278264fb65a, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 25488bceb74a2f347b3ba40481fa03b5, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 60c951727b369194dbf231cda2b6167e, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 6c7b012535155d54cab5fec726075679, type: 3}
+  - index: 18
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: c3d4e32f3a56e594e95dfceade741761, type: 3}
+      expressionAsset: {fileID: 4900000, guid: e6cd44a4323b59a40a986d797ed01ecc, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 6aca06d0d9860cb44bdc57e9c06388d0, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 1c1696a90d58eb14882bfa14ec6a1263, type: 3}
+  - index: 19
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 0fbe68c912b909f4895dcc08ba8b4cc6, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f30d06de51227f640a28c170e9f6b593, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 4cffe0dc94cf2f94597de2a68ec5954c, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 5fe37d56184c5d044af71abb6fe03fae, type: 3}
+  - index: 20
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 7ec82ea2a04e8844781ee5f545483933, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 8b29d3516ead94549afd91a1ee4e6060, type: 3}
+    - motionAsset: {fileID: 4900000, guid: f1daa02288354d74b873821635ffd04e, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 460abe97455884641850c0f8199102ea, type: 3}
+  - index: 21
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: f7bbef73fb70b354d95f0cc0ebdb2563, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 9b963725754332c4f8b3485d52c4e7c5, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 36860f19e8fa37b4195610dc4fec8b03, type: 3}
+      expressionAsset: {fileID: 4900000, guid: c4fde9d488ee8af4b97a236f66f5306e, type: 3}
+  - index: 22
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 3c33b896b336bdd49a716aca103fd396, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 872427997e3b95245b4a97b3de24b37e, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 72aaa964d3181c04fa763f37c000622f, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 9665709e169adad418e67df63261c451, type: 3}
+  - index: 23
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 8e0db2072b056d0409f9a64de1a6c7f0, type: 3}
+      expressionAsset: {fileID: 4900000, guid: dff3b42ba22a23144aafc382ad4953b2, type: 3}
+    - motionAsset: {fileID: 4900000, guid: a583188e0415ae64b9e50118655f2002, type: 3}
+      expressionAsset: {fileID: 4900000, guid: beaf0044c66731e4da816d61389828b1, type: 3}
+  - index: 24
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 9080cc35ba17c0842aa8a288c319a3cf, type: 3}
+      expressionAsset: {fileID: 4900000, guid: e4ef8e2f6e7ff6c40aab4115cda7317d, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 7a7466d272419e647a15bb59e088ffc8, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 1bd4537c9dce35f449c8a1398377552b, type: 3}
+  - index: 25
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 21f291da54360fb499584cf532691bcb, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ef920cab181443442bc49f80499d009f, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 28927c9aa18044347a233f0a3667a754, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 00fad572613029a41824e376dedcc05d, type: 3}
+  - index: 26
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: afd1105c992a92247a3a972826570171, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 1cbe6e1af6325de4eb0b463c6160e1c6, type: 3}
+    - motionAsset: {fileID: 4900000, guid: c54345f33cf1fdc47a6c0aae76029e55, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 1cbe6e1af6325de4eb0b463c6160e1c6, type: 3}
+  - index: 27
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 67bd0a8e8c971414fbbbd88ea18801e9, type: 3}
+      expressionAsset: {fileID: 4900000, guid: a7ff1a6ee7574ef4393f2d8b6dc2246a, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 4421bc9f08694ab4db3b7d394eac916e, type: 3}
+      expressionAsset: {fileID: 4900000, guid: a7ff1a6ee7574ef4393f2d8b6dc2246a, type: 3}
+  - index: 28
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 5fc2f6854a6690b4c9e9de9aaa3c7c7b, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 32ebd995048845d409d7013d340351d5, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 885ad8becbfc00b4484e95847957e059, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 32ebd995048845d409d7013d340351d5, type: 3}
+  - index: 29
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 5bbe8a816b764f04c93675e35262e6c3, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 80c1bf19ed2928d4b8c7df7b2450408c, type: 3}
+    - motionAsset: {fileID: 4900000, guid: cc793173ba827c24f88dd94bf1452a57, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 80c1bf19ed2928d4b8c7df7b2450408c, type: 3}
+  - index: 30
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: e7a96b27b0c6fe54eb65fb4ee3edfd3b, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ab2ebe93042940447b5dea221afe47aa, type: 3}
+    - motionAsset: {fileID: 4900000, guid: be8e36e1b1cf64a40b8699be02a5f2fe, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ab2ebe93042940447b5dea221afe47aa, type: 3}
+  - index: 31
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: ba6f8ad730e142041b473befdd61c78c, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f31728a01633f9b4e83a30a9f7c02f2b, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 9424eeb8b272ae94ea9a8eb2e44cc18c, type: 3}
+      expressionAsset: {fileID: 4900000, guid: f31728a01633f9b4e83a30a9f7c02f2b, type: 3}
+  - index: 32
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 8da0892d9e177d940a0b58f92b840145, type: 3}
+      expressionAsset: {fileID: 4900000, guid: e9048a04ec19f944fb5f10c9742fb5de, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 66f64952798deb147ac7c012896daa9a, type: 3}
+      expressionAsset: {fileID: 4900000, guid: e9048a04ec19f944fb5f10c9742fb5de, type: 3}
+  - index: 33
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 6fad6fe0243da854094930f8a8fbbf39, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ea1044e3d8700f949a54e39fa7ce0399, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 004643a07e5325546ac1bfb4a32efd20, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ea1044e3d8700f949a54e39fa7ce0399, type: 3}
+  - index: 34
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: b18fa8bbc11f00346a90a042c81247f0, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 0876518c0f1e6524fbae34bffd09470f, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 85c1346477abd424192afd6f3ba8bdad, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 0876518c0f1e6524fbae34bffd09470f, type: 3}
+  - index: 35
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: da429217ea75dd845a9450d21735df63, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 6adbc603af4f9704192c045abb8326e8, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 33e004eb8d5e89145b52b896ed4cb563, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 6adbc603af4f9704192c045abb8326e8, type: 3}
+  - index: 36
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: dd5ae597b0255fb4c9044bca1ef0c7e2, type: 3}
+      expressionAsset: {fileID: 0}
+    - motionAsset: {fileID: 4900000, guid: 1e88a1768c2644149949fa4a633a9ad7, type: 3}
+      expressionAsset: {fileID: 0}
+  - index: 37
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 057a44d933c2ed8428c4cbab47f15881, type: 3}
+      expressionAsset: {fileID: 4900000, guid: a0d091b719d87bc4fbc7bef674a8c5eb, type: 3}
+    - motionAsset: {fileID: 4900000, guid: f8751de163f8d034a9d54bc12348fa57, type: 3}
+      expressionAsset: {fileID: 4900000, guid: a0d091b719d87bc4fbc7bef674a8c5eb, type: 3}
+  - index: 38
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: b8d445da4e6f1554381bf0dfc026ba2b, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ffdb470328693bb4285abe2f0e94074d, type: 3}
+    - motionAsset: {fileID: 4900000, guid: d32763ba25eea6640a8417371a21168c, type: 3}
+      expressionAsset: {fileID: 4900000, guid: ffdb470328693bb4285abe2f0e94074d, type: 3}
+  - index: 39
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: af1485b722667644492b249026667f5b, type: 3}
+      expressionAsset: {fileID: 4900000, guid: e442e91089c1c49499539d6ebf467481, type: 3}
+    - motionAsset: {fileID: 4900000, guid: 7ec338dc64f81c849870507fbf9689dd, type: 3}
+      expressionAsset: {fileID: 4900000, guid: e442e91089c1c49499539d6ebf467481, type: 3}
+  - index: 40
+    animationSequence:
+    - motionAsset: {fileID: 4900000, guid: 2dde1e23d08ae2e4d980cf3115c94bd5, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 01d93e1fbf193f646b833b39fdb3176f, type: 3}
+    - motionAsset: {fileID: 4900000, guid: a0b705ef8ca61914fa9942b1515c1e0a, type: 3}
+      expressionAsset: {fileID: 4900000, guid: 01d93e1fbf193f646b833b39fdb3176f, type: 3}

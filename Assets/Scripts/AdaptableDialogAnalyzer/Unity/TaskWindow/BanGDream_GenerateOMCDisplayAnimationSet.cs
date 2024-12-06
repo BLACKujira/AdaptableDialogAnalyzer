@@ -16,7 +16,6 @@ namespace AdaptableDialogAnalyzer.Unity
     {
         [Header("Components")]
         public ObjectMentionedCountManagerLoader mentionedCountManagerLoader;
-        public ChapterLoader ChapterLoader;
         [Header("Settings")]
         public string modelPath = "Assets/View/BanGDream/live2d";
         public string saveFile = "Assets/View/BanGDream/prefab/TypeC/AnimationList.asset";
@@ -45,6 +44,10 @@ namespace AdaptableDialogAnalyzer.Unity
                 // 统计最常用表情和动作
                 Dictionary<string, int> mostUsedExpression = GetMostUsedExpression(scenarioSnippetTalks, i);
                 Dictionary<string, int> mostUsedMotion = GetMostUsedMotion(scenarioSnippetTalks, i);
+
+                // 移除默认表情
+                mostUsedExpression.Remove("idle01");
+                mostUsedMotion.Remove("idle01");
 
                 // 获取使用次数最多的表情和动作的名称
                 string mostUsedExpressionName = mostUsedExpression.OrderByDescending(kvp => kvp.Value).FirstOrDefault().Key;
