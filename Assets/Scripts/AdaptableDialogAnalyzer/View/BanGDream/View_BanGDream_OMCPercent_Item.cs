@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 namespace AdaptableDialogAnalyzer.View.BanGDream
 {
-
     public class View_BanGDream_OMCPercent_Item : MonoBehaviour
     {
         [Header("Components")]

@@ -36,6 +36,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public float animationDelay = 1f;
         public float deltaRankTextBiggerThan19 = 1f;
         public Color startThemeColor = Color.black;
+        public bool usePercentFormat = true;
 
         RectTransform rectTransform;
         public RectTransform RectTransform
@@ -66,7 +67,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             ImgNameLabel.sprite = nameLabelSpriteList[nameLabelSpriteName];
             ImgNameLabelCover.sprite = nameLabelCoverSpriteList[nameLabelSpriteName];
             txtCount.text = mentionCountResultItem.count.ToString();
-            txtPercent.text = $"{mentionCountResultItem.Percent * 100:00.00}%";
+            txtPercent.text = usePercentFormat? $"{mentionCountResultItem.Percent * 100:00.00}%" : $"{mentionCountResultItem.Percent:0.00}";
 
             txtRank.text = mentionCountResultItem.rank.ToString();
             if (mentionCountResultItem.rank > 19)

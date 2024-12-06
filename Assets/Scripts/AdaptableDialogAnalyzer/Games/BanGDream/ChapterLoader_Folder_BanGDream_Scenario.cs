@@ -22,6 +22,8 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         public bool loadBirthdayStory = true;
         public bool loadBackstageTalk = true;
         public bool loadOtherStory = true;
+        [Header("Settings2")]
+        public bool setTitle = false;
         public bool setTimeAndRemoveUnused = true;
 
         const string SCENARIO_EXTENSION = ".json";
@@ -60,9 +62,6 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
         public override Chapter[] InitializeChapters()
         {
-            //suiteMasterGetResponse = masterLoader.SuiteMasterGetResponse;
-            //userEventStoryMemorialResponse = masterLoader.UserEventStoryMemorialResponse;
-
             List<Chapter> chapters = new List<Chapter>();
 
             if (loadMainStory) chapters.AddRange(LoadScenarioFromSubFolders(Path.Combine(assetBundleFolder, DIR_MAINSTORY), TYPE_MAINSTORY));
@@ -107,7 +106,21 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
             //{
             //    if (chapter.ChapterTime <= BanGDreamHelper.SEASON_1_STARTTIME) Debug.Log($"剧情时间未找到 {chapter.ChapterID}");
             //}
+            PostProcess(chapters);
             return chapters.ToArray();
+        }
+
+        public void PostProcess(List<Chapter> chapters)
+        {
+            if(setTitle) suiteMasterGetResponse = masterLoader.SuiteMasterGetResponse;
+            if (setTitle)
+            {
+                ChapterTitleGetter chapterTitleGetter = new ChapterTitleGetter(suiteMasterGetResponse);
+                foreach (var chapter in chapters)
+                {
+                    chapter.ChapterTitle = chapterTitleGetter.GetChapterTitle(chapter.ChapterType,chapter.ChapterID);
+                }
+            }
         }
 
         #region 获取剧情
@@ -172,6 +185,7 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
         }
         #endregion
 
+        #region 获取时间（弃用）
         List<ActionSetData> actionSetDataList = null;
         public List<ActionSetData> GetActionSetDataList()
         {
@@ -462,5 +476,6 @@ namespace AdaptableDialogAnalyzer.Games.BanGDream
 
             return false;
         }
+        #endregion
     }
 }

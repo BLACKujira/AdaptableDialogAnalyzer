@@ -19,6 +19,7 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
         public ColorTransition transitionOut;
         [Header("Settings")]
         public float fadeInScrollValue = 800;
+        public bool sortByPercent = false;
         public List<int> debugCharacterIDs = new List<int>();
         [Header("Settings2")]
         public float initItemPosDelta = 1920f; // 初始化时Item的水平位移
@@ -40,7 +41,16 @@ namespace AdaptableDialogAnalyzer.View.BanGDream
             HackCountResult(countResult);
 
             // 对结果进行排序，并生成布局中的Item
-            List<SimpleMentionCountResultItemWithRank> sortedCountResult = countResult.GetResultWithRank().OrderByDescending(x => x.rank).ToList();
+            List<SimpleMentionCountResultItemWithRank> sortedCountResult;
+            if(sortByPercent)
+            {
+                sortedCountResult = countResult.GetResultWithRank().OrderByDescending(x => x.percentRank).ToList();
+            }
+            else
+            {
+                sortedCountResult = countResult.GetResultWithRank().OrderByDescending(x => x.rank).ToList();
+            }
+
             equidistantLayoutScroll.equidistantLayoutGenerator.Generate(sortedCountResult.Count, (gobj, id) =>
             {
                 View_BanGDream_OMCItem oMCItem = gobj.GetComponent<View_BanGDream_OMCItem>();
