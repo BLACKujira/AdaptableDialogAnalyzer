@@ -46,8 +46,12 @@ namespace AdaptableDialogAnalyzer.Unity
                 Dictionary<string, int> mostUsedMotion = GetMostUsedMotion(scenarioSnippetTalks, i);
 
                 // 移除默认表情
-                mostUsedExpression.Remove("idle01");
-                mostUsedMotion.Remove("idle01");
+                string[] removeMotions = { "","idle01", "default" };
+                foreach (var motionName in removeMotions)
+                {
+                    if (mostUsedExpression.ContainsKey(motionName) && mostUsedExpression.Count > 1) mostUsedExpression.Remove(motionName);
+                    if (mostUsedMotion.ContainsKey(motionName) && mostUsedMotion.Count > 1) mostUsedMotion.Remove(motionName);
+                }
 
                 // 获取使用次数最多的表情和动作的名称
                 string mostUsedExpressionName = mostUsedExpression.OrderByDescending(kvp => kvp.Value).FirstOrDefault().Key;

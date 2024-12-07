@@ -461,16 +461,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3823639975326297773, guid: 4948217c8aa60f7489f7b14c20b940c5,
+        type: 3}
+      propertyPath: startHDRColor.b
+      value: 1.4980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823639975326297773, guid: 4948217c8aa60f7489f7b14c20b940c5,
+        type: 3}
+      propertyPath: startHDRColor.g
+      value: 1.4980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823639975326297773, guid: 4948217c8aa60f7489f7b14c20b940c5,
+        type: 3}
+      propertyPath: startHDRColor.r
+      value: 1.4980392
+      objectReference: {fileID: 0}
     - target: {fileID: 3823639976146059598, guid: 4948217c8aa60f7489f7b14c20b940c5,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3823639976482654646, guid: 4948217c8aa60f7489f7b14c20b940c5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 885
+      objectReference: {fileID: 0}
     - target: {fileID: 3823639976708571093, guid: 4948217c8aa60f7489f7b14c20b940c5,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3823639976810420384, guid: 4948217c8aa60f7489f7b14c20b940c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3823639976946150536, guid: 4948217c8aa60f7489f7b14c20b940c5,
         type: 3}
       propertyPath: m_Name

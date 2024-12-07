@@ -408,6 +408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
         type: 3}
+      propertyPath: setTitle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056904668527328624, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
+        type: 3}
       propertyPath: loadAreaTalk
       value: 1
       objectReference: {fileID: 0}
@@ -464,13 +469,13 @@ PrefabInstance:
     - target: {fileID: 4056904668527328625, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
         type: 3}
       propertyPath: saveFolder
-      value: E:\Extract\158_OMCDotStrict
+      value: E:\Extract\160_OMCDotLoose
       objectReference: {fileID: 0}
     - target: {fileID: 4056904668527328625, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
         type: 3}
       propertyPath: objectNameDefinition
       value: 
-      objectReference: {fileID: 11400000, guid: 2e41fc8da99790c4cb553ee7e05dee02,
+      objectReference: {fileID: 11400000, guid: 53af8258d2589b74197f290c8bc9aa0c,
         type: 2}
     - target: {fileID: 7031291219293797569, guid: 8ea18483a5462a242b8a9d0f6f7292a3,
         type: 3}
@@ -894,7 +899,7 @@ PrefabInstance:
     - target: {fileID: 2767118701182983291, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.62500143
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 2767118701440622527, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
@@ -935,7 +940,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objectNameDefinition
       value: 
-      objectReference: {fileID: 11400000, guid: 2e41fc8da99790c4cb553ee7e05dee02,
+      objectReference: {fileID: 11400000, guid: 53af8258d2589b74197f290c8bc9aa0c,
         type: 2}
     - target: {fileID: 7714182923609464369, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
@@ -1063,7 +1068,7 @@ PrefabInstance:
     - target: {fileID: 7714182923609464378, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
       propertyPath: saveFolder
-      value: E:\Extract\158_OMCDotStrict
+      value: E:\Extract\160_OMCDotLoose
       objectReference: {fileID: 0}
     - target: {fileID: 7714182923609464392, guid: 1fe9700ed7ebf9749960aba55afd7680,
         type: 3}
@@ -1117,6 +1122,140 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fe9700ed7ebf9749960aba55afd7680, type: 3}
+--- !u!1001 &961065129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 986041958622885426, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: doNotLoadChapter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297192651517850495, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: saveFile
+      value: E:\Extract\result_band_loose.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900257, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_Name
+      value: GenerateOMCResult Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900257, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424442965157900261, guid: ed64f5b52e156844badeb3e4125b695b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed64f5b52e156844badeb3e4125b695b, type: 3}
 --- !u!1001 &1034732645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1399,6 +1538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BanGDream_GenerateOMCDisplayAnimationSet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949769359293616868, guid: 5282db78d014b634eb67fed400a72a4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5282db78d014b634eb67fed400a72a4b, type: 3}
